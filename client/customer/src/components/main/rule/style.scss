@@ -1,0 +1,47 @@
+.rule-wrapper {
+  width: 80%;
+  margin: 4rem auto;
+  .rule {
+    width: 100%;
+
+    .rule-option {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6rem;
+      .text-rule {
+        width: 62%;
+        padding-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .first-text {
+          width: 100%;
+          line-height: 2.5rem;
+          font-weight: bold;
+          font-size: 1.75em;
+          color: #027700;
+        }
+
+        .second-text {
+          width: 100%;
+          margin-top: 1rem;
+          font-size: 1.25rem;
+          line-height: 2.5rem;
+        }
+      }
+
+      .text-rule.left {
+        padding: 0 0 0 2rem;
+      }
+
+      .img-rule {
+        width: 35%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

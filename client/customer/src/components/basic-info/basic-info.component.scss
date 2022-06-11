@@ -1,0 +1,31 @@
+.basic-info-wrapper {
+  width: 100%;
+  display: flex;
+  position: relative;
+  top: 4rem;
+  .col-1 {
+    width: 25rem;
+    height: 20rem;
+    margin-right: 1rem;
+  }
+
+  .col-2 {
+    width: 60%;
+
+    p {
+      font-size: 1.25rem;
+      margin: 1rem 0;
+      font-weight: bold;
+      span {
+        font-size: 1.25rem;
+        font-weight: normal;
+        text-align-last: justify;
+      }
+    }
+
+    .name {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+}

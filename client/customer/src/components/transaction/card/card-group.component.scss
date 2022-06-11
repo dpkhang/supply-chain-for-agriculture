@@ -1,0 +1,19 @@
+.card-group-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 100;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1500px) {
+  .card-group-wrapper {
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .card-group-wrapper {
+    grid-template-columns: 50% 50%;
+  }
+}

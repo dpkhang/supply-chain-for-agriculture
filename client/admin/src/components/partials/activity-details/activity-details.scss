@@ -1,0 +1,28 @@
+.activity-details-wrapper {
+    width: 90%;
+    margin: 0 auto;
+
+    .activity-info {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .products-activity {
+        width: 100%;
+
+        .products-activity-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+
+            .products-activity-table {
+                width: 100%;
+                min-width: 800px;
+
+                td {
+                    vertical-align: middle;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

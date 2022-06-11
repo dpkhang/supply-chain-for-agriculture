@@ -1,0 +1,28 @@
+.filter-wrapper {
+  width: 100%;
+  margin-bottom: 3rem;
+  padding: 0 1.5rem;
+  .filter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .col {
+      display: flex;
+      align-items: center;
+      .title {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+    }
+
+    .col:first-child {
+      width: 60%;
+      justify-content: flex-start;
+    }
+
+    .col:last-child {
+      width: 30%;
+      justify-content: flex-end;
+    }
+  }
+}

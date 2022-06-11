@@ -1,0 +1,52 @@
+.add-product-wrapper {
+    width: 90%;
+    margin: 0 auto;
+
+    .form-add-product {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+
+        .input-product {
+            width: 100%;
+        }
+
+        .quantity-price {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .input-product {
+                width: 48%;
+                min-width: 300px;
+                margin-right: 10px;
+                margin-bottom: 25px;
+            }
+
+            .input-product:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .buttons-add-product {
+            display: flex;
+
+            .btn {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 695px) {
+    .add-product-wrapper {
+        .form-add-product {
+            .quantity-price {
+                .input-product {
+                    width: 100%;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+.qr-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    top: 7rem;
+
+    .col-text {
+        width: 40%;
+        h2 {
+            font-size: 3em;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-left: 10rem;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            margin-left: 10rem;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            font-size: 16px;
+        }
+    }
+
+    .col-qr {
+        width: 40%;
+        min-width: 300px;
+        
+        .qr-component {
+            width: 350px;
+            height: 350px;
+            background-color: #efefef;
+            border-radius: 10px;
+        }
+    }
+}
