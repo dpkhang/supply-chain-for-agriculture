@@ -1,13 +1,7 @@
 import { DataTypes, Sequelize } from 'sequelize';
-class AutoInCrement {
-    id = {
-        type: DataTypes.INTEGER,
-        autoInCrement: true
-    }
-} 
 
-class BaseEntity extends AutoInCrement {
-    createdAt = {
+class BaseEntity {
+    created_at = {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false
@@ -18,4 +12,8 @@ class BaseEntity extends AutoInCrement {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false
     };
+}
+
+export {
+    BaseEntity
 }

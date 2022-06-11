@@ -1,9 +1,14 @@
 import { Dialect, Sequelize } from 'sequelize'
+import dotenv from 'dotenv'
+dotenv.config()
 
 class BaseRepository {
     
-    sequelize = new Sequelize(process.env.DB_DATABASE as string, process.env.DB_USER as string, process.env.DB_PASSWORD as string, {
-        dialect: 'mysql'
+    sequelize = new Sequelize(process.env.DB_DATABASE as string, process.env.DB_USERNAME as string, process.env.DB_PASSWORD as string, {
+        dialect: 'mysql',
+        define: {
+            freezeTableName: true
+        }
     })
 
     repos
@@ -16,7 +21,7 @@ class BaseRepository {
         this.repos.sync()
     }
 
-    findAll =async () => {
+    findAll = async () => {
         return this.repos.findAll()
     }
 

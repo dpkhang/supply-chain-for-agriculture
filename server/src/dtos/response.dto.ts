@@ -1,5 +1,5 @@
-class ResponseDTO {
-    message: string = ''
+interface ResponseDTO {
+    message: string 
     data?: any
 }
 
