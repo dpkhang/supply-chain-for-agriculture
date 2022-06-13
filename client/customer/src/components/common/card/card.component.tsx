@@ -10,7 +10,7 @@ export default function MultiActionAreaCard({children, image, width, sx}: CardPr
     <Card sx={
               { 
                 ...sx,
-                width: width ? width : 220,
+                minWidth: width ? width : 220,
                 boxShadow: '0 .05rem .05rem .05rem #dedede '
               }
             }

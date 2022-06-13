@@ -1,0 +1,7 @@
+class RequestDTO {
+
+}
+
+export {
+  RequestDTO
+}

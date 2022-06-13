@@ -1,17 +1,19 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore} from '@reduxjs/toolkit'
+import transactionProducer from '../features/transaction/transaction.slice'
+import createSagaMiddleware from '@redux-saga/core'
+import { rootSaga } from './saga'
+
+const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    transactionProducer,
   },
-});
+  middleware: (getDafaultSagaMiddleware) => getDafaultSagaMiddleware({thunk: false}).concat(sagaMiddleware)
+})
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+sagaMiddleware.run(rootSaga)
+
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>
+
