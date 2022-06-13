@@ -1,0 +1,44 @@
+.filter-wrapper {
+  width: 100%;
+  margin-bottom: 3rem;
+  padding: 0 1.5rem;
+}
+
+.filter-wrapper .filter {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.filter-wrapper .filter .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filter-wrapper .filter .col .title {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.filter-wrapper .filter .col:first-child {
+  width: 60%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.filter-wrapper .filter .col:last-child {
+  width: 30%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+/*# sourceMappingURL=filter.component.css.map */

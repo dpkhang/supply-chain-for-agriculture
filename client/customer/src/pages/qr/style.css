@@ -1,0 +1,56 @@
+.qr-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  top: 7rem;
+}
+
+.qr-wrapper .col-text {
+  width: 40%;
+}
+
+.qr-wrapper .col-text h2 {
+  font-size: 3em;
+}
+
+.qr-wrapper .col-text h1 {
+  font-size: 4rem;
+  margin-left: 10rem;
+}
+
+.qr-wrapper .col-text h3 {
+  font-size: 2.5rem;
+  margin-left: 10rem;
+}
+
+.qr-wrapper .col-text p {
+  font-size: 18px;
+}
+
+.qr-wrapper .col-text button {
+  font-size: 16px;
+}
+
+.qr-wrapper .col-qr {
+  width: 40%;
+  min-width: 300px;
+}
+
+.qr-wrapper .col-qr .qr-component {
+  width: 350px;
+  height: 350px;
+  background-color: #efefef;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=style.css.map */

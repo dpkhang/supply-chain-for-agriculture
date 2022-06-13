@@ -1,0 +1,16 @@
+.transaction-detail-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 4rem;
+}
+
+.transaction-detail-wrapper h1 {
+  font-size: 2em;
+}
+
+.transaction-detail-wrapper .list-products {
+  margin: 5rem auto;
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

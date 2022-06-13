@@ -1,0 +1,44 @@
+.confirm-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.confirm-wrapper .search-confirm {
+  width: 300px;
+}
+
+.confirm-wrapper .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.confirm-wrapper .table-wrapper .table-list-confirm-product {
+  width: 100%;
+  min-width: 1200px;
+}
+
+.confirm-wrapper .table-wrapper .table-list-confirm-product td {
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.confirm-wrapper .table-wrapper .table-list-confirm-product .col-name {
+  max-width: 200px;
+}
+
+.confirm-wrapper .table-wrapper .table-list-confirm-product .img-table-confirm {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
+.confirm-wrapper .table-wrapper .table-list-confirm-product .col-control .btn {
+  margin-bottom: 5px;
+  margin-right: 5px;
+  float: left;
+}
+/*# sourceMappingURL=confirm-product.css.map */

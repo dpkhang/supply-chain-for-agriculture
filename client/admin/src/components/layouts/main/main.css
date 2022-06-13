@@ -1,0 +1,17 @@
+.main-wrapper {
+  width: 100%;
+}
+
+.main-wrapper .main-content {
+  width: 100%;
+}
+
+@media screen and (min-width: 1400px) {
+  .main-wrapper .main-content {
+    width: calc(100% - 250px);
+    position: absolute;
+    z-index: 0;
+    right: 0;
+  }
+}
+/*# sourceMappingURL=main.css.map */

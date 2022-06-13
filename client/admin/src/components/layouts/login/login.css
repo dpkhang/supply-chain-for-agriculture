@@ -1,0 +1,48 @@
+.login-wrapper {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("../../../../public/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-wrapper .login-container {
+  width: 400px;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-wrapper .login-container .login-component {
+  width: 100%;
+}
+
+.login-wrapper .login-container .login-component .logo-app-login {
+  width: 150px;
+  display: block;
+}
+
+.login-wrapper .login-container .login-component .login-form {
+  width: 90%;
+}
+/*# sourceMappingURL=login.css.map */

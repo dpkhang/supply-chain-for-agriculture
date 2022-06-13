@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACZ,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;CASjB;;AAXD,AAII,eAJW,CAIX,OAAO,CAAC;EACJ,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,MAAM;EACd,gBAAgB,EAAE,OAAO;EACzB,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "qr-bar.scss"
+    ],
+    "names": [],
+    "file": "qr-bar.css"
+}

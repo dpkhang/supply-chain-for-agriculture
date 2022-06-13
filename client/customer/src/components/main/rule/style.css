@@ -1,0 +1,62 @@
+.rule-wrapper {
+  width: 80%;
+  margin: 4rem auto;
+}
+
+.rule-wrapper .rule {
+  width: 100%;
+}
+
+.rule-wrapper .rule .rule-option {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 6rem;
+}
+
+.rule-wrapper .rule .rule-option .text-rule {
+  width: 62%;
+  padding-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rule-wrapper .rule .rule-option .text-rule .first-text {
+  width: 100%;
+  line-height: 2.5rem;
+  font-weight: bold;
+  font-size: 1.75em;
+  color: #027700;
+}
+
+.rule-wrapper .rule .rule-option .text-rule .second-text {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+}
+
+.rule-wrapper .rule .rule-option .text-rule.left {
+  padding: 0 0 0 2rem;
+}
+
+.rule-wrapper .rule .rule-option .img-rule {
+  width: 35%;
+}
+
+.rule-wrapper .rule .rule-option .img-rule img {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

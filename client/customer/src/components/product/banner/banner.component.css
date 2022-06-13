@@ -1,0 +1,66 @@
+.product-banner-wrapper {
+  width: 100%;
+  height: 25rem;
+}
+
+.product-banner-wrapper .product-banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.product-banner-wrapper .product-banner .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-banner-wrapper .product-banner .background img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.product-banner-wrapper .product-banner .search-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-banner-wrapper .product-banner .search-box input {
+  width: 60%;
+  height: 3.5rem;
+  border: 0;
+  border-radius: .25rem;
+  padding: 0 1rem;
+  outline: none;
+  font-size: 1.25rem;
+}
+
+.product-banner-wrapper .product-banner .search-box button {
+  width: 10rem;
+  height: 3.5rem;
+  margin-left: 2rem;
+  border: 0;
+  font-size: 1.3rem;
+  background-color: #02B92A;
+  border-radius: .25rem;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+/*# sourceMappingURL=banner.component.css.map */

@@ -1,0 +1,80 @@
+.slider-wrapper {
+  width: 100%;
+  height: 40rem;
+}
+
+.slider-wrapper .slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider-wrapper .slider .img-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-wrapper .slider .img-slider img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.slider-wrapper .slider .text-slider {
+  width: 40rem;
+  height: 30rem;
+  position: absolute;
+  top: 6rem;
+  left: 10rem;
+  z-index: 1;
+}
+
+.slider-wrapper .slider .text-slider .logan {
+  width: 100%;
+}
+
+.slider-wrapper .slider .text-slider .logan p {
+  width: 100%;
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+
+.slider-wrapper .slider .text-slider .logan p:first-child {
+  text-align: left;
+}
+
+.slider-wrapper .slider .text-slider .logan p:last-child {
+  text-align: right;
+}
+
+.slider-wrapper .slider .text-slider .sub-logan {
+  width: 100%;
+  font-size: 1.75rem;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.slider-wrapper .slider .text-slider .qr-btn {
+  width: 10rem;
+  height: 3rem;
+  margin-top: 2rem;
+  border: 0;
+  background-color: #02B92A;
+  border-radius: .3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.slider-wrapper .slider .text-slider .qr-btn a {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+/*# sourceMappingURL=style.css.map */

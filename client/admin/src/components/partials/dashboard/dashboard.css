@@ -1,0 +1,72 @@
+.dashboard {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.dashboard .general-dashboard {
+  width: 100%;
+}
+
+.dashboard .general-dashboard .main-general-dashboard {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.dashboard .general-dashboard .main-general-dashboard .dashboard-total {
+  width: 230px;
+  background-color: #4cc54c;
+  border-radius: 5px;
+  text-align: center;
+  color: #ffffff;
+  -webkit-box-shadow: 1px 5px 10px 1px #c2d8c2;
+          box-shadow: 1px 5px 10px 1px #c2d8c2;
+  margin-bottom: 20px;
+}
+
+.dashboard .general-dashboard .main-general-dashboard .dashboard-total h3 {
+  margin-top: 10px;
+}
+
+.dashboard .general-dashboard .main-general-dashboard .dashboard-total p {
+  margin-bottom: 0px;
+  font-size: 18px;
+}
+
+.dashboard .general-dashboard .main-general-dashboard .dashboard-total p:last-child {
+  margin-bottom: 10px;
+}
+
+.dashboard .chart-dashboard {
+  width: 100%;
+}
+
+.dashboard .chart-dashboard .chart-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.dashboard .chart-dashboard .chart-wrapper .chart-content {
+  width: 1000px;
+  height: 500px;
+}
+
+.dashboard .chart-dashboard .chart-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.dashboard .chart-dashboard .chart-control .dashboard-select {
+  width: 300px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+/*# sourceMappingURL=dashboard.css.map */

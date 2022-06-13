@@ -1,0 +1,12 @@
+.product-detail-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 4rem;
+}
+
+.product-detail-wrapper .timeline {
+  width: 35rem;
+  margin-top: 10rem;
+}
+/*# sourceMappingURL=style.css.map */

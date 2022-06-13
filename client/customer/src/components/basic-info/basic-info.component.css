@@ -1,0 +1,36 @@
+.basic-info-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  top: 4rem;
+}
+
+.basic-info-wrapper .col-1 {
+  width: 25rem;
+  height: 20rem;
+  margin-right: 1rem;
+}
+
+.basic-info-wrapper .col-2 {
+  width: 60%;
+}
+
+.basic-info-wrapper .col-2 p {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.basic-info-wrapper .col-2 p span {
+  font-size: 1.25rem;
+  font-weight: normal;
+  text-align-last: justify;
+}
+
+.basic-info-wrapper .col-2 .name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+/*# sourceMappingURL=basic-info.component.css.map */

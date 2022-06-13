@@ -1,0 +1,8 @@
+.product-in-transaction-table {
+  width: 200px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=info-product.component.css.map */

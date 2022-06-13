@@ -1,0 +1,79 @@
+.product-details-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.product-details-wrapper .general-info-product {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.product-details-wrapper .general-info-product .col-img-info {
+  width: 40%;
+  min-width: 370px;
+}
+
+.product-details-wrapper .general-info-product .col-img-info .main-img-product {
+  width: 350px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.product-details-wrapper .general-info-product .col-img-info .sub-img-product-wrapper {
+  width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
+  margin: 0 auto;
+}
+
+.product-details-wrapper .general-info-product .col-img-info .sub-img-product-wrapper .sub-img-product {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.product-details-wrapper .general-info-product .col-text-info {
+  width: 50%;
+  min-width: 370px;
+  font-size: 18px;
+}
+
+.product-details-wrapper .time-line {
+  width: 100%;
+}
+
+.product-details-wrapper .time-line .process-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.product-details-wrapper .time-line .process-table-wrapper .process-table {
+  width: 100%;
+  min-width: 800px;
+}
+
+.product-details-wrapper .time-line .process-table-wrapper .process-table td {
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=product-details.css.map */

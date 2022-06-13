@@ -1,0 +1,66 @@
+.profile-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.profile-wrapper .general-info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile-wrapper .general-info .info-col-1 {
+  width: 50%;
+  min-width: 370px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .general-info .info-col-1 .avatar {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-wrapper .general-info .info-col-1 .file-container {
+  width: 350px;
+}
+
+.profile-wrapper .general-info .info-col-2 {
+  width: 50%;
+  min-width: 370px;
+}
+
+.profile-wrapper .general-info .info-col-2 .input-update-profile {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.profile-wrapper .buttons-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile-wrapper .buttons-profile .btn {
+  margin-right: 10px;
+}
+/*# sourceMappingURL=profile.css.map */
