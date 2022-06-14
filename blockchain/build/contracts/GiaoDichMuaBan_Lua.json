@@ -1,0 +1,2634 @@
+{
+  "contractName": "GiaoDichMuaBan_Lua",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "nongdang",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "thuonglai",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id_giaodichmuaban_lua",
+          "type": "uint256"
+        }
+      ],
+      "name": "giaoDichEvent",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "ListGiaoDich",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_giaodichmuaban_lua",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "thuonglai",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "nongdan",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "thuonglai",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_giaodichmuaban_lua",
+          "type": "uint256"
+        }
+      ],
+      "name": "themGiaoDich",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nongdang\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"thuonglai\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id_giaodichmuaban_lua\",\"type\":\"uint256\"}],\"name\":\"giaoDichEvent\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"ListGiaoDich\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id_giaodichmuaban_lua\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"thuonglai\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nongdan\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"thuonglai\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id_giaodichmuaban_lua\",\"type\":\"uint256\"}],\"name\":\"themGiaoDich\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/giaodichmuaban_lua.sol\":\"GiaoDichMuaBan_Lua\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/giaodichmuaban_lua.sol\":{\"keccak256\":\"0x2ea23231f6718d5a8493ceaf76c8b8c852746d5061567abcc30cb10785183ff3\",\"urls\":[\"bzz-raw://3bf4594edc2ed5ed1bf32c8d754b3845d52d81722e8ac43bd1d708fdd439aa14\",\"dweb:/ipfs/QmU5qspWmBLSw6T5ht14Eg4FHxhFoaPA9PBPVeaEf9qsfv\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610517806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063530e3b481461003b5780638551a8c7146100a1575b600080fd5b6100876004803603604081101561005157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610149565b604051808215151515815260200191505060405180910390f35b6100cd600480360360208110156100b757600080fd5b8101908080359060200190929190505050610408565b604051808481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001935050505060405180910390f35b6000823373ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156101d1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260238152602001806104c06023913960400191505060405180910390fd5b828060008083815260200190815260200160002060000154141561025d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260188152602001807f6964206769616f2064696368206c6120647579206e686174000000000000000081525060200191505060405180910390fd5b610265610472565b60405180606001604052808681526020018773ffffffffffffffffffffffffffffffffffffffff1681526020013373ffffffffffffffffffffffffffffffffffffffff168152509050806000808781526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055509050507faa90803b5e9f36f1fd6c643347950b26222f511c239b2b3f5034e39585556b50338787604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390a16001935050505092915050565b60006020528060005260406000206000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905083565b604051806060016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff168152509056fe4944207468756f6e67206c61692070686169206b686163206964206e6f6e672064616ea265627a7a72315820c7fc19278c7ba0587034df9ff6bff49d5688d3970dd1a2172baa33ee4a656c9764736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c8063530e3b481461003b5780638551a8c7146100a1575b600080fd5b6100876004803603604081101561005157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610149565b604051808215151515815260200191505060405180910390f35b6100cd600480360360208110156100b757600080fd5b8101908080359060200190929190505050610408565b604051808481526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001935050505060405180910390f35b6000823373ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156101d1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260238152602001806104c06023913960400191505060405180910390fd5b828060008083815260200190815260200160002060000154141561025d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260188152602001807f6964206769616f2064696368206c6120647579206e686174000000000000000081525060200191505060405180910390fd5b610265610472565b60405180606001604052808681526020018773ffffffffffffffffffffffffffffffffffffffff1681526020013373ffffffffffffffffffffffffffffffffffffffff168152509050806000808781526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055509050507faa90803b5e9f36f1fd6c643347950b26222f511c239b2b3f5034e39585556b50338787604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390a16001935050505092915050565b60006020528060005260406000206000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905083565b604051806060016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff168152509056fe4944207468756f6e67206c61692070686169206b686163206964206e6f6e672064616ea265627a7a72315820c7fc19278c7ba0587034df9ff6bff49d5688d3970dd1a2172baa33ee4a656c9764736f6c63430005100032",
+  "sourceMap": "66:1463:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1463:3;;;;;;;",
+  "deployedSourceMap": "66:1463:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1463:3;;;;;;;;;;;;;;;;;;;;;;;;999:528;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;999:528:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;262:45;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;262:45:3;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;999:528;1196:4;1118:9;608:10;595:23;;:9;:23;;;;574:106;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1159:21;911;837:12;:35;850:21;837:35;;;;;;;;;;;:70;;;:95;;816:158;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1213:24;;:::i;:::-;1258:100;;;;;;;;1280:21;1258:100;;;;1315:9;1258:100;;;;;;1338:10;1258:100;;;;;1247:111;;1407:8;1369:12;:35;1382:21;1369:35;;;;;;;;;;;:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1431:59;1445:10;1457:9;1468:21;1431:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1516:4;1509:11;;;691:1;999:528;;;;;:::o;262:45::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;66:1463::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.5.16 <0.9.0;\n\ncontract GiaoDichMuaBan_Lua {\n    \n    //-------------data--------------//\n    struct GiaoDich {\n        uint id_giaodichmuaban_lua;\n        address thuonglai;\n        address nongdan;\n    }\n\n    mapping(uint => GiaoDich) public ListGiaoDich;\n\n\n    //---------------event------------//\n    event giaoDichEvent(\n        address nongdang, \n        address thuonglai, \n        uint id_giaodichmuaban_lua\n    );\n\n\n    //--------modifier function-------//\n    modifier checkThuongLai(address thuonglai) {\n        require(\n            thuonglai != msg.sender, \n            \"ID thuong lai phai khac id nong dan\"\n        );\n\n        _;\n    }\n\n    //-------handle function--------//\n    modifier checkIdGiaoDichMuaBanLua(uint id_giaodichmuaban_lua) {\n        require(\n            ListGiaoDich[id_giaodichmuaban_lua]\n            .id_giaodichmuaban_lua != id_giaodichmuaban_lua, \n            \"id giao dich la duy nhat\");\n\n        _;\n    }\n\n    function themGiaoDich(\n        address thuonglai, \n        uint id_giaodichmuaban_lua\n    ) public \n    checkThuongLai(thuonglai) \n    checkIdGiaoDichMuaBanLua(id_giaodichmuaban_lua) \n    returns (bool) {\n\n        GiaoDich memory giaoDich;\n        giaoDich = GiaoDich(\n            id_giaodichmuaban_lua,\n            thuonglai,\n            msg.sender\n        );\n\n        ListGiaoDich[id_giaodichmuaban_lua] = giaoDich;\n\n        emit giaoDichEvent(msg.sender, thuonglai, id_giaodichmuaban_lua);\n        \n        return true;\n    }\n}",
+  "sourcePath": "/home/dpkhang/Personal/Studying/projects/supply-chain-for-agriculture/blockchain/contracts/giaodichmuaban_lua.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/giaodichmuaban_lua.sol",
+    "exportedSymbols": {
+      "GiaoDichMuaBan_Lua": [
+        244
+      ]
+    },
+    "id": 245,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 151,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".16",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 244,
+        "linearizedBaseContracts": [
+          244
+        ],
+        "name": "GiaoDichMuaBan_Lua",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "GiaoDichMuaBan_Lua.GiaoDich",
+            "id": 158,
+            "members": [
+              {
+                "constant": false,
+                "id": 153,
+                "name": "id_giaodichmuaban_lua",
+                "nodeType": "VariableDeclaration",
+                "scope": 158,
+                "src": "171:26:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 152,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "171:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 155,
+                "name": "thuonglai",
+                "nodeType": "VariableDeclaration",
+                "scope": 158,
+                "src": "207:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 154,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "207:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 157,
+                "name": "nongdan",
+                "nodeType": "VariableDeclaration",
+                "scope": 158,
+                "src": "234:15:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 156,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "234:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "GiaoDich",
+            "nodeType": "StructDefinition",
+            "scope": 244,
+            "src": "145:111:3",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 162,
+            "name": "ListGiaoDich",
+            "nodeType": "VariableDeclaration",
+            "scope": 244,
+            "src": "262:45:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_GiaoDich_$158_storage_$",
+              "typeString": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich)"
+            },
+            "typeName": {
+              "id": 161,
+              "keyType": {
+                "id": 159,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "270:4:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "262:25:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_GiaoDich_$158_storage_$",
+                "typeString": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 160,
+                "name": "GiaoDich",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 158,
+                "src": "278:8:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_GiaoDich_$158_storage_ptr",
+                  "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 170,
+            "name": "giaoDichEvent",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 169,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 164,
+                  "indexed": false,
+                  "name": "nongdang",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "385:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 163,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "385:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 166,
+                  "indexed": false,
+                  "name": "thuonglai",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "412:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 165,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "412:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 168,
+                  "indexed": false,
+                  "name": "id_giaodichmuaban_lua",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "440:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 167,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "440:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "375:97:3"
+            },
+            "src": "356:117:3"
+          },
+          {
+            "body": {
+              "id": 183,
+              "nodeType": "Block",
+              "src": "564:135:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 178,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 175,
+                          "name": "thuonglai",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 172,
+                          "src": "595:9:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 176,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 355,
+                            "src": "608:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 177,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "608:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "src": "595:23:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4944207468756f6e67206c61692070686169206b686163206964206e6f6e672064616e",
+                        "id": 179,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "633:37:3",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_e366bdd2c7b843de07ba0227441668a1758ae5e439b5a276ab9795f73cbedf79",
+                          "typeString": "literal_string \"ID thuong lai phai khac id nong dan\""
+                        },
+                        "value": "ID thuong lai phai khac id nong dan"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_e366bdd2c7b843de07ba0227441668a1758ae5e439b5a276ab9795f73cbedf79",
+                          "typeString": "literal_string \"ID thuong lai phai khac id nong dan\""
+                        }
+                      ],
+                      "id": 174,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        358,
+                        359
+                      ],
+                      "referencedDeclaration": 359,
+                      "src": "574:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 180,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "574:106:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 181,
+                  "nodeType": "ExpressionStatement",
+                  "src": "574:106:3"
+                },
+                {
+                  "id": 182,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "691:1:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 184,
+            "name": "checkThuongLai",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 173,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 172,
+                  "name": "thuonglai",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 184,
+                  "src": "545:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 171,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "545:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "544:19:3"
+            },
+            "src": "521:178:3",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 199,
+              "nodeType": "Block",
+              "src": "806:187:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 194,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 189,
+                              "name": "ListGiaoDich",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 162,
+                              "src": "837:12:3",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_GiaoDich_$158_storage_$",
+                                "typeString": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich storage ref)"
+                              }
+                            },
+                            "id": 191,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 190,
+                              "name": "id_giaodichmuaban_lua",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 186,
+                              "src": "850:21:3",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "837:35:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_GiaoDich_$158_storage",
+                              "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich storage ref"
+                            }
+                          },
+                          "id": 192,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "id_giaodichmuaban_lua",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 153,
+                          "src": "837:70:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 193,
+                          "name": "id_giaodichmuaban_lua",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 186,
+                          "src": "911:21:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "837:95:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "6964206769616f2064696368206c6120647579206e686174",
+                        "id": 195,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "947:26:3",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_4404f6da2b354668a377f4d95c752942a319de9fb97e9001827830b0ef1deda3",
+                          "typeString": "literal_string \"id giao dich la duy nhat\""
+                        },
+                        "value": "id giao dich la duy nhat"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_4404f6da2b354668a377f4d95c752942a319de9fb97e9001827830b0ef1deda3",
+                          "typeString": "literal_string \"id giao dich la duy nhat\""
+                        }
+                      ],
+                      "id": 188,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        358,
+                        359
+                      ],
+                      "referencedDeclaration": 359,
+                      "src": "816:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 196,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "816:158:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 197,
+                  "nodeType": "ExpressionStatement",
+                  "src": "816:158:3"
+                },
+                {
+                  "id": 198,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "985:1:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 200,
+            "name": "checkIdGiaoDichMuaBanLua",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 187,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 186,
+                  "name": "id_giaodichmuaban_lua",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 200,
+                  "src": "778:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 185,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "778:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "777:28:3"
+            },
+            "src": "744:249:3",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 242,
+              "nodeType": "Block",
+              "src": "1202:325:3",
+              "statements": [
+                {
+                  "assignments": [
+                    216
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 216,
+                      "name": "giaoDich",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 242,
+                      "src": "1213:24:3",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_GiaoDich_$158_memory_ptr",
+                        "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 215,
+                        "name": "GiaoDich",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 158,
+                        "src": "1213:8:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_GiaoDich_$158_storage_ptr",
+                          "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 217,
+                  "initialValue": null,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1213:24:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 225,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 218,
+                      "name": "giaoDich",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 216,
+                      "src": "1247:8:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_GiaoDich_$158_memory_ptr",
+                        "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 220,
+                          "name": "id_giaodichmuaban_lua",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 204,
+                          "src": "1280:21:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 221,
+                          "name": "thuonglai",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 202,
+                          "src": "1315:9:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 222,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 355,
+                            "src": "1338:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 223,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1338:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        ],
+                        "id": 219,
+                        "name": "GiaoDich",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 158,
+                        "src": "1258:8:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_GiaoDich_$158_storage_ptr_$",
+                          "typeString": "type(struct GiaoDichMuaBan_Lua.GiaoDich storage pointer)"
+                        }
+                      },
+                      "id": 224,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1258:100:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_GiaoDich_$158_memory",
+                        "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich memory"
+                      }
+                    },
+                    "src": "1247:111:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_GiaoDich_$158_memory_ptr",
+                      "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich memory"
+                    }
+                  },
+                  "id": 226,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1247:111:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 231,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 227,
+                        "name": "ListGiaoDich",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 162,
+                        "src": "1369:12:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_GiaoDich_$158_storage_$",
+                          "typeString": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich storage ref)"
+                        }
+                      },
+                      "id": 229,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 228,
+                        "name": "id_giaodichmuaban_lua",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 204,
+                        "src": "1382:21:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1369:35:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_GiaoDich_$158_storage",
+                        "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 230,
+                      "name": "giaoDich",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 216,
+                      "src": "1407:8:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_GiaoDich_$158_memory_ptr",
+                        "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich memory"
+                      }
+                    },
+                    "src": "1369:46:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_GiaoDich_$158_storage",
+                      "typeString": "struct GiaoDichMuaBan_Lua.GiaoDich storage ref"
+                    }
+                  },
+                  "id": 232,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1369:46:3"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 234,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 355,
+                          "src": "1445:3:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 235,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1445:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 236,
+                        "name": "thuonglai",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 202,
+                        "src": "1457:9:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 237,
+                        "name": "id_giaodichmuaban_lua",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 204,
+                        "src": "1468:21:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 233,
+                      "name": "giaoDichEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 170,
+                      "src": "1431:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,uint256)"
+                      }
+                    },
+                    "id": 238,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1431:59:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 239,
+                  "nodeType": "EmitStatement",
+                  "src": "1426:64:3"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 240,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1516:4:3",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 214,
+                  "id": 241,
+                  "nodeType": "Return",
+                  "src": "1509:11:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 243,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 207,
+                    "name": "thuonglai",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 202,
+                    "src": "1118:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 208,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 206,
+                  "name": "checkThuongLai",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 184,
+                  "src": "1103:14:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1103:25:3"
+              },
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 210,
+                    "name": "id_giaodichmuaban_lua",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 204,
+                    "src": "1159:21:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 211,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 209,
+                  "name": "checkIdGiaoDichMuaBanLua",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 200,
+                  "src": "1134:24:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1134:47:3"
+              }
+            ],
+            "name": "themGiaoDich",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 205,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 202,
+                  "name": "thuonglai",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 243,
+                  "src": "1030:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 201,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1030:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 204,
+                  "name": "id_giaodichmuaban_lua",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 243,
+                  "src": "1058:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 203,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1058:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1020:70:3"
+            },
+            "returnParameters": {
+              "id": 214,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 213,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 243,
+                  "src": "1196:4:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 212,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1196:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1195:6:3"
+            },
+            "scope": 244,
+            "src": "999:528:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 245,
+        "src": "66:1463:3"
+      }
+    ],
+    "src": "32:1497:3"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/giaodichmuaban_lua.sol",
+      "exportedSymbols": {
+        "GiaoDichMuaBan_Lua": [
+          244
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.5",
+            ".16",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 151,
+        "name": "PragmaDirective",
+        "src": "32:32:3"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            244
+          ],
+          "name": "GiaoDichMuaBan_Lua",
+          "scope": 245
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "GiaoDichMuaBan_Lua.GiaoDich",
+              "name": "GiaoDich",
+              "scope": 244,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "id_giaodichmuaban_lua",
+                  "scope": 158,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 152,
+                    "name": "ElementaryTypeName",
+                    "src": "171:4:3"
+                  }
+                ],
+                "id": 153,
+                "name": "VariableDeclaration",
+                "src": "171:26:3"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "thuonglai",
+                  "scope": 158,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 154,
+                    "name": "ElementaryTypeName",
+                    "src": "207:7:3"
+                  }
+                ],
+                "id": 155,
+                "name": "VariableDeclaration",
+                "src": "207:17:3"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "nongdan",
+                  "scope": 158,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 156,
+                    "name": "ElementaryTypeName",
+                    "src": "234:7:3"
+                  }
+                ],
+                "id": 157,
+                "name": "VariableDeclaration",
+                "src": "234:15:3"
+              }
+            ],
+            "id": 158,
+            "name": "StructDefinition",
+            "src": "145:111:3"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "ListGiaoDich",
+              "scope": 244,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 159,
+                    "name": "ElementaryTypeName",
+                    "src": "270:4:3"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "GiaoDich",
+                      "referencedDeclaration": 158,
+                      "type": "struct GiaoDichMuaBan_Lua.GiaoDich"
+                    },
+                    "id": 160,
+                    "name": "UserDefinedTypeName",
+                    "src": "278:8:3"
+                  }
+                ],
+                "id": 161,
+                "name": "Mapping",
+                "src": "262:25:3"
+              }
+            ],
+            "id": 162,
+            "name": "VariableDeclaration",
+            "src": "262:45:3"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "giaoDichEvent"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "nongdang",
+                      "scope": 170,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 163,
+                        "name": "ElementaryTypeName",
+                        "src": "385:7:3"
+                      }
+                    ],
+                    "id": 164,
+                    "name": "VariableDeclaration",
+                    "src": "385:16:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "thuonglai",
+                      "scope": 170,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 165,
+                        "name": "ElementaryTypeName",
+                        "src": "412:7:3"
+                      }
+                    ],
+                    "id": 166,
+                    "name": "VariableDeclaration",
+                    "src": "412:17:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "id_giaodichmuaban_lua",
+                      "scope": 170,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 167,
+                        "name": "ElementaryTypeName",
+                        "src": "440:4:3"
+                      }
+                    ],
+                    "id": 168,
+                    "name": "VariableDeclaration",
+                    "src": "440:26:3"
+                  }
+                ],
+                "id": 169,
+                "name": "ParameterList",
+                "src": "375:97:3"
+              }
+            ],
+            "id": 170,
+            "name": "EventDefinition",
+            "src": "356:117:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "checkThuongLai",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "thuonglai",
+                      "scope": 184,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 171,
+                        "name": "ElementaryTypeName",
+                        "src": "545:7:3"
+                      }
+                    ],
+                    "id": 172,
+                    "name": "VariableDeclaration",
+                    "src": "545:17:3"
+                  }
+                ],
+                "id": 173,
+                "name": "ParameterList",
+                "src": "544:19:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_e366bdd2c7b843de07ba0227441668a1758ae5e439b5a276ab9795f73cbedf79",
+                                  "typeString": "literal_string \"ID thuong lai phai khac id nong dan\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                358,
+                                359
+                              ],
+                              "referencedDeclaration": 359,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 174,
+                            "name": "Identifier",
+                            "src": "574:7:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "!=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 172,
+                                  "type": "address",
+                                  "value": "thuonglai"
+                                },
+                                "id": 175,
+                                "name": "Identifier",
+                                "src": "595:9:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 355,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 176,
+                                    "name": "Identifier",
+                                    "src": "608:3:3"
+                                  }
+                                ],
+                                "id": 177,
+                                "name": "MemberAccess",
+                                "src": "608:10:3"
+                              }
+                            ],
+                            "id": 178,
+                            "name": "BinaryOperation",
+                            "src": "595:23:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "4944207468756f6e67206c61692070686169206b686163206964206e6f6e672064616e",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"ID thuong lai phai khac id nong dan\"",
+                              "value": "ID thuong lai phai khac id nong dan"
+                            },
+                            "id": 179,
+                            "name": "Literal",
+                            "src": "633:37:3"
+                          }
+                        ],
+                        "id": 180,
+                        "name": "FunctionCall",
+                        "src": "574:106:3"
+                      }
+                    ],
+                    "id": 181,
+                    "name": "ExpressionStatement",
+                    "src": "574:106:3"
+                  },
+                  {
+                    "id": 182,
+                    "name": "PlaceholderStatement",
+                    "src": "691:1:3"
+                  }
+                ],
+                "id": 183,
+                "name": "Block",
+                "src": "564:135:3"
+              }
+            ],
+            "id": 184,
+            "name": "ModifierDefinition",
+            "src": "521:178:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "checkIdGiaoDichMuaBanLua",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "id_giaodichmuaban_lua",
+                      "scope": 200,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 185,
+                        "name": "ElementaryTypeName",
+                        "src": "778:4:3"
+                      }
+                    ],
+                    "id": 186,
+                    "name": "VariableDeclaration",
+                    "src": "778:26:3"
+                  }
+                ],
+                "id": 187,
+                "name": "ParameterList",
+                "src": "777:28:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_4404f6da2b354668a377f4d95c752942a319de9fb97e9001827830b0ef1deda3",
+                                  "typeString": "literal_string \"id giao dich la duy nhat\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                358,
+                                359
+                              ],
+                              "referencedDeclaration": 359,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 188,
+                            "name": "Identifier",
+                            "src": "816:7:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "!=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "id_giaodichmuaban_lua",
+                                  "referencedDeclaration": 153,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "struct GiaoDichMuaBan_Lua.GiaoDich storage ref"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 162,
+                                          "type": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich storage ref)",
+                                          "value": "ListGiaoDich"
+                                        },
+                                        "id": 189,
+                                        "name": "Identifier",
+                                        "src": "837:12:3"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 186,
+                                          "type": "uint256",
+                                          "value": "id_giaodichmuaban_lua"
+                                        },
+                                        "id": 190,
+                                        "name": "Identifier",
+                                        "src": "850:21:3"
+                                      }
+                                    ],
+                                    "id": 191,
+                                    "name": "IndexAccess",
+                                    "src": "837:35:3"
+                                  }
+                                ],
+                                "id": 192,
+                                "name": "MemberAccess",
+                                "src": "837:70:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 186,
+                                  "type": "uint256",
+                                  "value": "id_giaodichmuaban_lua"
+                                },
+                                "id": 193,
+                                "name": "Identifier",
+                                "src": "911:21:3"
+                              }
+                            ],
+                            "id": 194,
+                            "name": "BinaryOperation",
+                            "src": "837:95:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "6964206769616f2064696368206c6120647579206e686174",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"id giao dich la duy nhat\"",
+                              "value": "id giao dich la duy nhat"
+                            },
+                            "id": 195,
+                            "name": "Literal",
+                            "src": "947:26:3"
+                          }
+                        ],
+                        "id": 196,
+                        "name": "FunctionCall",
+                        "src": "816:158:3"
+                      }
+                    ],
+                    "id": 197,
+                    "name": "ExpressionStatement",
+                    "src": "816:158:3"
+                  },
+                  {
+                    "id": 198,
+                    "name": "PlaceholderStatement",
+                    "src": "985:1:3"
+                  }
+                ],
+                "id": 199,
+                "name": "Block",
+                "src": "806:187:3"
+              }
+            ],
+            "id": 200,
+            "name": "ModifierDefinition",
+            "src": "744:249:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "themGiaoDich",
+              "scope": 244,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "thuonglai",
+                      "scope": 243,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 201,
+                        "name": "ElementaryTypeName",
+                        "src": "1030:7:3"
+                      }
+                    ],
+                    "id": 202,
+                    "name": "VariableDeclaration",
+                    "src": "1030:17:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "id_giaodichmuaban_lua",
+                      "scope": 243,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 203,
+                        "name": "ElementaryTypeName",
+                        "src": "1058:4:3"
+                      }
+                    ],
+                    "id": 204,
+                    "name": "VariableDeclaration",
+                    "src": "1058:26:3"
+                  }
+                ],
+                "id": 205,
+                "name": "ParameterList",
+                "src": "1020:70:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 243,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 212,
+                        "name": "ElementaryTypeName",
+                        "src": "1196:4:3"
+                      }
+                    ],
+                    "id": 213,
+                    "name": "VariableDeclaration",
+                    "src": "1196:4:3"
+                  }
+                ],
+                "id": 214,
+                "name": "ParameterList",
+                "src": "1195:6:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 184,
+                      "type": "modifier (address)",
+                      "value": "checkThuongLai"
+                    },
+                    "id": 206,
+                    "name": "Identifier",
+                    "src": "1103:14:3"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 202,
+                      "type": "address",
+                      "value": "thuonglai"
+                    },
+                    "id": 207,
+                    "name": "Identifier",
+                    "src": "1118:9:3"
+                  }
+                ],
+                "id": 208,
+                "name": "ModifierInvocation",
+                "src": "1103:25:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 200,
+                      "type": "modifier (uint256)",
+                      "value": "checkIdGiaoDichMuaBanLua"
+                    },
+                    "id": 209,
+                    "name": "Identifier",
+                    "src": "1134:24:3"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 204,
+                      "type": "uint256",
+                      "value": "id_giaodichmuaban_lua"
+                    },
+                    "id": 210,
+                    "name": "Identifier",
+                    "src": "1159:21:3"
+                  }
+                ],
+                "id": 211,
+                "name": "ModifierInvocation",
+                "src": "1134:47:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        216
+                      ],
+                      "initialValue": null
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "giaoDich",
+                          "scope": 242,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct GiaoDichMuaBan_Lua.GiaoDich",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "GiaoDich",
+                              "referencedDeclaration": 158,
+                              "type": "struct GiaoDichMuaBan_Lua.GiaoDich"
+                            },
+                            "id": 215,
+                            "name": "UserDefinedTypeName",
+                            "src": "1213:8:3"
+                          }
+                        ],
+                        "id": 216,
+                        "name": "VariableDeclaration",
+                        "src": "1213:24:3"
+                      }
+                    ],
+                    "id": 217,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1213:24:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct GiaoDichMuaBan_Lua.GiaoDich memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 216,
+                              "type": "struct GiaoDichMuaBan_Lua.GiaoDich memory",
+                              "value": "giaoDich"
+                            },
+                            "id": 218,
+                            "name": "Identifier",
+                            "src": "1247:8:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "struct GiaoDichMuaBan_Lua.GiaoDich memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address_payable",
+                                      "typeString": "address payable"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 158,
+                                  "type": "type(struct GiaoDichMuaBan_Lua.GiaoDich storage pointer)",
+                                  "value": "GiaoDich"
+                                },
+                                "id": 219,
+                                "name": "Identifier",
+                                "src": "1258:8:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 204,
+                                  "type": "uint256",
+                                  "value": "id_giaodichmuaban_lua"
+                                },
+                                "id": 220,
+                                "name": "Identifier",
+                                "src": "1280:21:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 202,
+                                  "type": "address",
+                                  "value": "thuonglai"
+                                },
+                                "id": 221,
+                                "name": "Identifier",
+                                "src": "1315:9:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 355,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 222,
+                                    "name": "Identifier",
+                                    "src": "1338:3:3"
+                                  }
+                                ],
+                                "id": 223,
+                                "name": "MemberAccess",
+                                "src": "1338:10:3"
+                              }
+                            ],
+                            "id": 224,
+                            "name": "FunctionCall",
+                            "src": "1258:100:3"
+                          }
+                        ],
+                        "id": 225,
+                        "name": "Assignment",
+                        "src": "1247:111:3"
+                      }
+                    ],
+                    "id": 226,
+                    "name": "ExpressionStatement",
+                    "src": "1247:111:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct GiaoDichMuaBan_Lua.GiaoDich storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct GiaoDichMuaBan_Lua.GiaoDich storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 162,
+                                  "type": "mapping(uint256 => struct GiaoDichMuaBan_Lua.GiaoDich storage ref)",
+                                  "value": "ListGiaoDich"
+                                },
+                                "id": 227,
+                                "name": "Identifier",
+                                "src": "1369:12:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 204,
+                                  "type": "uint256",
+                                  "value": "id_giaodichmuaban_lua"
+                                },
+                                "id": 228,
+                                "name": "Identifier",
+                                "src": "1382:21:3"
+                              }
+                            ],
+                            "id": 229,
+                            "name": "IndexAccess",
+                            "src": "1369:35:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 216,
+                              "type": "struct GiaoDichMuaBan_Lua.GiaoDich memory",
+                              "value": "giaoDich"
+                            },
+                            "id": 230,
+                            "name": "Identifier",
+                            "src": "1407:8:3"
+                          }
+                        ],
+                        "id": 231,
+                        "name": "Assignment",
+                        "src": "1369:46:3"
+                      }
+                    ],
+                    "id": 232,
+                    "name": "ExpressionStatement",
+                    "src": "1369:46:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 170,
+                              "type": "function (address,address,uint256)",
+                              "value": "giaoDichEvent"
+                            },
+                            "id": 233,
+                            "name": "Identifier",
+                            "src": "1431:13:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 355,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 234,
+                                "name": "Identifier",
+                                "src": "1445:3:3"
+                              }
+                            ],
+                            "id": 235,
+                            "name": "MemberAccess",
+                            "src": "1445:10:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 202,
+                              "type": "address",
+                              "value": "thuonglai"
+                            },
+                            "id": 236,
+                            "name": "Identifier",
+                            "src": "1457:9:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 204,
+                              "type": "uint256",
+                              "value": "id_giaodichmuaban_lua"
+                            },
+                            "id": 237,
+                            "name": "Identifier",
+                            "src": "1468:21:3"
+                          }
+                        ],
+                        "id": 238,
+                        "name": "FunctionCall",
+                        "src": "1431:59:3"
+                      }
+                    ],
+                    "id": 239,
+                    "name": "EmitStatement",
+                    "src": "1426:64:3"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 214
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 240,
+                        "name": "Literal",
+                        "src": "1516:4:3"
+                      }
+                    ],
+                    "id": 241,
+                    "name": "Return",
+                    "src": "1509:11:3"
+                  }
+                ],
+                "id": 242,
+                "name": "Block",
+                "src": "1202:325:3"
+              }
+            ],
+            "id": 243,
+            "name": "FunctionDefinition",
+            "src": "999:528:3"
+          }
+        ],
+        "id": 244,
+        "name": "ContractDefinition",
+        "src": "66:1463:3"
+      }
+    ],
+    "id": 245,
+    "name": "SourceUnit",
+    "src": "32:1497:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xb5F909809CCa04fD9A9b7B1d04ff32e22A83E3A7",
+      "transactionHash": "0x65e4efd7e51f7259fcffe7a6ae1c4d25fca058f1a963e45b3b02baf258e8cf0f"
+    }
+  },
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-06-14T14:26:11.659Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
