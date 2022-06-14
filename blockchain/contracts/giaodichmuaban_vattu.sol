@@ -2,38 +2,63 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 contract GiaoDichMuaBan_VatTu {
+    uint256 private length;
 
     struct Giaodich {
-        uint id_giaodichmuaban_vattu;
+        uint256 id_giaodichmuaban_vattu;
         address nhacungcapvattu;
         address xavien;
     }
 
-    event giaodichEvent( uint id_giaodichmuaban_vattu, address nhacungcap, address xavien );
+    event SuKienThemGiaoDich(
+        uint256 id_giaodichmuaban_vattu,
+        address nhacungcap,
+        address xavien
+    );
 
-    mapping( uint => Giaodich ) public list_giaodich;
+    mapping(uint256 => Giaodich) public list_giaodich;
 
-    function themGiaoDich(address nhacungcap, uint id_giaodichmuaban_vattu) public returns (bool) {
-        
+    modifier kiemtraXacNhan(bool xacnhan) {
+        require(xacnhan == true, "Giao dich chua duoc xac nhan.");
+
+        _;
+    }
+
+    modifier kiemtraNhaCungCap(address nhacungcap) {
+        require(
+            nhacungcap != msg.sender,
+            "ID nha cung cap phai khac ID nong dan"
+        );
+
+        _;
+    }
+
+    function themGiaoDich(
+        address nhacungcap,
+        uint256 id_giaodichmuaban_vattu,
+        bool xacnhan
+    )
+        public
+        kiemtraXacNhan(xacnhan)
+        kiemtraNhaCungCap(nhacungcap)
+        returns (bool)
+    {
         Giaodich memory giaodich;
-        giaodich =  Giaodich(
-                        id_giaodichmuaban_vattu, 
-                        nhacungcap, 
-                        msg.sender
-                    );
-        
-        emit giaodichEvent(id_giaodichmuaban_vattu, nhacungcap, msg.sender);
+
+        giaodich = Giaodich(
+            id_giaodichmuaban_vattu, 
+            nhacungcap, 
+            msg.sender
+        );
+
+        emit SuKienThemGiaoDich(
+            id_giaodichmuaban_vattu, 
+            nhacungcap, 
+            msg.sender
+        );
 
         list_giaodich[id_giaodichmuaban_vattu] = giaodich;
-        
+
         return true;
     }
-
-    function layDanhSachGiaoDich() public returns (Giaodich[] memory list_giaodich) {
-
-        
-
-        return list_giaodich;
-    }
-
 }
