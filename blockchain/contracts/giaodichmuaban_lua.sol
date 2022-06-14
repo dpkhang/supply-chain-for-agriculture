@@ -22,7 +22,16 @@ contract GiaoDichMuaBan_Lua {
 
 
     //--------modifier function-------//
-    modifier checkThuongLai(address thuonglai) {
+     modifier kiemTraXacNhan(bool xacnhan) {
+        require(
+            xacnhan == true, 
+            "Giao dich chua duoc xac nhan."
+        );
+
+        _;
+    }
+    
+    modifier kiemTraThuongLai(address thuonglai) {
         require(
             thuonglai != msg.sender, 
             "ID thuong lai phai khac id nong dan"
@@ -32,7 +41,7 @@ contract GiaoDichMuaBan_Lua {
     }
 
     //-------handle function--------//
-    modifier checkIdGiaoDichMuaBanLua(uint id_giaodichmuaban_lua) {
+    modifier kiemTraIdGiaoDichMuaBanLua(uint id_giaodichmuaban_lua) {
         require(
             ListGiaoDich[id_giaodichmuaban_lua]
             .id_giaodichmuaban_lua != id_giaodichmuaban_lua, 
@@ -43,10 +52,12 @@ contract GiaoDichMuaBan_Lua {
 
     function themGiaoDich(
         address thuonglai, 
-        uint id_giaodichmuaban_lua
+        uint id_giaodichmuaban_lua,
+        bool xacnhan
     ) public 
-    checkThuongLai(thuonglai) 
-    checkIdGiaoDichMuaBanLua(id_giaodichmuaban_lua) 
+    kiemTraXacNhan(xacnhan)
+    kiemTraThuongLai(thuonglai) 
+    kiemTraIdGiaoDichMuaBanLua(id_giaodichmuaban_lua) 
     returns (bool) {
 
         GiaoDich memory giaoDich;
@@ -58,7 +69,11 @@ contract GiaoDichMuaBan_Lua {
 
         ListGiaoDich[id_giaodichmuaban_lua] = giaoDich;
 
-        emit giaoDichEvent(msg.sender, thuonglai, id_giaodichmuaban_lua);
+        emit giaoDichEvent(
+            msg.sender, 
+            thuonglai, 
+            id_giaodichmuaban_lua
+        );
         
         return true;
     }
