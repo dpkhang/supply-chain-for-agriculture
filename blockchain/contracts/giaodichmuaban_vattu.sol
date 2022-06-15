@@ -2,63 +2,32 @@
 pragma solidity >=0.5.16 <0.9.0;
 
 contract GiaoDichMuaBan_VatTu {
-    uint256 private length;
-
-    struct Giaodich {
-        uint256 id_giaodichmuaban_vattu;
+    struct GiaoDich {
+        uint id_giaodichmuaban_vattu;
         address nhacungcapvattu;
-        address xavien;
     }
 
-    event SuKienThemGiaoDich(
-        uint256 id_giaodichmuaban_vattu,
-        address nhacungcap,
-        address xavien
+    mapping(address => GiaoDich[]) public danhsach_giaodich;
+
+    constructor() public {
+        danhsach_giaodich[msg.sender].push(GiaoDich(1, msg.sender));
+    }
+
+    event sukienLuuGiaoDich(
+        uint id_giaodichmuaban_vattu,
+        address nhacungcapvattu,
+        address nongdan
     );
 
-    mapping(uint256 => Giaodich) public list_giaodich;
-
-    modifier kiemtraXacNhan(bool xacnhan) {
-        require(xacnhan == true, "Giao dich chua duoc xac nhan.");
-
-        _;
-    }
-
-    modifier kiemtraNhaCungCap(address nhacungcap) {
-        require(
-            nhacungcap != msg.sender,
-            "ID nha cung cap phai khac ID nong dan"
-        );
-
-        _;
-    }
-
     function themGiaoDich(
-        address nhacungcap,
-        uint256 id_giaodichmuaban_vattu,
-        bool xacnhan
-    )
-        public
-        kiemtraXacNhan(xacnhan)
-        kiemtraNhaCungCap(nhacungcap)
-        returns (bool)
-    {
-        Giaodich memory giaodich;
+        uint id_giaodichmuaban_vattu,
+        address nhacungcap
+    ) public returns(bool) {
+        GiaoDich memory giaodich;
+        giaodich = GiaoDich(id_giaodichmuaban_vattu, nhacungcap);
 
-        giaodich = Giaodich(
-            id_giaodichmuaban_vattu, 
-            nhacungcap, 
-            msg.sender
-        );
-
-        emit SuKienThemGiaoDich(
-            id_giaodichmuaban_vattu, 
-            nhacungcap, 
-            msg.sender
-        );
-
-        list_giaodich[id_giaodichmuaban_vattu] = giaodich;
-
+        danhsach_giaodich[msg.sender].push(giaodich);
+        emit sukienLuuGiaoDich(id_giaodichmuaban_vattu, nhacungcap, msg.sender);
         return true;
     }
 }
