@@ -23,8 +23,8 @@ const init = async () => {
     // const name1 = await contract.methods.ListGiaoDich(1).call()
     // console.log(name1)
 
-    await contract.methods.themGiaoDich('0xD9a4CC8e5642AE73Aece38f250C36f6B4c92C109', 4)
-    .send({from: '0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09'})
+    await contract.methods.themGiaoDich('0x8a3de6ca5d60b83e788e9d5747dabb7d040073e1', 4)
+    .send({from: '0xBee2A0ebcb8A167832DC26eda166c3aeB2459E09'})
 
     const name = await contract.methods.DanhSachGiaoDich('0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09', 1).call()
     console.log(name)

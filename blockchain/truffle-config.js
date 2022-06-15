@@ -6,16 +6,22 @@ module.exports = {
   // on how to specify configuration options!
   //
   networks: {
-   development: {
-     host: "127.0.0.1",
-     port: 7545,
-     network_id: "*"
-   },
-   test: {
-     host: "127.0.0.1",
-     port: 7545,
-     network_id: "*"
-   }
+    development: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*"
+    },
+    test: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*"
+    },
+    ropsten: {
+      provider: function () {
+        return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/YOUR-PROJECT-ID");
+      },
+      network_id: '3',
+    },
   },
   contracts_directory: './contracts/',
   contracts_build_directory: '../server/src/abis/'
@@ -31,13 +37,13 @@ module.exports = {
   // $ truffle migrate --reset --compile-all
   //
   // db: {
-    // enabled: false,
-    // host: "127.0.0.1",
-    // adapter: {
-    //   name: "sqlite",
-    //   settings: {
-    //     directory: ".db"
-    //   }
-    // }
+  // enabled: false,
+  // host: "127.0.0.1",
+  // adapter: {
+  //   name: "sqlite",
+  //   settings: {
+  //     directory: ".db"
+  //   }
+  // }
   // }
 };

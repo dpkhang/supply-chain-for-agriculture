@@ -6,28 +6,73 @@ contract GiaoDichMuaBan_Lua {
     //-------------data--------------//
     struct GiaoDich {
         uint id_giaodichmuaban_lua;
+        address thuonglai;
         address nongdan;
     }
 
-    mapping (address => GiaoDich[]) public DanhSachGiaoDich;
+    mapping(uint => GiaoDich) public ListGiaoDich;
 
-    constructor() public {
-        DanhSachGiaoDich[msg.sender].push(GiaoDich(1, msg.sender));
-    }
 
-    event LuuGiaoDich(address thuonglai, address nongdan, uint id_giaodich);
+    //---------------event------------//
+    event giaoDichEvent(
+        address nongdang, 
+        address thuonglai, 
+        uint id_giaodichmuaban_lua
+    );
 
-    function themGiaoDich(address nongdan, uint id_giaodich) public returns (bool) {
-        GiaoDich memory giaodich;
-        giaodich = GiaoDich(
-            id_giaodich,
-            nongdan
+
+    //--------modifier function-------//
+    modifier checkThuongLai(address thuonglai) {
+        require(
+            thuonglai != msg.sender, 
+            "ID thuong lai phai khac id nong dan"
         );
 
-        DanhSachGiaoDich[msg.sender].push(giaodich);
+        _;
+    }
 
-        emit LuuGiaoDich(msg.sender, nongdan, id_giaodich);
+    modifier checkIdGiaoDichMuaBanLua(uint id_giaodichmuaban_lua) {
+        require(
+            ListGiaoDich[id_giaodichmuaban_lua]
+            .id_giaodichmuaban_lua != id_giaodichmuaban_lua, 
+            "id giao dich la duy nhat");
 
+        _;
+    }
+
+    modifier kiemtraXacNhan(bool xacnhan) {
+        require(xacnhan == true, "Giao dich chua duoc xac nhan.");
+
+        _;
+    }
+
+    //-------handle function--------//
+
+    function themGiaoDich(
+        address thuonglai, 
+        uint id_giaodichmuaban_lua,
+        bool xacnhan
+    ) public 
+    checkThuongLai(thuonglai) 
+    checkIdGiaoDichMuaBanLua(id_giaodichmuaban_lua) 
+    kiemtraXacNhan(xacnhan)
+    returns (bool) {
+
+        GiaoDich memory giaoDich;
+        giaoDich = GiaoDich(
+            id_giaodichmuaban_lua,
+            thuonglai,
+            msg.sender
+        );
+
+        ListGiaoDich[id_giaodichmuaban_lua] = giaoDich;
+
+        emit giaoDichEvent(
+            msg.sender, 
+            thuonglai, 
+            id_giaodichmuaban_lua
+        );
+        
         return true;
     }
 }
