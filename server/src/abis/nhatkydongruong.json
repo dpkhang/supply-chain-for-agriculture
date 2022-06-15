@@ -1,0 +1,2509 @@
+{
+  "contractName": "nhatkydongruong",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "xavien",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id_nhatkydongruong",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id_hoatdongnhatky",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id_phanbonthuocbaove",
+          "type": "uint256"
+        }
+      ],
+      "name": "suKienLuuNhatKy",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "DanhSachNhatKy",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "xavien",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_nhatkydongruong",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_hoatdongnhatky",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_phanbonthuocbaove",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_nhatkydongruong",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_hoatdongnhatky",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_phanbonthuocbaove",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "xacnhan",
+          "type": "bool"
+        }
+      ],
+      "name": "themHThongTinMuaVu",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"xavien\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id_nhatkydongruong\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id_hoatdongnhatky\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id_phanbonthuocbaove\",\"type\":\"uint256\"}],\"name\":\"suKienLuuNhatKy\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"DanhSachNhatKy\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"xavien\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id_nhatkydongruong\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_hoatdongnhatky\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_phanbonthuocbaove\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_nhatkydongruong\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_hoatdongnhatky\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_phanbonthuocbaove\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"xacnhan\",\"type\":\"bool\"}],\"name\":\"themHThongTinMuaVu\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/nhatkydongruong.sol\":\"nhatkydongruong\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/nhatkydongruong.sol\":{\"keccak256\":\"0x202ed113b0ab3ca75078d7e855fea1a7035f527f77cfa1466f0d60c9d197acc1\",\"urls\":[\"bzz-raw://404d95a12d17c6c4cb18e647d9bf4bee9ce34d1068c2061dfe197edc3128e97f\",\"dweb:/ipfs/QmXT1Y4i2ioaAbaAHZfeCzowPtxXMFhwJ3oFeMaQhtgW4Q\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061043a806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80630245e7311461003b578063dba6b7e9146100a1575b600080fd5b6100876004803603608081101561005157600080fd5b81019080803590602001909291908035906020019092919080359060200190929190803515159060200190929190505050610144565b604051808215151515815260200191505060405180910390f35b6100ed600480360360408110156100b757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061035d565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b60008160011515811515146101c1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f4769616f206469636820636875612064756f6320786163206e68616e2e00000081525060200191505060405180910390fd5b6101c96103c7565b60405180608001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018681525090506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819080600181540180825580915050906001820390600052602060002090600402016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020155606082015181600301555050507fb81a683d86c9c169fe5c4a2b4b591191f60fb023a1fbd36871af5168cf42b6a033888888604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390a1600192505050949350505050565b6000602052816000526040600020818154811061037657fe5b9060005260206000209060040201600091509150508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154905084565b6040518060800160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a72315820d5ef1087fa04831711a5b447e0af184ea0ec49a20569f38f31982c0d4731040164736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80630245e7311461003b578063dba6b7e9146100a1575b600080fd5b6100876004803603608081101561005157600080fd5b81019080803590602001909291908035906020019092919080359060200190929190803515159060200190929190505050610144565b604051808215151515815260200191505060405180910390f35b6100ed600480360360408110156100b757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061035d565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b60008160011515811515146101c1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f4769616f206469636820636875612064756f6320786163206e68616e2e00000081525060200191505060405180910390fd5b6101c96103c7565b60405180608001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018681525090506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819080600181540180825580915050906001820390600052602060002090600402016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020155606082015181600301555050507fb81a683d86c9c169fe5c4a2b4b591191f60fb023a1fbd36871af5168cf42b6a033888888604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390a1600192505050949350505050565b6000602052816000526040600020818154811061037657fe5b9060005260206000209060040201600091509150508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154905084565b6040518060800160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a72315820d5ef1087fa04831711a5b447e0af184ea0ec49a20569f38f31982c0d4731040164736f6c63430005100032",
+  "sourceMap": "66:1334:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1334:5;;;;;;;",
+  "deployedSourceMap": "66:1334:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1334:5;;;;;;;;;;;;;;;;;;;;;;;;759:639;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;759:639:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;280:50;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;280:50:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;759:639;965:4;943:7;641:4;630:15;;:7;:15;;;609:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;981:20;;:::i;:::-;1020:137;;;;;;;;1040:10;1020:137;;;;;;1064:18;1020:137;;;;1096:17;1020:137;;;;1127:20;1020:137;;;1011:146;;1168:14;:26;1183:10;1168:26;;;;;;;;;;;;;;;1200:6;1168:39;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1168:39:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1223:146;1252:10;1276:18;1308:17;1339:20;1223:146;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1387:4;1380:11;;;759:639;;;;;;;:::o;280:50::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;66:1334::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.5.16 <0.9.0;\n\ncontract nhatkydongruong {\n    //----------data---------//\n    struct NhatKy {\n        address xavien;\n        uint id_nhatkydongruong;\n        uint id_hoatdongnhatky;\n        uint id_phanbonthuocbaove;\n    }\n\n    mapping(address => NhatKy[]) public DanhSachNhatKy;\n\n    //-----------data---------//\n    event suKienLuuNhatKy(\n        address xavien,\n        uint id_nhatkydongruong,\n        uint id_hoatdongnhatky,\n        uint id_phanbonthuocbaove\n    );\n\n    //----modifier function---//\n    modifier kiemTraXacNhan(bool xacnhan) {\n        require(\n            xacnhan == true, \n            \"Giao dich chua duoc xac nhan.\"\n        );\n\n        _;\n    }\n\n    //----------handle--------//\n    function themHThongTinMuaVu( \n        uint id_nhatkydongruong,\n        uint id_hoatdongnhatky,\n        uint id_phanbonthuocbaove,\n        bool xacnhan\n    ) public\n     kiemTraXacNhan(xacnhan)\n     returns(bool) {\n        NhatKy memory nhatky;\n        nhatky = NhatKy(\n            msg.sender,\n            id_nhatkydongruong,\n            id_hoatdongnhatky,\n            id_phanbonthuocbaove\n        );\n\n        DanhSachNhatKy[msg.sender].push(nhatky);\n\n        emit suKienLuuNhatKy(\n            msg.sender,\n            id_nhatkydongruong,\n            id_hoatdongnhatky,\n            id_phanbonthuocbaove\n        );\n\n        return true;\n    }\n}",
+  "sourcePath": "/Users/trongnhan/Dev/supply-chain-for-agriculture/blockchain/contracts/nhatkydongruong.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/nhatkydongruong.sol",
+    "exportedSymbols": {
+      "nhatkydongruong": [
+        440
+      ]
+    },
+    "id": 441,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 354,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".16",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:5"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 440,
+        "linearizedBaseContracts": [
+          440
+        ],
+        "name": "nhatkydongruong",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "nhatkydongruong.NhatKy",
+            "id": 363,
+            "members": [
+              {
+                "constant": false,
+                "id": 356,
+                "name": "xavien",
+                "nodeType": "VariableDeclaration",
+                "scope": 363,
+                "src": "153:14:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 355,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "153:7:5",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 358,
+                "name": "id_nhatkydongruong",
+                "nodeType": "VariableDeclaration",
+                "scope": 363,
+                "src": "177:23:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 357,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "177:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 360,
+                "name": "id_hoatdongnhatky",
+                "nodeType": "VariableDeclaration",
+                "scope": 363,
+                "src": "210:22:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 359,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "210:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 362,
+                "name": "id_phanbonthuocbaove",
+                "nodeType": "VariableDeclaration",
+                "scope": 363,
+                "src": "242:25:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 361,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "242:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "NhatKy",
+            "nodeType": "StructDefinition",
+            "scope": 440,
+            "src": "129:145:5",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 368,
+            "name": "DanhSachNhatKy",
+            "nodeType": "VariableDeclaration",
+            "scope": 440,
+            "src": "280:50:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_$",
+              "typeString": "mapping(address => struct nhatkydongruong.NhatKy[])"
+            },
+            "typeName": {
+              "id": 367,
+              "keyType": {
+                "id": 364,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "288:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "280:28:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_$",
+                "typeString": "mapping(address => struct nhatkydongruong.NhatKy[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "contractScope": null,
+                  "id": 365,
+                  "name": "NhatKy",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 363,
+                  "src": "299:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_NhatKy_$363_storage_ptr",
+                    "typeString": "struct nhatkydongruong.NhatKy"
+                  }
+                },
+                "id": 366,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "299:8:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_ptr",
+                  "typeString": "struct nhatkydongruong.NhatKy[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 378,
+            "name": "suKienLuuNhatKy",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 377,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 370,
+                  "indexed": false,
+                  "name": "xavien",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "401:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 369,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "401:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 372,
+                  "indexed": false,
+                  "name": "id_nhatkydongruong",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "425:23:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 371,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "425:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 374,
+                  "indexed": false,
+                  "name": "id_hoatdongnhatky",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "458:22:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 373,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "458:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 376,
+                  "indexed": false,
+                  "name": "id_phanbonthuocbaove",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 378,
+                  "src": "490:25:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 375,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "490:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "391:130:5"
+            },
+            "src": "370:152:5"
+          },
+          {
+            "body": {
+              "id": 390,
+              "nodeType": "Block",
+              "src": "599:121:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 385,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 383,
+                          "name": "xacnhan",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 380,
+                          "src": "630:7:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "74727565",
+                          "id": 384,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "641:4:5",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        },
+                        "src": "630:15:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4769616f206469636820636875612064756f6320786163206e68616e2e",
+                        "id": 386,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "660:31:5",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_4268f0ec342ea020aa7688c8497b3a54524e9ef583f3cb83329a388cad6d5c86",
+                          "typeString": "literal_string \"Giao dich chua duoc xac nhan.\""
+                        },
+                        "value": "Giao dich chua duoc xac nhan."
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_4268f0ec342ea020aa7688c8497b3a54524e9ef583f3cb83329a388cad6d5c86",
+                          "typeString": "literal_string \"Giao dich chua duoc xac nhan.\""
+                        }
+                      ],
+                      "id": 382,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        458,
+                        459
+                      ],
+                      "referencedDeclaration": 459,
+                      "src": "609:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 387,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "609:92:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 388,
+                  "nodeType": "ExpressionStatement",
+                  "src": "609:92:5"
+                },
+                {
+                  "id": 389,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "712:1:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 391,
+            "name": "kiemTraXacNhan",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 381,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 380,
+                  "name": "xacnhan",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 391,
+                  "src": "585:12:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 379,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "585:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "584:14:5"
+            },
+            "src": "561:159:5",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 438,
+              "nodeType": "Block",
+              "src": "971:427:5",
+              "statements": [
+                {
+                  "assignments": [
+                    408
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 408,
+                      "name": "nhatky",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 438,
+                      "src": "981:20:5",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                        "typeString": "struct nhatkydongruong.NhatKy"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 407,
+                        "name": "NhatKy",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 363,
+                        "src": "981:6:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_NhatKy_$363_storage_ptr",
+                          "typeString": "struct nhatkydongruong.NhatKy"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 409,
+                  "initialValue": null,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "981:20:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 418,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 410,
+                      "name": "nhatky",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 408,
+                      "src": "1011:6:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                        "typeString": "struct nhatkydongruong.NhatKy memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 412,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 455,
+                            "src": "1040:3:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 413,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1040:10:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 414,
+                          "name": "id_nhatkydongruong",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 393,
+                          "src": "1064:18:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 415,
+                          "name": "id_hoatdongnhatky",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 395,
+                          "src": "1096:17:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 416,
+                          "name": "id_phanbonthuocbaove",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 397,
+                          "src": "1127:20:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "id": 411,
+                        "name": "NhatKy",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 363,
+                        "src": "1020:6:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_NhatKy_$363_storage_ptr_$",
+                          "typeString": "type(struct nhatkydongruong.NhatKy storage pointer)"
+                        }
+                      },
+                      "id": 417,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1020:137:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_NhatKy_$363_memory",
+                        "typeString": "struct nhatkydongruong.NhatKy memory"
+                      }
+                    },
+                    "src": "1011:146:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                      "typeString": "struct nhatkydongruong.NhatKy memory"
+                    }
+                  },
+                  "id": 419,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1011:146:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 425,
+                        "name": "nhatky",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 408,
+                        "src": "1200:6:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                          "typeString": "struct nhatkydongruong.NhatKy memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                          "typeString": "struct nhatkydongruong.NhatKy memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 420,
+                          "name": "DanhSachNhatKy",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 368,
+                          "src": "1168:14:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_$",
+                            "typeString": "mapping(address => struct nhatkydongruong.NhatKy storage ref[] storage ref)"
+                          }
+                        },
+                        "id": 423,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 421,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 455,
+                            "src": "1183:3:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 422,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1183:10:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1168:26:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage",
+                          "typeString": "struct nhatkydongruong.NhatKy storage ref[] storage ref"
+                        }
+                      },
+                      "id": 424,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1168:31:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_NhatKy_$363_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct nhatkydongruong.NhatKy storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 426,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1168:39:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 427,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1168:39:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 429,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 455,
+                          "src": "1252:3:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 430,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1252:10:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 431,
+                        "name": "id_nhatkydongruong",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 393,
+                        "src": "1276:18:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 432,
+                        "name": "id_hoatdongnhatky",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 395,
+                        "src": "1308:17:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 433,
+                        "name": "id_phanbonthuocbaove",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 397,
+                        "src": "1339:20:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 428,
+                      "name": "suKienLuuNhatKy",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 378,
+                      "src": "1223:15:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 434,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1223:146:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 435,
+                  "nodeType": "EmitStatement",
+                  "src": "1218:151:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 436,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1387:4:5",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 406,
+                  "id": 437,
+                  "nodeType": "Return",
+                  "src": "1380:11:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 439,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 402,
+                    "name": "xacnhan",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 399,
+                    "src": "943:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  }
+                ],
+                "id": 403,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 401,
+                  "name": "kiemTraXacNhan",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 391,
+                  "src": "928:14:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_bool_$",
+                    "typeString": "modifier (bool)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "928:23:5"
+              }
+            ],
+            "name": "themHThongTinMuaVu",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 400,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 393,
+                  "name": "id_nhatkydongruong",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 439,
+                  "src": "797:23:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 392,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "797:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 395,
+                  "name": "id_hoatdongnhatky",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 439,
+                  "src": "830:22:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 394,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "830:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 397,
+                  "name": "id_phanbonthuocbaove",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 439,
+                  "src": "862:25:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 396,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "862:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 399,
+                  "name": "xacnhan",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 439,
+                  "src": "897:12:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 398,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "897:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "786:129:5"
+            },
+            "returnParameters": {
+              "id": 406,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 405,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 439,
+                  "src": "965:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 404,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "965:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "964:6:5"
+            },
+            "scope": 440,
+            "src": "759:639:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 441,
+        "src": "66:1334:5"
+      }
+    ],
+    "src": "32:1368:5"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/nhatkydongruong.sol",
+      "exportedSymbols": {
+        "nhatkydongruong": [
+          440
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.5",
+            ".16",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 354,
+        "name": "PragmaDirective",
+        "src": "32:32:5"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            440
+          ],
+          "name": "nhatkydongruong",
+          "scope": 441
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "nhatkydongruong.NhatKy",
+              "name": "NhatKy",
+              "scope": 440,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "xavien",
+                  "scope": 363,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 355,
+                    "name": "ElementaryTypeName",
+                    "src": "153:7:5"
+                  }
+                ],
+                "id": 356,
+                "name": "VariableDeclaration",
+                "src": "153:14:5"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "id_nhatkydongruong",
+                  "scope": 363,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 357,
+                    "name": "ElementaryTypeName",
+                    "src": "177:4:5"
+                  }
+                ],
+                "id": 358,
+                "name": "VariableDeclaration",
+                "src": "177:23:5"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "id_hoatdongnhatky",
+                  "scope": 363,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 359,
+                    "name": "ElementaryTypeName",
+                    "src": "210:4:5"
+                  }
+                ],
+                "id": 360,
+                "name": "VariableDeclaration",
+                "src": "210:22:5"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "id_phanbonthuocbaove",
+                  "scope": 363,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 361,
+                    "name": "ElementaryTypeName",
+                    "src": "242:4:5"
+                  }
+                ],
+                "id": 362,
+                "name": "VariableDeclaration",
+                "src": "242:25:5"
+              }
+            ],
+            "id": 363,
+            "name": "StructDefinition",
+            "src": "129:145:5"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "DanhSachNhatKy",
+              "scope": 440,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct nhatkydongruong.NhatKy[])",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct nhatkydongruong.NhatKy[])"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 364,
+                    "name": "ElementaryTypeName",
+                    "src": "288:7:5"
+                  },
+                  {
+                    "attributes": {
+                      "length": null,
+                      "type": "struct nhatkydongruong.NhatKy[]"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "NhatKy",
+                          "referencedDeclaration": 363,
+                          "type": "struct nhatkydongruong.NhatKy"
+                        },
+                        "id": 365,
+                        "name": "UserDefinedTypeName",
+                        "src": "299:6:5"
+                      }
+                    ],
+                    "id": 366,
+                    "name": "ArrayTypeName",
+                    "src": "299:8:5"
+                  }
+                ],
+                "id": 367,
+                "name": "Mapping",
+                "src": "280:28:5"
+              }
+            ],
+            "id": 368,
+            "name": "VariableDeclaration",
+            "src": "280:50:5"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "suKienLuuNhatKy"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "xavien",
+                      "scope": 378,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 369,
+                        "name": "ElementaryTypeName",
+                        "src": "401:7:5"
+                      }
+                    ],
+                    "id": 370,
+                    "name": "VariableDeclaration",
+                    "src": "401:14:5"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "id_nhatkydongruong",
+                      "scope": 378,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 371,
+                        "name": "ElementaryTypeName",
+                        "src": "425:4:5"
+                      }
+                    ],
+                    "id": 372,
+                    "name": "VariableDeclaration",
+                    "src": "425:23:5"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "id_hoatdongnhatky",
+                      "scope": 378,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 373,
+                        "name": "ElementaryTypeName",
+                        "src": "458:4:5"
+                      }
+                    ],
+                    "id": 374,
+                    "name": "VariableDeclaration",
+                    "src": "458:22:5"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "id_phanbonthuocbaove",
+                      "scope": 378,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 375,
+                        "name": "ElementaryTypeName",
+                        "src": "490:4:5"
+                      }
+                    ],
+                    "id": 376,
+                    "name": "VariableDeclaration",
+                    "src": "490:25:5"
+                  }
+                ],
+                "id": 377,
+                "name": "ParameterList",
+                "src": "391:130:5"
+              }
+            ],
+            "id": 378,
+            "name": "EventDefinition",
+            "src": "370:152:5"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "kiemTraXacNhan",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "xacnhan",
+                      "scope": 391,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 379,
+                        "name": "ElementaryTypeName",
+                        "src": "585:4:5"
+                      }
+                    ],
+                    "id": 380,
+                    "name": "VariableDeclaration",
+                    "src": "585:12:5"
+                  }
+                ],
+                "id": 381,
+                "name": "ParameterList",
+                "src": "584:14:5"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_4268f0ec342ea020aa7688c8497b3a54524e9ef583f3cb83329a388cad6d5c86",
+                                  "typeString": "literal_string \"Giao dich chua duoc xac nhan.\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                458,
+                                459
+                              ],
+                              "referencedDeclaration": 459,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 382,
+                            "name": "Identifier",
+                            "src": "609:7:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 380,
+                                  "type": "bool",
+                                  "value": "xacnhan"
+                                },
+                                "id": 383,
+                                "name": "Identifier",
+                                "src": "630:7:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "74727565",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "true"
+                                },
+                                "id": 384,
+                                "name": "Literal",
+                                "src": "641:4:5"
+                              }
+                            ],
+                            "id": 385,
+                            "name": "BinaryOperation",
+                            "src": "630:15:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "4769616f206469636820636875612064756f6320786163206e68616e2e",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Giao dich chua duoc xac nhan.\"",
+                              "value": "Giao dich chua duoc xac nhan."
+                            },
+                            "id": 386,
+                            "name": "Literal",
+                            "src": "660:31:5"
+                          }
+                        ],
+                        "id": 387,
+                        "name": "FunctionCall",
+                        "src": "609:92:5"
+                      }
+                    ],
+                    "id": 388,
+                    "name": "ExpressionStatement",
+                    "src": "609:92:5"
+                  },
+                  {
+                    "id": 389,
+                    "name": "PlaceholderStatement",
+                    "src": "712:1:5"
+                  }
+                ],
+                "id": 390,
+                "name": "Block",
+                "src": "599:121:5"
+              }
+            ],
+            "id": 391,
+            "name": "ModifierDefinition",
+            "src": "561:159:5"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "themHThongTinMuaVu",
+              "scope": 440,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "id_nhatkydongruong",
+                      "scope": 439,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 392,
+                        "name": "ElementaryTypeName",
+                        "src": "797:4:5"
+                      }
+                    ],
+                    "id": 393,
+                    "name": "VariableDeclaration",
+                    "src": "797:23:5"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "id_hoatdongnhatky",
+                      "scope": 439,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 394,
+                        "name": "ElementaryTypeName",
+                        "src": "830:4:5"
+                      }
+                    ],
+                    "id": 395,
+                    "name": "VariableDeclaration",
+                    "src": "830:22:5"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "id_phanbonthuocbaove",
+                      "scope": 439,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 396,
+                        "name": "ElementaryTypeName",
+                        "src": "862:4:5"
+                      }
+                    ],
+                    "id": 397,
+                    "name": "VariableDeclaration",
+                    "src": "862:25:5"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "xacnhan",
+                      "scope": 439,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 398,
+                        "name": "ElementaryTypeName",
+                        "src": "897:4:5"
+                      }
+                    ],
+                    "id": 399,
+                    "name": "VariableDeclaration",
+                    "src": "897:12:5"
+                  }
+                ],
+                "id": 400,
+                "name": "ParameterList",
+                "src": "786:129:5"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 439,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 404,
+                        "name": "ElementaryTypeName",
+                        "src": "965:4:5"
+                      }
+                    ],
+                    "id": 405,
+                    "name": "VariableDeclaration",
+                    "src": "965:4:5"
+                  }
+                ],
+                "id": 406,
+                "name": "ParameterList",
+                "src": "964:6:5"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 391,
+                      "type": "modifier (bool)",
+                      "value": "kiemTraXacNhan"
+                    },
+                    "id": 401,
+                    "name": "Identifier",
+                    "src": "928:14:5"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 399,
+                      "type": "bool",
+                      "value": "xacnhan"
+                    },
+                    "id": 402,
+                    "name": "Identifier",
+                    "src": "943:7:5"
+                  }
+                ],
+                "id": 403,
+                "name": "ModifierInvocation",
+                "src": "928:23:5"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        408
+                      ],
+                      "initialValue": null
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "nhatky",
+                          "scope": 438,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct nhatkydongruong.NhatKy",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "NhatKy",
+                              "referencedDeclaration": 363,
+                              "type": "struct nhatkydongruong.NhatKy"
+                            },
+                            "id": 407,
+                            "name": "UserDefinedTypeName",
+                            "src": "981:6:5"
+                          }
+                        ],
+                        "id": 408,
+                        "name": "VariableDeclaration",
+                        "src": "981:20:5"
+                      }
+                    ],
+                    "id": 409,
+                    "name": "VariableDeclarationStatement",
+                    "src": "981:20:5"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct nhatkydongruong.NhatKy memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 408,
+                              "type": "struct nhatkydongruong.NhatKy memory",
+                              "value": "nhatky"
+                            },
+                            "id": 410,
+                            "name": "Identifier",
+                            "src": "1011:6:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "struct nhatkydongruong.NhatKy memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address_payable",
+                                      "typeString": "address payable"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 363,
+                                  "type": "type(struct nhatkydongruong.NhatKy storage pointer)",
+                                  "value": "NhatKy"
+                                },
+                                "id": 411,
+                                "name": "Identifier",
+                                "src": "1020:6:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 455,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 412,
+                                    "name": "Identifier",
+                                    "src": "1040:3:5"
+                                  }
+                                ],
+                                "id": 413,
+                                "name": "MemberAccess",
+                                "src": "1040:10:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 393,
+                                  "type": "uint256",
+                                  "value": "id_nhatkydongruong"
+                                },
+                                "id": 414,
+                                "name": "Identifier",
+                                "src": "1064:18:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 395,
+                                  "type": "uint256",
+                                  "value": "id_hoatdongnhatky"
+                                },
+                                "id": 415,
+                                "name": "Identifier",
+                                "src": "1096:17:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 397,
+                                  "type": "uint256",
+                                  "value": "id_phanbonthuocbaove"
+                                },
+                                "id": 416,
+                                "name": "Identifier",
+                                "src": "1127:20:5"
+                              }
+                            ],
+                            "id": 417,
+                            "name": "FunctionCall",
+                            "src": "1020:137:5"
+                          }
+                        ],
+                        "id": 418,
+                        "name": "Assignment",
+                        "src": "1011:146:5"
+                      }
+                    ],
+                    "id": 419,
+                    "name": "ExpressionStatement",
+                    "src": "1011:146:5"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                                  "typeString": "struct nhatkydongruong.NhatKy memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct nhatkydongruong.NhatKy storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct nhatkydongruong.NhatKy storage ref[] storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 368,
+                                      "type": "mapping(address => struct nhatkydongruong.NhatKy storage ref[] storage ref)",
+                                      "value": "DanhSachNhatKy"
+                                    },
+                                    "id": 420,
+                                    "name": "Identifier",
+                                    "src": "1168:14:5"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sender",
+                                      "referencedDeclaration": null,
+                                      "type": "address payable"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 455,
+                                          "type": "msg",
+                                          "value": "msg"
+                                        },
+                                        "id": 421,
+                                        "name": "Identifier",
+                                        "src": "1183:3:5"
+                                      }
+                                    ],
+                                    "id": 422,
+                                    "name": "MemberAccess",
+                                    "src": "1183:10:5"
+                                  }
+                                ],
+                                "id": 423,
+                                "name": "IndexAccess",
+                                "src": "1168:26:5"
+                              }
+                            ],
+                            "id": 424,
+                            "name": "MemberAccess",
+                            "src": "1168:31:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 408,
+                              "type": "struct nhatkydongruong.NhatKy memory",
+                              "value": "nhatky"
+                            },
+                            "id": 425,
+                            "name": "Identifier",
+                            "src": "1200:6:5"
+                          }
+                        ],
+                        "id": 426,
+                        "name": "FunctionCall",
+                        "src": "1168:39:5"
+                      }
+                    ],
+                    "id": 427,
+                    "name": "ExpressionStatement",
+                    "src": "1168:39:5"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 378,
+                              "type": "function (address,uint256,uint256,uint256)",
+                              "value": "suKienLuuNhatKy"
+                            },
+                            "id": 428,
+                            "name": "Identifier",
+                            "src": "1223:15:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 455,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 429,
+                                "name": "Identifier",
+                                "src": "1252:3:5"
+                              }
+                            ],
+                            "id": 430,
+                            "name": "MemberAccess",
+                            "src": "1252:10:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 393,
+                              "type": "uint256",
+                              "value": "id_nhatkydongruong"
+                            },
+                            "id": 431,
+                            "name": "Identifier",
+                            "src": "1276:18:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 395,
+                              "type": "uint256",
+                              "value": "id_hoatdongnhatky"
+                            },
+                            "id": 432,
+                            "name": "Identifier",
+                            "src": "1308:17:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 397,
+                              "type": "uint256",
+                              "value": "id_phanbonthuocbaove"
+                            },
+                            "id": 433,
+                            "name": "Identifier",
+                            "src": "1339:20:5"
+                          }
+                        ],
+                        "id": 434,
+                        "name": "FunctionCall",
+                        "src": "1223:146:5"
+                      }
+                    ],
+                    "id": 435,
+                    "name": "EmitStatement",
+                    "src": "1218:151:5"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 406
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 436,
+                        "name": "Literal",
+                        "src": "1387:4:5"
+                      }
+                    ],
+                    "id": 437,
+                    "name": "Return",
+                    "src": "1380:11:5"
+                  }
+                ],
+                "id": 438,
+                "name": "Block",
+                "src": "971:427:5"
+              }
+            ],
+            "id": 439,
+            "name": "FunctionDefinition",
+            "src": "759:639:5"
+          }
+        ],
+        "id": 440,
+        "name": "ContractDefinition",
+        "src": "66:1334:5"
+      }
+    ],
+    "id": 441,
+    "name": "SourceUnit",
+    "src": "32:1368:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-06-14T18:20:17.614Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
