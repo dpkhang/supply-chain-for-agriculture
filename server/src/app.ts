@@ -14,16 +14,21 @@ const DB_host = process.env.DB_HOST || 'localhost'
 const DB_port = Number(process.env.DB_PORT) || 3306
 const DB_database = process.env.DB_DATABASE || 'argiculture'
 const DB_user = process.env.DB_USERNAME || 'root'
-const DB_password = process.env.DB_PASSWORD || '08062000aB'
+//const DB_password = process.env.DB_PASSWORD || '08062000aB'
 
 
 const init = async () => {
-    var web3 = new Web3('http://localhost:9545')
-    var contract = await new web3.eth.Contract(giaodichmuaban_vattu.abi as any, '0x8a0Faf2f089Fb7200DEA6aab13c86DDE3374Fe07')
-    await contract.methods.themGiaoDich(1, '0x592dbf14c88466b62dd6c111990a22adf6aecdc2').send({from: '0x33777f49939a0592e41ae8c5ea403acfb9900977'})
-    var name = await contract.methods.danhsach_giaodich('0x592dbf14c88466b62dd6c111990a22adf6aecdc2' , 0).call()
+    var web3 = new Web3('http://localhost:9545/')
+    const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0xB64790785bB754B7f7BF45264472875CF5F60b39');
 
-   console.log(name)
+    // const name1 = await contract.methods.ListGiaoDich(1).call()
+    // console.log(name1)
+
+    await contract.methods.themGiaoDich('0xD9a4CC8e5642AE73Aece38f250C36f6B4c92C109', 4)
+    .send({from: '0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09'})
+
+    const name = await contract.methods.DanhSachGiaoDich('0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09', 1).call()
+    console.log(name)
 }
 
 try {

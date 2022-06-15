@@ -6,60 +6,28 @@ contract GiaoDichMuaBan_Lua {
     //-------------data--------------//
     struct GiaoDich {
         uint id_giaodichmuaban_lua;
-        address thuonglai;
         address nongdan;
     }
 
-    mapping(uint => GiaoDich) public ListGiaoDich;
+    mapping (address => GiaoDich[]) public DanhSachGiaoDich;
 
-
-    //---------------event------------//
-    event giaoDichEvent(
-        address nongdang, 
-        address thuonglai, 
-        uint id_giaodichmuaban_lua
-    );
-
-
-    //--------modifier function-------//
-    modifier checkThuongLai(address thuonglai) {
-        require(
-            thuonglai != msg.sender, 
-            "ID thuong lai phai khac id nong dan"
-        );
-
-        _;
+    constructor() public {
+        DanhSachGiaoDich[msg.sender].push(GiaoDich(1, msg.sender));
     }
 
-    //-------handle function--------//
-    modifier checkIdGiaoDichMuaBanLua(uint id_giaodichmuaban_lua) {
-        require(
-            ListGiaoDich[id_giaodichmuaban_lua]
-            .id_giaodichmuaban_lua != id_giaodichmuaban_lua, 
-            "id giao dich la duy nhat");
+    event LuuGiaoDich(address thuonglai, address nongdan, uint id_giaodich);
 
-        _;
-    }
-
-    function themGiaoDich(
-        address thuonglai, 
-        uint id_giaodichmuaban_lua
-    ) public 
-    checkThuongLai(thuonglai) 
-    checkIdGiaoDichMuaBanLua(id_giaodichmuaban_lua) 
-    returns (bool) {
-
-        GiaoDich memory giaoDich;
-        giaoDich = GiaoDich(
-            id_giaodichmuaban_lua,
-            thuonglai,
-            msg.sender
+    function themGiaoDich(address nongdan, uint id_giaodich) public returns (bool) {
+        GiaoDich memory giaodich;
+        giaodich = GiaoDich(
+            id_giaodich,
+            nongdan
         );
 
-        ListGiaoDich[id_giaodichmuaban_lua] = giaoDich;
+        DanhSachGiaoDich[msg.sender].push(giaodich);
 
-        emit giaoDichEvent(msg.sender, thuonglai, id_giaodichmuaban_lua);
-        
+        emit LuuGiaoDich(msg.sender, nongdan, id_giaodich);
+
         return true;
     }
 }
