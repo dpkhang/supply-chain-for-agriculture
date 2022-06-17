@@ -6,21 +6,16 @@ module.exports = {
   // on how to specify configuration options!
   //
   networks: {
-   development: {
-     host: "127.0.0.1",
-     port: 8545,
-     network_id: "*",
-     accounts: 20,
-     defaultEtherBalance: 500,
-   },
-   test: {
-     host: "127.0.0.1",
-     port: 8545,
-     network_id: "*",
-     accounts: 50,
-     defaultEtherBalance: 500,
-   },
-   
+    development: {
+      host: "192.168.1.3",
+      port: 8545,
+      network_id: "*"
+    },
+    test: {
+      host: "192.168.1.3",
+      port: 8545,
+      network_id: "*"
+    }
   },
   contracts_directory: './contracts/',
   contracts_build_directory: '../server/src/abis/'
@@ -36,13 +31,13 @@ module.exports = {
   // $ truffle migrate --reset --compile-all
   //
   // db: {
-    // enabled: false,
-    // host: "127.0.0.1",
-    // adapter: {
-    //   name: "sqlite",
-    //   settings: {
-    //     directory: ".db"
-    //   }
-    // }
+  // enabled: false,
+  // host: "127.0.0.1",
+  // adapter: {
+  //   name: "sqlite",
+  //   settings: {
+  //     directory: ".db"
+  //   }
+  // }
   // }
 };

@@ -29,7 +29,12 @@ const id_hopdong = 1
 const status = true
 
 const init = async () => {
+<<<<<<< HEAD
     // var web3 = new Web3('http://127.0.0.1:8545/')
+=======
+    var web3 = new Web3('http://10.233.5.226:8545/')
+    const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0x47070aa3CdbBCF8A99F7d0f994f59f44e441C018');
+>>>>>>> 12e2c91fba1496dcbbc85e5ae0966a7e4cc3aa9c
 
     const provider = new WalletConnectProvider({
         rpc: {
@@ -38,6 +43,7 @@ const init = async () => {
         },
       });
 
+<<<<<<< HEAD
     const web3 = new Web3(provider as any)
     // console.log(web3)
     // const sign = web3.eth.accounts.privateKeyToAccount('c8faf8666752aa2e9ea1ea6dffa3224a199909baa84750026e09f1b7db5a7918')
@@ -47,6 +53,13 @@ const init = async () => {
 
     const name = await contract.methods.danhsach_giaodich(address_nongdan, 2).call()
     
+=======
+    await contract.methods.themGiaoDich('0xc6ca2375fBcC552779C95B2b35eEAdD0fcb964Fe', 11, true)
+    .send({from: '0xDFC5fC650689637b122f9C9E78D5fE495d3FeB96'})
+
+    const name = await contract.methods.ListGiaoDich(11).call()
+    console.log(name)
+>>>>>>> 12e2c91fba1496dcbbc85e5ae0966a7e4cc3aa9c
 }
 
 try {
