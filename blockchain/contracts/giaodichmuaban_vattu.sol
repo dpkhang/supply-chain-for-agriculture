@@ -2,15 +2,16 @@
 pragma solidity >=0.5.16 <0.9.0;
 
 contract GiaoDichMuaBan_VatTu {
+
     struct GiaoDich {
         uint id_giaodichmuaban_vattu;
         address nhacungcapvattu;
     }
 
-    mapping(address => GiaoDich[]) public danhsach_giaodich;
+    mapping(address => mapping(uint => GiaoDich)) public danhsach_giaodich;
 
     constructor() public {
-        danhsach_giaodich[msg.sender].push(GiaoDich(1, msg.sender));
+        danhsach_giaodich[msg.sender][0] = GiaoDich(0, address(0x30670717053ec58D83C930f41E635D53C379ae58));
     }
 
     event sukienLuuGiaoDich(
@@ -19,15 +20,32 @@ contract GiaoDichMuaBan_VatTu {
         address nongdan
     );
 
+    modifier kiemtraXacNhan(bool xacnhan) {
+        require(
+                xacnhan == true,
+                'Giao dich chua duoc xac nhan.'
+                );  
+        _;
+    }
+
     function themGiaoDich(
         uint id_giaodichmuaban_vattu,
-        address nhacungcap
-    ) public returns(bool) {
+        address nhacungcap,
+        bool xacnhan
+    ) public 
+    kiemtraXacNhan(xacnhan)
+    returns(bool) {
+
         GiaoDich memory giaodich;
         giaodich = GiaoDich(id_giaodichmuaban_vattu, nhacungcap);
 
-        danhsach_giaodich[msg.sender].push(giaodich);
-        emit sukienLuuGiaoDich(id_giaodichmuaban_vattu, nhacungcap, msg.sender);
+        danhsach_giaodich[msg.sender][id_giaodichmuaban_vattu] = giaodich;
+
+        emit sukienLuuGiaoDich(
+                                id_giaodichmuaban_vattu, 
+                                nhacungcap, 
+                                msg.sender
+                            );
         return true;
     }
 }

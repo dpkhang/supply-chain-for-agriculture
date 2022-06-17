@@ -8,14 +8,19 @@ module.exports = {
   networks: {
    development: {
      host: "127.0.0.1",
-     port: 7545,
-     network_id: "*"
+     port: 8545,
+     network_id: "*",
+     accounts: 20,
+     defaultEtherBalance: 500,
    },
    test: {
      host: "127.0.0.1",
-     port: 7545,
-     network_id: "*"
-   }
+     port: 8545,
+     network_id: "*",
+     accounts: 50,
+     defaultEtherBalance: 500,
+   },
+   
   },
   contracts_directory: './contracts/',
   contracts_build_directory: '../server/src/abis/'

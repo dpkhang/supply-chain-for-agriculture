@@ -34,7 +34,7 @@
   "sourceMap": "66:155:0:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
   "deployedSourceMap": "66:155:0:-;;;;;;;;;;;;;;;;;;;;;;;;87:132;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;87:132:0;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;158:20;201:14;192:6;:23;185:30;;87:132;;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.5.16 <0.9.0;\n\nlibrary ConvertLib{\n\tfunction convert(uint amount,uint conversionRate) public pure returns (uint convertedAmount)\n\t{\n\t\treturn amount * conversionRate;\n\t}\n}\n",
-  "sourcePath": "/Users/trongnhan/Dev/supply-chain-for-agriculture/blockchain/contracts/ConvertLib.sol",
+  "sourcePath": "/home/dpkhang/Personal/Studying/projects/supply-chain-for-agriculture/blockchain/contracts/ConvertLib.sol",
   "ast": {
     "absolutePath": "project:/contracts/ConvertLib.sol",
     "exportedSymbols": {
@@ -483,21 +483,12 @@
     "5777": {
       "events": {},
       "links": {},
-<<<<<<< HEAD
-      "address": "0xe9A7e17a77631d590f4a8505853A1bf79a9ddA40",
-      "transactionHash": "0xcdeb8f7beef058199f2c0d1e9be73ed165beb40e85a9e62b163709cc2ca14ceb"
+      "address": "0x8472c6ab04c18E1bCd5E9862e2967B57db236F07",
+      "transactionHash": "0x67d54da81a07f6c4768776d655dc9b143689026fca37a1435b5b51cde9093356"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-15T12:59:39.271Z",
-=======
-      "address": "0x68e77FDf0C8Cbb3AFC9eAdF0BFD521E8273944d4",
-      "transactionHash": "0xc2ba1f8e7f7664ff547e80a4227c6c510d0f7e0e305a36916e950b9183f6cb15"
-    }
-  },
-  "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-15T12:42:16.542Z",
->>>>>>> f1a14f7387b00f10c65431dded8f676955991759
+  "updatedAt": "2022-06-16T12:37:50.645Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

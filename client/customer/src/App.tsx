@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/header'
@@ -12,8 +12,35 @@ import TransactionDetail from './pages/transaction-detail'
 import SaleDetail from './pages/sale-detail'
 import ProcedureDetail from './pages/procedure-detail'
 import QR from './pages/qr'
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3 from 'web3'
+
+//  Create WalletConnect Provider
+const provider = new WalletConnectProvider({
+    rpc: {
+      5777: 'http://127.0.0.1:8545'
+      // ...
+    },
+  });
+  
+  //  Enable session (triggers QR Code modal)
+
 
 function App() {
+
+  useEffect(()=> {
+    (async()=> {
+      // provider.enable();
+      if((window as any).ethereum) {
+        const account = await (window as any).ethereum.request({ method: 'eth_requestAccounts' }) 
+      } 
+
+      const web3 = new Web3(provider as any)
+    })()
+  }, [])
+
+
+
   return (
     <div className="App">
       <Header></Header>
