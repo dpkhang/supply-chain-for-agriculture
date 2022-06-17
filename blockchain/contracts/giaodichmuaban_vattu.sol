@@ -11,7 +11,7 @@ contract GiaoDichMuaBan_VatTu {
     mapping(address => mapping(uint => GiaoDich)) public danhsach_giaodich;
 
     constructor() public {
-        danhsach_giaodich[msg.sender][0] = GiaoDich(0, address(0x30670717053ec58D83C930f41E635D53C379ae58));
+        danhsach_giaodich[msg.sender][0] = GiaoDich(0, msg.sender);
     }
 
     event sukienLuuGiaoDich(
