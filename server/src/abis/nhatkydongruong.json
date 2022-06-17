@@ -113,22 +113,22 @@
   "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"xavien\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id_nhatkydongruong\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id_hoatdongnhatky\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id_phanbonthuocbaove\",\"type\":\"uint256\"}],\"name\":\"suKienLuuNhatKy\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"DanhSachNhatKy\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"xavien\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id_nhatkydongruong\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_hoatdongnhatky\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_phanbonthuocbaove\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_nhatkydongruong\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_hoatdongnhatky\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_phanbonthuocbaove\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"xacnhan\",\"type\":\"bool\"}],\"name\":\"themHThongTinMuaVu\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/nhatkydongruong.sol\":\"nhatkydongruong\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/nhatkydongruong.sol\":{\"keccak256\":\"0x202ed113b0ab3ca75078d7e855fea1a7035f527f77cfa1466f0d60c9d197acc1\",\"urls\":[\"bzz-raw://404d95a12d17c6c4cb18e647d9bf4bee9ce34d1068c2061dfe197edc3128e97f\",\"dweb:/ipfs/QmXT1Y4i2ioaAbaAHZfeCzowPtxXMFhwJ3oFeMaQhtgW4Q\"]}},\"version\":1}",
   "bytecode": "0x608060405234801561001057600080fd5b5061043a806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80630245e7311461003b578063dba6b7e9146100a1575b600080fd5b6100876004803603608081101561005157600080fd5b81019080803590602001909291908035906020019092919080359060200190929190803515159060200190929190505050610144565b604051808215151515815260200191505060405180910390f35b6100ed600480360360408110156100b757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061035d565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b60008160011515811515146101c1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f4769616f206469636820636875612064756f6320786163206e68616e2e00000081525060200191505060405180910390fd5b6101c96103c7565b60405180608001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018681525090506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819080600181540180825580915050906001820390600052602060002090600402016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020155606082015181600301555050507fb81a683d86c9c169fe5c4a2b4b591191f60fb023a1fbd36871af5168cf42b6a033888888604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390a1600192505050949350505050565b6000602052816000526040600020818154811061037657fe5b9060005260206000209060040201600091509150508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154905084565b6040518060800160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a72315820d5ef1087fa04831711a5b447e0af184ea0ec49a20569f38f31982c0d4731040164736f6c63430005100032",
   "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80630245e7311461003b578063dba6b7e9146100a1575b600080fd5b6100876004803603608081101561005157600080fd5b81019080803590602001909291908035906020019092919080359060200190929190803515159060200190929190505050610144565b604051808215151515815260200191505060405180910390f35b6100ed600480360360408110156100b757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061035d565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b60008160011515811515146101c1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f4769616f206469636820636875612064756f6320786163206e68616e2e00000081525060200191505060405180910390fd5b6101c96103c7565b60405180608001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018681525090506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819080600181540180825580915050906001820390600052602060002090600402016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020155606082015181600301555050507fb81a683d86c9c169fe5c4a2b4b591191f60fb023a1fbd36871af5168cf42b6a033888888604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390a1600192505050949350505050565b6000602052816000526040600020818154811061037657fe5b9060005260206000209060040201600091509150508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154905084565b6040518060800160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a72315820d5ef1087fa04831711a5b447e0af184ea0ec49a20569f38f31982c0d4731040164736f6c63430005100032",
-  "sourceMap": "66:1334:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1334:5;;;;;;;",
-  "deployedSourceMap": "66:1334:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1334:5;;;;;;;;;;;;;;;;;;;;;;;;759:639;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;759:639:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;280:50;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;280:50:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;759:639;965:4;943:7;641:4;630:15;;:7;:15;;;609:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;981:20;;:::i;:::-;1020:137;;;;;;;;1040:10;1020:137;;;;;;1064:18;1020:137;;;;1096:17;1020:137;;;;1127:20;1020:137;;;1011:146;;1168:14;:26;1183:10;1168:26;;;;;;;;;;;;;;;1200:6;1168:39;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1168:39:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1223:146;1252:10;1276:18;1308:17;1339:20;1223:146;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1387:4;1380:11;;;759:639;;;;;;;:::o;280:50::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;66:1334::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "sourceMap": "66:1334:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1334:3;;;;;;;",
+  "deployedSourceMap": "66:1334:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1334:3;;;;;;;;;;;;;;;;;;;;;;;;759:639;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;759:639:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;280:50;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;280:50:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;759:639;965:4;943:7;641:4;630:15;;:7;:15;;;609:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;981:20;;:::i;:::-;1020:137;;;;;;;;1040:10;1020:137;;;;;;1064:18;1020:137;;;;1096:17;1020:137;;;;1127:20;1020:137;;;1011:146;;1168:14;:26;1183:10;1168:26;;;;;;;;;;;;;;;1200:6;1168:39;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1168:39:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1223:146;1252:10;1276:18;1308:17;1339:20;1223:146;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1387:4;1380:11;;;759:639;;;;;;;:::o;280:50::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;66:1334::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.5.16 <0.9.0;\n\ncontract nhatkydongruong {\n    //----------data---------//\n    struct NhatKy {\n        address xavien;\n        uint id_nhatkydongruong;\n        uint id_hoatdongnhatky;\n        uint id_phanbonthuocbaove;\n    }\n\n    mapping(address => NhatKy[]) public DanhSachNhatKy;\n\n    //-----------data---------//\n    event suKienLuuNhatKy(\n        address xavien,\n        uint id_nhatkydongruong,\n        uint id_hoatdongnhatky,\n        uint id_phanbonthuocbaove\n    );\n\n    //----modifier function---//\n    modifier kiemTraXacNhan(bool xacnhan) {\n        require(\n            xacnhan == true, \n            \"Giao dich chua duoc xac nhan.\"\n        );\n\n        _;\n    }\n\n    //----------handle--------//\n    function themHThongTinMuaVu( \n        uint id_nhatkydongruong,\n        uint id_hoatdongnhatky,\n        uint id_phanbonthuocbaove,\n        bool xacnhan\n    ) public\n     kiemTraXacNhan(xacnhan)\n     returns(bool) {\n        NhatKy memory nhatky;\n        nhatky = NhatKy(\n            msg.sender,\n            id_nhatkydongruong,\n            id_hoatdongnhatky,\n            id_phanbonthuocbaove\n        );\n\n        DanhSachNhatKy[msg.sender].push(nhatky);\n\n        emit suKienLuuNhatKy(\n            msg.sender,\n            id_nhatkydongruong,\n            id_hoatdongnhatky,\n            id_phanbonthuocbaove\n        );\n\n        return true;\n    }\n}",
-  "sourcePath": "/Users/trongnhan/Dev/supply-chain-for-agriculture/blockchain/contracts/nhatkydongruong.sol",
+  "sourcePath": "/home/dpkhang/Personal/Studying/projects/supply-chain-for-agriculture/blockchain/contracts/nhatkydongruong.sol",
   "ast": {
     "absolutePath": "project:/contracts/nhatkydongruong.sol",
     "exportedSymbols": {
       "nhatkydongruong": [
-        440
+        333
       ]
     },
-    "id": 441,
+    "id": 334,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 354,
+        "id": 247,
         "literals": [
           "solidity",
           ">=",
@@ -139,7 +139,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:5"
+        "src": "32:32:3"
       },
       {
         "baseContracts": [],
@@ -147,24 +147,24 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 440,
+        "id": 333,
         "linearizedBaseContracts": [
-          440
+          333
         ],
         "name": "nhatkydongruong",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "nhatkydongruong.NhatKy",
-            "id": 363,
+            "id": 256,
             "members": [
               {
                 "constant": false,
-                "id": 356,
+                "id": 249,
                 "name": "xavien",
                 "nodeType": "VariableDeclaration",
-                "scope": 363,
-                "src": "153:14:5",
+                "scope": 256,
+                "src": "153:14:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -172,10 +172,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 355,
+                  "id": 248,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "153:7:5",
+                  "src": "153:7:3",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -187,11 +187,11 @@
               },
               {
                 "constant": false,
-                "id": 358,
+                "id": 251,
                 "name": "id_nhatkydongruong",
                 "nodeType": "VariableDeclaration",
-                "scope": 363,
-                "src": "177:23:5",
+                "scope": 256,
+                "src": "177:23:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -199,10 +199,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 357,
+                  "id": 250,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "177:4:5",
+                  "src": "177:4:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -213,11 +213,11 @@
               },
               {
                 "constant": false,
-                "id": 360,
+                "id": 253,
                 "name": "id_hoatdongnhatky",
                 "nodeType": "VariableDeclaration",
-                "scope": 363,
-                "src": "210:22:5",
+                "scope": 256,
+                "src": "210:22:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -225,10 +225,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 359,
+                  "id": 252,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "210:4:5",
+                  "src": "210:4:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -239,11 +239,11 @@
               },
               {
                 "constant": false,
-                "id": 362,
+                "id": 255,
                 "name": "id_phanbonthuocbaove",
                 "nodeType": "VariableDeclaration",
-                "scope": 363,
-                "src": "242:25:5",
+                "scope": 256,
+                "src": "242:25:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -251,10 +251,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 361,
+                  "id": 254,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "242:4:5",
+                  "src": "242:4:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -266,60 +266,60 @@
             ],
             "name": "NhatKy",
             "nodeType": "StructDefinition",
-            "scope": 440,
-            "src": "129:145:5",
+            "scope": 333,
+            "src": "129:145:3",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 368,
+            "id": 261,
             "name": "DanhSachNhatKy",
             "nodeType": "VariableDeclaration",
-            "scope": 440,
-            "src": "280:50:5",
+            "scope": 333,
+            "src": "280:50:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$256_storage_$dyn_storage_$",
               "typeString": "mapping(address => struct nhatkydongruong.NhatKy[])"
             },
             "typeName": {
-              "id": 367,
+              "id": 260,
               "keyType": {
-                "id": 364,
+                "id": 257,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "288:7:5",
+                "src": "288:7:3",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "280:28:5",
+              "src": "280:28:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$256_storage_$dyn_storage_$",
                 "typeString": "mapping(address => struct nhatkydongruong.NhatKy[])"
               },
               "valueType": {
                 "baseType": {
                   "contractScope": null,
-                  "id": 365,
+                  "id": 258,
                   "name": "NhatKy",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 363,
-                  "src": "299:6:5",
+                  "referencedDeclaration": 256,
+                  "src": "299:6:3",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_NhatKy_$363_storage_ptr",
+                    "typeIdentifier": "t_struct$_NhatKy_$256_storage_ptr",
                     "typeString": "struct nhatkydongruong.NhatKy"
                   }
                 },
-                "id": 366,
+                "id": 259,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "299:8:5",
+                "src": "299:8:3",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_ptr",
+                  "typeIdentifier": "t_array$_t_struct$_NhatKy_$256_storage_$dyn_storage_ptr",
                   "typeString": "struct nhatkydongruong.NhatKy[]"
                 }
               }
@@ -330,21 +330,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 378,
+            "id": 271,
             "name": "suKienLuuNhatKy",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 377,
+              "id": 270,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 370,
+                  "id": 263,
                   "indexed": false,
                   "name": "xavien",
                   "nodeType": "VariableDeclaration",
-                  "scope": 378,
-                  "src": "401:14:5",
+                  "scope": 271,
+                  "src": "401:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -352,10 +352,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 369,
+                    "id": 262,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "401:7:5",
+                    "src": "401:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -367,12 +367,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 372,
+                  "id": 265,
                   "indexed": false,
                   "name": "id_nhatkydongruong",
                   "nodeType": "VariableDeclaration",
-                  "scope": 378,
-                  "src": "425:23:5",
+                  "scope": 271,
+                  "src": "425:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -380,10 +380,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 371,
+                    "id": 264,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "425:4:5",
+                    "src": "425:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -394,12 +394,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 374,
+                  "id": 267,
                   "indexed": false,
                   "name": "id_hoatdongnhatky",
                   "nodeType": "VariableDeclaration",
-                  "scope": 378,
-                  "src": "458:22:5",
+                  "scope": 271,
+                  "src": "458:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -407,10 +407,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 373,
+                    "id": 266,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "458:4:5",
+                    "src": "458:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -421,12 +421,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 376,
+                  "id": 269,
                   "indexed": false,
                   "name": "id_phanbonthuocbaove",
                   "nodeType": "VariableDeclaration",
-                  "scope": 378,
-                  "src": "490:25:5",
+                  "scope": 271,
+                  "src": "490:25:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -434,10 +434,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 375,
+                    "id": 268,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "490:4:5",
+                    "src": "490:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -447,15 +447,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "391:130:5"
+              "src": "391:130:3"
             },
-            "src": "370:152:5"
+            "src": "370:152:3"
           },
           {
             "body": {
-              "id": 390,
+              "id": 283,
               "nodeType": "Block",
-              "src": "599:121:5",
+              "src": "599:121:3",
               "statements": [
                 {
                   "expression": {
@@ -467,19 +467,19 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 385,
+                        "id": 278,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 383,
+                          "id": 276,
                           "name": "xacnhan",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 380,
-                          "src": "630:7:5",
+                          "referencedDeclaration": 273,
+                          "src": "630:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -490,14 +490,14 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 384,
+                          "id": 277,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "641:4:5",
+                          "src": "641:4:3",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -505,7 +505,7 @@
                           },
                           "value": "true"
                         },
-                        "src": "630:15:5",
+                        "src": "630:15:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -514,14 +514,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4769616f206469636820636875612064756f6320786163206e68616e2e",
-                        "id": 386,
+                        "id": 279,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "660:31:5",
+                        "src": "660:31:3",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_4268f0ec342ea020aa7688c8497b3a54524e9ef583f3cb83329a388cad6d5c86",
@@ -541,21 +541,21 @@
                           "typeString": "literal_string \"Giao dich chua duoc xac nhan.\""
                         }
                       ],
-                      "id": 382,
+                      "id": 275,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        458,
-                        459
+                        351,
+                        352
                       ],
-                      "referencedDeclaration": 459,
-                      "src": "609:7:5",
+                      "referencedDeclaration": 352,
+                      "src": "609:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 387,
+                    "id": 280,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -563,38 +563,38 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "609:92:5",
+                    "src": "609:92:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 388,
+                  "id": 281,
                   "nodeType": "ExpressionStatement",
-                  "src": "609:92:5"
+                  "src": "609:92:3"
                 },
                 {
-                  "id": 389,
+                  "id": 282,
                   "nodeType": "PlaceholderStatement",
-                  "src": "712:1:5"
+                  "src": "712:1:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 391,
+            "id": 284,
             "name": "kiemTraXacNhan",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 381,
+              "id": 274,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 380,
+                  "id": 273,
                   "name": "xacnhan",
                   "nodeType": "VariableDeclaration",
-                  "scope": 391,
-                  "src": "585:12:5",
+                  "scope": 284,
+                  "src": "585:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -602,10 +602,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 379,
+                    "id": 272,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "585:4:5",
+                    "src": "585:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -615,44 +615,44 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "584:14:5"
+              "src": "584:14:3"
             },
-            "src": "561:159:5",
+            "src": "561:159:3",
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 438,
+              "id": 331,
               "nodeType": "Block",
-              "src": "971:427:5",
+              "src": "971:427:3",
               "statements": [
                 {
                   "assignments": [
-                    408
+                    301
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 408,
+                      "id": 301,
                       "name": "nhatky",
                       "nodeType": "VariableDeclaration",
-                      "scope": 438,
-                      "src": "981:20:5",
+                      "scope": 331,
+                      "src": "981:20:3",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                        "typeIdentifier": "t_struct$_NhatKy_$256_memory_ptr",
                         "typeString": "struct nhatkydongruong.NhatKy"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 407,
+                        "id": 300,
                         "name": "NhatKy",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 363,
-                        "src": "981:6:5",
+                        "referencedDeclaration": 256,
+                        "src": "981:6:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_NhatKy_$363_storage_ptr",
+                          "typeIdentifier": "t_struct$_NhatKy_$256_storage_ptr",
                           "typeString": "struct nhatkydongruong.NhatKy"
                         }
                       },
@@ -660,29 +660,29 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 409,
+                  "id": 302,
                   "initialValue": null,
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "981:20:5"
+                  "src": "981:20:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 418,
+                    "id": 311,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 410,
+                      "id": 303,
                       "name": "nhatky",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 408,
-                      "src": "1011:6:5",
+                      "referencedDeclaration": 301,
+                      "src": "1011:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                        "typeIdentifier": "t_struct$_NhatKy_$256_memory_ptr",
                         "typeString": "struct nhatkydongruong.NhatKy memory"
                       }
                     },
@@ -695,18 +695,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 412,
+                            "id": 305,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 455,
-                            "src": "1040:3:5",
+                            "referencedDeclaration": 348,
+                            "src": "1040:3:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 413,
+                          "id": 306,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -714,7 +714,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "1040:10:5",
+                          "src": "1040:10:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
@@ -722,12 +722,12 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 414,
+                          "id": 307,
                           "name": "id_nhatkydongruong",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 393,
-                          "src": "1064:18:5",
+                          "referencedDeclaration": 286,
+                          "src": "1064:18:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -735,12 +735,12 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 415,
+                          "id": 308,
                           "name": "id_hoatdongnhatky",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 395,
-                          "src": "1096:17:5",
+                          "referencedDeclaration": 288,
+                          "src": "1096:17:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -748,12 +748,12 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 416,
+                          "id": 309,
                           "name": "id_phanbonthuocbaove",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 397,
-                          "src": "1127:20:5",
+                          "referencedDeclaration": 290,
+                          "src": "1127:20:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -779,18 +779,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 411,
+                        "id": 304,
                         "name": "NhatKy",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 363,
-                        "src": "1020:6:5",
+                        "referencedDeclaration": 256,
+                        "src": "1020:6:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_NhatKy_$363_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_NhatKy_$256_storage_ptr_$",
                           "typeString": "type(struct nhatkydongruong.NhatKy storage pointer)"
                         }
                       },
-                      "id": 417,
+                      "id": 310,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -798,21 +798,21 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1020:137:5",
+                      "src": "1020:137:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_NhatKy_$363_memory",
+                        "typeIdentifier": "t_struct$_NhatKy_$256_memory",
                         "typeString": "struct nhatkydongruong.NhatKy memory"
                       }
                     },
-                    "src": "1011:146:5",
+                    "src": "1011:146:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                      "typeIdentifier": "t_struct$_NhatKy_$256_memory_ptr",
                       "typeString": "struct nhatkydongruong.NhatKy memory"
                     }
                   },
-                  "id": 419,
+                  "id": 312,
                   "nodeType": "ExpressionStatement",
-                  "src": "1011:146:5"
+                  "src": "1011:146:3"
                 },
                 {
                   "expression": {
@@ -820,14 +820,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 425,
+                        "id": 318,
                         "name": "nhatky",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 408,
-                        "src": "1200:6:5",
+                        "referencedDeclaration": 301,
+                        "src": "1200:6:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                          "typeIdentifier": "t_struct$_NhatKy_$256_memory_ptr",
                           "typeString": "struct nhatkydongruong.NhatKy memory"
                         }
                       }
@@ -835,7 +835,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                          "typeIdentifier": "t_struct$_NhatKy_$256_memory_ptr",
                           "typeString": "struct nhatkydongruong.NhatKy memory"
                         }
                       ],
@@ -843,34 +843,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 420,
+                          "id": 313,
                           "name": "DanhSachNhatKy",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 368,
-                          "src": "1168:14:5",
+                          "referencedDeclaration": 261,
+                          "src": "1168:14:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_NhatKy_$256_storage_$dyn_storage_$",
                             "typeString": "mapping(address => struct nhatkydongruong.NhatKy storage ref[] storage ref)"
                           }
                         },
-                        "id": 423,
+                        "id": 316,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 421,
+                            "id": 314,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 455,
-                            "src": "1183:3:5",
+                            "referencedDeclaration": 348,
+                            "src": "1183:3:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 422,
+                          "id": 315,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -878,7 +878,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "1183:10:5",
+                          "src": "1183:10:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
@@ -889,13 +889,13 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1168:26:5",
+                        "src": "1168:26:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_NhatKy_$363_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_NhatKy_$256_storage_$dyn_storage",
                           "typeString": "struct nhatkydongruong.NhatKy storage ref[] storage ref"
                         }
                       },
-                      "id": 424,
+                      "id": 317,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -903,13 +903,13 @@
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "1168:31:5",
+                      "src": "1168:31:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_NhatKy_$363_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_NhatKy_$256_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct nhatkydongruong.NhatKy storage ref) returns (uint256)"
                       }
                     },
-                    "id": 426,
+                    "id": 319,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -917,15 +917,15 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1168:39:5",
+                    "src": "1168:39:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 427,
+                  "id": 320,
                   "nodeType": "ExpressionStatement",
-                  "src": "1168:39:5"
+                  "src": "1168:39:3"
                 },
                 {
                   "eventCall": {
@@ -935,18 +935,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 429,
+                          "id": 322,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 455,
-                          "src": "1252:3:5",
+                          "referencedDeclaration": 348,
+                          "src": "1252:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 430,
+                        "id": 323,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -954,7 +954,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "1252:10:5",
+                        "src": "1252:10:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -962,12 +962,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 431,
+                        "id": 324,
                         "name": "id_nhatkydongruong",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 393,
-                        "src": "1276:18:5",
+                        "referencedDeclaration": 286,
+                        "src": "1276:18:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -975,12 +975,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 432,
+                        "id": 325,
                         "name": "id_hoatdongnhatky",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 395,
-                        "src": "1308:17:5",
+                        "referencedDeclaration": 288,
+                        "src": "1308:17:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -988,12 +988,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 433,
+                        "id": 326,
                         "name": "id_phanbonthuocbaove",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 397,
-                        "src": "1339:20:5",
+                        "referencedDeclaration": 290,
+                        "src": "1339:20:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1019,18 +1019,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 428,
+                      "id": 321,
                       "name": "suKienLuuNhatKy",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 378,
-                      "src": "1223:15:5",
+                      "referencedDeclaration": 271,
+                      "src": "1223:15:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256,uint256,uint256)"
                       }
                     },
-                    "id": 434,
+                    "id": 327,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1038,28 +1038,28 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1223:146:5",
+                    "src": "1223:146:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 435,
+                  "id": 328,
                   "nodeType": "EmitStatement",
-                  "src": "1218:151:5"
+                  "src": "1218:151:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 436,
+                    "id": 329,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "1387:4:5",
+                    "src": "1387:4:3",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -1067,15 +1067,15 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 406,
-                  "id": 437,
+                  "functionReturnParameters": 299,
+                  "id": 330,
                   "nodeType": "Return",
-                  "src": "1380:11:5"
+                  "src": "1380:11:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 439,
+            "id": 332,
             "implemented": true,
             "kind": "function",
             "modifiers": [
@@ -1083,49 +1083,49 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 402,
+                    "id": 295,
                     "name": "xacnhan",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 399,
-                    "src": "943:7:5",
+                    "referencedDeclaration": 292,
+                    "src": "943:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   }
                 ],
-                "id": 403,
+                "id": 296,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 401,
+                  "id": 294,
                   "name": "kiemTraXacNhan",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 391,
-                  "src": "928:14:5",
+                  "referencedDeclaration": 284,
+                  "src": "928:14:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bool_$",
                     "typeString": "modifier (bool)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "928:23:5"
+                "src": "928:23:3"
               }
             ],
             "name": "themHThongTinMuaVu",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 400,
+              "id": 293,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 393,
+                  "id": 286,
                   "name": "id_nhatkydongruong",
                   "nodeType": "VariableDeclaration",
-                  "scope": 439,
-                  "src": "797:23:5",
+                  "scope": 332,
+                  "src": "797:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1133,10 +1133,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 392,
+                    "id": 285,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "797:4:5",
+                    "src": "797:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1147,11 +1147,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 395,
+                  "id": 288,
                   "name": "id_hoatdongnhatky",
                   "nodeType": "VariableDeclaration",
-                  "scope": 439,
-                  "src": "830:22:5",
+                  "scope": 332,
+                  "src": "830:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1159,10 +1159,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 394,
+                    "id": 287,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "830:4:5",
+                    "src": "830:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1173,11 +1173,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 397,
+                  "id": 290,
                   "name": "id_phanbonthuocbaove",
                   "nodeType": "VariableDeclaration",
-                  "scope": 439,
-                  "src": "862:25:5",
+                  "scope": 332,
+                  "src": "862:25:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1185,10 +1185,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 396,
+                    "id": 289,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "862:4:5",
+                    "src": "862:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1199,11 +1199,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 399,
+                  "id": 292,
                   "name": "xacnhan",
                   "nodeType": "VariableDeclaration",
-                  "scope": 439,
-                  "src": "897:12:5",
+                  "scope": 332,
+                  "src": "897:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1211,10 +1211,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 398,
+                    "id": 291,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "897:4:5",
+                    "src": "897:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1224,19 +1224,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "786:129:5"
+              "src": "786:129:3"
             },
             "returnParameters": {
-              "id": 406,
+              "id": 299,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 405,
+                  "id": 298,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 439,
-                  "src": "965:4:5",
+                  "scope": 332,
+                  "src": "965:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1244,10 +1244,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 404,
+                    "id": 297,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "965:4:5",
+                    "src": "965:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1257,27 +1257,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "964:6:5"
+              "src": "964:6:3"
             },
-            "scope": 440,
-            "src": "759:639:5",
+            "scope": 333,
+            "src": "759:639:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 441,
-        "src": "66:1334:5"
+        "scope": 334,
+        "src": "66:1334:3"
       }
     ],
-    "src": "32:1368:5"
+    "src": "32:1368:3"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/nhatkydongruong.sol",
       "exportedSymbols": {
         "nhatkydongruong": [
-          440
+          333
         ]
       }
     },
@@ -1294,9 +1294,9 @@
             ".0"
           ]
         },
-        "id": 354,
+        "id": 247,
         "name": "PragmaDirective",
-        "src": "32:32:5"
+        "src": "32:32:3"
       },
       {
         "attributes": {
@@ -1310,17 +1310,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            440
+            333
           ],
           "name": "nhatkydongruong",
-          "scope": 441
+          "scope": 334
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "nhatkydongruong.NhatKy",
               "name": "NhatKy",
-              "scope": 440,
+              "scope": 333,
               "visibility": "public"
             },
             "children": [
@@ -1328,7 +1328,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "xavien",
-                  "scope": 363,
+                  "scope": 256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address",
@@ -1342,20 +1342,20 @@
                       "stateMutability": "nonpayable",
                       "type": "address"
                     },
-                    "id": 355,
+                    "id": 248,
                     "name": "ElementaryTypeName",
-                    "src": "153:7:5"
+                    "src": "153:7:3"
                   }
                 ],
-                "id": 356,
+                "id": 249,
                 "name": "VariableDeclaration",
-                "src": "153:14:5"
+                "src": "153:14:3"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "id_nhatkydongruong",
-                  "scope": 363,
+                  "scope": 256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1368,20 +1368,20 @@
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 357,
+                    "id": 250,
                     "name": "ElementaryTypeName",
-                    "src": "177:4:5"
+                    "src": "177:4:3"
                   }
                 ],
-                "id": 358,
+                "id": 251,
                 "name": "VariableDeclaration",
-                "src": "177:23:5"
+                "src": "177:23:3"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "id_hoatdongnhatky",
-                  "scope": 363,
+                  "scope": 256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1394,20 +1394,20 @@
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 359,
+                    "id": 252,
                     "name": "ElementaryTypeName",
-                    "src": "210:4:5"
+                    "src": "210:4:3"
                   }
                 ],
-                "id": 360,
+                "id": 253,
                 "name": "VariableDeclaration",
-                "src": "210:22:5"
+                "src": "210:22:3"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "id_phanbonthuocbaove",
-                  "scope": 363,
+                  "scope": 256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1420,25 +1420,25 @@
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 361,
+                    "id": 254,
                     "name": "ElementaryTypeName",
-                    "src": "242:4:5"
+                    "src": "242:4:3"
                   }
                 ],
-                "id": 362,
+                "id": 255,
                 "name": "VariableDeclaration",
-                "src": "242:25:5"
+                "src": "242:25:3"
               }
             ],
-            "id": 363,
+            "id": 256,
             "name": "StructDefinition",
-            "src": "129:145:5"
+            "src": "129:145:3"
           },
           {
             "attributes": {
               "constant": false,
               "name": "DanhSachNhatKy",
-              "scope": 440,
+              "scope": 333,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => struct nhatkydongruong.NhatKy[])",
@@ -1456,9 +1456,9 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 364,
+                    "id": 257,
                     "name": "ElementaryTypeName",
-                    "src": "288:7:5"
+                    "src": "288:7:3"
                   },
                   {
                     "attributes": {
@@ -1470,27 +1470,27 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "NhatKy",
-                          "referencedDeclaration": 363,
+                          "referencedDeclaration": 256,
                           "type": "struct nhatkydongruong.NhatKy"
                         },
-                        "id": 365,
+                        "id": 258,
                         "name": "UserDefinedTypeName",
-                        "src": "299:6:5"
+                        "src": "299:6:3"
                       }
                     ],
-                    "id": 366,
+                    "id": 259,
                     "name": "ArrayTypeName",
-                    "src": "299:8:5"
+                    "src": "299:8:3"
                   }
                 ],
-                "id": 367,
+                "id": 260,
                 "name": "Mapping",
-                "src": "280:28:5"
+                "src": "280:28:3"
               }
             ],
-            "id": 368,
+            "id": 261,
             "name": "VariableDeclaration",
-            "src": "280:50:5"
+            "src": "280:50:3"
           },
           {
             "attributes": {
@@ -1506,7 +1506,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "xavien",
-                      "scope": 378,
+                      "scope": 271,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1520,21 +1520,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 369,
+                        "id": 262,
                         "name": "ElementaryTypeName",
-                        "src": "401:7:5"
+                        "src": "401:7:3"
                       }
                     ],
-                    "id": 370,
+                    "id": 263,
                     "name": "VariableDeclaration",
-                    "src": "401:14:5"
+                    "src": "401:14:3"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "indexed": false,
                       "name": "id_nhatkydongruong",
-                      "scope": 378,
+                      "scope": 271,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1547,21 +1547,21 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 371,
+                        "id": 264,
                         "name": "ElementaryTypeName",
-                        "src": "425:4:5"
+                        "src": "425:4:3"
                       }
                     ],
-                    "id": 372,
+                    "id": 265,
                     "name": "VariableDeclaration",
-                    "src": "425:23:5"
+                    "src": "425:23:3"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "indexed": false,
                       "name": "id_hoatdongnhatky",
-                      "scope": 378,
+                      "scope": 271,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1574,21 +1574,21 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 373,
+                        "id": 266,
                         "name": "ElementaryTypeName",
-                        "src": "458:4:5"
+                        "src": "458:4:3"
                       }
                     ],
-                    "id": 374,
+                    "id": 267,
                     "name": "VariableDeclaration",
-                    "src": "458:22:5"
+                    "src": "458:22:3"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "indexed": false,
                       "name": "id_phanbonthuocbaove",
-                      "scope": 378,
+                      "scope": 271,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1601,24 +1601,24 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 375,
+                        "id": 268,
                         "name": "ElementaryTypeName",
-                        "src": "490:4:5"
+                        "src": "490:4:3"
                       }
                     ],
-                    "id": 376,
+                    "id": 269,
                     "name": "VariableDeclaration",
-                    "src": "490:25:5"
+                    "src": "490:25:3"
                   }
                 ],
-                "id": 377,
+                "id": 270,
                 "name": "ParameterList",
-                "src": "391:130:5"
+                "src": "391:130:3"
               }
             ],
-            "id": 378,
+            "id": 271,
             "name": "EventDefinition",
-            "src": "370:152:5"
+            "src": "370:152:3"
           },
           {
             "attributes": {
@@ -1633,7 +1633,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "xacnhan",
-                      "scope": 391,
+                      "scope": 284,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1646,19 +1646,19 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 379,
+                        "id": 272,
                         "name": "ElementaryTypeName",
-                        "src": "585:4:5"
+                        "src": "585:4:3"
                       }
                     ],
-                    "id": 380,
+                    "id": 273,
                     "name": "VariableDeclaration",
-                    "src": "585:12:5"
+                    "src": "585:12:3"
                   }
                 ],
-                "id": 381,
+                "id": 274,
                 "name": "ParameterList",
-                "src": "584:14:5"
+                "src": "584:14:3"
               },
               {
                 "children": [
@@ -1692,16 +1692,16 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                458,
-                                459
+                                351,
+                                352
                               ],
-                              "referencedDeclaration": 459,
+                              "referencedDeclaration": 352,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 382,
+                            "id": 275,
                             "name": "Identifier",
-                            "src": "609:7:5"
+                            "src": "609:7:3"
                           },
                           {
                             "attributes": {
@@ -1724,13 +1724,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 380,
+                                  "referencedDeclaration": 273,
                                   "type": "bool",
                                   "value": "xacnhan"
                                 },
-                                "id": 383,
+                                "id": 276,
                                 "name": "Identifier",
-                                "src": "630:7:5"
+                                "src": "630:7:3"
                               },
                               {
                                 "attributes": {
@@ -1745,14 +1745,14 @@
                                   "type": "bool",
                                   "value": "true"
                                 },
-                                "id": 384,
+                                "id": 277,
                                 "name": "Literal",
-                                "src": "641:4:5"
+                                "src": "641:4:3"
                               }
                             ],
-                            "id": 385,
+                            "id": 278,
                             "name": "BinaryOperation",
-                            "src": "630:15:5"
+                            "src": "630:15:3"
                           },
                           {
                             "attributes": {
@@ -1767,34 +1767,34 @@
                               "type": "literal_string \"Giao dich chua duoc xac nhan.\"",
                               "value": "Giao dich chua duoc xac nhan."
                             },
-                            "id": 386,
+                            "id": 279,
                             "name": "Literal",
-                            "src": "660:31:5"
+                            "src": "660:31:3"
                           }
                         ],
-                        "id": 387,
+                        "id": 280,
                         "name": "FunctionCall",
-                        "src": "609:92:5"
+                        "src": "609:92:3"
                       }
                     ],
-                    "id": 388,
+                    "id": 281,
                     "name": "ExpressionStatement",
-                    "src": "609:92:5"
+                    "src": "609:92:3"
                   },
                   {
-                    "id": 389,
+                    "id": 282,
                     "name": "PlaceholderStatement",
-                    "src": "712:1:5"
+                    "src": "712:1:3"
                   }
                 ],
-                "id": 390,
+                "id": 283,
                 "name": "Block",
-                "src": "599:121:5"
+                "src": "599:121:3"
               }
             ],
-            "id": 391,
+            "id": 284,
             "name": "ModifierDefinition",
-            "src": "561:159:5"
+            "src": "561:159:3"
           },
           {
             "attributes": {
@@ -1803,7 +1803,7 @@
               "isConstructor": false,
               "kind": "function",
               "name": "themHThongTinMuaVu",
-              "scope": 440,
+              "scope": 333,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1815,7 +1815,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "id_nhatkydongruong",
-                      "scope": 439,
+                      "scope": 332,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1828,20 +1828,20 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 392,
+                        "id": 285,
                         "name": "ElementaryTypeName",
-                        "src": "797:4:5"
+                        "src": "797:4:3"
                       }
                     ],
-                    "id": 393,
+                    "id": 286,
                     "name": "VariableDeclaration",
-                    "src": "797:23:5"
+                    "src": "797:23:3"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "id_hoatdongnhatky",
-                      "scope": 439,
+                      "scope": 332,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1854,20 +1854,20 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 394,
+                        "id": 287,
                         "name": "ElementaryTypeName",
-                        "src": "830:4:5"
+                        "src": "830:4:3"
                       }
                     ],
-                    "id": 395,
+                    "id": 288,
                     "name": "VariableDeclaration",
-                    "src": "830:22:5"
+                    "src": "830:22:3"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "id_phanbonthuocbaove",
-                      "scope": 439,
+                      "scope": 332,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1880,20 +1880,20 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 396,
+                        "id": 289,
                         "name": "ElementaryTypeName",
-                        "src": "862:4:5"
+                        "src": "862:4:3"
                       }
                     ],
-                    "id": 397,
+                    "id": 290,
                     "name": "VariableDeclaration",
-                    "src": "862:25:5"
+                    "src": "862:25:3"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "xacnhan",
-                      "scope": 439,
+                      "scope": 332,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1906,19 +1906,19 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 398,
+                        "id": 291,
                         "name": "ElementaryTypeName",
-                        "src": "897:4:5"
+                        "src": "897:4:3"
                       }
                     ],
-                    "id": 399,
+                    "id": 292,
                     "name": "VariableDeclaration",
-                    "src": "897:12:5"
+                    "src": "897:12:3"
                   }
                 ],
-                "id": 400,
+                "id": 293,
                 "name": "ParameterList",
-                "src": "786:129:5"
+                "src": "786:129:3"
               },
               {
                 "children": [
@@ -1926,7 +1926,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 439,
+                      "scope": 332,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1939,19 +1939,19 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 404,
+                        "id": 297,
                         "name": "ElementaryTypeName",
-                        "src": "965:4:5"
+                        "src": "965:4:3"
                       }
                     ],
-                    "id": 405,
+                    "id": 298,
                     "name": "VariableDeclaration",
-                    "src": "965:4:5"
+                    "src": "965:4:3"
                   }
                 ],
-                "id": 406,
+                "id": 299,
                 "name": "ParameterList",
-                "src": "964:6:5"
+                "src": "964:6:3"
               },
               {
                 "children": [
@@ -1961,13 +1961,13 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 391,
+                      "referencedDeclaration": 284,
                       "type": "modifier (bool)",
                       "value": "kiemTraXacNhan"
                     },
-                    "id": 401,
+                    "id": 294,
                     "name": "Identifier",
-                    "src": "928:14:5"
+                    "src": "928:14:3"
                   },
                   {
                     "attributes": {
@@ -1975,25 +1975,25 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 399,
+                      "referencedDeclaration": 292,
                       "type": "bool",
                       "value": "xacnhan"
                     },
-                    "id": 402,
+                    "id": 295,
                     "name": "Identifier",
-                    "src": "943:7:5"
+                    "src": "943:7:3"
                   }
                 ],
-                "id": 403,
+                "id": 296,
                 "name": "ModifierInvocation",
-                "src": "928:23:5"
+                "src": "928:23:3"
               },
               {
                 "children": [
                   {
                     "attributes": {
                       "assignments": [
-                        408
+                        301
                       ],
                       "initialValue": null
                     },
@@ -2002,7 +2002,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "nhatky",
-                          "scope": 438,
+                          "scope": 331,
                           "stateVariable": false,
                           "storageLocation": "memory",
                           "type": "struct nhatkydongruong.NhatKy",
@@ -2014,22 +2014,22 @@
                             "attributes": {
                               "contractScope": null,
                               "name": "NhatKy",
-                              "referencedDeclaration": 363,
+                              "referencedDeclaration": 256,
                               "type": "struct nhatkydongruong.NhatKy"
                             },
-                            "id": 407,
+                            "id": 300,
                             "name": "UserDefinedTypeName",
-                            "src": "981:6:5"
+                            "src": "981:6:3"
                           }
                         ],
-                        "id": 408,
+                        "id": 301,
                         "name": "VariableDeclaration",
-                        "src": "981:20:5"
+                        "src": "981:20:3"
                       }
                     ],
-                    "id": 409,
+                    "id": 302,
                     "name": "VariableDeclarationStatement",
-                    "src": "981:20:5"
+                    "src": "981:20:3"
                   },
                   {
                     "children": [
@@ -2050,13 +2050,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 408,
+                              "referencedDeclaration": 301,
                               "type": "struct nhatkydongruong.NhatKy memory",
                               "value": "nhatky"
                             },
-                            "id": 410,
+                            "id": 303,
                             "name": "Identifier",
-                            "src": "1011:6:5"
+                            "src": "1011:6:3"
                           },
                           {
                             "attributes": {
@@ -2096,13 +2096,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 363,
+                                  "referencedDeclaration": 256,
                                   "type": "type(struct nhatkydongruong.NhatKy storage pointer)",
                                   "value": "NhatKy"
                                 },
-                                "id": 411,
+                                "id": 304,
                                 "name": "Identifier",
-                                "src": "1020:6:5"
+                                "src": "1020:6:3"
                               },
                               {
                                 "attributes": {
@@ -2122,18 +2122,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 455,
+                                      "referencedDeclaration": 348,
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 412,
+                                    "id": 305,
                                     "name": "Identifier",
-                                    "src": "1040:3:5"
+                                    "src": "1040:3:3"
                                   }
                                 ],
-                                "id": 413,
+                                "id": 306,
                                 "name": "MemberAccess",
-                                "src": "1040:10:5"
+                                "src": "1040:10:3"
                               },
                               {
                                 "attributes": {
@@ -2141,13 +2141,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 393,
+                                  "referencedDeclaration": 286,
                                   "type": "uint256",
                                   "value": "id_nhatkydongruong"
                                 },
-                                "id": 414,
+                                "id": 307,
                                 "name": "Identifier",
-                                "src": "1064:18:5"
+                                "src": "1064:18:3"
                               },
                               {
                                 "attributes": {
@@ -2155,13 +2155,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 395,
+                                  "referencedDeclaration": 288,
                                   "type": "uint256",
                                   "value": "id_hoatdongnhatky"
                                 },
-                                "id": 415,
+                                "id": 308,
                                 "name": "Identifier",
-                                "src": "1096:17:5"
+                                "src": "1096:17:3"
                               },
                               {
                                 "attributes": {
@@ -2169,28 +2169,28 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 397,
+                                  "referencedDeclaration": 290,
                                   "type": "uint256",
                                   "value": "id_phanbonthuocbaove"
                                 },
-                                "id": 416,
+                                "id": 309,
                                 "name": "Identifier",
-                                "src": "1127:20:5"
+                                "src": "1127:20:3"
                               }
                             ],
-                            "id": 417,
+                            "id": 310,
                             "name": "FunctionCall",
-                            "src": "1020:137:5"
+                            "src": "1020:137:3"
                           }
                         ],
-                        "id": 418,
+                        "id": 311,
                         "name": "Assignment",
-                        "src": "1011:146:5"
+                        "src": "1011:146:3"
                       }
                     ],
-                    "id": 419,
+                    "id": 312,
                     "name": "ExpressionStatement",
-                    "src": "1011:146:5"
+                    "src": "1011:146:3"
                   },
                   {
                     "children": [
@@ -2213,7 +2213,7 @@
                             "attributes": {
                               "argumentTypes": [
                                 {
-                                  "typeIdentifier": "t_struct$_NhatKy_$363_memory_ptr",
+                                  "typeIdentifier": "t_struct$_NhatKy_$256_memory_ptr",
                                   "typeString": "struct nhatkydongruong.NhatKy memory"
                                 }
                               ],
@@ -2242,13 +2242,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 368,
+                                      "referencedDeclaration": 261,
                                       "type": "mapping(address => struct nhatkydongruong.NhatKy storage ref[] storage ref)",
                                       "value": "DanhSachNhatKy"
                                     },
-                                    "id": 420,
+                                    "id": 313,
                                     "name": "Identifier",
-                                    "src": "1168:14:5"
+                                    "src": "1168:14:3"
                                   },
                                   {
                                     "attributes": {
@@ -2268,28 +2268,28 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 455,
+                                          "referencedDeclaration": 348,
                                           "type": "msg",
                                           "value": "msg"
                                         },
-                                        "id": 421,
+                                        "id": 314,
                                         "name": "Identifier",
-                                        "src": "1183:3:5"
+                                        "src": "1183:3:3"
                                       }
                                     ],
-                                    "id": 422,
+                                    "id": 315,
                                     "name": "MemberAccess",
-                                    "src": "1183:10:5"
+                                    "src": "1183:10:3"
                                   }
                                 ],
-                                "id": 423,
+                                "id": 316,
                                 "name": "IndexAccess",
-                                "src": "1168:26:5"
+                                "src": "1168:26:3"
                               }
                             ],
-                            "id": 424,
+                            "id": 317,
                             "name": "MemberAccess",
-                            "src": "1168:31:5"
+                            "src": "1168:31:3"
                           },
                           {
                             "attributes": {
@@ -2297,23 +2297,23 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 408,
+                              "referencedDeclaration": 301,
                               "type": "struct nhatkydongruong.NhatKy memory",
                               "value": "nhatky"
                             },
-                            "id": 425,
+                            "id": 318,
                             "name": "Identifier",
-                            "src": "1200:6:5"
+                            "src": "1200:6:3"
                           }
                         ],
-                        "id": 426,
+                        "id": 319,
                         "name": "FunctionCall",
-                        "src": "1168:39:5"
+                        "src": "1168:39:3"
                       }
                     ],
-                    "id": 427,
+                    "id": 320,
                     "name": "ExpressionStatement",
-                    "src": "1168:39:5"
+                    "src": "1168:39:3"
                   },
                   {
                     "children": [
@@ -2355,13 +2355,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 378,
+                              "referencedDeclaration": 271,
                               "type": "function (address,uint256,uint256,uint256)",
                               "value": "suKienLuuNhatKy"
                             },
-                            "id": 428,
+                            "id": 321,
                             "name": "Identifier",
-                            "src": "1223:15:5"
+                            "src": "1223:15:3"
                           },
                           {
                             "attributes": {
@@ -2381,18 +2381,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 455,
+                                  "referencedDeclaration": 348,
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 429,
+                                "id": 322,
                                 "name": "Identifier",
-                                "src": "1252:3:5"
+                                "src": "1252:3:3"
                               }
                             ],
-                            "id": 430,
+                            "id": 323,
                             "name": "MemberAccess",
-                            "src": "1252:10:5"
+                            "src": "1252:10:3"
                           },
                           {
                             "attributes": {
@@ -2400,13 +2400,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 393,
+                              "referencedDeclaration": 286,
                               "type": "uint256",
                               "value": "id_nhatkydongruong"
                             },
-                            "id": 431,
+                            "id": 324,
                             "name": "Identifier",
-                            "src": "1276:18:5"
+                            "src": "1276:18:3"
                           },
                           {
                             "attributes": {
@@ -2414,13 +2414,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 395,
+                              "referencedDeclaration": 288,
                               "type": "uint256",
                               "value": "id_hoatdongnhatky"
                             },
-                            "id": 432,
+                            "id": 325,
                             "name": "Identifier",
-                            "src": "1308:17:5"
+                            "src": "1308:17:3"
                           },
                           {
                             "attributes": {
@@ -2428,27 +2428,27 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 397,
+                              "referencedDeclaration": 290,
                               "type": "uint256",
                               "value": "id_phanbonthuocbaove"
                             },
-                            "id": 433,
+                            "id": 326,
                             "name": "Identifier",
-                            "src": "1339:20:5"
+                            "src": "1339:20:3"
                           }
                         ],
-                        "id": 434,
+                        "id": 327,
                         "name": "FunctionCall",
-                        "src": "1223:146:5"
+                        "src": "1223:146:3"
                       }
                     ],
-                    "id": 435,
+                    "id": 328,
                     "name": "EmitStatement",
-                    "src": "1218:151:5"
+                    "src": "1218:151:3"
                   },
                   {
                     "attributes": {
-                      "functionReturnParameters": 406
+                      "functionReturnParameters": 299
                     },
                     "children": [
                       {
@@ -2464,34 +2464,34 @@
                           "type": "bool",
                           "value": "true"
                         },
-                        "id": 436,
+                        "id": 329,
                         "name": "Literal",
-                        "src": "1387:4:5"
+                        "src": "1387:4:3"
                       }
                     ],
-                    "id": 437,
+                    "id": 330,
                     "name": "Return",
-                    "src": "1380:11:5"
+                    "src": "1380:11:3"
                   }
                 ],
-                "id": 438,
+                "id": 331,
                 "name": "Block",
-                "src": "971:427:5"
+                "src": "971:427:3"
               }
             ],
-            "id": 439,
+            "id": 332,
             "name": "FunctionDefinition",
-            "src": "759:639:5"
+            "src": "759:639:3"
           }
         ],
-        "id": 440,
+        "id": 333,
         "name": "ContractDefinition",
-        "src": "66:1334:5"
+        "src": "66:1334:3"
       }
     ],
-    "id": 441,
+    "id": 334,
     "name": "SourceUnit",
-    "src": "32:1368:5"
+    "src": "32:1368:3"
   },
   "compiler": {
     "name": "solc",
@@ -2499,7 +2499,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-14T18:20:17.614Z",
+  "updatedAt": "2022-06-17T11:18:42.070Z",
   "devdoc": {
     "methods": {}
   },
