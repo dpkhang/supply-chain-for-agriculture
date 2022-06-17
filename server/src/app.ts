@@ -17,14 +17,14 @@ const DB_user = process.env.DB_USERNAME || 'root'
 
 
 const init = async () => {
-    var web3 = new Web3('http://10.233.5.226:8545/')
-    const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0x47070aa3CdbBCF8A99F7d0f994f59f44e441C018');
+    var web3 = new Web3('http://10.32.2.150:8545/')
+    const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0xA53482667a2DA872FECF8d708Cc509Ae29C4263a');
 
     // const name1 = await contract.methods.ListGiaoDich(1).call()
     // console.log(name1)
 
-    await contract.methods.themGiaoDich('0xc6ca2375fBcC552779C95B2b35eEAdD0fcb964Fe', 11, true)
-    .send({from: '0xDFC5fC650689637b122f9C9E78D5fE495d3FeB96'})
+    await contract.methods.themGiaoDich('0x2915Dd2e3E25023F9496724AeC9a26a4EF141900', 11, true)
+    .send({from: '0xE07d0Ababc0b017640a75F5558703F469c97e595'})
 
     const name = await contract.methods.ListGiaoDich(11).call()
     console.log(name)
