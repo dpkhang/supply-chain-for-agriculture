@@ -95,7 +95,7 @@
   "sourceMap": "66:1692:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1692:1;;;;;;;",
   "deployedSourceMap": "66:1692:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1692:1;;;;;;;;;;;;;;;;;;;;;;;;1130:626;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1130:626:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;262:45;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;262:45:1;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1130:626;1377:4;1271:9;608:10;595:23;;:9;:23;;;;574:106;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1312:21;872;798:12;:35;811:21;798:35;;;;;;;;;;;:70;;;:95;;777:158;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1355:7;1027:4;1016:15;;:7;:15;;;1008:57;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1394:24;;:::i;:::-;1439:100;;;;;;;;1461:21;1439:100;;;;1496:9;1439:100;;;;;;1519:10;1439:100;;;;;1428:111;;1588:8;1550:12;:35;1563:21;1550:35;;;;;;;;;;;:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1612:107;1639:10;1664:9;1688:21;1612:107;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1745:4;1738:11;;;946:1;691;1130:626;;;;;;:::o;262:45::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;66:1692::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.5.16 <0.9.0;\n\ncontract GiaoDichMuaBan_Lua {\n    \n    //-------------data--------------//\n    struct GiaoDich {\n        uint id_giaodichmuaban_lua;\n        address thuonglai;\n        address nongdan;\n    }\n\n    mapping(uint => GiaoDich) public ListGiaoDich;\n\n\n    //---------------event------------//\n    event giaoDichEvent(\n        address nongdang, \n        address thuonglai, \n        uint id_giaodichmuaban_lua\n    );\n\n\n    //--------modifier function-------//\n    modifier checkThuongLai(address thuonglai) {\n        require(\n            thuonglai != msg.sender, \n            \"ID thuong lai phai khac id nong dan\"\n        );\n\n        _;\n    }\n\n    modifier checkIdGiaoDichMuaBanLua(uint id_giaodichmuaban_lua) {\n        require(\n            ListGiaoDich[id_giaodichmuaban_lua]\n            .id_giaodichmuaban_lua != id_giaodichmuaban_lua, \n            \"id giao dich la duy nhat\");\n\n        _;\n    }\n\n    modifier kiemtraXacNhan(bool xacnhan) {\n        require(xacnhan == true, \"Giao dich chua duoc xac nhan.\");\n\n        _;\n    }\n\n    //-------handle function--------//\n\n    function themGiaoDich(\n        address thuonglai, \n        uint id_giaodichmuaban_lua,\n        bool xacnhan\n    ) public \n    checkThuongLai(thuonglai) \n    checkIdGiaoDichMuaBanLua(id_giaodichmuaban_lua) \n    kiemtraXacNhan(xacnhan)\n    returns (bool) {\n\n        GiaoDich memory giaoDich;\n        giaoDich = GiaoDich(\n            id_giaodichmuaban_lua,\n            thuonglai,\n            msg.sender\n        );\n\n        ListGiaoDich[id_giaodichmuaban_lua] = giaoDich;\n\n        emit giaoDichEvent(\n            msg.sender, \n            thuonglai, \n            id_giaodichmuaban_lua\n        );\n        \n        return true;\n    }\n}",
-  "sourcePath": "/home/dpkhang/Personal/Studying/projects/supply-chain-for-agriculture/blockchain/contracts/giaodichmuaban_lua.sol",
+  "sourcePath": "/Users/trongnhan/Dev/supply-chain-for-agriculture/blockchain/contracts/giaodichmuaban_lua.sol",
   "ast": {
     "absolutePath": "project:/contracts/giaodichmuaban_lua.sol",
     "exportedSymbols": {
@@ -413,7 +413,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 348,
+                            "referencedDeclaration": 347,
                             "src": "608:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -474,10 +474,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        351,
-                        352
+                        350,
+                        351
                       ],
-                      "referencedDeclaration": 352,
+                      "referencedDeclaration": 351,
                       "src": "574:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -682,10 +682,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        351,
-                        352
+                        350,
+                        351
                       ],
-                      "referencedDeclaration": 352,
+                      "referencedDeclaration": 351,
                       "src": "777:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -851,10 +851,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        351,
-                        352
+                        350,
+                        351
                       ],
-                      "referencedDeclaration": 352,
+                      "referencedDeclaration": 351,
                       "src": "1008:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1031,7 +1031,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 348,
+                            "referencedDeclaration": 347,
                             "src": "1519:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1188,7 +1188,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 348,
+                          "referencedDeclaration": 347,
                           "src": "1639:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1904,10 +1904,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                351,
-                                352
+                                350,
+                                351
                               ],
-                              "referencedDeclaration": 352,
+                              "referencedDeclaration": 351,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -1962,7 +1962,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 348,
+                                      "referencedDeclaration": 347,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -2094,10 +2094,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                351,
-                                352
+                                350,
+                                351
                               ],
-                              "referencedDeclaration": 352,
+                              "referencedDeclaration": 351,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -2313,10 +2313,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                351,
-                                352
+                                350,
+                                351
                               ],
-                              "referencedDeclaration": 352,
+                              "referencedDeclaration": 351,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -2812,7 +2812,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 348,
+                                      "referencedDeclaration": 347,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -2982,7 +2982,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 348,
+                                  "referencedDeclaration": 347,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -3093,8 +3093,7 @@
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-17T11:24:20.966Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-06-17T12:48:43.142Z",
   "devdoc": {
     "methods": {}
   },

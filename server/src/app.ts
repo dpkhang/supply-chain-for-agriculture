@@ -29,12 +29,12 @@ const status = true
 
 const init = async () => {
     var web3 = new Web3('http://10.32.2.150:8545/')
-    const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0xA53482667a2DA872FECF8d708Cc509Ae29C4263a');
+    const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, address_hopdong);
 
     //get event 
 
-    await contract.methods.themGiaoDich('0x2915Dd2e3E25023F9496724AeC9a26a4EF141900', 11, true)
-    .send({from: '0xE07d0Ababc0b017640a75F5558703F469c97e595'})
+    await contract.methods.themGiaoDich(address_nongdan, 11, true)
+    .send({from: address_nhacungung})
 
     // var web3 = new Web3('http://10.233.5.226:8545/')
     // const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0x47070aa3CdbBCF8A99F7d0f994f59f44e441C018');
