@@ -8,7 +8,6 @@ import Web3 from 'web3'
 import giaodichmuaban_lua from './abis/GiaoDichMuaBan_Lua.json'
 import giaodichmuaban_vattu from './abis/GiaoDichMuaBan_VatTu.json'
 const app = express()
-import WalletConnectProvider from "@walletconnect/web3-provider";
 
 
 const port = process.env.PORT || 8000
@@ -18,48 +17,42 @@ const DB_database = process.env.DB_DATABASE || 'argiculture'
 const DB_user = process.env.DB_USERNAME || 'root'
 //const DB_password = process.env.DB_PASSWORD || '08062000aB'
 
-const address_nongdan = '0x37a18f4D1a3094CA93d88704f35900C600753B6D'
+const address_nongdan = '0xc74dCf167160F9826C3dBeBF36632ACFFfF02C41'
 
-const address_nhacungung = '0xA05b2100097FCfB559DB0C5fC8DDaaE1Ce45dbB7'
+const address_nhacungung = '0xB4d78B1e8693E05dD24B1205eaE671d7D14634C2'
 
-const address_hopdong = '0xC52EFA1F0F9DEa3C6265C4B3D23a163E5F2b759c'
+const address_hopdong = '0xC2B971707c2366CD3BEbbd27540e42D91d04b7AE'
 
 const id_hopdong = 1
 
 const status = true
 
 const init = async () => {
-<<<<<<< HEAD
-    // var web3 = new Web3('http://127.0.0.1:8545/')
-=======
-    var web3 = new Web3('http://10.233.5.226:8545/')
-    const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0x47070aa3CdbBCF8A99F7d0f994f59f44e441C018');
->>>>>>> 12e2c91fba1496dcbbc85e5ae0966a7e4cc3aa9c
+    var web3 = new Web3('http://127.0.0.1:8545/')
 
-    const provider = new WalletConnectProvider({
-        rpc: {
-          5777: 'http://127.0.0.1:8545'
-          // ...
-        },
-      });
-
-<<<<<<< HEAD
-    const web3 = new Web3(provider as any)
-    // console.log(web3)
-    // const sign = web3.eth.accounts.privateKeyToAccount('c8faf8666752aa2e9ea1ea6dffa3224a199909baa84750026e09f1b7db5a7918')
     const contract = await new web3.eth.Contract(giaodichmuaban_vattu.abi as any, address_hopdong);
-      console.log(contract)
     // await contract.methods.themGiaoDich(id_hopdong, address_nhacungung, status).send({ from: address_nongdan })
+    const _contract = await contract.methods.danhsach_giaodich(address_nongdan, 1).call()
+    // console.log(_contract)
 
-    const name = await contract.methods.danhsach_giaodich(address_nongdan, 2).call()
+    //get event 
+
+    let options = {
+        fromBlock: 0,//Number || "earliest" || "pending" || "latest"
+        toBlock: 'latest'
+    };
     
-=======
-    await contract.methods.themGiaoDich('0xc6ca2375fBcC552779C95B2b35eEAdD0fcb964Fe', 11, true)
-    .send({from: '0xDFC5fC650689637b122f9C9E78D5fE495d3FeB96'})
+    contract.getPastEvents('sukienLuuGiaoDich', options).then(result=> console.log(result)).catch(err=> console.log(err))
 
-    const name = await contract.methods.ListGiaoDich(11).call()
-    console.log(name)
->>>>>>> 12e2c91fba1496dcbbc85e5ae0966a7e4cc3aa9c
+    // var web3 = new Web3('http://10.233.5.226:8545/')
+    // const contract = await new web3.eth.Contract(giaodichmuaban_lua.abi as any, '0x47070aa3CdbBCF8A99F7d0f994f59f44e441C018');
+    // console.log(web3)
+    // const sign = web3.eth.accounts.privateKeyToAccount('c8faf8666752aa2e9ea1ea6dffa3224a199909baa84750026e09f1b7db5a7918')    
+    // await contract.methods.themGiaoDich('0xc6ca2375fBcC552779C95B2b35eEAdD0fcb964Fe', 11, true)
+    // .send({from: '0xDFC5fC650689637b122f9C9E78D5fE495d3FeB96'})
+
+    // const name = await contract.methods.ListGiaoDich(11).call()
+    // console.log(name)
 }
 
 try {
@@ -78,15 +71,9 @@ try {
     // //--------connect database---------//
     // createConnection(DB_host, DB_port, DB_database, DB_user, DB_password)
 
-    app.listen(port, () => {
-        console.log('listening on port: ' + port)
-    })
+    // app.listen(port, () => {
+    //     console.log('listening on port: ' + port)
+    // })
 } catch (err) {
     throw err
 }
-
-//  Create WalletConnect Provider
-
-  
-  //  Enable session (triggers QR Code modal)
-// provider.enable();
