@@ -2651,10 +2651,17 @@
       "links": {},
       "address": "0xC2B971707c2366CD3BEbbd27540e42D91d04b7AE",
       "transactionHash": "0xa0906fd6492608fd611e51e89007129573775bb465f75ba220b283633514e3cc"
+    },
+    "1655470703683": {
+      "events": {},
+      "links": {},
+      "address": "0xb6Cc5D87f196e19b2f3E93Cf5Ba999Ea4a7c6072",
+      "transactionHash": "0x7992c6f9bf60d310de4de90cb1bfa2787654df3e4e8dd2960866228ba165c147"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-17T12:48:43.143Z",
+  "updatedAt": "2022-06-17T12:58:56.431Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },
