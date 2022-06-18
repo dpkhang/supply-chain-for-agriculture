@@ -1,16 +1,16 @@
 import { DataTypes } from "sequelize";
 import { BaseEntity } from "./base/base.entity";
 
-export class tbl_xavien extends BaseEntity {
+export class tbl_nhacungcapvattu extends BaseEntity {
 
-    id_xavien = {
+    id_nhacungcapvattu = {
         type: DataTypes.INTEGER,
         autoInCrement: true,
         primaryKey: true
     }
 
-    id_hoptacxa = {
-        type: DataTypes.INTEGER
+    name_daily = {
+        type: DataTypes.STRING(255)
     }
 
     fullname = {
@@ -20,23 +20,19 @@ export class tbl_xavien extends BaseEntity {
     password = {
         type: DataTypes.STRING(255)
     }
-    
-    DOB = {
+
+    dob = {
         type: DataTypes.DATE
     }
 
     address = {
-        type: DataTypes.STRING(255)
+        type: DataTypes.TEXT
     }
 
     phone_number = {
         type: DataTypes.STRING(255)
     }
 
-    // avatar = {
-    //     type: DataTypes.STRING(255)
-    // }
-     
     email = {
         type: DataTypes.STRING(255)
     }
@@ -44,4 +40,5 @@ export class tbl_xavien extends BaseEntity {
     wallet = {
         type: DataTypes.STRING(255)
     }
+    
 }

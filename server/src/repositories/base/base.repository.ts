@@ -2,15 +2,6 @@ import { Dialect, Sequelize } from 'sequelize'
 import dotenv from 'dotenv'
 dotenv.config()
 
-// #database
-// DB_DATABASE=agriculture
-// DB_USERNAME=root
-// DB_HOST=localhost
-// DB_PASSWORD=
-// DB_PORT=3306
-
-// #authentication
-// SECRET_KEY=32ruhadjnsci34yr8oue823hury783iuhrsdj
 
 class BaseRepository {
     

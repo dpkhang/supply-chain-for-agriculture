@@ -1,16 +1,16 @@
 import { DataTypes } from "sequelize";
 import { BaseEntity } from "./base/base.entity";
 
-export class tbl_xavien extends BaseEntity {
+export class tbl_thuonglai extends BaseEntity {
 
-    id_xavien = {
-        type: DataTypes.INTEGER,
+    id_thuonglai= {
+        type: DataTypes.STRING(255),
         autoInCrement: true,
         primaryKey: true
     }
 
-    id_hoptacxa = {
-        type: DataTypes.INTEGER
+    name_thuonglai = {
+        type: DataTypes.STRING(255)
     }
 
     fullname = {
