@@ -1,20 +1,20 @@
 import { Request, Response } from 'express';
 import { ResponseDTO } from '../dtos/response.dto';
-import { XavienService } from './../services/xavien.service';
-export class XavienController {
-    private _xavienService
+import { HoatdongnhatkyService } from '../services/hoatdongnhatky.service';
+export class HoatdongnhatkyController {
+    private _hoatdongnhatkyService
 
     constructor () {
-        this._xavienService = new XavienService()
+        this._hoatdongnhatkyService = new HoatdongnhatkyService()
     }
 
     getAll = async (req: Request, res: Response):Promise<Response> => {
         try {
 
-            const list_xavien = await this._xavienService.findAll();
+            const list_hoatdongnhatky= await this._hoatdongnhatkyService.findAll();
             const response: ResponseDTO = {
                 message: '',
-                data: list_xavien
+                data: list_hoatdongnhatky
             }
 
             return res.status(200).json(response)
