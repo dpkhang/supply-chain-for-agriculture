@@ -1,20 +1,20 @@
 import { Request, Response } from 'express';
 import { ResponseDTO } from '../dtos/response.dto';
-import { XavienService } from './../services/xavien.service';
-export class XavienController {
-    private _xavienService
+import { Giaodichmuaban_luaService } from '../services/giaodichmuaban_lua.service'; 
+export class Giaodichmuaban_luaController {
+    private _giaodichmuaban_luaService
 
     constructor () {
-        this._xavienService = new XavienService()
+        this._giaodichmuaban_luaService = new Giaodichmuaban_luaService()
     }
 
     getAll = async (req: Request, res: Response):Promise<Response> => {
         try {
 
-            const list_xavien = await this._xavienService.findAll();
+            const list_giaodichmuaban_lua = await this._giaodichmuaban_luaService.findAll();
             const response: ResponseDTO = {
                 message: '',
-                data: list_xavien
+                data: list_giaodichmuaban_lua
             }
 
             return res.status(200).json(response)
