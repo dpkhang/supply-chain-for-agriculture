@@ -6,4 +6,6 @@ const xavienController = new XavienController
 
 route.get('/', xavienController.getAll)
 
+route.post('/register', xavienController.register)
+
 export default route
