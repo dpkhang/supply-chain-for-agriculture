@@ -6,6 +6,7 @@ contract NhatKyDongRuong {
     struct NhatKyDongRuong_Struct {
         uint id_XaVien;
         uint id_NhatKyDongRuong;
+        uint id_ThuaDat;
     }
 
     mapping( uint => NhatKyDongRuong_Struct )
@@ -16,7 +17,8 @@ contract NhatKyDongRuong {
     //-------event-------//
     event SuKienThemNhatKyDongRuong(
         uint id_XaVien,
-        uint id_NhatKyDongRuong
+        uint id_NhatKyDongRuong,
+        uint id_ThuaDat
     );
 
     //------modifier-----//
@@ -43,7 +45,8 @@ contract NhatKyDongRuong {
     //-------handle------//
     function ThemNhatKyDongRuong (
         uint id_XaVien,
-        uint id_NhatKyDongRuong
+        uint id_NhatKyDongRuong,
+        uint id_ThuaDat
     )
     public
     KiemTraIdNhatKyDongRuong( id_NhatKyDongRuong )
@@ -51,7 +54,8 @@ contract NhatKyDongRuong {
         NhatKyDongRuong_Struct memory NhatKyDongRuongMemory;
         NhatKyDongRuongMemory = NhatKyDongRuong_Struct(
             id_XaVien,
-            id_NhatKyDongRuong
+            id_NhatKyDongRuong,
+            id_ThuaDat
         );
 
         DanhSachNhatKyDongRuong[maxLength] = NhatKyDongRuongMemory;
@@ -59,7 +63,8 @@ contract NhatKyDongRuong {
 
         emit SuKienThemNhatKyDongRuong(
             id_XaVien,
-            id_NhatKyDongRuong
+            id_NhatKyDongRuong,
+            id_ThuaDat
         );
 
         return true;
