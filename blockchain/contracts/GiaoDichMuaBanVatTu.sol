@@ -32,7 +32,11 @@ contract GiaoDichMuaBanVatTu {
             id_XaVien != id_NhaCungCap,
             "ID xa vien phai khac ID thuong lai"
         );
+        _;
+    }
 
+    modifier KiemTraXacNhan(bool xavien_xacnhan, bool htx_xacnhan, bool nhacungcap_xacnhan) {
+        require(xavien_xacnhan && htx_xacnhan && nhacungcap_xacnhan, "Giao dich chua duoc dong thuan");
         _;
     }
 
@@ -77,9 +81,13 @@ contract GiaoDichMuaBanVatTu {
         uint id_XaVien,
         uint id_NhaCungCap,
         uint id_LoHangVatTu,
-        uint id_GiaoDich
+        uint id_GiaoDich,
+        bool xavien_xacnhan, 
+        bool htx_xacnhan, 
+        bool nhacungcap_xacnhan
     ) 
     public
+    KiemTraXacNhan(xavien_xacnhan, htx_xacnhan, nhacungcap_xacnhan)
     KiemTraIdCacBenLienQuan(id_XaVien, id_NhaCungCap)
     KiemTraLoHangVatTu( id_LoHangVatTu, id_GiaoDich )
     returns (bool) 
