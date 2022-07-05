@@ -32,18 +32,23 @@ contract GiaoDichMuaBanVatTu {
             id_XaVien != id_NhaCungCap,
             "ID xa vien phai khac ID thuong lai"
         );
+
         _;
     }
 
-    modifier KiemTraXacNhan(bool xavien_xacnhan, bool htx_xacnhan, bool nhacungcap_xacnhan) {
-        require(xavien_xacnhan && htx_xacnhan && nhacungcap_xacnhan, "Giao dich chua duoc dong thuan");
+    modifier KiemTraXacNhan( bool XacNhanChung ) {
+        require (
+            XacNhanChung, 
+            "Giao dich chua duoc dong thuan"
+        );
+
         _;
     }
 
     modifier KiemTraLoHangVatTu ( uint id_LoHangVatTu, uint id_GiaoDich ) {
-        uint index            = 0;
+        uint index              = 0;
         bool checkIdLoHangVatTu = true;
-        bool checkIdGiaoDich  = true;
+        bool checkIdGiaoDich    = true;
 
         for ( index; index < maxLength; index ++ ) {
             if ( DanhSachGiaoDich[ index ].id_GiaoDich == id_GiaoDich ) {
@@ -82,16 +87,18 @@ contract GiaoDichMuaBanVatTu {
         uint id_NhaCungCap,
         uint id_LoHangVatTu,
         uint id_GiaoDich,
-        bool xavien_xacnhan, 
-        bool htx_xacnhan, 
-        bool nhacungcap_xacnhan
+        bool XacNhanChung
     ) 
     public
-    KiemTraXacNhan(xavien_xacnhan, htx_xacnhan, nhacungcap_xacnhan)
-    KiemTraIdCacBenLienQuan(id_XaVien, id_NhaCungCap)
+    KiemTraIdCacBenLienQuan( id_XaVien, id_NhaCungCap )
     KiemTraLoHangVatTu( id_LoHangVatTu, id_GiaoDich )
     returns (bool) 
     {
+        require (
+            XacNhanChung, 
+            "Giao dich chua duoc dong thuan"
+        );
+
         GiaoDichMuaBanVatTu_Struct memory GiaoDichMuaBanVatTuMemory;
 
         GiaoDichMuaBanVatTuMemory = GiaoDichMuaBanVatTu_Struct (
