@@ -1,8 +1,22 @@
-const GiaodichMuaBan_Lua = artifacts.require("GiaoDichMuaBan_Lua");
-const GiaodichMuaBan_Vattu = artifacts.require("GiaoDichMuaBan_VatTu");
+const GiaoDichMuaBanLua = artifacts.require("GiaoDichMuaBanLua");
+const LoHangLua = artifacts.require("LoHangLua");
+const NhatKyDongRuong = artifacts.require("NhatKyDongRuong");
+const HoatDongNhatKy = artifacts.require("HoatDongNhatKy");
+const GiaoDichMuaBanVatTu = artifacts.require("GiaoDichMuaBanVatTu");
+const LoHangVatTu = artifacts.require("LoHangVatTu");
 
-module.exports = function(deployer) {
-  deployer.deploy(GiaodichMuaBan_Lua);
-  deployer.deploy(GiaodichMuaBan_Vattu);
+module.exports = function( deployer ) {
+
+  deployer.deploy( GiaoDichMuaBanLua );
+
+  deployer.deploy( LoHangLua );
+
+  deployer.deploy( NhatKyDongRuong );
+
+  deployer.deploy( HoatDongNhatKy );
+
+  deployer.deploy( GiaoDichMuaBanVatTu );
+
+  deployer.deploy( LoHangVatTu );
 
 };

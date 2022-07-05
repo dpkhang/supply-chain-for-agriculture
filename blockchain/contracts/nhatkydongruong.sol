@@ -1,59 +1,70 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.16 <0.9.0;
 
-contract nhatkydongruong {
-    //----------data---------//
-    struct NhatKy {
-        address xavien;
-        uint id_nhatkydongruong;
-        uint id_hoatdongnhatky;
-        uint id_phanbonthuocbaove;
+contract NhatKyDongRuong {
+    //--------data-------//
+    struct NhatKyDongRuong_Struct {
+        uint id_XaVien;
+        uint id_NhatKyDongRuong;
+        uint id_ThuaDat;
     }
 
-    mapping(address => NhatKy[]) public DanhSachNhatKy;
+    mapping( uint => NhatKyDongRuong_Struct )
+    public DanhSachNhatKyDongRuong;
 
-    //-----------data---------//
-    event suKienLuuNhatKy(
-        address xavien,
-        uint id_nhatkydongruong,
-        uint id_hoatdongnhatky,
-        uint id_phanbonthuocbaove
+    uint maxLength = 0;
+
+    //-------event-------//
+    event SuKienThemNhatKyDongRuong(
+        uint id_XaVien,
+        uint id_NhatKyDongRuong,
+        uint id_ThuaDat
     );
 
-    //----modifier function---//
-    modifier kiemTraXacNhan(bool xacnhan) {
-        require(
-            xacnhan == true, 
-            "Giao dich chua duoc xac nhan."
-        );
+    //------modifier-----//
+    modifier KiemTraIdNhatKyDongRuong( uint id_NhatKyDongRuong ) {
+        uint index = 0;
+        bool checkIdNhatKyDongRuong = true;
 
+        for ( index; index < maxLength; index ++ ) {
+            if ( DanhSachNhatKyDongRuong[ index ].id_NhatKyDongRuong 
+                 == id_NhatKyDongRuong 
+            ) {
+                checkIdNhatKyDongRuong = false;
+            }
+        }
+
+        require(
+            checkIdNhatKyDongRuong,
+            "Id nhat ky dong ruong phai la duy nhat"
+        );
+        
         _;
     }
 
-    //----------handle--------//
-    function themHThongTinMuaVu( 
-        uint id_nhatkydongruong,
-        uint id_hoatdongnhatky,
-        uint id_phanbonthuocbaove,
-        bool xacnhan
-    ) public
-     kiemTraXacNhan(xacnhan)
-     returns(bool) {
-        NhatKy memory nhatky;
-        nhatky = NhatKy(
-            msg.sender,
-            id_nhatkydongruong,
-            id_hoatdongnhatky,
-            id_phanbonthuocbaove
+    //-------handle------//
+    function ThemNhatKyDongRuong (
+        uint id_XaVien,
+        uint id_NhatKyDongRuong,
+        uint id_ThuaDat
+    )
+    public
+    KiemTraIdNhatKyDongRuong( id_NhatKyDongRuong )
+    returns ( bool ) {
+        NhatKyDongRuong_Struct memory NhatKyDongRuongMemory;
+        NhatKyDongRuongMemory = NhatKyDongRuong_Struct(
+            id_XaVien,
+            id_NhatKyDongRuong,
+            id_ThuaDat
         );
 
-        DanhSachNhatKy[msg.sender].push(nhatky);
+        DanhSachNhatKyDongRuong[maxLength] = NhatKyDongRuongMemory;
+        maxLength = maxLength + 1;
 
-        emit suKienLuuNhatKy(
-            msg.sender,
-            id_nhatkydongruong,
-            id_hoatdongnhatky,
-            id_phanbonthuocbaove
+        emit SuKienThemNhatKyDongRuong(
+            id_XaVien,
+            id_NhatKyDongRuong,
+            id_ThuaDat
         );
 
         return true;
