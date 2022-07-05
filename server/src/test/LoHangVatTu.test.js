@@ -11,7 +11,8 @@ const init = async () => {
     await contract.methods.ThemLohangVatTu(
         1,
         2,
-        0
+        1,
+        0,
     ).send({ 
         from: '0x34De684Cb7561eb63b6B53E390d8C11447bD9Ac4' 
         ,gas: 3000000

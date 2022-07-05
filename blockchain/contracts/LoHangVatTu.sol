@@ -5,6 +5,7 @@ contract LoHangVatTu {
     //--------data-------//
     struct LoHangVatTu_Struct {
         uint id_LoHangVatTu;
+        uint id_Muavu;
         uint id_VatTu;
         uint SoLuong;
     }
@@ -17,6 +18,7 @@ contract LoHangVatTu {
     //-------event-------//
     event SuKienThemLoHangVatTu (
         uint id_LoHangVatTu,
+        uint id_Muavu,
         uint id_VatTu,
         uint SoLuong
     );
@@ -51,6 +53,7 @@ contract LoHangVatTu {
     //-------handle------//
     function ThemLohangVatTu (
         uint id_LoHangVatTu,
+        uint id_Muavu,
         uint id_VatTu,
         uint SoLuong
     ) 
@@ -62,6 +65,7 @@ contract LoHangVatTu {
         LoHangVatTu_Struct memory LoHangVatTuMemory;
         LoHangVatTuMemory = LoHangVatTu_Struct (
             id_LoHangVatTu,
+            id_Muavu,
             id_VatTu,
             SoLuong
         );
@@ -71,6 +75,7 @@ contract LoHangVatTu {
 
         emit SuKienThemLoHangVatTu (
             id_LoHangVatTu,
+            id_Muavu,
             id_VatTu,
             SoLuong
         );

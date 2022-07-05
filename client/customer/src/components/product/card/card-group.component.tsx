@@ -1,6 +1,7 @@
 import React from 'react'
 import CardComponent from '../../common/card/card.component'
 import './card-group.component.scss'
+import { Skeleton } from '@mui/material'
 
 function CardGroupComponent(): JSX.Element {
 
