@@ -4,10 +4,11 @@ pragma solidity >=0.5.16 <0.9.0;
 contract GiaoDichMuaBanVatTu {
     //--------data-------//
     struct GiaoDichMuaBanVatTu_Struct {
-        uint id_XaVien;
-        uint id_NhaCungCap;  
-        uint id_LoHangVatTu;
-        uint id_GiaoDich;
+        uint    id_XaVien;
+        uint    id_NhaCungCap;  
+        uint    id_LoHangVatTu;
+        uint    id_GiaoDich;
+        string  ThoiGian;
     }
 
     mapping ( uint => GiaoDichMuaBanVatTu_Struct ) 
@@ -17,10 +18,11 @@ contract GiaoDichMuaBanVatTu {
 
     //-------event-------//
     event SuKienGiaoDich (
-        uint id_XaVien,
-        uint id_NhaCungCap,
-        uint id_LoHangVatTu,
-        uint id_GiaoDich
+        uint    id_XaVien,
+        uint    id_NhaCungCap,
+        uint    id_LoHangVatTu,
+        uint    id_GiaoDich,
+        string  ThoiGian
     );
 
     //------modifier-----//
@@ -87,17 +89,18 @@ contract GiaoDichMuaBanVatTu {
         uint id_NhaCungCap,
         uint id_LoHangVatTu,
         uint id_GiaoDich,
-        bool XacNhanChung
+        string memory ThoiGian
+        //bool XacNhanChung
     ) 
     public
     KiemTraIdCacBenLienQuan( id_XaVien, id_NhaCungCap )
     KiemTraLoHangVatTu( id_LoHangVatTu, id_GiaoDich )
     returns (bool) 
     {
-        require (
-            XacNhanChung, 
-            "Giao dich chua duoc dong thuan"
-        );
+        // require (
+        //     XacNhanChung, 
+        //     "Giao dich chua duoc dong thuan"
+        // );
 
         GiaoDichMuaBanVatTu_Struct memory GiaoDichMuaBanVatTuMemory;
 
@@ -105,7 +108,8 @@ contract GiaoDichMuaBanVatTu {
             id_XaVien,
             id_NhaCungCap,
             id_LoHangVatTu,
-            id_GiaoDich
+            id_GiaoDich,
+            ThoiGian
         );
 
         DanhSachGiaoDich[maxLength] = GiaoDichMuaBanVatTuMemory;
@@ -115,7 +119,8 @@ contract GiaoDichMuaBanVatTu {
             id_XaVien,
             id_NhaCungCap,
             id_LoHangVatTu,
-            id_GiaoDich
+            id_GiaoDich,
+            ThoiGian
         );
 
         return true;

@@ -4,9 +4,10 @@ pragma solidity >=0.5.16 <0.9.0;
 contract NhatKyDongRuong {
     //--------data-------//
     struct NhatKyDongRuong_Struct {
-        uint id_XaVien;
-        uint id_NhatKyDongRuong;
-        uint id_ThuaDat;
+        uint    id_XaVien;
+        uint    id_NhatKyDongRuong;
+        uint    id_ThuaDat;
+        string  ThoiGian;
     }
 
     mapping( uint => NhatKyDongRuong_Struct )
@@ -16,9 +17,10 @@ contract NhatKyDongRuong {
 
     //-------event-------//
     event SuKienThemNhatKyDongRuong(
-        uint id_XaVien,
-        uint id_NhatKyDongRuong,
-        uint id_ThuaDat
+        uint    id_XaVien,
+        uint    id_NhatKyDongRuong,
+        uint    id_ThuaDat,
+        string  ThoiGian
     );
 
     //------modifier-----//
@@ -44,9 +46,10 @@ contract NhatKyDongRuong {
 
     //-------handle------//
     function ThemNhatKyDongRuong (
-        uint id_XaVien,
-        uint id_NhatKyDongRuong,
-        uint id_ThuaDat
+        uint            id_XaVien,
+        uint            id_NhatKyDongRuong,
+        uint            id_ThuaDat,
+        string memory   ThoiGian
     )
     public
     KiemTraIdNhatKyDongRuong( id_NhatKyDongRuong )
@@ -55,7 +58,8 @@ contract NhatKyDongRuong {
         NhatKyDongRuongMemory = NhatKyDongRuong_Struct(
             id_XaVien,
             id_NhatKyDongRuong,
-            id_ThuaDat
+            id_ThuaDat,
+            ThoiGian
         );
 
         DanhSachNhatKyDongRuong[maxLength] = NhatKyDongRuongMemory;
@@ -64,7 +68,8 @@ contract NhatKyDongRuong {
         emit SuKienThemNhatKyDongRuong(
             id_XaVien,
             id_NhatKyDongRuong,
-            id_ThuaDat
+            id_ThuaDat,
+            ThoiGian
         );
 
         return true;

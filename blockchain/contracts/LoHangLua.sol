@@ -4,11 +4,12 @@ pragma solidity >=0.5.16 <0.9.0;
 contract LoHangLua {
     //--------data-------//
     struct LoHangLua_Struct {
-        uint id_XaVien;
-        uint id_LoHangLua;
-        uint id_GiongLua;
-        uint id_NhatKyDongRuong;
-        uint SoLuong;
+        uint    id_XaVien;
+        uint    id_LoHangLua;
+        uint    id_GiongLua;
+        uint    id_NhatKyDongRuong;
+        uint    SoLuong;
+        string  ThoiGian;
     }
 
     mapping ( uint => LoHangLua_Struct )
@@ -18,11 +19,12 @@ contract LoHangLua {
 
     //-------event-------//
     event SuKienThemLoHang (
-        uint id_XaVien,
-        uint id_LoHangLua,
-        uint id_GiongLua,
-        uint id_NhatKyDongRuong,
-        uint SoLuong
+        uint    id_XaVien,
+        uint    id_LoHangLua,
+        uint    id_GiongLua,
+        uint    id_NhatKyDongRuong,
+        uint    SoLuong,
+        string  ThoiGian
     );
 
     //------modifier-----//
@@ -76,11 +78,12 @@ contract LoHangLua {
 
     //-------handle------//
     function ThemLoHangLua (
-        uint id_XaVien,
-        uint id_LoHangLua,
-        uint id_GiongLua,
-        uint id_NhatKyDongRuong,
-        uint SoLuong
+        uint            id_XaVien,
+        uint            id_LoHangLua,
+        uint            id_GiongLua,
+        uint            id_NhatKyDongRuong,
+        uint            SoLuong,
+        string memory   ThoiGian
     )
     public 
     KiemTraLoHangLua(
@@ -97,7 +100,8 @@ contract LoHangLua {
             id_LoHangLua,
             id_GiongLua,
             id_NhatKyDongRuong,
-            SoLuong
+            SoLuong,
+            ThoiGian
         );
 
         DanhSachLoHangLua[maxLength] = LoHangLuaMemory;
@@ -108,7 +112,8 @@ contract LoHangLua {
             id_LoHangLua,
             id_GiongLua,
             id_NhatKyDongRuong,
-            SoLuong
+            SoLuong,
+            ThoiGian
         );
 
         return true;
