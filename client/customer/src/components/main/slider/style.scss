@@ -23,15 +23,15 @@
     }
 
     .text-slider {
-      width: 40rem;
-      height: 30rem;
+      width: 80%;
+      height: 100%;
       position: absolute;
-      top: 6rem;
-      left: 10rem;
+      top: 10%;
+      left: 10%;
       z-index: 1;
 
       .logan {
-        width: 100%;
+        width: 50%;
 
         p {
           width: 100%;
@@ -51,7 +51,7 @@
       }
 
       .sub-logan {
-        width: 100%;
+        max-width: 70%;
         font-size: 1.75rem;
         margin-top: 1rem;
         color: #ffffff;
