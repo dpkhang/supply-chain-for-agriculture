@@ -8,6 +8,7 @@ contract GiaoDichMuaBanLua {
         uint id_ThuongLai;  
         uint id_LoHangLua;
         uint id_GiaoDich;
+        string ThoiGian;
     }
 
     mapping ( uint => GiaoDichMuaBanLua_Struct ) 
@@ -20,7 +21,8 @@ contract GiaoDichMuaBanLua {
         uint id_GiaoDich,
         uint id_LoHangLua,
         uint id_XaVien,
-        uint id_ThuongLai
+        uint id_ThuongLai,
+        string ThoiGian
     );
 
     //------modifier-----//
@@ -77,7 +79,8 @@ contract GiaoDichMuaBanLua {
         uint id_XaVien,
         uint id_ThuongLai,
         uint id_LoHangLua,
-        uint id_GiaoDich
+        uint id_GiaoDich,
+        string memory ThoiGian
     ) 
     public
     KiemTraIdCacBenLienQuan(id_XaVien, id_ThuongLai)
@@ -90,7 +93,8 @@ contract GiaoDichMuaBanLua {
             id_XaVien,
             id_ThuongLai,
             id_LoHangLua,
-            id_GiaoDich
+            id_GiaoDich,
+            ThoiGian
         );
 
         DanhSachGiaoDich[maxLength] = GiaoDichMuaBanLuaMemory;
@@ -100,7 +104,8 @@ contract GiaoDichMuaBanLua {
             id_LoHangLua,
             id_XaVien,
             id_ThuongLai,
-            id_GiaoDich
+            id_GiaoDich,
+            ThoiGian
         );
 
         return true;

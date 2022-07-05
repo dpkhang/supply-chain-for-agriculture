@@ -7,6 +7,7 @@ contract HoatDongNhatKy {
         uint id_NhatKyDongRuong;
         uint id_XaVien;
         uint id_HoatDongNhatKy;
+        string ThoiGian;
     }
 
     mapping( uint => HoatDongNhatKy_Struct )
@@ -18,7 +19,8 @@ contract HoatDongNhatKy {
     event SuKienThemHoatDongNhatKy(
         uint id_NhatKyDongRuong,
         uint id_XaVien,
-        uint id_HoatDongNhatKy
+        uint id_HoatDongNhatKy,
+        string ThoiGian
     );
 
     //------modifier-----//
@@ -69,7 +71,8 @@ contract HoatDongNhatKy {
     function ThemHoatDongNhatKy (
         uint id_NhatKyDongRuong,
         uint id_XaVien,
-        uint id_HoatDongNhatKy
+        uint id_HoatDongNhatKy,
+        string memory ThoiGian
     )
     public
     KiemTraHoatDongNhatKy( 
@@ -81,7 +84,8 @@ contract HoatDongNhatKy {
         HoatDongNhatKyMemory = HoatDongNhatKy_Struct(
             id_NhatKyDongRuong,
             id_XaVien,
-            id_HoatDongNhatKy
+            id_HoatDongNhatKy,
+            ThoiGian
         );
 
         DanhSachHoatDongNhatKy[maxLength] = HoatDongNhatKyMemory;
@@ -90,7 +94,8 @@ contract HoatDongNhatKy {
         emit SuKienThemHoatDongNhatKy(
             id_NhatKyDongRuong,
             id_XaVien,
-            id_HoatDongNhatKy
+            id_HoatDongNhatKy,
+            ThoiGian
         );
 
         return true;
