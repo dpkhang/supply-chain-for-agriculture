@@ -7,7 +7,7 @@ contract HoatDongNhatKy {
         uint id_NhatKyDongRuong;
         uint id_XaVien;
         uint id_HoatDongNhatKy;
-        string ThoiGian;
+        string ThongTinKhac;
     }
 
     mapping( uint => HoatDongNhatKy_Struct )
@@ -20,8 +20,13 @@ contract HoatDongNhatKy {
         uint id_NhatKyDongRuong,
         uint id_XaVien,
         uint id_HoatDongNhatKy,
-        string ThoiGian
+        string ThongTinKhac
     );
+    /* 
+        ThongTinKhac {
+            ThoiGian
+        }
+    */
 
     //------modifier-----//
     modifier KiemTraHoatDongNhatKy( 
@@ -72,7 +77,7 @@ contract HoatDongNhatKy {
         uint id_NhatKyDongRuong,
         uint id_XaVien,
         uint id_HoatDongNhatKy,
-        string memory ThoiGian
+        string memory ThongTinKhac
     )
     public
     KiemTraHoatDongNhatKy( 
@@ -85,7 +90,7 @@ contract HoatDongNhatKy {
             id_NhatKyDongRuong,
             id_XaVien,
             id_HoatDongNhatKy,
-            ThoiGian
+            ThongTinKhac
         );
 
         DanhSachHoatDongNhatKy[maxLength] = HoatDongNhatKyMemory;
@@ -95,7 +100,7 @@ contract HoatDongNhatKy {
             id_NhatKyDongRuong,
             id_XaVien,
             id_HoatDongNhatKy,
-            ThoiGian
+            ThongTinKhac
         );
 
         return true;

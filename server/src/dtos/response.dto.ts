@@ -1,6 +1,6 @@
 interface ResponseDTO {
     message: string 
-    data?: any
+    results?: any
 }
 
 export {
