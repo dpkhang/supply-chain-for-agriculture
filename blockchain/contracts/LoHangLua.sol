@@ -9,8 +9,14 @@ contract LoHangLua {
         uint    id_GiongLua;
         uint    id_NhatKyDongRuong;
         uint    SoLuong;
-        string  ThoiGian;
+        string  ThongTinKhac;
     }
+    /*
+        ThongTinKhac {
+            ThongTinKhac,
+            TenGiongLua
+        }
+    */
 
     mapping ( uint => LoHangLua_Struct )
     public DanhSachLoHangLua;
@@ -24,7 +30,7 @@ contract LoHangLua {
         uint    id_GiongLua,
         uint    id_NhatKyDongRuong,
         uint    SoLuong,
-        string  ThoiGian
+        string  ThongTinKhac
     );
 
     //------modifier-----//
@@ -83,7 +89,7 @@ contract LoHangLua {
         uint            id_GiongLua,
         uint            id_NhatKyDongRuong,
         uint            SoLuong,
-        string memory   ThoiGian
+        string memory   ThongTinKhac
     )
     public 
     KiemTraLoHangLua(
@@ -101,7 +107,7 @@ contract LoHangLua {
             id_GiongLua,
             id_NhatKyDongRuong,
             SoLuong,
-            ThoiGian
+            ThongTinKhac
         );
 
         DanhSachLoHangLua[maxLength] = LoHangLuaMemory;
@@ -113,7 +119,7 @@ contract LoHangLua {
             id_GiongLua,
             id_NhatKyDongRuong,
             SoLuong,
-            ThoiGian
+            ThongTinKhac
         );
 
         return true;

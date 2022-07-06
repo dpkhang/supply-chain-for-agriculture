@@ -8,8 +8,14 @@ contract GiaoDichMuaBanVatTu {
         uint    id_NhaCungCap;  
         uint    id_LoHangVatTu;
         uint    id_GiaoDich;
-        string  ThoiGian;
+        string  ThongTinKhac;
     }
+    /*
+        ThongTinKhac {
+            ThongTinKhac
+            GiaLoHang
+        }
+    */
 
     mapping ( uint => GiaoDichMuaBanVatTu_Struct ) 
     public DanhSachGiaoDich;
@@ -22,7 +28,7 @@ contract GiaoDichMuaBanVatTu {
         uint    id_NhaCungCap,
         uint    id_LoHangVatTu,
         uint    id_GiaoDich,
-        string  ThoiGian
+        string  ThongTinKhac
     );
 
     //------modifier-----//
@@ -33,15 +39,6 @@ contract GiaoDichMuaBanVatTu {
         require( 
             id_XaVien != id_NhaCungCap,
             "ID xa vien phai khac ID thuong lai"
-        );
-
-        _;
-    }
-
-    modifier KiemTraXacNhan( bool XacNhanChung ) {
-        require (
-            XacNhanChung, 
-            "Giao dich chua duoc dong thuan"
         );
 
         _;
@@ -89,18 +86,13 @@ contract GiaoDichMuaBanVatTu {
         uint id_NhaCungCap,
         uint id_LoHangVatTu,
         uint id_GiaoDich,
-        string memory ThoiGian
-        //bool XacNhanChung
+        string memory ThongTinKhac
     ) 
     public
     KiemTraIdCacBenLienQuan( id_XaVien, id_NhaCungCap )
     KiemTraLoHangVatTu( id_LoHangVatTu, id_GiaoDich )
     returns (bool) 
     {
-        // require (
-        //     XacNhanChung, 
-        //     "Giao dich chua duoc dong thuan"
-        // );
 
         GiaoDichMuaBanVatTu_Struct memory GiaoDichMuaBanVatTuMemory;
 
@@ -109,7 +101,7 @@ contract GiaoDichMuaBanVatTu {
             id_NhaCungCap,
             id_LoHangVatTu,
             id_GiaoDich,
-            ThoiGian
+            ThongTinKhac
         );
 
         DanhSachGiaoDich[maxLength] = GiaoDichMuaBanVatTuMemory;
@@ -120,7 +112,7 @@ contract GiaoDichMuaBanVatTu {
             id_NhaCungCap,
             id_LoHangVatTu,
             id_GiaoDich,
-            ThoiGian
+            ThongTinKhac
         );
 
         return true;

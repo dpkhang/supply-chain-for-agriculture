@@ -1,9 +1,10 @@
-const GiaoDichMuaBanLua = artifacts.require("GiaoDichMuaBanLua");
-const LoHangLua = artifacts.require("LoHangLua");
-const NhatKyDongRuong = artifacts.require("NhatKyDongRuong");
-const HoatDongNhatKy = artifacts.require("HoatDongNhatKy");
-const GiaoDichMuaBanVatTu = artifacts.require("GiaoDichMuaBanVatTu");
-const LoHangVatTu = artifacts.require("LoHangVatTu");
+const GiaoDichMuaBanLua       = artifacts.require("GiaoDichMuaBanLua");
+const LoHangLua               = artifacts.require("LoHangLua");
+const NhatKyDongRuong         = artifacts.require("NhatKyDongRuong");
+const HoatDongNhatKy          = artifacts.require("HoatDongNhatKy");
+const GiaoDichMuaBanVatTu     = artifacts.require("GiaoDichMuaBanVatTu");
+const LoHangVatTu             = artifacts.require("LoHangVatTu");
+const VatTuSuDung             = artifacts.require("VatTuSuDung");
 
 module.exports = function( deployer ) {
 
@@ -18,5 +19,7 @@ module.exports = function( deployer ) {
   deployer.deploy( GiaoDichMuaBanVatTu );
 
   deployer.deploy( LoHangVatTu );
+
+  deployer.deploy( VatTuSuDung );
 
 };

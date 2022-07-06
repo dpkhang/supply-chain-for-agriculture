@@ -4,11 +4,18 @@ pragma solidity >=0.5.16 <0.9.0;
 contract LoHangVatTu {
     //--------data-------//
     struct LoHangVatTu_Struct {
-        uint id_LoHangVatTu;
-        uint id_Muavu;
-        uint id_VatTu;
-        uint SoLuong;
+        uint    id_LoHangVatTu;
+        uint    id_Muavu;
+        uint    id_VatTu;
+        uint    SoLuong;
+        string  ThongTinKhac;
     }
+    /*
+        ThongTinKhac {
+            ThongTinKhac,
+            TenGiongLua
+        }
+    */
 
     mapping( uint => LoHangVatTu_Struct )
     public DanhSachLoHangVatTu;
@@ -17,10 +24,11 @@ contract LoHangVatTu {
 
     //-------event-------//
     event SuKienThemLoHangVatTu (
-        uint id_LoHangVatTu,
-        uint id_Muavu,
-        uint id_VatTu,
-        uint SoLuong
+        uint    id_LoHangVatTu,
+        uint    id_Muavu,
+        uint    id_VatTu,
+        uint    SoLuong,
+        string  ThongTinKhac
     );
 
     //------modifier-----//
@@ -52,10 +60,11 @@ contract LoHangVatTu {
 
     //-------handle------//
     function ThemLohangVatTu (
-        uint id_LoHangVatTu,
-        uint id_Muavu,
-        uint id_VatTu,
-        uint SoLuong
+        uint            id_LoHangVatTu,
+        uint            id_Muavu,
+        uint            id_VatTu,
+        uint            SoLuong,
+        string memory   ThongTinKhac
     ) 
     public
     KiemTraIdLoHangVatTu(id_LoHangVatTu)
@@ -67,7 +76,8 @@ contract LoHangVatTu {
             id_LoHangVatTu,
             id_Muavu,
             id_VatTu,
-            SoLuong
+            SoLuong,
+            ThongTinKhac
         );
 
         DanhSachLoHangVatTu[ maxLength ] = LoHangVatTuMemory;
@@ -77,7 +87,8 @@ contract LoHangVatTu {
             id_LoHangVatTu,
             id_Muavu,
             id_VatTu,
-            SoLuong
+            SoLuong,
+            ThongTinKhac
         );
 
         return true;

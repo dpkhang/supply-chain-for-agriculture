@@ -4,16 +4,19 @@ const Coin = require('../abis/HoatDongNhatKy.json');
 const init = async () => {
     //truyen dia chi blockchain
     const web3 = new Web3('http://127.0.0.1:8545/');
-    const contract = await new web3.eth.Contract(Coin.abi, '0x7aBbc405928d07B429B923467a5A0424c2fd4c7C');
+    const contract = await new web3.eth.Contract(Coin.abi, '0x651dD7575299Fa0aA6A37EBBE35bd7Fa6bD6E25A');
     //const name = await contract.methods.name().call();
     //const symbol = await contract.methods.symbol().call();
     //const decimal = await contract.methods.decimals().call();
     await contract.methods.ThemHoatDongNhatKy(
         1,
         2,
-        4
+        4,
+        `{
+            "ThoiGian": "27072022"
+        }`
     ).send({ 
-        from: '0x9d3be3E7Dc078D63014Fb04fFf86f93B9c2a4cDe' 
+        from: '0xc167cADAEEFe2C3a00037394b8Da1Ff57E0e2632' 
         ,gas: 3000000
     }); //4
     const giaoDich = await contract.methods.DanhSachHoatDongNhatKy(0).call();
