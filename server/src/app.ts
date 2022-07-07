@@ -22,7 +22,7 @@ try {
     createRouter(app)
 
     //--------connect database---------//
-    createConnection(DB_host, DB_port, DB_database, DB_user, DB_password)
+    //createConnection(DB_host, DB_port, DB_database, DB_user, DB_password)
 
     app.listen(port, () => {
         console.log('listening on port: ' + port)

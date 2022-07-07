@@ -1,12 +1,12 @@
 import { BaseService } from "./base/base.service"; 
-import { HoatdongnhatkyRepository } from "../repositories/hoatdongnhatky.repository"; 
+import { HoatDongNhatKyContract } from "../contracts/HoatDongNhatKy.contract";
 
 export class HoatdongnhatkyService extends BaseService {
-    _hoatdongnhatkyService
+    _HoatDongNhatKyContract
 
     constructor() {
-        const hoatdongnhatkyService = new HoatdongnhatkyRepository()
+        const hoatdongnhatkyService = new HoatDongNhatKyContract()
         super(hoatdongnhatkyService)
-        this._hoatdongnhatkyService = hoatdongnhatkyService
+        this._HoatDongNhatKyContract = hoatdongnhatkyService
     }
 }
