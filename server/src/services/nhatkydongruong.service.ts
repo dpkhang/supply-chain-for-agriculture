@@ -1,17 +1,12 @@
 import { BaseService } from "./base/base.service"; 
-import { NhatkydongruongRepository } from "../repositories/nhatkydongruong.repository";
-import { HoatdongnhatkyRepository } from "../repositories/hoatdongnhatky.repository";
+import { NhatKyDongRuongContract } from "../contracts/NhatKyDongRuong.contract";
 
 export class NhatkydongruongService extends BaseService {
-    _nhatkydongruongService
+    _NhatKyDongRuongContract
 
     constructor() {
-        const nhatkydongruongService = new NhatkydongruongRepository()
+        const nhatkydongruongService = new NhatKyDongRuongContract()
         super(nhatkydongruongService)
-        this._nhatkydongruongService = nhatkydongruongService
-    }
-
-    findAllData = () => {
-        return this._repos.findAllData()
+        this._NhatKyDongRuongContract = nhatkydongruongService
     }
 }

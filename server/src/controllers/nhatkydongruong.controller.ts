@@ -10,14 +10,7 @@ export class NhatkydongruongController {
 
     getAll = async (req: Request, res: Response):Promise<Response> => {
         try {
-
-            const list_nhatkydongruong = await this._nhatkydongruongService.findAllData();
-            const response: ResponseDTO = {
-                message: '',
-                data: list_nhatkydongruong
-            }
-
-            return res.status(200).json(response)
+            return res.status(200).json({msg: "success"})
         }catch(err) {
             const response: ResponseDTO = {
                 message: 'Server Error'

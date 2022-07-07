@@ -1,12 +1,13 @@
 import { BaseService } from "./base/base.service"; 
-import { Giaodichmuaban_luaRepository } from "../repositories/giaodichmuaban_lua.repository"; 
+import { GiaoDichMuaBanLuaContract } from "../contracts/GiaoDichMuaBanLua.contract";
 
-export class Giaodichmuaban_luaService extends BaseService {
-    _giaodichmuaban_luaService
+export class GiaiDichMuaBanLua_Service extends BaseService {
+    //_giaodichmuaban_luaService
+    private _GiaoDichMuaBanLuaContract: GiaoDichMuaBanLuaContract
 
     constructor() {
-        const giaodichmuaban_lua = new Giaodichmuaban_luaRepository()
-        super(giaodichmuaban_lua)
-        this._giaodichmuaban_luaService = giaodichmuaban_lua
+       const giaoDichMuaBanLuaContract = new GiaoDichMuaBanLuaContract()
+       super(giaoDichMuaBanLuaContract)
+       this._GiaoDichMuaBanLuaContract = giaoDichMuaBanLuaContract
     }
 }
