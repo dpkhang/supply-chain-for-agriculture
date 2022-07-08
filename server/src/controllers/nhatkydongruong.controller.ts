@@ -8,14 +8,14 @@ export class NhatkydongruongController {
         this._nhatkydongruongService = new NhatkydongruongService()
     }
 
-    getAll = async (req: Request, res: Response):Promise<Response> => {
+    getContracts = async (req: Request, res: Response):Promise<Response> => {
+        const responseDTO = new ResponseDTO()
         try {
-            return res.status(200).json({msg: "success"})
+            return res.status(200).json('')
         }catch(err) {
-            const response: ResponseDTO = {
-                message: 'Server Error'
-            }
-            return res.status(500).json(response)
+            responseDTO.message = "Loi may chu"
+            responseDTO.status = 500
+            return res.status(500).json(responseDTO)
         }
     }
 }

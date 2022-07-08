@@ -4,7 +4,7 @@ const Coin = require('../abis/LoHangLua.json');
 const init = async () => {
     //truyen dia chi blockchain
     const web3 = new Web3('http://127.0.0.1:8545/');
-    const contract = await new web3.eth.Contract(Coin.abi, '0x53bA127C1C57558AEe1ffe12A1f1CBe39B78f65D');
+    const contract = await new web3.eth.Contract(Coin.abi, '0x263a1d080A8Ca28FeD889521d60aDFA5Ddaf10b2');
     //const name = await contract.methods.name().call();
     //const symbol = await contract.methods.symbol().call();
     //const decimal = await contract.methods.decimals().call();
@@ -19,7 +19,7 @@ const init = async () => {
             "TenGiongLua": "Nang Thom"
         }`
     ).send({ 
-        from: '0xc167cADAEEFe2C3a00037394b8Da1Ff57E0e2632' 
+        from: '0x4d827e7aa6d2B88d5a068c99D9B39461e7F4CA84' 
         ,gas: 3000000
     }); //4
     const giaoDich = await contract.methods.DanhSachLoHangLua(0).call();

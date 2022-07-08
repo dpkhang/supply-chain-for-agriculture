@@ -1,9 +1,7 @@
-interface ResponseDTO {
-    message: string 
+export class ResponseDTO {
+    status = 400
+    message = '' 
     results?: any
 }
 
-export {
-    ResponseDTO
-}
 

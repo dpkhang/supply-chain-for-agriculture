@@ -1,4 +1,4 @@
-import { xavienCreateDto } from '../dtos/xavien.dto';
+import { xavienCreateDto } from '../dtos/request/xavien.dto';
 import { tbl_xavien } from './../entities/xavien.entity';
 import { BaseRepository } from "./base/base.repository";
 
