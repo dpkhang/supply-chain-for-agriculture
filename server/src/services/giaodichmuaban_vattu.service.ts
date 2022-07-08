@@ -2,7 +2,7 @@ import { BaseService }                      from "./base/base.service";
 import { GiaoDichMuaBanVatTuContract }      from "../contracts/GiaoDichMuaBanVatTu.contract";
 
 export class GiaoDichMuaBanVatTu_Service extends BaseService {
-    _GiaoDichMuaBanVatTuContract:GiaoDichMuaBanVatTuContract
+    private _GiaoDichMuaBanVatTuContract 
 
     constructor() {
         const giaoDichMuaBanVatTuContract = new GiaoDichMuaBanVatTuContract()

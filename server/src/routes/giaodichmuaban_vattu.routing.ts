@@ -4,6 +4,6 @@ const route = express.Router()
 
 const giaodichmuaban_vattuController = new Giaodichmuaban_vattuController
 
-route.get('/', giaodichmuaban_vattuController.getAll)
+route.get('/', giaodichmuaban_vattuController.getContracts)
 
 export default route

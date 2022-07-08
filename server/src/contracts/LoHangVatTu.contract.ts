@@ -1,20 +1,32 @@
+import { BaseContract } from './base/base.contract';
 import Web3                         from "web3"
 import LoHangVatTuABI               from "../abis/LoHangVatTu.json"
-
 const ADDRESS_LohangVatTu           = process.env.ADDRESS_LohangVatTu       || ""
-const ACCOUNT_1                     = process.env.ACCOUNT_1                 || ""
-const URL_BlockChain_NetWork        = process.env.URL_BlockChain_NetWork    || ""
 
-export class LoHangVatTuContract {
-    web3: Web3
-    contract: any
+export interface LoVatTu {
+    id_LoHangVatTu:   number
+    id_MuaVu:         number
+    id_VatTu:         number
+    tenVatTu:         string
+    thoigianLoHang:   string
+    soluong:          number
+}
+
+export class LoHangVatTuContract extends BaseContract{
 
     constructor() {
-        this.web3 = new Web3( URL_BlockChain_NetWork );
+        super(LoHangVatTuABI, ADDRESS_LohangVatTu)
+    }
 
-        this.contract = new this.web3.eth.Contract(
-            ( LoHangVatTuABI as any ).abi, 
-            ADDRESS_LohangVatTu
-        );
+    addContract = async (data: LoVatTu, sender: string) => {
+        await this.methods.ThemGiaoDich(data)
+                             ?.send({
+                                from: sender,
+                                gas: 3000000
+                             })
+    }
+    
+    getContractById = async (id_contract: number) => {
+        return await this.methods.DanhSachGiaoDich(id_contract).call()
     }
 }

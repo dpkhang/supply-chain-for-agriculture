@@ -1,20 +1,29 @@
-import Web3                         from "web3"
-import NhatKyDongRuong              from "../abis/NhatKyDongRuong.json"
+import { BaseContract } from './base/base.contract'
+import NhatKyDongRuongABI from "../abis/NhatKyDongRuong.json"
+const ADDRESS_NhatKyDongRuong = process.env.ADDRESS_NhatKyDongRuong || ""
 
-const ADDRESS_NhatKyDongRuong       = process.env.ADDRESS_NhatKyDongRuong   || ""
-const ACCOUNT_1                     = process.env.ACCOUNT_1                 || ""
-const URL_BlockChain_NetWork        = process.env.URL_BlockChain_NetWork    || ""
+export interface NhatKyDongRuong {
+    id_XaVien:          number;
+    id_NhatKyDongRuong: number;
+    id_LichMuaVu:       number;
+    id_ThuaDat:         number;
+    thoigian:           string;
+}
 
-export class NhatKyDongRuongContract {
-    web3: Web3
-    contract: any
-
+export class NhatKyDongRuongContract extends BaseContract {
     constructor() {
-        this.web3 = new Web3( URL_BlockChain_NetWork );
+        super(NhatKyDongRuongABI, ADDRESS_NhatKyDongRuong)
+    }
 
-        this.contract = new this.web3.eth.Contract(
-            ( NhatKyDongRuong as any ).abi, 
-            ADDRESS_NhatKyDongRuong
-        );
+    addContract = async (data: NhatKyDongRuong, sender: string) => {
+        await this.methods.ThemNhatKyDongRuong(data)
+            ?.send({
+                from: sender,
+                gas: 300000
+            })
+    }
+
+    getContractById = async (id_contract: number) => {
+        return await this.methods.ThemNhatKyDongRuong(id_contract)?.call()
     }
 }

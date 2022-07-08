@@ -4,6 +4,6 @@ const route = express.Router()
 
 const hoatdongnhatkyController = new HoatdongnhatkyController
 
-route.get('/', hoatdongnhatkyController.getAll)
+route.get('/', hoatdongnhatkyController.getContracts)
 
 export default route

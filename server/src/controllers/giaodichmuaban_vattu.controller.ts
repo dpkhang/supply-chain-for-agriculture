@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { ResponseDTO } from '../dtos/response.dto';
+import { Request, Response }           from 'express';
+import { ResponseDTO }                 from '../dtos/response.dto';
 import { GiaoDichMuaBanVatTu_Service } from '../services/giaodichmuaban_vattu.service';
 export class Giaodichmuaban_vattuController {
     private _GiaoDichMuaBanVatTu_Service
@@ -8,14 +8,14 @@ export class Giaodichmuaban_vattuController {
         this._GiaoDichMuaBanVatTu_Service = new GiaoDichMuaBanVatTu_Service()
     }
 
-    getAll = async (req: Request, res: Response):Promise<Response> => {
+    getContracts = async (req: Request, res: Response):Promise<Response> => {
+        const responseDTO = new ResponseDTO()
         try {
-            return res.status(200).json({msg: "success"})
+            return res.status(200).json('')
         }catch(err) {
-            const response: ResponseDTO = {
-                message: 'Server Error'
-            }
-            return res.status(500).json(response)
+            responseDTO.message = "Loi may chu"
+            responseDTO.status = 500
+            return res.status(500).json(responseDTO)
         }
     }
 }
