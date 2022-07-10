@@ -4,21 +4,16 @@ const Coin = require('../abis/VatTuSuDung.json');
 const init = async () => {
     //truyen dia chi blockchain
     const web3 = new Web3('http://127.0.0.1:8545/');
-    const contract = await new web3.eth.Contract(Coin.abi, '0x63c52A8E6C3e2CA751cB8C9f9f8fC5734Cf7f19E');
+    const contract = await new web3.eth.Contract(Coin.abi, '0x16a1d1B39c26FF32148Ef2e3e7996530cdeB6400');
     //const name = await contract.methods.name().call();
     //const symbol = await contract.methods.symbol().call();
     //const decimal = await contract.methods.decimals().call();
     await contract.methods.ThemVatTuNongNghiep(
-        2,
-        4,
-        3,
-        20000,
-        `{
-            "ThoiGian": "27072022",
-            "TenVatTu": "HCL"
-        }`
+       [1, 2, 1, 1, 1],
+       ['Thong tin khac'],
+       ['0x507e6DDe668eDD74E11155F23E3F388Bd85B8E69']
     ).send({ 
-        from: '0x4d827e7aa6d2B88d5a068c99D9B39461e7F4CA84' 
+        from: '0x718Fc9A5C24b688F7228F57D538fA78DfEF65c62' 
         ,gas: 3000000
     }); //4
     const giaoDich = await contract.methods.DanhSachVatTuSuDung(0).call();
