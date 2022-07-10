@@ -4,114 +4,143 @@ pragma solidity >=0.5.16 <0.9.0;
 contract GiaoDichMuaBanLua {
     //--------data-------//
     struct GiaoDichMuaBanLua_Struct {
-        uint id_XaVien;
-        uint id_ThuongLai;  
-        uint id_LoHangLua;
-        uint id_GiaoDich;
-        string ThongTinKhac;
+        uint    id_XaVien;
+        uint    id_ThuongLai;
+        uint    id_GiaoDich;
+        uint    id_GiongLua;
+        uint    id_NhatKyDongRuong;
+        uint    GiaLoHang;
+        uint    SoLuong;
+        uint    ThoiGianGiaoDich;
+        uint    ThoiGianLoHang;
+        string  TenGiongLua;
     }
-    /*
-        ThongTinKhac {
-            ThoiGian
-            GiaLoHang
-        }
-    */
 
     mapping ( uint => GiaoDichMuaBanLua_Struct ) 
     public DanhSachGiaoDich;
 
-    uint public maxLength = 0;
-
     //-------event-------//
-    event SuKienGiaoDich (
-        uint id_GiaoDich,
-        uint id_LoHangLua,
-        uint id_XaVien,
-        uint id_ThuongLai,
-        string ThongTinKhac
+
+    event SuKienGiaoDich1 (
+        uint    id_XaVien,
+        uint    id_ThuongLai,
+        uint    id_GiaoDich,
+        uint    id_GiongLua,
+        uint    id_NhatKyDongRuong
+    );
+
+    event SuKienGiaoDich2 (
+        uint    id_GiaoDich,
+        uint    GiaLoHang,
+        uint    SoLuong,
+        uint    ThoiGianGiaoDich,
+        uint    ThoiGianLoHang,
+        string  TenGiongLua
     );
 
     //------modifier-----//
-    modifier KiemTraIdCacBenLienQuan (
-        uint id_XaVien,
-        uint id_ThuongLai
+    modifier KiemTraCacBenLienQuan (
+        uint    id_XaVien,
+        uint    id_ThuongLai
     ) {
-        require( 
-            id_XaVien != id_ThuongLai,
-            "ID xa vien phai khac ID thuong lai"
-        );
-
-        _;
-    }
-
-    modifier KiemTraLoHangLua ( uint id_LoHangLua, uint id_GiaoDich ) {
-        uint index            = 0;
-        bool checkIdLoHangLua = true;
-        bool checkIdGiaoDich  = true;
-
-        for ( index; index < maxLength; index ++ ) {
-            if ( DanhSachGiaoDich[ index ].id_GiaoDich == id_GiaoDich ) {
-                checkIdGiaoDich = false;
-            }
-
-            if ( DanhSachGiaoDich[ index ].id_LoHangLua == id_LoHangLua ) {
-                checkIdLoHangLua = false;
-            }
-        }
-
         require(
-            checkIdGiaoDich || checkIdLoHangLua,
-            string.concat(
-                "ID lo giao dich phai la duy nhat ",
-                "ID lo hang lua phai la duy nhat"
-            )
-        );
-
-        require (
-            checkIdGiaoDich,
-            "ID lo giao dich phai la duy nhat"
-        );
-
-        require (
-            checkIdLoHangLua,
-            "ID lo hang lua phai la duy nhat"
+            id_XaVien != id_ThuongLai,
+            'ID thuong lai phai khac ID xa vien'
         );
 
         _;
     }
+
+    modifier KiemTraIdGiaoDich ( uint id_GiaoDich ) {
+        require( 
+            DanhSachGiaoDich[ id_GiaoDich ].id_GiaoDich == 0,
+            "ID giao dich da ton tai"
+        );
+
+        _;
+    }
+
+    modifier KiemTraThoiGian ( uint ThoiGianGiaoDich, uint ThoiGianLoHang ) {
+        require(
+            ThoiGianGiaoDich > ThoiGianLoHang,
+            "Thoi gian giao dich phai sau thoi gian lo hang"
+        );
+
+        _;
+    } 
+
+    modifier KiemTraXacNhan ( bool[] memory boolProperties ) {
+        require(
+            boolProperties[0] && boolProperties[1] && boolProperties[2],
+            "Giao dich chua dong thuan"
+        );
+
+        _;
+    }
+   
 
     //-------handle------//
+    /*
+    intProperties [
+        0: uint id_XaVien;
+        1: uint id_ThuongLai;
+        2: uint id_GiaoDich;
+        3: uint id_GiongLua;
+        4: uint id_NhatKyDongRuong;
+        5: uint GiaLoHang;
+        6: uint SoLuong;
+        7: uint ThoiGianGiaoDich;
+        8: uint ThoiGianLoHang;
+    ]
+
+    stringProperties [
+        0: string  TenGiongLua
+    ]
+    */
     function ThemGiaoDich (
-        uint id_XaVien,
-        uint id_ThuongLai,
-        uint id_LoHangLua,
-        uint id_GiaoDich,
-        string memory ThongTinKhac
-    ) 
+        uint[]      memory intProperties,
+        string[]    memory stringProperties,
+        bool[]      memory boolProperties
+    )
+    KiemTraCacBenLienQuan( intProperties[0], intProperties[1] )
+    KiemTraIdGiaoDich( intProperties[2] )
+    KiemTraThoiGian( intProperties[7], intProperties[8] )
+    KiemTraXacNhan( boolProperties )
     public
-    KiemTraIdCacBenLienQuan(id_XaVien, id_ThuongLai)
-    KiemTraLoHangLua( id_LoHangLua, id_GiaoDich )
     returns (bool) 
     {
         GiaoDichMuaBanLua_Struct memory GiaoDichMuaBanLuaMemory;
 
         GiaoDichMuaBanLuaMemory = GiaoDichMuaBanLua_Struct (
-            id_XaVien,
-            id_ThuongLai,
-            id_LoHangLua,
-            id_GiaoDich,
-            ThongTinKhac
+            intProperties[0],   //gia lo hang
+            intProperties[1],   //id xa vien
+            intProperties[2],   //id giao dich
+            intProperties[3],   //id giong lua
+            intProperties[4],   //id nhat ky dong ruong
+            intProperties[5],   //gia lo hang
+            intProperties[6],   //so luong
+            intProperties[7],   //thoi gian giao dich
+            intProperties[8],   //thoi gian lo hang
+            stringProperties[0] //ten giong lua
         );
 
-        DanhSachGiaoDich[maxLength] = GiaoDichMuaBanLuaMemory;
-        maxLength = maxLength + 1;
+        DanhSachGiaoDich[ intProperties[2] ] = GiaoDichMuaBanLuaMemory;
 
-        emit SuKienGiaoDich(
-            id_LoHangLua,
-            id_XaVien,
-            id_ThuongLai,
-            id_GiaoDich,
-            ThongTinKhac
+        emit SuKienGiaoDich1 (
+            intProperties[0],   //id xa vien
+            intProperties[1],   //id xa vien
+            intProperties[2],   //id giao dich
+            intProperties[3],   //id giong lua
+            intProperties[4]    //id nhat ky dong ruong
+        );
+
+        emit SuKienGiaoDich2 (
+            intProperties[2],   //gia lo hang
+            intProperties[5],   //gia lo hang
+            intProperties[6],   //so luong
+            intProperties[7],   //thoi gian giao dich
+            intProperties[8],   //thoi gian lo hang
+            stringProperties[0] //ten giong lua
         );
 
         return true;
