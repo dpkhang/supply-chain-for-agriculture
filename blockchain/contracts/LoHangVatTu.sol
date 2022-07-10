@@ -8,19 +8,12 @@ contract LoHangVatTu {
         uint    id_Muavu;
         uint    id_VatTu;
         uint    SoLuong;
-        string  ThongTinKhac;
+        uint    ThoiGian;
+        string  TenVatTu;
     }
-    /*
-        ThongTinKhac {
-            ThongTinKhac,
-            TenGiongLua
-        }
-    */
 
     mapping( uint => LoHangVatTu_Struct )
     public DanhSachLoHangVatTu;
-
-    uint public maxLength = 0;
 
     //-------event-------//
     event SuKienThemLoHangVatTu (
@@ -28,24 +21,17 @@ contract LoHangVatTu {
         uint    id_Muavu,
         uint    id_VatTu,
         uint    SoLuong,
-        string  ThongTinKhac
+        uint    ThoiGian,
+        string  TenVatTu
     );
 
     //------modifier-----//
     modifier KiemTraIdLoHangVatTu (  uint id_LoHangVatTu ) {
-        uint index = 0;
-        bool checkIdLoHangVatTu = true;
-
-        for ( index; index < maxLength; index ++ ) {
-            if ( DanhSachLoHangVatTu[ index ].id_LoHangVatTu == id_LoHangVatTu ) {
-                checkIdLoHangVatTu = false;
-            }
-        }
-
         require(
-            checkIdLoHangVatTu,
-            "Id lo hang vat tu la duy nhat"
+            DanhSachLoHangVatTu[ id_LoHangVatTu ].id_LoHangVatTu == 0,
+            "Lo hang vat tu da ton tai"
         );
+
         _;
     }
 
@@ -59,38 +45,57 @@ contract LoHangVatTu {
     }
 
     //-------handle------//
+    /*
+    intProperties [
+        0: uint            id_LoHangVatTu
+        1: uint            id_Muavu,
+        2: uint            id_VatTu,
+        3: uint            SoLuong,
+        4: uint            ThoiGian
+    ]
+
+    stringProperties [
+        0: string memory   TenVatTu
+    ]
+    */
+
     function ThemLohangVatTu (
-        uint            id_LoHangVatTu,
-        uint            id_Muavu,
-        uint            id_VatTu,
-        uint            SoLuong,
-        string memory   ThongTinKhac
+        uint[]   memory intProperties,
+        string[] memory stringProperties
     ) 
     public
-    KiemTraIdLoHangVatTu(id_LoHangVatTu)
-    KiemTraSoLuong( SoLuong )
+    KiemTraIdLoHangVatTu( intProperties[0] )
+    KiemTraSoLuong( intProperties[3] )
     returns ( bool )
     {
         LoHangVatTu_Struct memory LoHangVatTuMemory;
         LoHangVatTuMemory = LoHangVatTu_Struct (
-            id_LoHangVatTu,
-            id_Muavu,
-            id_VatTu,
-            SoLuong,
-            ThongTinKhac
+            intProperties[0],
+            intProperties[1],
+            intProperties[2],
+            intProperties[3],
+            intProperties[4],
+            stringProperties[0]
         );
 
-        DanhSachLoHangVatTu[ maxLength ] = LoHangVatTuMemory;
-        maxLength = maxLength + 1;
+        DanhSachLoHangVatTu[ intProperties[0] ] = LoHangVatTuMemory;
 
         emit SuKienThemLoHangVatTu (
-            id_LoHangVatTu,
-            id_Muavu,
-            id_VatTu,
-            SoLuong,
-            ThongTinKhac
+            intProperties[0],
+            intProperties[1],
+            intProperties[2],
+            intProperties[3],
+            intProperties[4],
+            stringProperties[0]
         );
 
         return true;
+    }
+
+    function LayThongTinVatTu (
+        uint id_LoHangVatTu
+    ) external view
+    returns ( LoHangVatTu_Struct memory ) {
+        return DanhSachLoHangVatTu[ id_LoHangVatTu ];
     }
 }

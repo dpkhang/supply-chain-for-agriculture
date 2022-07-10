@@ -112,8 +112,8 @@ contract GiaoDichMuaBanLua {
         GiaoDichMuaBanLua_Struct memory GiaoDichMuaBanLuaMemory;
 
         GiaoDichMuaBanLuaMemory = GiaoDichMuaBanLua_Struct (
-            intProperties[0],   //gia lo hang
-            intProperties[1],   //id xa vien
+            intProperties[0],   //id xa vien
+            intProperties[1],   //id_ThuongLai
             intProperties[2],   //id giao dich
             intProperties[3],   //id giong lua
             intProperties[4],   //id nhat ky dong ruong

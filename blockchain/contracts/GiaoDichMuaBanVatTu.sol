@@ -1,34 +1,40 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.16 <0.9.0;
 
+import "./LoHangVatTu.sol";
+
 contract GiaoDichMuaBanVatTu {
     //--------data-------//
     struct GiaoDichMuaBanVatTu_Struct {
         uint    id_XaVien;
         uint    id_NhaCungCap;  
-        uint    id_LoHangVatTu;
         uint    id_GiaoDich;
-        string  ThongTinKhac;
+        uint    id_LoHangVatTu;
+        uint    GiaHoHang;
+        uint    ThoiGianGiaoDich;
     }
-    /*
-        ThongTinKhac {
-            ThongTinKhac
-            GiaLoHang
-        }
-    */
 
     mapping ( uint => GiaoDichMuaBanVatTu_Struct ) 
     public DanhSachGiaoDich;
 
+    //List id giao dich, use for check id lohang
+    mapping ( uint => uint )
+    public DanhSachIdGiaoDich;
+
     uint public maxLength = 0;
 
     //-------event-------//
-    event SuKienGiaoDich (
+    event SuKienGiaoDich1 (
         uint    id_XaVien,
-        uint    id_NhaCungCap,
+        uint    id_NhaCungCap,  
+        uint    id_GiaoDich
+    );
+
+    event SuKienGiaoDich2 (
+        uint    id_XaVien,
         uint    id_LoHangVatTu,
-        uint    id_GiaoDich,
-        string  ThongTinKhac
+        uint    GiaHoHang,
+        uint    ThoiGianGiaoDich
     );
 
     //------modifier-----//
@@ -44,77 +50,154 @@ contract GiaoDichMuaBanVatTu {
         _;
     }
 
-    modifier KiemTraLoHangVatTu ( uint id_LoHangVatTu, uint id_GiaoDich ) {
-        uint index              = 0;
-        bool checkIdLoHangVatTu = true;
-        bool checkIdGiaoDich    = true;
+    modifier KiemTraXacNhan ( bool[] memory boolProperties ) {
+        require(
+            boolProperties[0] && boolProperties[1] && boolProperties[2],
+            "Giao dich chua dong thuan"
+        );
+
+        _;
+    }
+
+    modifier KiemTraGiaoDich ( uint id_GiaoDich ) {
+        require( 
+            DanhSachGiaoDich[ id_GiaoDich ].id_GiaoDich == 0,
+            "ID giao dich da ton tai"
+        );
+        
+        _;
+    }
+
+    modifier KiemTraLoHangDaTonTai( uint id_LoHangVatTu, address addr ) {
+        LoHangVatTu _loHangVatTu = LoHangVatTu(addr);
+
+        require(
+            _loHangVatTu.LayThongTinVatTu( id_LoHangVatTu ).id_LoHangVatTu == id_LoHangVatTu,
+            "Lo hang vat tu chua ton tai"
+        );
+
+        _;
+    }
+
+    modifier KiemTraLoHangDaGiaoDich( uint id_LoHangVatTu ) {
+        uint index = 0;
+        bool kiemTraLoHangVatTu = true;
 
         for ( index; index < maxLength; index ++ ) {
-            if ( DanhSachGiaoDich[ index ].id_GiaoDich == id_GiaoDich ) {
-                checkIdGiaoDich = false;
-            }
+            uint id_GiaoDichTemp = DanhSachIdGiaoDich[ index ];
 
-            if ( DanhSachGiaoDich[ index ].id_LoHangVatTu == id_LoHangVatTu ) {
-                checkIdLoHangVatTu = false;
+            if ( DanhSachGiaoDich[ id_GiaoDichTemp ].id_LoHangVatTu == id_LoHangVatTu ) {
+                kiemTraLoHangVatTu = false;
             }
         }
 
         require(
-            checkIdGiaoDich || checkIdLoHangVatTu,
-            string.concat(
-                "ID lo giao dich phai la duy nhat ",
-                "ID lo hang vat tu phai la duy nhat"
-            )
-        );
-
-        require (
-            checkIdGiaoDich,
-            "ID lo giao dich phai la duy nhat"
-        );
-
-        require (
-            checkIdLoHangVatTu,
-            "ID lo hang vat tu phai la duy nhat"
+            kiemTraLoHangVatTu,
+            "Lo hang vat tu nay da duoc giao dich"
         );
 
         _;
     }
 
     //-------handle------//
+    /*
+    intProperties [
+        0: uint id_XaVien;
+        1: uint id_NhaCungCap;
+        2: uint id_GiaoDich;
+        3: uint id_LoHangVatTu;
+        4: uint GiaHoHang;
+        5: uint ThoiGianGiaoDich;
+    ]
+
+    boolProperties [
+        0: bool xaVienXacNhan;
+        1: bool nhaCungCapXacNhan;
+        2: bool HTXXacNhan;
+    ]
+
+    */
     function ThemGiaoDich (
-        uint id_XaVien,
-        uint id_NhaCungCap,
-        uint id_LoHangVatTu,
-        uint id_GiaoDich,
-        string memory ThongTinKhac
+        uint[]      memory intProperties,
+        bool[]      memory boolProperties,
+        address[]   memory addressProperties
     ) 
     public
-    KiemTraIdCacBenLienQuan( id_XaVien, id_NhaCungCap )
-    KiemTraLoHangVatTu( id_LoHangVatTu, id_GiaoDich )
+    KiemTraIdCacBenLienQuan( intProperties[0], intProperties[1] )
+    KiemTraGiaoDich( intProperties[2] )
+    KiemTraLoHangDaGiaoDich( intProperties[3] )
+    KiemTraLoHangDaTonTai( intProperties[3], addressProperties[0] )
+    KiemTraXacNhan( boolProperties )
     returns (bool) 
+    {
+        bool result = LuuThongTinGiaoDich( intProperties );
+        
+        return result;
+    }    
+
+    function LayThongTinGiaoDich (
+        uint id_GiaoDich
+    )
+    external view
+    returns ( GiaoDichMuaBanVatTu_Struct memory ) {
+        return DanhSachGiaoDich[ id_GiaoDich ];
+    }
+
+    //use internal function for fix "Stack too deep"
+    /*
+    intProperties [
+        0: uint id_XaVien;
+        1: uint id_NhaCungCap;
+        2: uint id_GiaoDich;
+        3: uint id_LoHangVatTu;
+        4: uint GiaHoHang;
+        5: uint ThoiGianGiaoDich;
+    ]
+    */
+    function LuuThongTinGiaoDich (
+        uint[] memory intProperties
+    ) 
+    internal 
+    returns (bool)
     {
 
         GiaoDichMuaBanVatTu_Struct memory GiaoDichMuaBanVatTuMemory;
 
+        uint id_XaVien          =  intProperties[0];
+        uint id_NhaCungCap      =  intProperties[1];
+        uint id_GiaoDich        =  intProperties[2];
+        uint id_LoHangVatTu     =  intProperties[3];
+        uint GiaHoHang          =  intProperties[4];
+        uint ThoiGianGiaoDich   =  intProperties[5];
+        
+
         GiaoDichMuaBanVatTuMemory = GiaoDichMuaBanVatTu_Struct (
             id_XaVien,
             id_NhaCungCap,
-            id_LoHangVatTu,
             id_GiaoDich,
-            ThongTinKhac
+            id_LoHangVatTu,
+            GiaHoHang,
+            ThoiGianGiaoDich
         );
 
-        DanhSachGiaoDich[maxLength] = GiaoDichMuaBanVatTuMemory;
+        DanhSachGiaoDich[ intProperties[2] ] = GiaoDichMuaBanVatTuMemory;
+
+        DanhSachIdGiaoDich[ maxLength ] = intProperties[2];
         maxLength = maxLength + 1;
 
-        emit SuKienGiaoDich(
+        emit SuKienGiaoDich1 (
             id_XaVien,
             id_NhaCungCap,
+            id_GiaoDich
+        );
+
+        emit SuKienGiaoDich2 (
+            id_XaVien,
             id_LoHangVatTu,
-            id_GiaoDich,
-            ThongTinKhac
+            GiaHoHang,
+            ThoiGianGiaoDich
         );
 
         return true;
-    }    
+    }
 }
