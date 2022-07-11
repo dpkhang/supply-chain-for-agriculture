@@ -77,6 +77,18 @@ contract VatTuSuDung {
     KiemTraVatTuSuDung( intProperties[3], addressProperties[0] )
     returns (bool)
     {
+        bool result = LuuThongTinVatTuNongNghiep(
+            intProperties,
+            stringProperties
+        );
+
+        return result;
+    }
+
+    function LuuThongTinVatTuNongNghiep (
+        uint[]    memory intProperties,
+        string[]  memory stringProperties
+    ) internal returns ( bool ) {
         VatTuSuDung_Struct memory VatTuSuDungMemory;
         VatTuSuDungMemory = VatTuSuDung_Struct(
             intProperties[0],
