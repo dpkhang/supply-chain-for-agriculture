@@ -68,6 +68,19 @@ contract LoHangVatTu {
     KiemTraSoLuong( intProperties[3] )
     returns ( bool )
     {
+        bool result = LuuThongTinLoHang(
+            intProperties,
+            stringProperties
+        );
+
+        return result;
+    }
+
+    function LuuThongTinLoHang (
+        uint[]   memory intProperties,
+        string[] memory stringProperties
+    ) internal returns ( bool )
+    {
         LoHangVatTu_Struct memory LoHangVatTuMemory;
         LoHangVatTuMemory = LoHangVatTu_Struct (
             intProperties[0],
