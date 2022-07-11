@@ -27,7 +27,10 @@ contract GiaoDichMuaBanVatTu {
     event SuKienGiaoDich1 (
         uint    id_XaVien,
         uint    id_NhaCungCap,  
-        uint    id_GiaoDich
+        uint    id_GiaoDich,
+        uint    id_LoHangVatTu,
+        uint    GiaHoHang,
+        uint    ThoiGianGiaoDich
     );
 
     event SuKienGiaoDich2 (
@@ -188,11 +191,7 @@ contract GiaoDichMuaBanVatTu {
         emit SuKienGiaoDich1 (
             id_XaVien,
             id_NhaCungCap,
-            id_GiaoDich
-        );
-
-        emit SuKienGiaoDich2 (
-            id_XaVien,
+            id_GiaoDich,
             id_LoHangVatTu,
             GiaHoHang,
             ThoiGianGiaoDich
