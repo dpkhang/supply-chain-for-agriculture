@@ -8,16 +8,10 @@ contract NhatKyDongRuong {
         uint    id_NhatKyDongRuong;
         uint    id_LichMuaVu;
         uint    id_ThuaDat;
-        string  ThongTinKhac;
+        uint    ThoiGian;
     }
-    /* 
-        ThongTinKhac {
-            ThoiGian
-        }
-    */
 
-    mapping( uint => NhatKyDongRuong_Struct )
-    public DanhSachNhatKyDongRuong;
+    mapping( uint => NhatKyDongRuong_Struct ) public DanhSachNhatKyDongRuong;
 
     uint maxLength = 0;
 
@@ -27,7 +21,7 @@ contract NhatKyDongRuong {
         uint    id_NhatKyDongRuong,
         uint    id_LichMuaVu,
         uint    id_ThuaDat,
-        string  ThongTinKhac
+        uint    ThoiGian
     );
 
     //------modifier-----//
@@ -57,7 +51,7 @@ contract NhatKyDongRuong {
         uint            id_NhatKyDongRuong,
         uint            id_LichMuaVu,
         uint            id_ThuaDat,
-        string memory   ThongTinKhac
+        uint            ThoiGian
     )
     public
     KiemTraIdNhatKyDongRuong( id_NhatKyDongRuong )
@@ -68,10 +62,10 @@ contract NhatKyDongRuong {
             id_NhatKyDongRuong,
             id_LichMuaVu,
             id_ThuaDat,
-            ThongTinKhac
+            ThoiGian
         );
 
-        DanhSachNhatKyDongRuong[maxLength] = NhatKyDongRuongMemory;
+        DanhSachNhatKyDongRuong[ id_NhatKyDongRuong ] = NhatKyDongRuongMemory;
         maxLength = maxLength + 1;
 
         emit SuKienThemNhatKyDongRuong(
@@ -79,9 +73,20 @@ contract NhatKyDongRuong {
             id_NhatKyDongRuong,
             id_LichMuaVu,
             id_ThuaDat,
-            ThongTinKhac
+            ThoiGian
         );
 
         return true;
+    }
+
+
+    function LayNhatKyDongRuong(
+        uint id_NhatKyDongRuong
+    ) 
+    external
+    view
+    returns (NhatKyDongRuong_Struct memory) 
+    {
+        return DanhSachNhatKyDongRuong[ id_NhatKyDongRuong ];
     }
 }
