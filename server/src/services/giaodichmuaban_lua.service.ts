@@ -24,23 +24,30 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
 
     getContracts = async () => {
         const giaoDichMuaBanLua = await this._GiaoDichMuaBanLuaContract.getContracts("SuKienGiaoDich")
+
+        const results = []
+
         if (giaoDichMuaBanLua && giaoDichMuaBanLua?.length > 0) {
-            const data = giaoDichMuaBanLua.map((contract) => {
-                const ThongTinKhac = JSON.parse(contract.returnValues.ThongTinKhac)
-                // const loHangLua = await this._LoHangLua.getContractById(contract.returnValues.id_LoHangLua)
-                return {
+            for(let contract of giaoDichMuaBanLua) {
+                const lohangLua =  await this._LoHangLua.getContractById(contract.returnValues.id_LoHangLua)
+                const giaoDich = {
                     id_GiaoDich: contract.returnValues.id_GiaoDich,
                     id_LoHangLua: contract.returnValues.id_LoHangLua,
                     id_XaVien: contract.returnValues.id_XaVien,
                     id_ThuongLai: contract.returnValues.id_ThuongLai,
-                    thoigianGiaoDich: ThongTinKhac?.ThoiGian,
-                    giaLoHang: ThongTinKhac?.GiaLoHang,
-                    // loHangLua
+                    thoigianGiaoDich: contract.returnValues.ThoiGianGiaoDich,
+                    giaLoHang: contract.returnValues.GiaLoHang,
+                    id_GiongLua: lohangLua.id_GiongLua,
+                    id_NhatKyDongRuong: lohangLua.id_NhatKyDongRuong,
+                    tenGiongLua: lohangLua.TenGiongLua,
+                    thoigianLoHang: lohangLua.ThoiGian,
+                    soluong: lohangLua.SoLuong,
                 }
-            })
-            return data
+                results.push(giaoDich)
+            }
+            return results
         }
-        return
+        return null
     }
 
     addContract = async (data: GiaoDichMuaBanLuaDTO, sender: string) => {

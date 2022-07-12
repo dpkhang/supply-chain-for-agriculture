@@ -1,7 +1,7 @@
 import { BaseContract }           from './base/base.contract'
 import GiaoDichMuaBanLuaABI       from "../abis/GiaoDichMuaBanLua.json"
-const ADDRESS_GIAODICHMUABANLUA = process.env.ADDRESS_GIAODICHMUABANLUA || "0xaB0E3c97933523F4025281fe762D53b188B7Be5F"
-const ADDRESS_LOHANGLUA         = process.env.ADDRESS_LOHANGLUA || ""
+const ADDRESS_GIAODICHMUABANLUA = process.env.ADDRESS_GIAODICHMUABANLUA || "0xE7E62565221A448334703b156b3FA34f9a8A15c4"
+const ADDRESS_LOHANGLUA         = process.env.ADDRESS_LOHANGLUA || "0x2b2B29eE26D155bcdE82AafEfd301a8d89d57839"
 export interface GiaoDichMuaBanLua {
     intProperties: number[],
     boolProperties: boolean[]

@@ -15,7 +15,7 @@ export class BaseContract {
     }
 
     getContracts = async (eventName: string) => {
-        return await this.contract.getPastEvents(eventName, {
+        return await this.contract.getPastEvents("SuKienGiaoDich", {
             fromBlock: 'earliest',
             toBlock: 'latest'
         })
