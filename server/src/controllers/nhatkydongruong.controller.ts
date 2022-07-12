@@ -13,9 +13,7 @@ export class NhatkydongruongController {
         try {
             return res.status(200).json('')
         }catch(err) {
-            responseDTO.message = "Loi may chu"
-            responseDTO.status = 500
-            return res.status(500).json(responseDTO)
+            return res.status(500).json(responseDTO.serverError())
         }
     }
 }
