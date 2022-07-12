@@ -16,4 +16,13 @@ export class NhatkydongruongController {
             return res.status(500).json(responseDTO.serverError())
         }
     }
+
+    storeTransaction = async ( req: Request, res: Response ): Promise<Response> => {
+        const responseDTO = new ResponseDTO()
+        try {
+            return res.status(200).json('')
+        }catch(err) {
+            return res.status(500).json(responseDTO.serverError())
+        }
+    }
 }

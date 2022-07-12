@@ -7,7 +7,7 @@ export interface NhatKyDongRuong {
     id_NhatKyDongRuong: number;
     id_LichMuaVu:       number;
     id_ThuaDat:         number;
-    thoigian:           string;
+    thoigian:           number;
 }
 
 export class NhatKyDongRuongContract extends BaseContract {

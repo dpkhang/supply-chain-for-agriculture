@@ -4,7 +4,7 @@ import HoatDongNhatKyABI from "../abis/HoatDongNhatKy.json"
 const ADDRESS_HoatDongNhatKy = process.env.ADDRESS_HoatDongNhatKy || ""
 
 export interface NhatKyHoatDong {
-    d_NhatKyDongRuong: number
+    id_NhatKyDongRuong: number
     id_XaVien:         number
     id_HoatDongNhatKy: number
     thoigian:          string    
