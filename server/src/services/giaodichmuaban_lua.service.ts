@@ -1,6 +1,5 @@
-import { ResponseDTO } from './../dtos/response.dto';
-import { LoHangLua, LoHangLuaContract } from './../contracts/LoHangLua.contract';
-import { GiaoDichMuaBanLua } from './../contracts/GiaoDichMuaBanLua.contract';
+import { LoHangLua, LoHangLuaContract } from './../contracts/LoHangLua.contract'
+import { GiaoDichMuaBanLua } from './../contracts/GiaoDichMuaBanLua.contract'
 import { Giaodichmuaban_luaRepository } from './../repositories/giaodichmuaban_lua.repository'
 import { BaseService } from "./base/base.service"
 import { GiaoDichMuaBanLuaContract } from "../contracts/GiaoDichMuaBanLua.contract"
@@ -46,62 +45,62 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
 
     addContract = async (data: GiaoDichMuaBanLuaDTO, sender: string) => {
         const giaoDichMuaBanLua_Data: GiaoDichMuaBanLua = {
-            id_GiaoDich: data.id_GiaoDich,
-            id_LoHangLua: data.id_LoHangLua,
-            id_ThuongLai: data.id_ThuongLai,
-            id_XaVien: data.id_XaVien,
-            thongTinKhac: JSON.stringify(
-                {
-                    ThoiGian: data.thoigianGiaoDich,
-                    GiaLoHang: data.giaLoHang
-                }
-            )
-            
+            intProperties: [
+                data.id_XaVien, 
+                data.id_ThuongLai, 
+                data.id_GiaoDich, 
+                data.id_LoHangLua, 
+                data.giaLoHang, 
+                data.thoigianGiaoDich
+            ],
+            boolProperties: [
+                data.xacnhanXaVien, 
+                data.xacnhanThuongLai,
+                data.xacnhanHTX
+            ]
         }
-
-        console.log(giaoDichMuaBanLua_Data)
 
         const loHangLua_Data: LoHangLua = {
-            id_GiongLua: data.id_GiongLua,
-            id_NhatKyDongRuong: data.id_NhatKyDongRuong,
-            id_LoHangLua: data.id_LoHangLua,
-            id_XaVien: data.id_XaVien,
-            soluong: data.soluong,
-            thongTinKhac: JSON.stringify(
-                {
-                    ThoiGian: data.thoigianLoHang,
-                    TenGiongLua: data.tenGiongLua
-                }
-            )
+            intProperties: [
+                data.id_XaVien,
+                data.id_LoHangLua,
+                data.id_GiongLua,
+                data.id_NhatKyDongRuong,
+                data.soluong,
+                data.thoigianLoHang,
+                data.dientichdat,
+                data.maxSoLuong
+            ],
+            stringProperties: [
+                data.tenGiongLua
+            ]
+
         }
 
-        await this._GiaoDichMuaBanLuaContract.addContract(giaoDichMuaBanLua_Data, sender)
-        await this._LoHangLua.addContract(loHangLua_Data, sender)
-        return {
-            ...data
+        const resultLoHangLua  = await this._LoHangLua.addContract(loHangLua_Data, sender)
+        if(resultLoHangLua){
+            const resultGiaoDichLua  = await this._GiaoDichMuaBanLuaContract.addContract(giaoDichMuaBanLua_Data, sender)
+            if(resultGiaoDichLua)
+                return {
+                    ...data
+                }
+            return null
         }
+        return null
     }
 
     getContractById = async (id_GiaoDich: number) => {
-        const responseDTO = new ResponseDTO()
         const giaoDichMuaBanLua = await this._GiaoDichMuaBanLuaContract.getContractById(id_GiaoDich)
         if (giaoDichMuaBanLua) {
             const loHangLua = await this._LoHangLua.getContractById(giaoDichMuaBanLua.id_LoHangLua)
             if (loHangLua) {
-                responseDTO.message = 'Lay du lieu thanh cong'
-                responseDTO.status = 200
-                responseDTO.results = {
+                return {
                     ...giaoDichMuaBanLua,
                     ...loHangLua
                 }
-            } else {
-                responseDTO.message = 'Du lieu khong the truy xuat'
-                responseDTO.status = 400
-            }
-        } else {
-            responseDTO.message = 'Du lieu khong the truy xuat'
-            responseDTO.status = 400
+            } 
+            return null
         }
-        return responseDTO
+        return null
     }
 }

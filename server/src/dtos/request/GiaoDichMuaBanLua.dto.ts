@@ -3,11 +3,16 @@ export interface GiaoDichMuaBanLuaDTO {
     id_LoHangLua:       number
     id_XaVien:          number
     id_ThuongLai:       number
-    thoigianGiaoDich:   string
+    thoigianGiaoDich:   number
     giaLoHang:          number
     id_GiongLua:        number
     id_NhatKyDongRuong: number
-    thoigianLoHang:     string
+    thoigianLoHang:     number
     tenGiongLua:        string
-    soluong:            number
+    soluong:            number,
+    xacnhanXaVien:      boolean,
+    xacnhanThuongLai:   boolean,
+    xacnhanHTX:         boolean,
+    dientichdat:        number,
+    maxSoLuong:         number
 }
