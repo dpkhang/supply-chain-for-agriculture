@@ -1,13 +1,10 @@
 import { BaseContract }           from './base/base.contract'
 import GiaoDichMuaBanLuaABI       from "../abis/GiaoDichMuaBanLua.json"
 const ADDRESS_GIAODICHMUABANLUA = process.env.ADDRESS_GIAODICHMUABANLUA || "0xaB0E3c97933523F4025281fe762D53b188B7Be5F"
-
+const ADDRESS_LOHANGLUA         = process.env.ADDRESS_LOHANGLUA || ""
 export interface GiaoDichMuaBanLua {
-    id_GiaoDich:      number,
-    id_LoHangLua:     number,
-    id_XaVien:        number,
-    id_ThuongLai:     number,
-    thongTinKhac:     string,
+    intProperties: number[],
+    boolProperties: boolean[]
 }
 
 export class GiaoDichMuaBanLuaContract extends BaseContract {
@@ -17,11 +14,12 @@ export class GiaoDichMuaBanLuaContract extends BaseContract {
     }
 
     addContract = async (data: GiaoDichMuaBanLua, sender: string) => {
-        await this.methods.ThemGiaoDich(data.id_XaVien, data.id_ThuongLai, data.id_LoHangLua, data.id_GiaoDich, data.thongTinKhac)
+        const result = await this.methods.ThemGiaoDich(data.intProperties, data.boolProperties, [ADDRESS_LOHANGLUA])
             ?.send({
                 from: sender,
                 gas: 3000000
             })
+        return result
     }
 
     getContractById = async (id_contract: number) => {

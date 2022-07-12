@@ -12,19 +12,15 @@ export class Giaodichmuaban_luaController {
         const responseDTO = new ResponseDTO()
         try {
             const response = await this._GiaiDichMuaBanLua_Service.getContracts()
-            responseDTO.message = "Lay du lieu thanh cong"
-            responseDTO.status = 200
-            responseDTO.results = response
-            return res.status(200).json(responseDTO)
+
+            return res.status(200).json(responseDTO.success("Lay du lieu thanh cong", response))
         }catch(err) {
             console.log(err)
-            responseDTO.message = "Loi may chu"
-            responseDTO.status = 500
-            return res.status(500).json(responseDTO)
+            return res.status(500).json(responseDTO.serverError())
         }
     }
 
-    addContract  = async (req: Request, res: Response):Promise<Response> => {
+    addContract  = async (req: Request, res: Response): Promise<Response> => {
         const responseDTO = new ResponseDTO()
         const data = {
             ...req.body
@@ -32,12 +28,13 @@ export class Giaodichmuaban_luaController {
         delete data.sender
         try {
             const repsonse = await this._GiaiDichMuaBanLua_Service.addContract(data, req.body.sender)
-            return res.status(200).json(repsonse)
+            if(repsonse) {
+                return res.status(200).json(responseDTO.success('Them du lieu thanh cong', repsonse))
+            }
+            return res.status(400).json(responseDTO.badRequest())
         }catch(err) {
             console.log(err)
-            responseDTO.message = "Loi may chu"
-            responseDTO.status = 500
-            return res.status(500).json(responseDTO)
+            return res.status(500).json(responseDTO.serverError())
         }
     }
 }

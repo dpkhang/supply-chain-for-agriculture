@@ -2,14 +2,11 @@
 import { BaseContract }   from './base/base.contract'
 import LoHangLuaABI       from "../abis/LoHangLua.json"
 const ADDRESS_LoHangLua = process.env.ADDRESS_LoHangLua || ""
+const ADDRESS_NHATKYRUONGDONG = process.env.ADDRESS_NHATKYRUONGDONG || ""
 
 export interface LoHangLua {
-    id_LoHangLua:       number,
-    id_XaVien:          number,
-    id_GiongLua:        number,
-    id_NhatKyDongRuong: number,
-    soluong:            number,
-    thongTinKhac:       string,
+    intProperties: number[],
+    stringProperties: string[]
 }
 
 export class LoHangLuaContract extends BaseContract {
@@ -19,11 +16,13 @@ export class LoHangLuaContract extends BaseContract {
     }
 
     addContract = async (data: LoHangLua, sender: string) => {
-        this.methods.ThemLoHangLua(data.id_XaVien, data.id_LoHangLua, data.id_GiongLua, data.id_NhatKyDongRuong, data.soluong, data.thongTinKhac)
+        const result = this.methods.ThemLoHangLua(data.intProperties, [ADDRESS_NHATKYRUONGDONG], data.stringProperties)
         ?.send({
             from: sender,
             gas: 3000000
         })
+
+        return result
     }
 
     getContractById = async (id_contract: number) => {
