@@ -84,7 +84,7 @@ contract LoHangLua {
 
         require(
             kiemTraNhatKyRuongDong,
-            "Nhat ky dong ruong nay da duoc giao dich"
+            "Nhat ky dong ruong nay da duoc su dung"
         );
 
         _;

@@ -4,16 +4,16 @@ const Coin = require('../abis/GiaoDichMuaBanVatTu.json');
 const init = async () => {
     //truyen dia chi blockchain
     const web3 = new Web3('http://127.0.0.1:8545/');
-    const contract = await new web3.eth.Contract(Coin.abi, '0xFeb05032f4948fcE02cbcE1aFAc0120328a0D8AE');
+    const contract = await new web3.eth.Contract(Coin.abi, '0xEFEa711E0A247A601D4Ba637394096262C6a30d8');
     //const name = await contract.methods.name().call();
     //const symbol = await contract.methods.symbol().call();
     //const decimal = await contract.methods.decimals().call();
     await contract.methods.ThemGiaoDich(
-      [1, 2, 6, 5, 4, 5],
+      [1, 2, 6, 1, 4, 5],
       [true, true, true],
-      ['0x663d3d76413b527FFDf8ba91107777EbD2dd8C5E']
+      ['0xc16dde9257dC687Bd7f5Ff52C32F1C9688CC5A04']
     ).send({ 
-        from: '0xD010576020824a802b80CD19AE15e0982436d2Fb' 
+        from: '0x67b336900a22331304594B6f09f66191E775877e' 
         ,gas: 3000000
     }); //4
     const giaoDich = await contract.methods.DanhSachGiaoDich(6).call();

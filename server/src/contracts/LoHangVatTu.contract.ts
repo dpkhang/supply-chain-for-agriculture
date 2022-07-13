@@ -1,32 +1,28 @@
-import { BaseContract } from './base/base.contract';
-import Web3                         from "web3"
+import { BaseContract }             from './base/base.contract'
 import LoHangVatTuABI               from "../abis/LoHangVatTu.json"
-const ADDRESS_LohangVatTu           = process.env.ADDRESS_LohangVatTu       || ""
+const ADDRESS_LOHANGVATTU         = process.env.ADDRESS_LOHANGVATTU      || "0xd33080E9231098a70480Db5e4aaBA1B4aAEB6E22"
 
-export interface LoVatTu {
-    id_LoHangVatTu:   number
-    id_MuaVu:         number
-    id_VatTu:         number
-    tenVatTu:         string
-    thoigianLoHang:   string
-    soluong:          number
+export interface LoHangVatTu {
+    intProperties: number[],
+    stringProperties: string[]
 }
 
 export class LoHangVatTuContract extends BaseContract{
 
     constructor() {
-        super(LoHangVatTuABI, ADDRESS_LohangVatTu)
+        super(LoHangVatTuABI, ADDRESS_LOHANGVATTU)
     }
 
-    addContract = async (data: LoVatTu, sender: string) => {
-        await this.methods.ThemGiaoDich(data)
+    addContract = async (data: LoHangVatTu, sender: string) => {
+        const result = await this.methods.ThemLohangVatTu(data.intProperties, data.stringProperties)
                              ?.send({
                                 from: sender,
                                 gas: 3000000
                              })
+        return result
     }
     
     getContractById = async (id_contract: number) => {
-        return await this.methods.DanhSachGiaoDich(id_contract).call()
+        return await this.methods.DanhSachLoHangVatTu(id_contract).call()
     }
 }
