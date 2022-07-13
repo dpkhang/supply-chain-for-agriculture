@@ -10,7 +10,7 @@ contract GiaoDichMuaBanVatTu {
         uint    id_NhaCungCap;  
         uint    id_GiaoDich;
         uint    id_LoHangVatTu;
-        uint    GiaHoHang;
+        uint    GiaLoHang;
         uint    ThoiGianGiaoDich;
     }
 
@@ -29,14 +29,14 @@ contract GiaoDichMuaBanVatTu {
         uint    id_NhaCungCap,  
         uint    id_GiaoDich,
         uint    id_LoHangVatTu,
-        uint    GiaHoHang,
+        uint    GiaLoHang,
         uint    ThoiGianGiaoDich
     );
 
     event SuKienGiaoDich2 (
         uint    id_XaVien,
         uint    id_LoHangVatTu,
-        uint    GiaHoHang,
+        uint    GiaLoHang,
         uint    ThoiGianGiaoDich
     );
 
@@ -109,7 +109,7 @@ contract GiaoDichMuaBanVatTu {
         1: uint id_NhaCungCap;
         2: uint id_GiaoDich;
         3: uint id_LoHangVatTu;
-        4: uint GiaHoHang;
+        4: uint GiaLoHang;
         5: uint ThoiGianGiaoDich;
     ]
 
@@ -153,7 +153,7 @@ contract GiaoDichMuaBanVatTu {
         1: uint id_NhaCungCap;
         2: uint id_GiaoDich;
         3: uint id_LoHangVatTu;
-        4: uint GiaHoHang;
+        4: uint GiaLoHang;
         5: uint ThoiGianGiaoDich;
     ]
     */
@@ -170,7 +170,7 @@ contract GiaoDichMuaBanVatTu {
         uint id_NhaCungCap      =  intProperties[1];
         uint id_GiaoDich        =  intProperties[2];
         uint id_LoHangVatTu     =  intProperties[3];
-        uint GiaHoHang          =  intProperties[4];
+        uint GiaLoHang          =  intProperties[4];
         uint ThoiGianGiaoDich   =  intProperties[5];
         
 
@@ -179,7 +179,7 @@ contract GiaoDichMuaBanVatTu {
             id_NhaCungCap,
             id_GiaoDich,
             id_LoHangVatTu,
-            GiaHoHang,
+            GiaLoHang,
             ThoiGianGiaoDich
         );
 
@@ -193,7 +193,7 @@ contract GiaoDichMuaBanVatTu {
             id_NhaCungCap,
             id_GiaoDich,
             id_LoHangVatTu,
-            GiaHoHang,
+            GiaLoHang,
             ThoiGianGiaoDich
         );
 

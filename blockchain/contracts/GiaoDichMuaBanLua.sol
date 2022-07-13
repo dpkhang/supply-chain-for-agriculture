@@ -67,7 +67,7 @@ contract GiaoDichMuaBanLua {
 
         require(
             _loHangLua.LayThongTinLoHangLua( id_LoHangLua ).id_LoHangLua == id_LoHangLua,
-            "Lo hang vat tu chua ton tai"
+            "Lo hang lua chua ton tai"
         );
 
         _;
@@ -87,7 +87,7 @@ contract GiaoDichMuaBanLua {
 
         require(
             kiemTraLoHangLua,
-            "Lo hang vat tu nay da duoc giao dich"
+            "Lo hang lua nay da duoc giao dich"
         );
 
         _;
