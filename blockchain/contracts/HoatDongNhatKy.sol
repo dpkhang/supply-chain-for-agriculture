@@ -1,106 +1,69 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.16 <0.9.0;
+import "./nhatkydongruong.sol";
 
 contract HoatDongNhatKy {
     //--------data-------//
     struct HoatDongNhatKy_Struct {
         uint id_NhatKyDongRuong;
-        uint id_XaVien;
         uint id_HoatDongNhatKy;
-        string ThongTinKhac;
+        uint ThoiGian;
     }
 
-    mapping( uint => HoatDongNhatKy_Struct )
-    public DanhSachHoatDongNhatKy;
-
-    uint maxLength = 0;
+    mapping( uint => HoatDongNhatKy_Struct ) public DanhSachHoatDongNhatKy;
 
     //-------event-------//
     event SuKienThemHoatDongNhatKy(
         uint id_NhatKyDongRuong,
-        uint id_XaVien,
         uint id_HoatDongNhatKy,
-        string ThongTinKhac
+        uint ThoiGian
     );
-    /* 
-        ThongTinKhac {
-            ThoiGian
-        }
-    */
 
     //------modifier-----//
-    modifier KiemTraHoatDongNhatKy( 
-        uint id_NhatKyDongRuong, 
-        uint id_HoatDongNhatKy 
-    ) {
-        uint index                  = 0;
-        bool checkIdNhatKyDongRuong = true;
-        bool checkIdHoatDongNhatKy  = true;
-
-        for ( index; index < maxLength; index ++ ) {
-            if ( DanhSachHoatDongNhatKy[ index ].id_NhatKyDongRuong 
-                 == id_NhatKyDongRuong 
-            ) {
-                checkIdNhatKyDongRuong = false;
-            }
-
-            if ( DanhSachHoatDongNhatKy[ index ].id_HoatDongNhatKy 
-                 == id_HoatDongNhatKy 
-            ) {
-                checkIdHoatDongNhatKy = false;
-            }
-        }
-
+    modifier KiemTraIDHoatDongNhatKy ( uint id_HoatDongNhatKy ) {
         require(
-            checkIdNhatKyDongRuong || checkIdHoatDongNhatKy,
-            string.concat(
-                "Id nhat ky dong ruong phai la duy nhat ",
-                "ID hoat dong nhat ky lua phai la duy nhat"
-            )
+            DanhSachHoatDongNhatKy[ id_HoatDongNhatKy ].id_HoatDongNhatKy == 0,
+            "Hoat dong nhat ky da ton tai"
         );
 
-        require (
-            checkIdHoatDongNhatKy,
-            "ID hoat dong nhat ky lua phai la duy nhat"
-        );
+        _;
+    }
 
-        require(
-            checkIdNhatKyDongRuong,
-            "Id nhat ky dong ruong phai la duy nhat"
-        );
+    modifier KiemTraIDNhatKyDongRuong ( uint id_NhatKyDongRuong, address addr ) {
+        NhatKyDongRuong _nhatKyDongRuong = NhatKyDongRuong( addr );
         
+        require(
+            _nhatKyDongRuong.LayNhatKyDongRuong( id_NhatKyDongRuong ).id_NhatKyDongRuong == id_NhatKyDongRuong,
+            "Nhat ky dong ruong chua ton tai"
+        );
+
         _;
     }
 
     //-------handle------//
     function ThemHoatDongNhatKy (
         uint id_NhatKyDongRuong,
-        uint id_XaVien,
         uint id_HoatDongNhatKy,
-        string memory ThongTinKhac
+        uint ThoiGian,
+        address addressNhatKyDongRuong
     )
     public
-    KiemTraHoatDongNhatKy( 
-        id_NhatKyDongRuong,
-        id_HoatDongNhatKy
-    )
+    KiemTraIDHoatDongNhatKy( id_HoatDongNhatKy )
+    KiemTraIDNhatKyDongRuong( id_NhatKyDongRuong, addressNhatKyDongRuong )
     returns ( bool ) {
         HoatDongNhatKy_Struct memory HoatDongNhatKyMemory;
         HoatDongNhatKyMemory = HoatDongNhatKy_Struct(
             id_NhatKyDongRuong,
-            id_XaVien,
             id_HoatDongNhatKy,
-            ThongTinKhac
+            ThoiGian
         );
 
-        DanhSachHoatDongNhatKy[maxLength] = HoatDongNhatKyMemory;
-        maxLength = maxLength + 1;
+        DanhSachHoatDongNhatKy[ id_HoatDongNhatKy ] = HoatDongNhatKyMemory;
 
         emit SuKienThemHoatDongNhatKy(
             id_NhatKyDongRuong,
-            id_XaVien,
             id_HoatDongNhatKy,
-            ThongTinKhac
+            ThoiGian
         );
 
         return true;

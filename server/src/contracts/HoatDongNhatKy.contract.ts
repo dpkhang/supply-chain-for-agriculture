@@ -4,11 +4,10 @@ import HoatDongNhatKyABI from "../abis/HoatDongNhatKy.json"
 const ADDRESS_HoatDongNhatKy = process.env.ADDRESS_HoatDongNhatKy || ""
 
 export interface NhatKyHoatDong {
-    id_NhatKyDongRuong: number
-    id_XaVien:         number
-    id_HoatDongNhatKy: number
-    thoigian:          string    
-    danhSachVatTu: VatTuSuDung[]
+    id_NhatKyDongRuong      : number
+    id_HoatDongNhatKy       : number
+    thoiGian                : number
+    address_NhatKyDongRuong : string    
 }
 
 export class HoatDongNhatKyContract extends BaseContract {
@@ -25,6 +24,6 @@ export class HoatDongNhatKyContract extends BaseContract {
     }
 
     getContractById = async (id_contract: number) => {
-        return await this.methods.ThemHoatDongNhatKy(id_contract)?.call()
+        return await this.methods.DanhSachHoatDongNhatKy(id_contract)?.call()
     }
 }

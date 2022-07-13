@@ -12,6 +12,10 @@ export class NhatkydongruongService extends BaseService {
     }
 
     async AddTransaction( data: NhatKyDongRuong, sender: string ) {
-        await this._NhatKyDongRuongContract.addContract(data, sender);
+        try {
+            await this._NhatKyDongRuongContract.addContract(data, sender);
+        } catch (err) {
+            throw err
+        }
     }
 }
