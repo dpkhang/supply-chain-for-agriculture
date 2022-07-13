@@ -9,9 +9,9 @@ const DEFAULT_URL = '/api/v1/blockchain'
 const createRouter = (app: any) => {
     app.use(DEFAULT_URL + '/rice-transaction', Giaodichmuaban_lua)
 
-    app.use('/api/v1/nhatkydongruong'       , Nhatkydongruong)
+    app.use('/api/v1/blockchain'       , Nhatkydongruong)
 
-    app.use('/api/v1/hoatdongnhatky'        , Hoatdongnhatky)
+    app.use('/api/v1/blockchain'        , Hoatdongnhatky)
     
     app.use(DEFAULT_URL + '/supplies-transaction'  , Giaodichmuaban_vattu)
 
