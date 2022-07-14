@@ -13,7 +13,7 @@ const createRouter = (app: any) => {
 
     app.use('/api/v1/blockchain'        , Hoatdongnhatky)
     
-    app.use('/api/v1/giaodichmuaban_vattu'  , Giaodichmuaban_vattu)
+    app.use(DEFAULT_URL + '/supplies-transaction'  , Giaodichmuaban_vattu)
 
 }
 
