@@ -68,4 +68,10 @@ contract HoatDongNhatKy {
 
         return true;
     }
+
+    function LayThongTinHoatDongNhatKy ( uint id_HoatDongNhatKy )
+    external view
+    returns ( HoatDongNhatKy_Struct memory ) {
+        return DanhSachHoatDongNhatKy[ id_HoatDongNhatKy ];
+    }
 }

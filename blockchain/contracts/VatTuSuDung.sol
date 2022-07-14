@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.16 <0.9.0;
 import "./LoHangVatTu.sol";
+import "./HoatDongNhatKy.sol";
 
 contract VatTuSuDung {
     //--------data-------//
@@ -48,6 +49,16 @@ contract VatTuSuDung {
         _;
     }
 
+    modifier KiemTraHoatDongNhatKy ( uint id_HoatDongNhatKy, address addr ) {
+        HoatDongNhatKy _hoatDongNhatKy = HoatDongNhatKy(addr);
+        require(
+            _hoatDongNhatKy.LayThongTinHoatDongNhatKy( id_HoatDongNhatKy ).id_HoatDongNhatKy == id_HoatDongNhatKy,
+            "Hoat dong nhat ky chua ton tai"
+        );
+
+        _;
+    }
+
     /*
     intProperties [
         0: uint            id_VatTuSuDung
@@ -63,6 +74,7 @@ contract VatTuSuDung {
 
     addressProperties [
         0: address addContractGiaoDichMuaBanLua
+        1: address ContractHoatDongNhatKy
     ]
     */
 
@@ -75,6 +87,7 @@ contract VatTuSuDung {
     public
     KiemTraIdVatTuSuDung( intProperties[0] )
     KiemTraVatTuSuDung( intProperties[3], addressProperties[0] )
+    KiemTraHoatDongNhatKy( intProperties[1], addressProperties[1] )
     returns (bool)
     {
         bool result = LuuThongTinVatTuNongNghiep(

@@ -27,7 +27,9 @@ const ThemNhatKyDongRuongValidator = [
                 responseDTO.reponseWithOther(
                     400,
                     "Yeu cau khong duoc phu hop.",
-                    { errors: errors.array() }
+                    { errors: errors.array({
+                        onlyFirstError: true
+                    }) }
                 )
             )
         }

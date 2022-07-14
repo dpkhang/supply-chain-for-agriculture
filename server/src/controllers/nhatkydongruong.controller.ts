@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { NhatKyDongRuong } from '../contracts/NhatKyDongRuong.contract';
 import { NhatKyDongRuongDTO } from '../dtos/request/NhatKyDongRuong.dto';
 import { ResponseDTO } from '../dtos/response.dto';
 import { NhatkydongruongService } from '../services/nhatkydongruong.service';
@@ -28,7 +27,6 @@ export class NhatkydongruongController {
             const sender = ReqData.wallet_XaVien;
             const nhatKyDongRuong = ReqData as any
             delete nhatKyDongRuong.wallet_XaVien
-            console.log(nhatKyDongRuong)
 
             await this._nhatkydongruongService.AddTransaction(nhatKyDongRuong, sender)
 
@@ -41,6 +39,18 @@ export class NhatkydongruongController {
             )
         }catch(err) {
             console.log(err)
+
+            const errorData = ( err as any ).data
+
+            for ( let key in errorData ) {
+                if ( errorData[key].hasOwnProperty('reason') ) {
+                    return res.status(500).json(responseDTO.reponseWithOther(
+                        500,
+                        errorData[key].reason
+                    ))
+                }
+            }
+
             return res.status(500).json(responseDTO.serverError())
         }
     }
