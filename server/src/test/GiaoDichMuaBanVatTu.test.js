@@ -11,15 +11,9 @@ const init = async () => {
     await contract.methods.ThemGiaoDich(
       [1, 2, 6, 1, 4, 5],
       [true, true, true],
-<<<<<<< HEAD
       ['0xccF33e4E7e2e4bAbc3ea998B314E96ed3c78F8CC']
     ).send({ 
         from: '0xee877d1F9Ad7b9609b4DFDa4CED2c60205D12be5' 
-=======
-      ['0xc16dde9257dC687Bd7f5Ff52C32F1C9688CC5A04']
-    ).send({ 
-        from: '0x67b336900a22331304594B6f09f66191E775877e' 
->>>>>>> e843c08046ec7f3f2c489ab213b2591638b34eb1
         ,gas: 3000000
     }); //4
     const giaoDich = await contract.methods.DanhSachGiaoDich(6).call();

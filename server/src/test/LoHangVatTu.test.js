@@ -12,11 +12,7 @@ const init = async () => {
         [1, 2, 3, 100, 10],
         ['Nang Thom']
     ).send({ 
-<<<<<<< HEAD
         from: '0xee877d1F9Ad7b9609b4DFDa4CED2c60205D12be5' 
-=======
-        from: '0x67b336900a22331304594B6f09f66191E775877e' 
->>>>>>> e843c08046ec7f3f2c489ab213b2591638b34eb1
         ,gas: 3000000
     }); //4
     const giaoDich = await contract.methods.DanhSachLoHangVatTu(1).call();
