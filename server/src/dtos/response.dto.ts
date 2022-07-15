@@ -49,7 +49,7 @@ export class ResponseDTO {
         }
     }
 
-    reponseWithOther = (status: number, message: string, data?: any): Response => {
+    responseWithOther = (status: number, message: string, data?: any): Response => {
         return {
             status: status,
             message: message,
