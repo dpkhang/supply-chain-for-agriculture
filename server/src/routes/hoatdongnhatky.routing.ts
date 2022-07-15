@@ -1,7 +1,7 @@
 import express from 'express'
 import { HoatdongnhatkyController } from '../controllers/hoatdongnhatky.controller' 
-import { NhatKyHoatDongValidator } from '../dtos/request/HoatDongNhatKy.dto'
-import { VatTuSuDungValidator } from '../dtos/request/VatTuSuDung.dto'
+import { NhatKyHoatDongValidator } from '../middlewares/HoatDongNhatKy.middleware' 
+import { VatTuSuDungValidator } from '../middlewares/VatTuSuDung.middleware'
 const route = express.Router()
 
 const hoatdongnhatkyController = new HoatdongnhatkyController

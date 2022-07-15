@@ -55,7 +55,7 @@ export class HoatdongnhatkyController {
 
             for ( let key in errorData ) {
                 if ( errorData[key].hasOwnProperty('reason') ) {
-                    return res.status(500).json(responseDTO.reponseWithOther(
+                    return res.status(500).json(responseDTO.responseWithOther(
                         500,
                         errorData[key].reason
                     ))
