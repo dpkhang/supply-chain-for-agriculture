@@ -24,11 +24,19 @@ export class VatTuSuDungContract extends BaseContract {
     }
 
     addContract = async (data: VatTuSuDungProperties, sender: string) => {
-        await this.methods.ThemVatTuNongNghiep(data)
+        try {
+            await this.methods.ThemVatTuNongNghiep(
+                data.intProperties,
+                data.stringProperties,
+                data.addressProperties
+            )
             ?.send({
                 from: sender,
                 gas: 300000
             })
+        } catch ( err ) {
+            throw err
+        }
     }
 
     getContractById = async (id_contract: number) => {

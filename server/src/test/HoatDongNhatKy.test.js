@@ -17,12 +17,12 @@ const init = async () => {
     //     from: '0x0fa10a122cE614b230264f4473e5F7ba03C97673' 
     //     ,gas: 3000000
     // }); //4
-    //const giaoDich = await contract.methods.DanhSachHoatDongNhatKy(0).call();
+    const giaoDich = await contract.methods.DanhSachHoatDongNhatKy(1).call();
     // await contract.methods.transfer('0x8a3de6ca5d60b83e788e9d5747dabb7d040073e1', 10000)
     // .send({from: '0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09'});
     //const balance = await contract.methods.balanceOf('0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09').call();
     //const receiverBalance = await contract.methods.balanceOf('0x8a3de6ca5d60b83e788e9d5747dabb7d040073e1').call();
-    const giaoDich = await contract.ThemHoatDongNhatKy(id_contract)?.call()
+    //const giaoDich = await contract.ThemHoatDongNhatKy(id_contract)?.call()
     console.log(giaoDich)
 
     //console.log(name, symbol, decimal, initBalance, balance, receiverBalance);

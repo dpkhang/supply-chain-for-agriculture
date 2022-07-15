@@ -16,17 +16,22 @@ export class NhatKyDongRuongContract extends BaseContract {
     }
 
     addContract = async (data: NhatKyDongRuong, sender: string) => {
+        try {
 
-        await this.methods.ThemNhatKyDongRuong(
-            data.id_XaVien,
-            data.id_NhatKyDongRuong,
-            data.id_LichMuaVu,
-            data.id_ThuaDat,
-            data.ThoiGian
-        )?.send({
-            from: sender,
-            gas: 300000
-        })
+            await this.methods.ThemNhatKyDongRuong(
+                data.id_XaVien,
+                data.id_NhatKyDongRuong,
+                data.id_LichMuaVu,
+                data.id_ThuaDat,
+                data.ThoiGian
+            )?.send({
+                from: sender,
+                gas: 300000
+            })
+
+        } catch ( err ) {
+            throw err
+        }
     }
 
     getContractById = async (id_contract: number) => {
