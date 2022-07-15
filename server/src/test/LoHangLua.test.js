@@ -13,7 +13,7 @@ const init = async () => {
         ['0x409a14119DE06fdba12638d17310934784Bce90c'],
         ['Nang Thom']
     ).send({ 
-        from: '0x1b7A176215B7595DaAa81eDB8E4Ac7fA526E72de' 
+        from: '0x1059f1CCf95F4EeBee60E67FA5AC8803E357612B' 
         ,gas: 3000000
     }); //4
     const giaoDich = await contract.methods.DanhSachLoHangLua(1).call();

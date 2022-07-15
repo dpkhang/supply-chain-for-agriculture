@@ -16,13 +16,13 @@ export class GiaoDichMuaBanVatTuContract extends BaseContract {
 
     addContract = async (data: GiaoDichMuaBanVatTu, sender: string) => {
         const result = await this.methods.ThemGiaoDich(data.intProperties, data.boolProperties, [ADDRESS_LOHANGVATTU])
-                            ?.send({
-                                from: sender,
-                                gas: 3000000
-                            })
+        ?.send({
+            from: sender,
+            gas: 3000000
+        })
         return result
     }
-    
+   
     getContractById = async (id_contract: number) => {
         return await this.methods.DanhSachGiaoDich(id_contract).call()
     }

@@ -24,7 +24,7 @@ const ThemNhatKyDongRuongValidator = [
         if ( !errors.isEmpty() ) {
             const responseDTO = new ResponseDTO()
             return res.status(400).json(
-                responseDTO.reponseWithOther(
+                responseDTO.responseWithOther(
                     400,
                     "Yeu cau khong duoc phu hop.",
                     { errors: errors.array() }
