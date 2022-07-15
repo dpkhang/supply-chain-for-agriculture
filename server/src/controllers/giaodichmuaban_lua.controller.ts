@@ -32,7 +32,8 @@ export class Giaodichmuaban_luaController {
                 return res.status(200).json(responseDTO.success('Them du lieu thanh cong', repsonse))
             }
             return res.status(400).json(responseDTO.badRequest())
-        }catch(err) {
+        }catch(err: any) {            
+        //  const error = Object.values<any>(err.data)[0].reason
             console.log(err)
             return res.status(500).json(responseDTO.serverError())
         }

@@ -11,6 +11,7 @@ export class BaseContract {
     constructor(ABI: any, address: string) {
         this.web3 = new Web3(`http://${URL_BlockChain_NetWork}:${PORT_BLOCKCHAIN}`)
         this.contract = new this.web3.eth.Contract(ABI.abi, address)
+        this.web3.eth.handleRevert = true
         this.methods = this.contract.methods
     }
 

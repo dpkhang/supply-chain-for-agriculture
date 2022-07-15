@@ -4,18 +4,18 @@ const Coin = require('../abis/LoHangVatTu.json');
 const init = async () => {
     //truyen dia chi blockchain
     const web3 = new Web3('http://127.0.0.1:8545/');
-    const contract = await new web3.eth.Contract(Coin.abi, '0xc16dde9257dC687Bd7f5Ff52C32F1C9688CC5A04');
+    const contract = await new web3.eth.Contract(Coin.abi, '0x4C17e0Fb726143a31062307A67e7B5C4644D63EE');
     //const name = await contract.methods.name().call();
     //const symbol = await contract.methods.symbol().call();
     //const decimal = await contract.methods.decimals().call();
-    await contract.methods.ThemLohangVatTu(
-        [1, 2, 3, 100, 10],
-        ['Nang Thom']
-    ).send({ 
-        from: '0x67b336900a22331304594B6f09f66191E775877e' 
-        ,gas: 3000000
-    }); //4
-    const giaoDich = await contract.methods.DanhSachLoHangVatTu(1).call();
+    // await contract.methods.ThemLohangVatTu(
+    //     [2, 2, 3, 100, 10],
+    //     ['Nang Thom']
+    // ).send({ 
+    //     from: '0xf101106A95716A5919AD348D7eC0aB6F5842eB59' 
+    //     ,gas: 3000000
+    // }); //4
+    const giaoDich = await contract.methods.DanhSachLoHangVatTu(2).call();
     // await contract.methods.transfer('0x8a3de6ca5d60b83e788e9d5747dabb7d040073e1', 10000)
     // .send({from: '0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09'});
     //const balance = await contract.methods.balanceOf('0xbee2a0ebcb8a167832dc26eda166c3aeb2459e09').call();

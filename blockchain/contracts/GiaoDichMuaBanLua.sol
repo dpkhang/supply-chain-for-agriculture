@@ -31,7 +31,7 @@ contract GiaoDichMuaBanLua {
         uint    ThoiGianGiaoDich
     );
 
-     //------modifier-----//
+    //------modifier-----//
     modifier KiemTraIdCacBenLienQuan (
         uint id_XaVien,
         uint id_ThuongLai

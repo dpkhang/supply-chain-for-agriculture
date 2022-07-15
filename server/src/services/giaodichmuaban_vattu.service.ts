@@ -19,12 +19,12 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
     }
 
     getContracts = async () => {
-        const giaoDichMuaBanLua = await this._GiaoDichMuaBanVatTuContract.getContracts("SuKienGiaoDich1")
+        const giaoDichMuaVatTu = await this._GiaoDichMuaBanVatTuContract.getContracts("SuKienGiaoDich1")
 
         const results = []
 
-        if (giaoDichMuaBanLua && giaoDichMuaBanLua?.length > 0) {
-            for(let contract of giaoDichMuaBanLua) {
+        if (giaoDichMuaVatTu && giaoDichMuaVatTu?.length > 0) {
+            for(let contract of giaoDichMuaVatTu) {
                 const lohangVatTu =  await this._LoHangVatTu.getContractById(contract.returnValues.id_LoHangVatTu)
                 const giaoDich = {
                     id_GiaoDich: contract.returnValues.id_GiaoDich,
@@ -77,7 +77,6 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
             ]
         }
         const resultLoHangVatTu = await this._LoHangVatTu.addContract(lohangVatTu_Data, sender)
-        console.log("----->", resultLoHangVatTu)
         if(resultLoHangVatTu) {
             const resultGiaoDichMuaBanVatTu = await this._GiaoDichMuaBanVatTuContract.addContract(giaodichMuaBanVatTu_Data, sender)
             if(resultGiaoDichMuaBanVatTu)
