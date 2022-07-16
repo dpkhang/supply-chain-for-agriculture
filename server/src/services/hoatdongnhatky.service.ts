@@ -1,7 +1,7 @@
 import { BaseService } from "./base/base.service"; 
 import { HoatDongNhatKyContract } from "../contracts/HoatDongNhatKy.contract";
 import { HoatDongNhatKyDTO } from "../dtos/request/HoatDongNhatKy.dto";
-const ADDRESS_NhatKyDongRuong = process.env.ADDRESS_NhatKyDongRuong || "";
+const ADDRESS_NHATKYRUONGDONG = process.env.ADDRESS_NHATKYRUONGDONG || "";
 
 export class HoatdongnhatkyService extends BaseService {
     _HoatDongNhatKyContract
@@ -17,7 +17,7 @@ export class HoatdongnhatkyService extends BaseService {
             const hoatDongNhatKy = data as any
             delete hoatDongNhatKy.wallet_XaVien
 
-            hoatDongNhatKy.address_NhatKyDongRuong = ADDRESS_NhatKyDongRuong
+            hoatDongNhatKy.ADDRESS_NHATKYRUONGDONG = ADDRESS_NHATKYRUONGDONG
         
             await this._HoatDongNhatKyContract.addContract(hoatDongNhatKy, sender);
 

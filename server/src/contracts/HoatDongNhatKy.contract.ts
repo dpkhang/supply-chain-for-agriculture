@@ -1,6 +1,6 @@
 import { BaseContract } from './base/base.contract'
 import HoatDongNhatKyABI from "../abis/HoatDongNhatKy.json"
-const ADDRESS_HoatDongNhatKy = process.env.ADDRESS_HoatDongNhatKy || ""
+const ADDRESS_HOATDONGNHATKY = process.env.ADDRESS_HOATDONGNHATKY || ""
 
 export interface NhatKyHoatDong {
     id_NhatKyDongRuong      : number
@@ -11,7 +11,7 @@ export interface NhatKyHoatDong {
 
 export class HoatDongNhatKyContract extends BaseContract {
     constructor() {
-        super(HoatDongNhatKyABI, ADDRESS_HoatDongNhatKy)
+        super(HoatDongNhatKyABI, ADDRESS_HOATDONGNHATKY)
     }
 
     addContract = async (data: NhatKyHoatDong, sender: string) => {

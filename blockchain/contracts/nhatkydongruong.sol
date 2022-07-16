@@ -26,19 +26,9 @@ contract NhatKyDongRuong {
 
     //------modifier-----//
     modifier KiemTraIdNhatKyDongRuong( uint id_NhatKyDongRuong ) {
-        uint index = 0;
-        bool checkIdNhatKyDongRuong = true;
-
-        for ( index; index < maxLength; index ++ ) {
-            if ( DanhSachNhatKyDongRuong[ index ].id_NhatKyDongRuong 
-                 == id_NhatKyDongRuong 
-            ) {
-                checkIdNhatKyDongRuong = false;
-            }
-        }
 
         require(
-            checkIdNhatKyDongRuong,
+            DanhSachNhatKyDongRuong[ id_NhatKyDongRuong ].id_NhatKyDongRuong == 0,
             "Id nhat ky dong ruong phai la duy nhat"
         );
         
