@@ -1,6 +1,6 @@
 import express from 'express'
 import { NhatkydongruongController } from '../controllers/nhatkydongruong.controller' 
-import { ThemNhatKyDongRuongValidator } from '../middlewares/NhatKyDongRuong.middleware'
+import { ThemNhatKyDongRuongValidator } from '../middlewares/validator/NhatKyDongRuong.middleware'
 const route = express.Router()
 
 const nhatkydongruongController = new NhatkydongruongController
