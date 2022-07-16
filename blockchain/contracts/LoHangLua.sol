@@ -36,7 +36,7 @@ contract LoHangLua {
     modifier KiemTraIdLoHangLua (  uint id_LoHangLua ) {
         require(
             DanhSachLoHangLua[ id_LoHangLua ].id_LoHangLua == 0,
-            "Lo hang vat tu da ton tai"
+            "Lo hang lua da ton tai"
         );
 
         _;
