@@ -11,13 +11,13 @@ export const GiaoDichMuaBanVatTuValidator = [
     body("thoigianGiaoDich").notEmpty().isNumeric().toInt(),
     body("giaLoHang").notEmpty().isNumeric().toInt(),
     body("id_MuaVu").notEmpty().isNumeric().toInt(),
-    body("tenVatTu").notEmpty().toString(),
+    body("tenVatTu").notEmpty().isString(),
     body("thoigianLoHang").notEmpty().isNumeric().toInt(),
     body("soluong").notEmpty().isNumeric().toInt(),
     body("xacnhanXaVien").notEmpty().isBoolean(),
     body("xacnhanNhaCungCap").notEmpty().isBoolean(),
     body("xacnhanHTX").notEmpty().isBoolean(),
-    body("wallet_NguoiTao").notEmpty().toString(),
+    body("wallet_NguoiTao").notEmpty().isString(),
     ( req: Request, res: Response, next: NextFunction ) => {
 
         const errors = validationResult(req)
