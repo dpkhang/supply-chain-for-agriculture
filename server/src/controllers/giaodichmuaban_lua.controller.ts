@@ -13,7 +13,36 @@ export class Giaodichmuaban_luaController {
         try {
             const response = await this._GiaiDichMuaBanLua_Service.getContracts()
 
-            return res.status(200).json(responseDTO.success("Lay du lieu thanh cong", response))
+            return res.status(200).json(
+                    responseDTO.success(
+                        "Lay du lieu thanh cong", 
+                        response
+                    )
+                )
+        }catch(err) {
+            console.log(err)
+            return res.status(500).json(responseDTO.serverError())
+        }
+    }
+
+    getContractById = async (req: Request, res: Response): Promise<Response> => {
+        const responseDTO = new ResponseDTO()
+        try {
+            const { id } = req.params
+
+            if(!id)
+                return res.status(400).json(responseDTO.badRequest())
+            const response = await this._GiaiDichMuaBanLua_Service.getContractById(Number(id))
+            
+            if(response)
+                return res.status(200).json(
+                    responseDTO.success(
+                        "Lay du lieu thanh cong.", 
+                        response
+                    )
+                )
+
+            return res.status(400).json(responseDTO.badRequest())
         }catch(err) {
             console.log(err)
             return res.status(500).json(responseDTO.serverError())
@@ -22,20 +51,27 @@ export class Giaodichmuaban_luaController {
 
     addContract  = async (req: Request, res: Response): Promise<Response> => {
         const responseDTO = new ResponseDTO()
-        const data = {
-            ...req.body
-        }
-        delete data.sender
         try {
-            const repsonse = await this._GiaiDichMuaBanLua_Service.addContract(data, req.body.sender)
+            const data = {
+                ...req.body
+            }
+            delete data.wallet_NguoiTao
+            const repsonse = await this._GiaiDichMuaBanLua_Service.addContract(data, req.body.wallet_NguoiTao)
             if(repsonse) {
-                return res.status(200).json(responseDTO.success('Them du lieu thanh cong', repsonse))
+                return res.status(200).json(
+                    responseDTO.success(
+                        'Them du lieu thanh cong', 
+                        repsonse
+                    )
+                )
             }
             return res.status(400).json(responseDTO.badRequest())
         }catch(err: any) {            
-        //  const error = Object.values<any>(err.data)[0].reason
-            console.log(err)
-            return res.status(500).json(responseDTO.serverError())
+            const error = err.data ? Object.values<any>(err.data)[0].reason : err
+            console.log(error)
+            return res.status(500).json(
+                responseDTO.responseWithOther(500, error)
+            )
         }
     }
 }

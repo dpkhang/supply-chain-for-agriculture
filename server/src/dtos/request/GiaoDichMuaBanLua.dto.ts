@@ -9,10 +9,11 @@ export interface GiaoDichMuaBanLuaDTO {
     id_NhatKyDongRuong: number
     thoigianLoHang:     number
     tenGiongLua:        string
-    soluong:            number,
-    xacnhanXaVien:      boolean,
-    xacnhanThuongLai:   boolean,
-    xacnhanHTX:         boolean,
-    dientichdat:        number,
+    soluong:            number
+    xacnhanXaVien:      boolean
+    xacnhanThuongLai:   boolean
+    xacnhanHTX:         boolean
+    dientichdat:        number
     maxSoLuong:         number
+    wallet_NguoiTao:    string
 }

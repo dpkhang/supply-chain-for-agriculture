@@ -79,7 +79,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
         const resultLoHangVatTu = await this._LoHangVatTu.addContract(lohangVatTu_Data, sender)
         if(resultLoHangVatTu) {
             const resultGiaoDichMuaBanVatTu = await this._GiaoDichMuaBanVatTuContract.addContract(giaodichMuaBanVatTu_Data, sender)
-            if(resultGiaoDichMuaBanVatTu)
+            if(resultGiaoDichMuaBanVatTu) 
                 return {
                     ...data
                 }
@@ -87,4 +87,31 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
         }
         return null
     }
+
+    getContractById = async (id_GiaoDich: number) => {
+        const giaodichMuaBanVatTu = await this._GiaoDichMuaBanVatTuContract.getContractById(id_GiaoDich)
+        if(giaodichMuaBanVatTu) {
+            const lohangVatTu = await this._LoHangVatTu.getContractById(giaodichMuaBanVatTu.id_LoHangVatTu)
+            if(lohangVatTu) {
+                const giaoDich = {
+                    id_GiaoDich: giaodichMuaBanVatTu.id_GiaoDich,
+                    id_LoHangVatTu: giaodichMuaBanVatTu.id_LoHangVatTu,
+                    id_XaVien: giaodichMuaBanVatTu.id_XaVien,
+                    id_NhaCungCap: giaodichMuaBanVatTu.id_NhaCungCap,
+                    thoigianGiaoDich: giaodichMuaBanVatTu.ThoiGianGiaoDich,
+                    giaLoHang: giaodichMuaBanVatTu.GiaLoHang,
+                    id_Muavu: lohangVatTu.id_Muavu,
+                    id_VatTu: lohangVatTu.id_VatTu,
+                    TenVatTu: lohangVatTu.TenVatTu,
+                    thoigianLoHang: lohangVatTu.ThoiGian,
+                    soluong: lohangVatTu.SoLuong,
+                }
+
+                return giaoDich
+            }
+            return null
+        }
+        return null
+    }
 }
+

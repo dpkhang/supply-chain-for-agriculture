@@ -101,10 +101,20 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         if (giaoDichMuaBanLua) {
             const loHangLua = await this._LoHangLua.getContractById(giaoDichMuaBanLua.id_LoHangLua)
             if (loHangLua) {
-                return {
-                    ...giaoDichMuaBanLua,
-                    ...loHangLua
+                const giaoDich = {
+                    id_GiaoDich: giaoDichMuaBanLua.id_GiaoDich,
+                    id_LoHangLua: giaoDichMuaBanLua.id_LoHangLua,
+                    id_XaVien: giaoDichMuaBanLua.id_XaVien,
+                    id_ThuongLai: giaoDichMuaBanLua.id_ThuongLai,
+                    thoigianGiaoDich: giaoDichMuaBanLua.ThoiGianGiaoDich,
+                    giaLoHang: giaoDichMuaBanLua.GiaLoHang,
+                    id_GiongLua: loHangLua.id_GiongLua,
+                    id_NhatKyDongRuong: loHangLua.id_NhatKyDongRuong,
+                    tenGiongLua: loHangLua.TenGiongLua,
+                    thoigianLoHang: loHangLua.ThoiGian,
+                    soluong: loHangLua.SoLuong,
                 }
+                return giaoDich
             } 
             return null
         }

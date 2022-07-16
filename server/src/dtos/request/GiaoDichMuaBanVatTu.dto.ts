@@ -10,8 +10,9 @@ export interface GiaoDichMuaBanVatTuDTO {
     tenVatTu:           string
     thoigianLoHang:     number
     soluong:            number
-    xacnhanXaVien:      boolean,
-    xacnhanNhaCungCap:  boolean,
-    xacnhanHTX:         boolean,
+    xacnhanXaVien:      boolean
+    xacnhanNhaCungCap:  boolean
+    xacnhanHTX:         boolean
+    wallet_NguoiTao:    string
 }
 
