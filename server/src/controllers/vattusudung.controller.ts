@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
-import { NhatKyDongRuongDTO } from '../dtos/request/NhatKyDongRuong.dto';
 import { ResponseDTO } from '../dtos/response.dto';
-import { NhatkydongruongService } from '../services/nhatkydongruong.service';
-export class NhatkydongruongController {
-    private _nhatkydongruongService
+import { VatTuSuDungService } from '../services/VatTuSuDung.service';
+export class VatTuSuDungController {
+    private _vatTuSuDung
 
     constructor () {
-        this._nhatkydongruongService = new NhatkydongruongService()
+        this._vatTuSuDung = new VatTuSuDungService()
     }
 
     getContracts = async (req: Request, res: Response):Promise<Response> => {
@@ -15,7 +14,7 @@ export class NhatkydongruongController {
             const limit = parseInt( (req.query.limit ?? '0') as string )
             const page  = parseInt( (req.query.page ?? '1') as string )
             
-            const result = await this._nhatkydongruongService.getContracts(limit, page)
+            const result = await this._vatTuSuDung.getContracts(limit, page)
 
             return res.status(200).json(
                 responseDTO.success(
@@ -30,52 +29,16 @@ export class NhatkydongruongController {
         }
     }
 
-    storeTransaction = async ( req: Request, res: Response ): Promise<Response> => {
-        const responseDTO = new ResponseDTO()
-        try {
-            const ReqData: NhatKyDongRuongDTO = req.body
-        
-            const sender = ReqData.wallet_XaVien;
-            const nhatKyDongRuong = ReqData as any
-            delete nhatKyDongRuong.wallet_XaVien
-
-            await this._nhatkydongruongService.AddTransaction(nhatKyDongRuong, sender)
-
-
-            return res.status(200).json(
-                responseDTO.success(
-                    "Luu du lieu len blockchain thanh cong",
-                    ReqData
-                )
-            )
-        }catch(err) {
-            console.log(err)
-
-            const errorData = ( err as any ).data
-
-            for ( let key in errorData ) {
-                if ( errorData[key].hasOwnProperty('reason') ) {
-                    return res.status(500).json(responseDTO.responseWithOther(
-                        500,
-                        errorData[key].reason
-                    ))
-                }
-            }
-
-            return res.status(500).json(responseDTO.serverError())
-        }
-    }
-
     getContractById = async ( req: Request, res: Response ) => {
         const responseDTO = new ResponseDTO()
         try {
             const id = parseInt(req.params.id)
-            const result = await this._nhatkydongruongService.getContractById(id)
+            const result = await this._vatTuSuDung.getContractById(id)
 
             if (!result) {
                 return res.status(200).json(
                     responseDTO.success(
-                        "Nhat ky dong ruong chua ton tai",
+                        "Vat tu su dung chua ton tai",
                     )
                 )
             }
@@ -93,20 +56,19 @@ export class NhatkydongruongController {
         }
     }
 
-    getContractByIdXaVien = async ( req: Request, res: Response ) => {
+    getContractByIdHoatDongNhatKy = async ( req: Request, res: Response ) => {
         const responseDTO = new ResponseDTO()
         try {
             const id = parseInt(req.params.id)
             const limit = parseInt( (req.query.limit ?? '0') as string )
             const page  = parseInt( (req.query.page ?? '1') as string )
 
-            const result = await this._nhatkydongruongService.getContractByIdXaVien(id, limit, page)
-            console.log(result)
+            const result = await this._vatTuSuDung.getContractsByIdHoatDongNhatKy(id, limit, page)
 
             if (!result) {
                 return res.status(200).json(
                     responseDTO.success(
-                        "Nhat ky dong ruong chua ton tai",
+                        "Vat tu su dung chua ton tai",
                     )
                 )
             }

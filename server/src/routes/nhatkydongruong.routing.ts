@@ -7,6 +7,10 @@ const nhatkydongruongController = new NhatkydongruongController
 
 route.get('/', nhatkydongruongController.getContracts)
 
-route.post('/field-log', ThemNhatKyDongRuongValidator as any, nhatkydongruongController.storeTransaction)
+route.get('/:id', nhatkydongruongController.getContractById)
+
+route.get('/xa-vien/:id', nhatkydongruongController.getContractByIdXaVien)
+
+route.post('/', ThemNhatKyDongRuongValidator, nhatkydongruongController.storeTransaction)
 
 export default route

@@ -16,8 +16,20 @@ export class HoatdongnhatkyController {
     getContracts = async (req: Request, res: Response):Promise<Response> => {
         const responseDTO = new ResponseDTO()
         try {
-            return res.status(200).json('')
+            const limit = parseInt( (req.query.limit ?? '0') as string )
+            const page  = parseInt( (req.query.page ?? '1') as string )
+            
+            const result = await this._hoatdongnhatkyService.getContracts(limit, page)
+
+            return res.status(200).json(
+                responseDTO.success(
+                    "Lay du lieu thanh cong",
+                    result
+                )
+            )
+            
         }catch(err) {
+            console.log(err)
             return res.status(500).json(responseDTO.serverError())
         }
     }
