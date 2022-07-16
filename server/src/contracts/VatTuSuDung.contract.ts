@@ -1,6 +1,6 @@
 import { BaseContract }             from './base/base.contract'
 import VatTuSuDungABI               from "../abis/VatTuSuDung.json"
-const ADDRESS_VatTuSuDung           = process.env.ADDRESS_VatTuSuDung   || ""
+const ADDRESS_VATTUSUDUNG           = process.env.ADDRESS_VATTUSUDUNG   || ""
 
 export interface VatTuSuDung {
     id_VatTuSuDung      : number
@@ -20,7 +20,7 @@ export interface VatTuSuDungProperties {
 export class VatTuSuDungContract extends BaseContract {
 
     constructor() {
-        super(VatTuSuDungABI, ADDRESS_VatTuSuDung)
+        super(VatTuSuDungABI, ADDRESS_VATTUSUDUNG)
     }
 
     addContract = async (data: VatTuSuDungProperties, sender: string) => {

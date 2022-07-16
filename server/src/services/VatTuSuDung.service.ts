@@ -2,8 +2,8 @@ import { BaseService }          from "./base/base.service";
 import { VatTuSuDungContract, VatTuSuDungProperties }  from "../contracts/VatTuSuDung.contract"; 
 import { VatTuSuDungDTO }       from "../dtos/request/VatTuSuDung.dto";
 
-const ADDRESS_HoatDongNhatKy    = process.env.ADDRESS_HoatDongNhatKy || "";
-const ADDRESS_LohangVatTu       = process.env.ADDRESS_LohangVatTu || "";
+const ADDRESS_HOATDONGNHATKY    = process.env.ADDRESS_HOATDONGNHATKY || "";
+const ADDRESS_LOHANGVATTU       = process.env.ADDRESS_LOHANGVATTU || "";
 
 export class VatTuSuDungService extends BaseService {
     _VatTuSuDungContract
@@ -30,8 +30,8 @@ export class VatTuSuDungService extends BaseService {
                 stringProperties.push( VatTuSuDung.TenVatTu )
 
                 let addressProperties = []
-                addressProperties.push( ADDRESS_LohangVatTu )
-                addressProperties.push( ADDRESS_HoatDongNhatKy )
+                addressProperties.push( ADDRESS_LOHANGVATTU )
+                addressProperties.push( ADDRESS_HOATDONGNHATKY )
 
                 const vatTuSuDungProperties: VatTuSuDungProperties = {
                     intProperties       : intProperties,
