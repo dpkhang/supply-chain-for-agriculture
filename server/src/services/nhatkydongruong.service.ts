@@ -18,4 +18,8 @@ export class NhatkydongruongService extends BaseService {
             throw err
         }
     }
+
+    async getAllContract() {
+
+    }
 }
