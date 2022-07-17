@@ -5,12 +5,12 @@ const route = express.Router()
 
 const nhatkydongruongController = new NhatkydongruongController
 
-route.get('/', nhatkydongruongController.getContracts)
+route.get('/'           , nhatkydongruongController.getContracts)
 
-route.get('/:id', nhatkydongruongController.getContractById)
+route.get('/:id'        , nhatkydongruongController.getContractById)
 
 route.get('/xa-vien/:id', nhatkydongruongController.getContractByIdXaVien)
 
-route.post('/', ThemNhatKyDongRuongValidator, nhatkydongruongController.storeTransaction)
+route.post('/'          , ThemNhatKyDongRuongValidator, nhatkydongruongController.storeTransaction)
 
 export default route

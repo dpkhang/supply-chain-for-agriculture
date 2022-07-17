@@ -6,11 +6,11 @@ const route = express.Router()
 
 const hoatdongnhatkyController = new HoatdongnhatkyController
 
-route.get('/', hoatdongnhatkyController.getContracts)
+route.get('/'       , hoatdongnhatkyController.getContracts)
 
-route.get('/:id', hoatdongnhatkyController.getContractById)
+route.get('/:id'    , hoatdongnhatkyController.getContractById)
 
-route.post('/', NhatKyHoatDongValidator, VatTuSuDungValidator, hoatdongnhatkyController.createContract)
+route.post('/'      , NhatKyHoatDongValidator, VatTuSuDungValidator, hoatdongnhatkyController.createContract)
 
 route.get('/log/:id', hoatdongnhatkyController.getContractsByIdNhatKy)
 
