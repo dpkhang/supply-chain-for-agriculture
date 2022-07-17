@@ -4,7 +4,7 @@ const Coin = require('../abis/LoHangVatTu.json');
 const init = async () => {
     //truyen dia chi blockchain
     const web3 = new Web3('http://127.0.0.1:8545/');
-    const contract = await new web3.eth.Contract(Coin.abi, '0xccF33e4E7e2e4bAbc3ea998B314E96ed3c78F8CC');
+    const contract = await new web3.eth.Contract(Coin.abi, '0x684f34a45012bFB30A3fA3eFb135E23d0AB691D9');
     //const name = await contract.methods.name().call();
     //const symbol = await contract.methods.symbol().call();
     //const decimal = await contract.methods.decimals().call();

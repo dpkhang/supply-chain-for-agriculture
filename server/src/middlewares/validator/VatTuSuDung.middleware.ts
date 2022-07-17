@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { body, check, validationResult } from "express-validator"
-import { ResponseDTO } from "../dtos/response.dto";
+import { ResponseDTO } from "../../dtos/response.dto";
 
 const VatTuSuDungValidator = [
     body('danhSachVatTu').notEmpty().isArray(),
