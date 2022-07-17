@@ -8,6 +8,10 @@ const hoatdongnhatkyController = new HoatdongnhatkyController
 
 route.get('/', hoatdongnhatkyController.getContracts)
 
+route.get('/:id', hoatdongnhatkyController.getContractById)
+
 route.post('/', NhatKyHoatDongValidator, VatTuSuDungValidator, hoatdongnhatkyController.createContract)
+
+route.get('/log/:id', hoatdongnhatkyController.getContractsByIdNhatKy)
 
 export default route

@@ -79,4 +79,63 @@ export class HoatdongnhatkyController {
 
     }
 
+    getContractById = async (req: Request, res: Response): Promise<Response> => {
+        const responseDTO = new ResponseDTO()
+        try {
+            const id = parseInt(req.params.id)
+            const result = await this._hoatdongnhatkyService.getContractById(id)
+
+            if (!result) {
+                return res.status(200).json(
+                    responseDTO.success(
+                        "Hoat dong nhat ky chua ton tai",
+                    )
+                )
+            }
+
+            return res.status(200).json(
+                responseDTO.success(
+                    "Lay du lieu thanh cong",
+                    result
+                )
+            )
+            
+        }catch(err) {
+            console.log(err)
+            return res.status(500).json(responseDTO.serverError())
+        }
+    }
+
+    getContractsByIdNhatKy = async (req: Request, res: Response): Promise<Response> => {
+
+        const responseDTO = new ResponseDTO()
+        try {
+            const id_NhatKy = parseInt( req.params.id )
+            const limit     = parseInt( (req.query.limit ?? '0') as string )
+            const page       = parseInt( (req.query.page ?? '1') as string )
+            
+            const result = await this._hoatdongnhatkyService.getContractsByIdNhatKy(id_NhatKy, limit, page)
+
+            if (!result) {
+                return res.status(200).json(
+                    responseDTO.success(
+                        "Nhat ky hoat dong chua ton tai",
+                    )
+                )
+            }
+
+            return res.status(200).json(
+                responseDTO.success(
+                    "Lay du lieu thanh cong",
+                    result
+                )
+            )
+            
+        }catch(err) {
+            console.log(err)
+            return res.status(500).json(responseDTO.serverError())
+        }
+
+    }
+
 }
