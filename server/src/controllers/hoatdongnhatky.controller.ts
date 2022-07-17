@@ -84,6 +84,12 @@ export class HoatdongnhatkyController {
         try {
             const id = parseInt(req.params.id)
             const result = await this._hoatdongnhatkyService.getContractById(id)
+            const danhSachVatTuSuDung = await this._vatTuSuDungService.getContractsByIdHoatDongNhatKy(id)
+            
+            const endResult = {
+                ...result,
+                danhSachVatTuSuDung: danhSachVatTuSuDung
+            }
 
             if (!result) {
                 return res.status(200).json(
@@ -96,7 +102,7 @@ export class HoatdongnhatkyController {
             return res.status(200).json(
                 responseDTO.success(
                     "Lay du lieu thanh cong",
-                    result
+                    endResult
                 )
             )
             
