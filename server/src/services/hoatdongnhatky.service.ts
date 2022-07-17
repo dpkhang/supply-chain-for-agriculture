@@ -1,19 +1,15 @@
 import { BaseService } from "./base/base.service"; 
 import { HoatDongNhatKyContract } from "../contracts/HoatDongNhatKy.contract";
 import { HoatDongNhatKyDTO } from "../dtos/request/HoatDongNhatKy.dto";
-import { VatTuSuDungService } from "./VatTuSuDung.service";
 const ADDRESS_NHATKYRUONGDONG = process.env.ADDRESS_NHATKYRUONGDONG || "";
 
 export class HoatdongnhatkyService extends BaseService {
     private _HoatDongNhatKyContract
-    private _VatTuSuDungService
 
     constructor() {
         const hoatdongnhatkyService = new HoatDongNhatKyContract()
         super(hoatdongnhatkyService)
         this._HoatDongNhatKyContract = hoatdongnhatkyService
-
-        this._VatTuSuDungService = new VatTuSuDungService()
     }
 
     createContract = async (data: HoatDongNhatKyDTO, sender: string) => {
@@ -84,13 +80,11 @@ export class HoatdongnhatkyService extends BaseService {
             ) return null
 
             if (vatTuSuDung) {
-                const danhSachVatTuSuDung = await this._VatTuSuDungService.getContractsByIdHoatDongNhatKy(id_HoatDongNhatKy)
 
                 const vatTuSuDungResult = {
                     id_NhatKyDongRuong      : vatTuSuDung.id_NhatKyDongRuong,
                     id_HoatDongNhatKy       : vatTuSuDung.id_HoatDongNhatKy,
                     ThoiGian                : vatTuSuDung.ThoiGian,
-                    danhSachVatTuSuDung     : danhSachVatTuSuDung
                 }
 
                 return vatTuSuDungResult
