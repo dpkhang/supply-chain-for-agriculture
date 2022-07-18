@@ -104,7 +104,7 @@ export class HoatdongnhatkyService extends BaseService {
 
             const danhSachHoatDongNhatKy = await this._HoatDongNhatKyContract.getContracts("SuKienThemHoatDongNhatKy")
             const danhSachHoatDongNhatKyFilterByIdNhatKy = danhSachHoatDongNhatKy
-            .filter( element => element.returnValues.id_NhatKyDongRuong == id_NhatKyDongRuong )
+            ?.filter( element => element.returnValues.id_NhatKyDongRuong == id_NhatKyDongRuong )
     
             if ( danhSachHoatDongNhatKyFilterByIdNhatKy && danhSachHoatDongNhatKyFilterByIdNhatKy.length > 0 ) {
 

@@ -103,7 +103,7 @@ export class NhatkydongruongService extends BaseService {
             const danhSachNhatKyDongRuong = await this._NhatKyDongRuongContract.getContracts("SuKienThemNhatKyDongRuong")
 
             const danhSachNhatKyDongRuongFilterByIdXaVien = danhSachNhatKyDongRuong
-            .filter(element => element.returnValues.id_XaVien == id_XaVien)
+            ?.filter(element => element.returnValues.id_XaVien == id_XaVien)
     
             if ( danhSachNhatKyDongRuongFilterByIdXaVien && danhSachNhatKyDongRuongFilterByIdXaVien.length > 0 ) {
         
