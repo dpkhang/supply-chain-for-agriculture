@@ -48,21 +48,18 @@ export class NhatkydongruongController {
                     ReqData
                 )
             )
-        }catch(err) {
-            console.log(err)
+        }catch(err: any) {
+            //const errors = Object.values<any>(err.data)
+            //console.log(errors[0].reason)
+            // return res.status(500).json(responseDTO.responseWithOther(
+            //     500,
+            //     error[0].reason
+            // ))
 
-            const errorData = ( err as any ).data
-
-            for ( let key in errorData ) {
-                if ( errorData[key].hasOwnProperty('reason') ) {
-                    return res.status(500).json(responseDTO.responseWithOther(
-                        500,
-                        errorData[key].reason
-                    ))
-                }
-            }
-
-            return res.status(500).json(responseDTO.serverError())
+            return res.status(500).json(responseDTO.responseWithOther(
+                500,
+                err.reason
+            ))
         }
     }
 

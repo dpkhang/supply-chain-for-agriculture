@@ -136,7 +136,7 @@ export class VatTuSuDungService extends BaseService {
 
             const danhSachVatTuSuDung = await this._VatTuSuDungContract.getContracts("SuKienThemVatTuNongNghiep")
             const danhSachVatTuSuDungFilterById_HoatDongNhatKy = danhSachVatTuSuDung
-            .filter(element => element.returnValues.id_HoatDongNhatKy == id_HoatDongNhatKy)
+            ?.filter(element => element.returnValues.id_HoatDongNhatKy == id_HoatDongNhatKy)
     
             if ( danhSachVatTuSuDungFilterById_HoatDongNhatKy && danhSachVatTuSuDungFilterById_HoatDongNhatKy.length > 0 ) {
 
