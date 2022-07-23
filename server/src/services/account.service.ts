@@ -1,5 +1,5 @@
 import { BaseService } from "./base/base.service"
-import { Account, AccountContract } from "../contracts/account.contract"
+import { Account, AccountContract } from "../contracts/Account.contract"
 
 export class Account_Service {
     _accountContract
