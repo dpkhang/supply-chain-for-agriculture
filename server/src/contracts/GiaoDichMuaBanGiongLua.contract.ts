@@ -14,7 +14,6 @@ export class GiaoDichMuaBanGiongLuaContract extends BaseContract {
     }
 
     addContract = async (data: GiaoDichMuaBanGiongLuaInterface, sender: string) => {
-        console.log(data, sender)
         const result = await this.methods.ThemGiaoDich(data.intProperties, data.stringProperties)
             ?.send({
                 from: sender,
