@@ -5,6 +5,7 @@ const HoatDongNhatKy          = artifacts.require("HoatDongNhatKy");
 const GiaoDichMuaBanVatTu     = artifacts.require("GiaoDichMuaBanVatTu");
 const LoHangVatTu             = artifacts.require("LoHangVatTu");
 const VatTuSuDung             = artifacts.require("VatTuSuDung");
+const GiaoDichMuaBanGiongLua  = artifacts.require("GiaoDichMuaBanGiongLua");
 
 module.exports = function( deployer ) {
 
@@ -21,5 +22,7 @@ module.exports = function( deployer ) {
   deployer.deploy( LoHangVatTu );
 
   deployer.deploy( VatTuSuDung );
+
+  deployer.deploy( GiaoDichMuaBanGiongLua );
 
 };

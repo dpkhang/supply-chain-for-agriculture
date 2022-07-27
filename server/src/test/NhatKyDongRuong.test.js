@@ -3,7 +3,10 @@ const Coin = require('../abis/NhatKyDongRuong.json');
 
 const init = async () => {
     //truyen dia chi blockchain
-    const web3 = new Web3('http://127.0.0.1:8085/');
+    const web3 = new Web3('http://10.32.2.150:8085/');
+    web3.eth.personal.importRawKey("a0a7749e421f44d07236347b8238bc6c326ea2f413d88f3dc3e887d33e8330e0", '1234')
+
+    //console.log(web3.eth.personal)
 
     //const contract = await new web3.eth.Contract(Coin.abi, '0x36AbC6c8DfE6F99A46ca3Ea51e18A05A70c67944');
     //const name = await contract.methods.name().call();
