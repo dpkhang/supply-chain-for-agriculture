@@ -1,7 +1,7 @@
 import Web3                    from "web3"
 import { Contract }            from "web3-eth-contract"
 const URL_BlockChain_NetWork = process.env.URL_BlockChain_NetWork  || "127.0.0.1"
-const PORT_BLOCKCHAIN        = process.env.PORT_BLOCKCHAIN || 8085
+const PORT_BLOCKCHAIN        = process.env.PORT_BLOCKCHAIN || 8545
 
 export class BaseContract {
     web3: Web3

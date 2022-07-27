@@ -12,7 +12,7 @@ export class AccountController {
         const responseDTO = new ResponseDTO()
         try {
             const result = await this._account.importRawKey(req.body)
-            return res.status(200).json(responseDTO.success("OK", result))
+            return res.status(200).json(responseDTO.success("Luu private key thanh cong", result))
         } catch (err) {
             console.log(err)
             return res.status(500).json(responseDTO.serverError())
