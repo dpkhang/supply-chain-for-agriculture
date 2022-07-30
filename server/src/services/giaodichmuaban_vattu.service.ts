@@ -1,4 +1,4 @@
-import { LohangvattuRepository } from './../repositories/lohangvattu.reponsitory';
+import { lohangvattuRepository } from '../repositories/lohang_vattu.repository';
 import { LoHangVatTu, LoHangVatTuContract } from './../contracts/LoHangVatTu.contract';
 import { GiaoDichMuaBanVatTu } from './../contracts/GiaoDichMuaBanVatTu.contract';
 import { GiaoDichMuaBanVatTuDTO } from './../dtos/request/GiaoDichMuaBanVatTu.dto';
@@ -11,7 +11,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
     private _LoHangVatTu_Repository
 
     constructor() {
-        const lohangVatTuRepository = new LohangvattuRepository()
+        const lohangVatTuRepository = new lohangvattuRepository()
         super(lohangVatTuRepository)
         this._GiaoDichMuaBanVatTuContract = new GiaoDichMuaBanVatTuContract()
         this._LoHangVatTu_Repository = lohangVatTuRepository

@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize";
+import { DataTypes } from "sequelize/types";
 import { BaseEntity } from "./base/base.entity";
 
 export class tbl_gionglua extends BaseEntity {
@@ -9,21 +9,8 @@ export class tbl_gionglua extends BaseEntity {
         primaryKey: true
     }
 
-    id_lohang_vattu = {
-        type: DataTypes.INTEGER
-    }
-
-    //cho nay hung no viet sai chinh ta
     name_gionglua = {
         type: DataTypes.STRING(255)
     }
 
-    description_gionglua = {
-        type: DataTypes.TEXT
-    }
-
-    img_gionglua = {
-        type: DataTypes.STRING(255)
-    }
-    
 }
