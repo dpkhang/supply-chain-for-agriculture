@@ -1,4 +1,5 @@
 import { DataTypes } from "sequelize";
+import { Literal } from "sequelize/types/utils";
 import { BaseEntity } from "./base/base.entity";
 
 export class tbl_thuadat extends BaseEntity {
@@ -13,20 +14,24 @@ export class tbl_thuadat extends BaseEntity {
         type: DataTypes.INTEGER
     }
 
-    address_thuadat = {
+    address = {
         type: DataTypes.STRING(255)
     }
 
-    location_thuadat = {
+    localtion = {
         type: DataTypes.STRING(255)
     }
 
-    thumbnail_thuadat = {
+    thumbnail = {
         type: DataTypes.STRING(255)
     }
 
-    description_thuadat = {
+    description = {
         type: DataTypes.STRING(255)
+    }
+
+    status = {
+        type: DataTypes.INTEGER
     }
     
 }

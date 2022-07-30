@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize";
+import { DataTypes } from "sequelize/types";
 import { BaseEntity } from "./base/base.entity";
 
 export class tbl_nhatkydongruong extends BaseEntity {
@@ -9,16 +9,28 @@ export class tbl_nhatkydongruong extends BaseEntity {
         primaryKey: true
     }
 
-    id_thuadat = {
-        type: DataTypes.INTEGER,
+    id_lichmuavu = {
+        type: DataTypes.INTEGER
     }
 
-    id_lichmuavu = {
-        type: DataTypes.INTEGER,
+    id_thuadat = {
+        type: DataTypes.INTEGER
     }
 
     id_xavien = {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER
     }
-    
+
+    id_hoatdongmuavu = {
+        type: DataTypes.INTEGER
+    }
+
+    hoatdongngoai = {
+        type: DataTypes.TEXT
+    }
+
+    status = {
+        type: DataTypes.INTEGER
+    }
+
 }

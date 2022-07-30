@@ -9,39 +9,12 @@ export class tbl_xavien extends BaseEntity {
         primaryKey: true
     }
 
+    id_user = {
+        type: DataTypes.INTEGER
+    }
+
     id_hoptacxa = {
         type: DataTypes.INTEGER
     }
 
-    fullname = {
-        type: DataTypes.STRING(255)
-    }
-
-    password = {
-        type: DataTypes.STRING(255)
-    }
-    
-    DOB = {
-        type: DataTypes.DATE
-    }
-
-    address = {
-        type: DataTypes.STRING(255)
-    }
-
-    phone_number = {
-        type: DataTypes.STRING(255)
-    }
-
-    // avatar = {
-    //     type: DataTypes.STRING(255)
-    // }
-     
-    email = {
-        type: DataTypes.STRING(255)
-    }
-
-    wallet = {
-        type: DataTypes.STRING(255)
-    }
 }

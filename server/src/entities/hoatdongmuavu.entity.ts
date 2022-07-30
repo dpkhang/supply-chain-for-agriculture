@@ -1,16 +1,15 @@
-import { Sequelize } from "sequelize";
-import { DataTypes } from "sequelize";
+import { DataTypes } from "sequelize/types";
 import { BaseEntity } from "./base/base.entity";
 
-export class tbl_hoatdongnhatky extends BaseEntity {
+export class tbl_hoatdongmuavu extends BaseEntity {
 
-    id_hoatdongnhatky = {
+    id_hoatdongmuavu = {
         type: DataTypes.INTEGER,
         autoInCrement: true,
         primaryKey: true
     }
 
-    id_nhatkydongruong = {
+    id_lichmuavu = {
         type: DataTypes.INTEGER
     }
 
@@ -22,11 +21,11 @@ export class tbl_hoatdongnhatky extends BaseEntity {
         type: DataTypes.TEXT
     }
 
-    tinhhinhsinhtruong = {
-        type: DataTypes.TEXT
+    date_state = {
+        type: DataTypes.DATE
     }
-    
-    img_hoatdong = {
-        type: DataTypes.STRING(255)
+
+    date_end = {
+        type: DataTypes.DATE
     }
 }

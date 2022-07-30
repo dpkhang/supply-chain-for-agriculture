@@ -1,4 +1,5 @@
 import { DataTypes } from "sequelize";
+import { Literal } from "sequelize/types/utils";
 import { BaseEntity } from "./base/base.entity";
 
 export class tbl_giaodichmuaban_lua extends BaseEntity {
@@ -9,15 +10,19 @@ export class tbl_giaodichmuaban_lua extends BaseEntity {
         primaryKey: true
     }
 
-    id_thuonglai = {
-        type: DataTypes.INTEGER
-    }
-
     id_xavien = {
         type: DataTypes.INTEGER
     }
 
-    status_giaodich = {
+    id_thuonglai = {
+        type: DataTypes.INTEGER
+    }
+
+    id_lichmuavu = {
+        type: DataTypes.INTEGER
+    }
+
+    status = {
         type: DataTypes.INTEGER
     }
 
@@ -25,7 +30,7 @@ export class tbl_giaodichmuaban_lua extends BaseEntity {
         type: DataTypes.INTEGER
     }
 
-    thuonglai_xacnhan = {
+    nhacungcap_xacnhan = {
         type: DataTypes.INTEGER
     }
 
@@ -34,15 +39,14 @@ export class tbl_giaodichmuaban_lua extends BaseEntity {
     }
 
     description_giaodich = {
-        type: DataTypes.INTEGER
+        type: DataTypes.TEXT
     }
 
     price_lohang = {
         type: DataTypes.INTEGER
     }
 
-    total_giaodich = {
+    soluong = {
         type: DataTypes.INTEGER
     }
-    
 }

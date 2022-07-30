@@ -1,5 +1,5 @@
-import { DataTypes } from "sequelize";
-import { BaseEntity } from "./base/base.entity";
+import { DataTypes } from 'sequelize/types'
+import { BaseEntity } from './base/base.entity'
 
 export class tbl_lichmuavu extends BaseEntity {
 
@@ -20,5 +20,9 @@ export class tbl_lichmuavu extends BaseEntity {
     name_lichmuavu = {
         type: DataTypes.STRING(255)
     }
-    
+
+    date_start = {
+        type: DataTypes.DATE
+    }
+
 }
