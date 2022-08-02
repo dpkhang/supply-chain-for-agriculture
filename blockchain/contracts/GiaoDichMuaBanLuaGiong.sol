@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.16 <0.9.0;
 
-contract GiaoDichMuaBanGiongLua {
+contract GiaoDichMuaBanLuaGiong {
     //---------data---------//
-    struct GiaoDichMuaBanGiongLua_Struct {
+    struct GiaoDichMuaBanLuaGiong_Struct {
         uint    id_GiaoDichLuaGiong;
         uint    id_XaVien;
         uint    id_NhaCungCapVatTu;
@@ -14,13 +14,13 @@ contract GiaoDichMuaBanGiongLua {
         uint    ThoiGian;
     }
 
-    mapping(uint => GiaoDichMuaBanGiongLua_Struct) public DanhSachGiaoDichMuaBanGiongLua;
+    mapping(uint => GiaoDichMuaBanLuaGiong_Struct) public DanhSachGiaoDichMuaBanLuaGiong;
 
     mapping(uint => uint) public DanhSachIdGiaoDichMuaBanGiongLua;
     uint public maxLength = 0;
 
     //---------event--------//
-    event SuKienGiaoDichMuaBanGiongLua(
+    event SuKienGiaoDichMuaBanLuaGiong(
         uint    id_GiaoDichLuaGiong,
         uint    id_XaVien,
         uint    id_NhaCungCapVatTu,
@@ -34,7 +34,7 @@ contract GiaoDichMuaBanGiongLua {
     //--------modifier------//
     modifier KiemTraIdGiaoDich(uint id_GiaoDichLuaGiong) {
         require(
-            DanhSachGiaoDichMuaBanGiongLua[id_GiaoDichLuaGiong].id_GiaoDichLuaGiong == 0,
+            DanhSachGiaoDichMuaBanLuaGiong[id_GiaoDichLuaGiong].id_GiaoDichLuaGiong == 0,
             "Id giao dich mua ban giong lua phai la duy nhat"
         );
 
@@ -74,7 +74,7 @@ contract GiaoDichMuaBanGiongLua {
     KiemTraIdGiaoDich(intProperties[0])
     KiemTraSoLuong(intProperties[5])
     public returns(bool) {
-        GiaoDichMuaBanGiongLua_Struct memory GiaoDichMuaBanGiongLuaTemp;
+        GiaoDichMuaBanLuaGiong_Struct memory GiaoDichMuaBanLuaGiongTemp;
 
         uint id_GiaoDichLuaGiong    = intProperties[0];
         uint id_XaVien              = intProperties[1];
@@ -86,7 +86,7 @@ contract GiaoDichMuaBanGiongLua {
 
         string memory TenGiongLua   = stringProperties[0];
 
-        GiaoDichMuaBanGiongLuaTemp = GiaoDichMuaBanGiongLua_Struct(
+        GiaoDichMuaBanLuaGiongTemp = GiaoDichMuaBanLuaGiong_Struct(
             id_GiaoDichLuaGiong,
             id_XaVien,
             id_NhaCungCapVatTu,
@@ -97,11 +97,11 @@ contract GiaoDichMuaBanGiongLua {
             ThoiGian
         );
 
-        DanhSachGiaoDichMuaBanGiongLua[id_GiaoDichLuaGiong] = GiaoDichMuaBanGiongLuaTemp;
+        DanhSachGiaoDichMuaBanLuaGiong[id_GiaoDichLuaGiong] = GiaoDichMuaBanLuaGiongTemp;
         DanhSachIdGiaoDichMuaBanGiongLua[maxLength] = id_GiaoDichLuaGiong;
         maxLength = maxLength + 1;
 
-        emit SuKienGiaoDichMuaBanGiongLua(
+        emit SuKienGiaoDichMuaBanLuaGiong(
             id_GiaoDichLuaGiong,
             id_XaVien,
             id_NhaCungCapVatTu,
@@ -116,14 +116,14 @@ contract GiaoDichMuaBanGiongLua {
     }
 
     function LayThongTinGiongLuaBangLichMuaVu(uint id_LichMuaVu)
-    public view returns (GiaoDichMuaBanGiongLua_Struct memory) {
+    public view returns (GiaoDichMuaBanLuaGiong_Struct memory) {
         uint index = 0;
-        GiaoDichMuaBanGiongLua_Struct memory GiaoDichMuaBanGiongLuaData;
+        GiaoDichMuaBanLuaGiong_Struct memory GiaoDichMuaBanGiongLuaData;
         for ( index; index < maxLength; index++ ) {
             uint id_GiaoDichLuaGiong = DanhSachIdGiaoDichMuaBanGiongLua[index];
 
-            if (DanhSachGiaoDichMuaBanGiongLua[id_GiaoDichLuaGiong].id_LichMuaVu == id_LichMuaVu) {
-                GiaoDichMuaBanGiongLuaData = DanhSachGiaoDichMuaBanGiongLua[id_GiaoDichLuaGiong];
+            if (DanhSachGiaoDichMuaBanLuaGiong[id_GiaoDichLuaGiong].id_LichMuaVu == id_LichMuaVu) {
+                GiaoDichMuaBanGiongLuaData = DanhSachGiaoDichMuaBanLuaGiong[id_GiaoDichLuaGiong];
                 break;
             }
         }
