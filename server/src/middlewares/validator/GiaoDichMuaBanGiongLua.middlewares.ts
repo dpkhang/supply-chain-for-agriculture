@@ -12,11 +12,11 @@ export const GiaoDichMuaBanGiongLuaValidator = [
 
     body('id_LichMuaVu').notEmpty().isNumeric(),
 
-    body('id_GiongLua').notEmpty().isNumeric(),
+    body('id_LuaGiong').notEmpty().isNumeric(),
 
     body('SoLuong').notEmpty().isNumeric(),
 
-    body('TenGiongLua').notEmpty().isString(),
+    body('TenLuaGiong').notEmpty().isString(),
 
     body('ThoiGian').notEmpty().isNumeric(),
 

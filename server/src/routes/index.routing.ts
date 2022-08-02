@@ -4,7 +4,7 @@ import Hoatdongnhatky           from './hoatdongnhatky.routing'
 import Giaodichmuaban_vattu     from './giaodichmuaban_vattu.routing'
 import Giaodichmuaban_lua       from './giaodichmuaban_lua.routing'
 import VatTuSuDung              from './vattusudung.routing'
-import GiaoDichMuaBan_GiongLua  from './giaodichmuaban_gionglua.routing'
+import GiaoDichMuaBan_LuaGiong  from './giaodichmuaban_luagiong.routing'
 import { AccountController }    from '../controllers/account.controller'
 import { AccountValidator }     from '../middlewares/validator/Account.middlewares'
 const accountController = new AccountController()
@@ -25,7 +25,7 @@ const createRouter = (app: any) => {
     
     app.use(DEFAULT_URL + '/supplies-transaction'   , Giaodichmuaban_vattu)
 
-    app.use(DEFAULT_URL + '/seed-rice-transaction'  , GiaoDichMuaBan_GiongLua)
+    app.use(DEFAULT_URL + '/seed-rice-transaction'  , GiaoDichMuaBan_LuaGiong)
 
 }
 

@@ -1,11 +1,11 @@
-export interface GiaoDichMuaBanGiongLuaLuaDTO {
+export interface GiaoDichMuaBanLuaGiongDTO {
     id_GiaoDichLuaGiong     : number;
     id_XaVien               : number;
     id_NhaCungCapVatTu      : number;
     id_LichMuaVu            : number;
-    id_GiongLua             : number;
+    id_LuaGiong             : number;
     SoLuong                 : number;
-    TenGiongLua             : string;
+    TenLuaGiong             : string;
     ThoiGian                : number;
     wallet_XaVien           : string
 }
