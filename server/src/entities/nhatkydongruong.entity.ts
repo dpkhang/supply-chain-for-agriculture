@@ -25,7 +25,7 @@ export class tbl_nhatkydongruong extends BaseEntity {
         type: DataTypes.INTEGER
     }
 
-    hoatdongngoai = {
+    description = {
         type: DataTypes.TEXT
     }
 
