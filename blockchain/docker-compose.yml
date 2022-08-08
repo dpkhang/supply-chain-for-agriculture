@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  ganache-cli:
+    image: node:12-alpine
+    command: sh -c "npm install -g ganache-cli"
+    ports:
+       - 8545:8545
+    working_dir: /app
+  truffle:
+    image: node:12-alpine
+    command: sh -c "npm install -g truffle"
+
+volumes:
+  todo-mysql-data:
