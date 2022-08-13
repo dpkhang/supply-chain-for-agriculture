@@ -3,10 +3,7 @@ import HoatDongNhatKyABI from "../abis/HoatDongNhatKy.json"
 const ADDRESS_HOATDONGNHATKY = process.env.ADDRESS_HOATDONGNHATKY || ""
 
 export interface NhatKyHoatDong {
-    id_NhatKyDongRuong      : number
-    id_HoatDongNhatKy       : number
-    ThoiGian                : number
-    address_NhatKyDongRuong : string    
+    intProperties: number[] 
 }
 
 export class HoatDongNhatKyContract extends BaseContract {
@@ -18,10 +15,7 @@ export class HoatDongNhatKyContract extends BaseContract {
         try {
 
             await this.methods.ThemHoatDongNhatKy(
-                data.id_NhatKyDongRuong,
-                data.id_HoatDongNhatKy,
-                data.ThoiGian,
-                data.address_NhatKyDongRuong
+                data.intProperties
             )?.send({
                 from: sender,
                 gas: 300000

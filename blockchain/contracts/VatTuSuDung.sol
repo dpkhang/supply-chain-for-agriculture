@@ -52,7 +52,7 @@ contract VatTuSuDung {
     modifier KiemTraHoatDongNhatKy ( uint id_HoatDongNhatKy, address addr ) {
         HoatDongNhatKy _hoatDongNhatKy = HoatDongNhatKy(addr);
         require(
-            _hoatDongNhatKy.LayThongTinHoatDongNhatKy( id_HoatDongNhatKy ).id_HoatDongNhatKy == id_HoatDongNhatKy,
+            _hoatDongNhatKy.LayThongTinHoatDongNhatKy( id_HoatDongNhatKy ).id_NhatKyDongRuong == id_HoatDongNhatKy,
             "Hoat dong nhat ky chua ton tai"
         );
 

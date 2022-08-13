@@ -44,15 +44,16 @@ export class HoatdongnhatkyController {
             const sender = ReqData.wallet_XaVien
 
             const hoatDongNhatKyData:HoatDongNhatKyDTO = {
-                id_NhatKyDongRuong  : ReqData.id_NhatKyDongRuong,
-                id_HoatDongNhatKy   : ReqData.id_HoatDongNhatKy,
-                ThoiGian            : ReqData.ThoiGian,
-                wallet_XaVien       : ReqData.wallet_XaVien,
+                id_NhatKyDongRuong      : ReqData.id_NhatKyDongRuong,
+                id_LichMuaVu            : ReqData.id_LichMuaVu,
+                id_ThuaDat              : ReqData.id_ThuaDat,
+                id_XaVien               : ReqData.id_XaVien,
+                id_HoatDongMuaVu        : ReqData.id_HoatDongMuaVu,
+                ThoiGian                : ReqData.ThoiGian,
+                wallet_XaVien           : ReqData.wallet_XaVien
             }
+            
             await this._hoatdongnhatkyService.createContract(hoatDongNhatKyData, sender)
-
-            const danhSachVatTuSuDungData: VatTuSuDungDTO[] = ReqData.danhSachVatTu
-            await this._vatTuSuDungService.createContract(danhSachVatTuSuDungData, sender)
 
             return res.status(200).json(
                 responseDTO.success(

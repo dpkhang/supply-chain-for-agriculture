@@ -1,15 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.16 <0.9.0;
 
-import "./nhatkydongruong.sol";
-
 contract LoHangLua {
     //--------data-------//
     struct LoHangLua_Struct {
         uint    id_XaVien;
         uint    id_LoHangLua;
         uint    id_GiongLua;
-        uint    id_NhatKyDongRuong;
+        uint    id_LichMuaVu;
         uint    SoLuong;
         uint    ThoiGian;
         string  TenGiongLua;
@@ -26,7 +24,7 @@ contract LoHangLua {
         uint    id_XaVien,
         uint    id_LoHangLua,
         uint    id_GiongLua,
-        uint    id_NhatKyDongRuong,
+        uint    id_LichMuaVu,
         uint    SoLuong,
         uint    ThoiGian,
         string  TenGiongLua
@@ -56,45 +54,12 @@ contract LoHangLua {
         _;
     }
 
-    modifier KiemTraNhatKyDongRuong ( 
-        uint id_NhatKyDongRuong,
-        address addr
-    ) {
-        NhatKyDongRuong nhatkydongruong = NhatKyDongRuong(addr);
-        require(
-            nhatkydongruong.LayNhatKyDongRuong( id_NhatKyDongRuong ).id_NhatKyDongRuong == id_NhatKyDongRuong,
-            "Nhat ky dong ruong chua ton tai"
-        );
-        _;
-    }
-
-    modifier KiemTraIdNhatKyDongRuong(
-        uint id_NhatKyDongRuong
-    ) {
-        uint index = 0;
-        bool kiemTraNhatKyRuongDong = true;
-
-        for ( index; index < maxLength; index ++ ) {
-            uint id_NhatKyRuongDongTemp = DanhSachIdNhatKyDongRuong[ index ];
-
-            if ( DanhSachLoHangLua[ id_NhatKyRuongDongTemp ].id_NhatKyDongRuong == id_NhatKyDongRuong ) {
-                kiemTraNhatKyRuongDong = false;
-            }
-        }
-
-        require(
-            kiemTraNhatKyRuongDong,
-            "Nhat ky dong ruong nay da duoc su dung"
-        );
-
-        _;
-    }
     /*
         intProperties[]
         0: uint    id_XaVien;
         1: uint    id_LoHangLua;
         2: uint    id_GiongLua;
-        3: uint    id_NhatKyDongRuong;
+        3: uint    id_LichMuaVu;
         4: uint    SoLuong;
         5: uint    ThoiGian;
         6: uint    DienTichDat;
@@ -107,14 +72,11 @@ contract LoHangLua {
     //-------handle------//
     function ThemLoHangLua (
         uint[]      memory intProperties,
-        address[]   memory addressProperties,
         string[]    memory stringProperties
     )
     public 
     KiemTraIdLoHangLua( intProperties[1] )
     KiemTraSoLuong( intProperties[4], intProperties[6], intProperties[7] )
-    KiemTraNhatKyDongRuong( intProperties[3], addressProperties[0])
-    KiemTraIdNhatKyDongRuong( intProperties[3] )
     returns (bool) 
     {
         bool result = LuuThongTinLoHangLua( intProperties, stringProperties );
@@ -144,7 +106,7 @@ contract LoHangLua {
         uint id_XaVien            =  intProperties[0];
         uint id_LoHangLua         =  intProperties[1];
         uint id_GiongLua          =  intProperties[2];
-        uint id_NhatKyDongRuong   =  intProperties[3];
+        uint id_LichMuaVu   =  intProperties[3];
         uint SoLuong              =  intProperties[4];
         uint ThoiGian             =  intProperties[5];
         string memory TenGiongLua =  stringProperties[0];
@@ -154,7 +116,7 @@ contract LoHangLua {
             id_XaVien,
             id_LoHangLua,
             id_GiongLua,
-            id_NhatKyDongRuong,
+            id_LichMuaVu,
             SoLuong,
             ThoiGian,
             TenGiongLua
@@ -169,7 +131,7 @@ contract LoHangLua {
             id_XaVien,
             id_LoHangLua,
             id_GiongLua,
-            id_NhatKyDongRuong,
+            id_LichMuaVu,
             SoLuong,
             ThoiGian,
             TenGiongLua

@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.5.16 <0.9.0;
-import "./nhatkydongruong.sol";
 
 contract HoatDongNhatKy {
     //--------data-------//
     struct HoatDongNhatKy_Struct {
         uint id_NhatKyDongRuong;
-        uint id_HoatDongNhatKy;
+        uint id_LichMuaVu;
+        uint id_ThuaDat;
+        uint id_XaVien;
+        uint id_HoatDongMuaVu;
         uint ThoiGian;
     }
 
@@ -15,54 +17,56 @@ contract HoatDongNhatKy {
     //-------event-------//
     event SuKienThemHoatDongNhatKy(
         uint id_NhatKyDongRuong,
-        uint id_HoatDongNhatKy,
+        uint id_LichMuaVu,
+        uint id_ThuaDat,
+        uint id_XaVien,
+        uint id_HoatDongMuaVu,
         uint ThoiGian
     );
 
     //------modifier-----//
-    modifier KiemTraIDHoatDongNhatKy ( uint id_HoatDongNhatKy ) {
+    modifier KiemTraIDNhatKyDongRuong(uint id_NhatKyDongRuong) {
         require(
-            DanhSachHoatDongNhatKy[ id_HoatDongNhatKy ].id_HoatDongNhatKy == 0,
-            "Hoat dong nhat ky da ton tai"
-        );
-
-        _;
-    }
-
-    modifier KiemTraIDNhatKyDongRuong ( uint id_NhatKyDongRuong, address addr ) {
-        NhatKyDongRuong _nhatKyDongRuong = NhatKyDongRuong( addr );
-        
-        require(
-            _nhatKyDongRuong.LayNhatKyDongRuong( id_NhatKyDongRuong ).id_NhatKyDongRuong == id_NhatKyDongRuong,
-            "Nhat ky dong ruong chua ton tai"
+            DanhSachHoatDongNhatKy[id_NhatKyDongRuong].id_NhatKyDongRuong == 0,
+            "Id nhat ky dong ruong phai la duy nhat"
         );
 
         _;
     }
 
     //-------handle------//
+    
     function ThemHoatDongNhatKy (
-        uint id_NhatKyDongRuong,
-        uint id_HoatDongNhatKy,
-        uint ThoiGian,
-        address addressNhatKyDongRuong
+        uint[] memory intProperties
     )
     public
-    KiemTraIDHoatDongNhatKy( id_HoatDongNhatKy )
-    KiemTraIDNhatKyDongRuong( id_NhatKyDongRuong, addressNhatKyDongRuong )
+    KiemTraIDNhatKyDongRuong(intProperties[0])
     returns ( bool ) {
+        uint id_NhatKyDongRuong = intProperties[0];
+        uint id_LichMuaVu = intProperties[1];
+        uint id_ThuaDat = intProperties[2];
+        uint id_XaVien = intProperties[3];
+        uint id_HoatDongMuaVu = intProperties[4];
+        uint ThoiGian = intProperties[5];
+
         HoatDongNhatKy_Struct memory HoatDongNhatKyMemory;
         HoatDongNhatKyMemory = HoatDongNhatKy_Struct(
             id_NhatKyDongRuong,
-            id_HoatDongNhatKy,
+            id_LichMuaVu,
+            id_ThuaDat,
+            id_XaVien,
+            id_HoatDongMuaVu,
             ThoiGian
         );
 
-        DanhSachHoatDongNhatKy[ id_HoatDongNhatKy ] = HoatDongNhatKyMemory;
+        DanhSachHoatDongNhatKy[ id_NhatKyDongRuong ] = HoatDongNhatKyMemory;
 
         emit SuKienThemHoatDongNhatKy(
             id_NhatKyDongRuong,
-            id_HoatDongNhatKy,
+            id_LichMuaVu,
+            id_ThuaDat,
+            id_XaVien,
+            id_HoatDongMuaVu,
             ThoiGian
         );
 
