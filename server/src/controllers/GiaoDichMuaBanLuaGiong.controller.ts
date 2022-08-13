@@ -72,33 +72,6 @@ export class GiaoDichMuaBanGiongLuaController {
         }
     }
 
-    getContractByIdLoHangLua = async ( req: Request, res: Response ) => {
-        const responseDTO = new ResponseDTO()
-        try {
-            const id = parseInt(req.params.id)
-            const result = await this._GiaoDichMuaBanLuaGiongService.getContractByIdLoHangLua(id)
-
-            if (!result) {
-                return res.status(200).json(
-                    responseDTO.success(
-                        "Giao dich mua ban lua giong chua ton tai",
-                    )
-                )
-            }
-
-            return res.status(200).json(
-                responseDTO.success(
-                    "Lay du lieu thanh cong",
-                    result
-                )
-            )
-            
-        }catch(err) {
-            console.log(err)
-            return res.status(500).json(responseDTO.serverError())
-        }
-    }
-
 
     
 

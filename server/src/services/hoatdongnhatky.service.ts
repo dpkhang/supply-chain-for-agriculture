@@ -1,7 +1,6 @@
 import { BaseService } from "./base/base.service"; 
 import { HoatDongNhatKyContract } from "../contracts/HoatDongNhatKy.contract";
 import { HoatDongNhatKyDTO } from "../dtos/request/HoatDongNhatKy.dto";
-const ADDRESS_NHATKYRUONGDONG = process.env.ADDRESS_NHATKYRUONGDONG || "";
 
 export class HoatdongnhatkyService extends BaseService {
     private _HoatDongNhatKyContract
@@ -14,12 +13,16 @@ export class HoatdongnhatkyService extends BaseService {
 
     createContract = async (data: HoatDongNhatKyDTO, sender: string) => {
         try {
-            const hoatDongNhatKy = data as any
-            delete hoatDongNhatKy.wallet_XaVien
-
-            hoatDongNhatKy.address_NhatKyDongRuong = ADDRESS_NHATKYRUONGDONG
+            const hoatDongNhatKyProperties = [
+                data.id_NhatKyDongRuong,
+                data.id_LichMuaVu,
+                data.id_ThuaDat,
+                data.id_XaVien,
+                data.id_HoatDongMuaVu,
+                data.ThoiGian
+            ];
         
-            await this._HoatDongNhatKyContract.addContract(hoatDongNhatKy, sender);
+            await this._HoatDongNhatKyContract.addContract({intProperties: hoatDongNhatKyProperties}, sender);
 
         } catch ( err ) {
             throw err

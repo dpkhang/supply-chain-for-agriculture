@@ -6,7 +6,13 @@ const NhatKyHoatDongValidator = [
 
     body('id_NhatKyDongRuong').notEmpty().isNumeric().toInt(),
 
-    body('id_HoatDongNhatKy').notEmpty().isNumeric().toInt(),
+    body('id_LichMuaVu').notEmpty().isNumeric().toInt(),
+
+    body('id_ThuaDat').notEmpty().isNumeric().toInt(),
+
+    body('id_XaVien').notEmpty().isNumeric().toInt(),
+
+    body('id_HoatDongMuaVu').notEmpty().isNumeric().toInt(),
 
     body('ThoiGian').notEmpty().isNumeric().toInt(),
 
