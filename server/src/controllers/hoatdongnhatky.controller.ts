@@ -117,16 +117,49 @@ export class HoatdongnhatkyController {
 
         const responseDTO = new ResponseDTO()
         try {
-            const id_NhatKy = parseInt( req.params.id )
-            const limit     = parseInt( (req.query.limit ?? '0') as string )
-            const page       = parseInt( (req.query.page ?? '1') as string )
+            const id_xaVien         = parseInt( (req.query.id_xaVien ?? '0') as string )
+            const id_lichMuaVu      = parseInt( (req.query.id_lichMuaVu ?? '0' ) as string )
+            const limit             = parseInt( (req.query.limit ?? '0') as string )
+            const page              = parseInt( (req.query.page ?? '1') as string )
             
-            const result = await this._hoatdongnhatkyService.getContractsByIdNhatKy(id_NhatKy, limit, page)
+            const result = await this._hoatdongnhatkyService.getContractsByIdNhatKy(id_xaVien, id_lichMuaVu, limit, page)
 
             if (!result) {
                 return res.status(200).json(
                     responseDTO.success(
                         "Nhat ky hoat dong chua ton tai",
+                    )
+                )
+            }
+
+            return res.status(200).json(
+                responseDTO.success(
+                    "Lay du lieu thanh cong",
+                    result
+                )
+            )
+            
+        }catch(err) {
+            console.log(err)
+            return res.status(500).json(responseDTO.serverError())
+        }
+
+    }
+
+    getContractsByIdLoHangLua = async (req: Request, res: Response): Promise<Response> => {
+
+        const responseDTO = new ResponseDTO()
+        try {
+            const id_loHangLua      = parseInt( (req.query.id_loHangLua ?? '0') as string )
+            const limit             = parseInt( (req.query.limit ?? '0') as string )
+            const page              = parseInt( (req.query.page ?? '1') as string )
+            
+            const result = await this._hoatdongnhatkyService.getContractByIdLoHangLua(id_loHangLua, limit, page)
+
+            if (!result) {
+                return res.status(200).json(
+                    responseDTO.success(
+                        "Lo hang lua chua ton tai",
                     )
                 )
             }

@@ -6,30 +6,30 @@ module.exports = {
   // on how to specify configuration options!
   //
   networks: {
-    development: {
-      host: "10.32.2.150",
-      port: 8085,
-      gas: "6721975",
-      network_id: "*",
-    },
-    test: {
-      host: "10.32.2.150",
-      port: 8085,
-      gas: "6721975",
-      network_id: "*",
-    }
     // development: {
-    //   host: "127.0.0.1",
-    //   port: 8545,
+    //   host: "10.32.2.150",
+    //   port: 8085,
     //   gas: "6721975",
     //   network_id: "*",
     // },
     // test: {
-    //   host: "127.0.0.1",
-    //   port: 8545,
+    //   host: "10.32.2.150",
+    //   port: 8085,
     //   gas: "6721975",
     //   network_id: "*",
     // }
+    development: {
+      host: "127.0.0.1",
+      port: 8545,
+      gas: "6721975",
+      network_id: "*",
+    },
+    test: {
+      host: "127.0.0.1",
+      port: 8545,
+      gas: "6721975",
+      network_id: "*",
+    }
   },
   contracts_directory: './contracts/',
   contracts_build_directory: '../server/src/abis/',
