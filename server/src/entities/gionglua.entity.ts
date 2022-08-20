@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize/types";
+import { DataTypes } from "sequelize";
 import { BaseEntity } from "./base/base.entity";
 
 export class tbl_gionglua extends BaseEntity {

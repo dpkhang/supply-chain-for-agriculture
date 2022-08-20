@@ -9,4 +9,12 @@ export class NhatkydongruongRepository extends BaseRepository {
         super(nhatkydongruong)
         this._nhatkydongruongEntity = nhatkydongruong
     }
+
+    findById = async (id: number) => {
+        return this.repos.findOne({
+            where: { 
+                id_nhatkydongruong: id,
+            },
+        }).then(t=>t?.get())
+    };
 }

@@ -1,18 +1,21 @@
 import { BaseService } from "./base/base.service"; 
 import { GiaoDichMuaBanLuaGiongContract, GiaoDichMuaBanLuaGiongInterface } from "../contracts/GiaoDichMuaBanLuaGiong.contract";
 import { GiaoDichMuaBanLuaGiongDTO } from "../dtos/request/GiaoDichMuaBanLuaGiong.dto";
-import { LoHangLuaContract } from "../contracts/LoHangLua.contract";
+import { Sender } from "../dtos/request/Sender.dto";
+import { Giaodich_luagiongRepository } from "../repositories/giaodich_luagiong.repository";
 
 export class GiaoDichMuaBanLuaGiongService extends BaseService {
     private _GiaoDichMuaBanLuaGiongContract
-    private _LoHangLuaContract
+    private _GiaoDichLuaGiongRepository
+    
 
     constructor() {
-        const giaoDichMuaBanLuaGiongService = new GiaoDichMuaBanLuaGiongContract()
-        super(giaoDichMuaBanLuaGiongService)
-        this._GiaoDichMuaBanLuaGiongContract = giaoDichMuaBanLuaGiongService
+        const giaoDichLuaGiongRepository = new Giaodich_luagiongRepository()
+        super(giaoDichLuaGiongRepository)
+        this._GiaoDichLuaGiongRepository = giaoDichLuaGiongRepository
 
-        this._LoHangLuaContract = new LoHangLuaContract()
+        const giaoDichMuaBanLuaGiongService = new GiaoDichMuaBanLuaGiongContract()
+        this._GiaoDichMuaBanLuaGiongContract = giaoDichMuaBanLuaGiongService
     }
 
     createContract = async (data: GiaoDichMuaBanLuaGiongDTO) => {
@@ -34,7 +37,12 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
                 stringProperties
             }
 
-            await this._GiaoDichMuaBanLuaGiongContract.addContract(giaoDichMuaBanLuaGiongProperties, data.wallet_XaVien);
+            const sender: Sender = {
+                wallet: data.wallet_XaVien,
+                password: data.password_Wallet
+            }
+
+            await this._GiaoDichMuaBanLuaGiongContract.addContract(giaoDichMuaBanLuaGiongProperties, sender);
 
         } catch ( err ) {
             throw err
@@ -56,16 +64,24 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
         ) return null;
 
         if (GiaoDichMuaBanLuaGiong) {
+            const gdLuaGiongDatabase = await this._GiaoDichLuaGiongRepository.findById(GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong)
+
             const GiaoDichMuaBanLuaGiongResult = {
                 id_GiaoDichLuaGiong     : GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong,
                 id_XaVien               : GiaoDichMuaBanLuaGiong.id_XaVien,           
                 id_NhaCungCapVatTu      : GiaoDichMuaBanLuaGiong.id_NhaCungCapVatTu,  
                 id_LichMuaVu            : GiaoDichMuaBanLuaGiong.id_LichMuaVu,        
                 id_LuaGiong             : GiaoDichMuaBanLuaGiong.id_LuaGiong,         
-                SoLuong                 : GiaoDichMuaBanLuaGiong.SoLuong,             
+                SoLuong                 : GiaoDichMuaBanLuaGiong.SoLuong,    
+                status                  : gdLuaGiongDatabase.status,
+                hoptacxa_xacnhan        : gdLuaGiongDatabase.hoptacxa_xacnhan,
+                nhacungcap_xacnhan      : gdLuaGiongDatabase.nhacungcap_xacnhan,
+                xavien_xacnhan          : gdLuaGiongDatabase.xavien_xacnhan,
+                description_giaodich    : gdLuaGiongDatabase.description_giaodich,
                 TenLuaGiong             : GiaoDichMuaBanLuaGiong.TenLuaGiong,         
                 ThoiGian                : GiaoDichMuaBanLuaGiong.ThoiGian
             }
+
             return GiaoDichMuaBanLuaGiongResult
         }
         

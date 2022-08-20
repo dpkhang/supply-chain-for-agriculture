@@ -1,17 +1,18 @@
 import express from 'express'
 import { HoatdongnhatkyController } from '../controllers/hoatdongnhatky.controller' 
 import { NhatKyHoatDongValidator } from '../middlewares/validator/HoatDongNhatKy.middleware' 
-import { VatTuSuDungValidator } from '../middlewares/validator/VatTuSuDung.middleware'
 const route = express.Router()
 
 const hoatdongnhatkyController = new HoatdongnhatkyController
 
-route.get('/'       , hoatdongnhatkyController.getContracts)
+route.get('/'               , hoatdongnhatkyController.getContracts)
 
-route.get('/:id'    , hoatdongnhatkyController.getContractById)
+route.get('/log/'           , hoatdongnhatkyController.getContractsByIdNhatKy)
 
-route.post('/'      , NhatKyHoatDongValidator, hoatdongnhatkyController.createContract)
+route.get('/rice-product/'  , hoatdongnhatkyController.getContractsByIdLoHangLua)
 
-route.get('/log/:id', hoatdongnhatkyController.getContractsByIdNhatKy)
+route.get('/:id'            , hoatdongnhatkyController.getContractById)
+
+route.post('/'              , NhatKyHoatDongValidator, hoatdongnhatkyController.createContract)
 
 export default route

@@ -1,17 +1,26 @@
 import { BaseService } from "./base/base.service"; 
 import { HoatDongNhatKyContract } from "../contracts/HoatDongNhatKy.contract";
 import { HoatDongNhatKyDTO } from "../dtos/request/HoatDongNhatKy.dto";
+import { NhatkydongruongRepository } from "../repositories/nhatkydongruong.repository";
+import { LoHangLuaContract } from "../contracts/LoHangLua.contract";
+import { Sender } from "../dtos/request/Sender.dto";
 
 export class HoatdongnhatkyService extends BaseService {
     private _HoatDongNhatKyContract
+    private _LoHangLuaContract
+    private _HoatDongNhatKyRepository
 
     constructor() {
-        const hoatdongnhatkyService = new HoatDongNhatKyContract()
-        super(hoatdongnhatkyService)
-        this._HoatDongNhatKyContract = hoatdongnhatkyService
+        const hoatdongnhatkyContract = new HoatDongNhatKyContract()
+        const hoatDongNhatKyRepository = new NhatkydongruongRepository()
+        const loHangLuaContract = new LoHangLuaContract()
+        super(hoatDongNhatKyRepository)
+        this._HoatDongNhatKyContract = hoatdongnhatkyContract
+        this._LoHangLuaContract = loHangLuaContract
+        this._HoatDongNhatKyRepository = hoatDongNhatKyRepository
     }
 
-    createContract = async (data: HoatDongNhatKyDTO, sender: string) => {
+    createContract = async (data: HoatDongNhatKyDTO) => {
         try {
             const hoatDongNhatKyProperties = [
                 data.id_NhatKyDongRuong,
@@ -21,8 +30,13 @@ export class HoatdongnhatkyService extends BaseService {
                 data.id_HoatDongMuaVu,
                 data.ThoiGian
             ];
+
+            const sender:Sender = {
+                wallet: data.wallet_XaVien,
+                password: data.password_Wallet
+            } 
         
-            await this._HoatDongNhatKyContract.addContract({intProperties: hoatDongNhatKyProperties}, sender);
+            await this._HoatDongNhatKyContract.addContract({intProperties: hoatDongNhatKyProperties}, sender)
 
         } catch ( err ) {
             throw err
@@ -31,42 +45,39 @@ export class HoatdongnhatkyService extends BaseService {
 
     getContracts = async (limit: number = 0, page:number = 1) => {
         try {
+            const danhSachHoatDongNhatKy = await this._HoatDongNhatKyContract.getContracts('SuKienThemHoatDongNhatKy') as any
+            let listResult = []
 
-            if ( page == 0 ) return null
+            const totalPage = (limit != 0) ? Math.ceil(danhSachHoatDongNhatKy.length / limit) : 1
 
-            const danhSachHoatDongNhatKy = await this._HoatDongNhatKyContract.getContracts("SuKienThemHoatDongNhatKy")
-    
-            if ( danhSachHoatDongNhatKy && danhSachHoatDongNhatKy.length > 0 ) {
+            const startIndex = (page - 1) * limit
+            const endIndex = ( startIndex + limit > danhSachHoatDongNhatKy.length ) ? danhSachHoatDongNhatKy.length : startIndex + limit
+            const danhSachHoatDongNhatKyLimit = (startIndex == endIndex) ? danhSachHoatDongNhatKy : danhSachHoatDongNhatKy.slice(startIndex, endIndex)
 
-                const danhSachHoatDongNhatKyFilter = []
-                const totalPage = (limit != 0) ? Math.ceil(danhSachHoatDongNhatKy.length / limit) : 1
-
-                const startIndex = (page - 1) * limit
-                const endIndex = ( startIndex + limit > danhSachHoatDongNhatKy.length ) ? danhSachHoatDongNhatKy.length : startIndex + limit
-                const danhSachHoatDongNhatKyChoosed = (startIndex == endIndex) ? danhSachHoatDongNhatKy : danhSachHoatDongNhatKy.slice(startIndex, endIndex)
-
-                for ( let nhatKyDongRuong of danhSachHoatDongNhatKyChoosed ) {
-                    const returnValues = nhatKyDongRuong.returnValues
-                    const nhatKyDongRuongTemp = {
-                        id_NhatKyDongRuong      : returnValues.id_NhatKyDongRuong,
-                        id_HoatDongNhatKy       : returnValues.id_HoatDongNhatKy,
-                        ThoiGian                : returnValues.ThoiGian,
-                    }
-                    danhSachHoatDongNhatKyFilter.push(nhatKyDongRuongTemp)
+            for (let hoatDongNhatKy of danhSachHoatDongNhatKyLimit) {
+                const id_nhatKyDongRuong = hoatDongNhatKy.returnValues.id_NhatKyDongRuong
+                const hoatDongNhatKyChiTiet = await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong)
+                let result = {
+                    id_nhatkydongruong      : hoatDongNhatKy.returnValues.id_NhatKyDongRuong,
+                    id_lichmuavu            : hoatDongNhatKy.returnValues.id_LichMuaVu,
+                    id_thuadat              : hoatDongNhatKy.returnValues.id_ThuaDat,
+                    id_xavien               : hoatDongNhatKy.returnValues.id_XaVien,
+                    id_hoatdongmuavu        : hoatDongNhatKy.returnValues.id_HoatDongMuaVu,
+                    ThoiGian                : hoatDongNhatKy.returnValues.ThoiGian,
+                    description             : hoatDongNhatKyChiTiet.description,
+                    status                  : hoatDongNhatKyChiTiet.status,
+                    created_at              : hoatDongNhatKyChiTiet.created_at,
+                    updated_at              : hoatDongNhatKyChiTiet.updated_at
                 }
-
-                const result = {
-                    totalPage: totalPage,
-                    totalItem: danhSachHoatDongNhatKyFilter.length,
-                    page: page,
-                    danhSachHoatDongNhatKy: danhSachHoatDongNhatKyFilter
-                }
-    
-                return result
+                listResult.push(result)
             }
-    
-            return null
 
+            return {
+                totalPage: totalPage,
+                totalItem: danhSachHoatDongNhatKyLimit.length,
+                page: page,
+                danhSachHoatDongNhatKy: listResult
+            };
         } catch (err) {
             throw err
         }
@@ -74,23 +85,34 @@ export class HoatdongnhatkyService extends BaseService {
 
     getContractById = async (id_HoatDongNhatKy: number) => {
         try {
-            const vatTuSuDung = await this._HoatDongNhatKyContract.getContractById(id_HoatDongNhatKy)
+            const hoatDongNhatKy = await this._HoatDongNhatKyContract.getContractById(id_HoatDongNhatKy)
 
             if (
-                vatTuSuDung.id_NhatKyDongRuong == 0 ||
-                vatTuSuDung.id_HoatDongNhatKy  == 0 ||
-                vatTuSuDung.ThoiGian           == 0
+                hoatDongNhatKy.id_NhatKyDongRuong == 0 ||
+                hoatDongNhatKy.id_HoatDongNhatKy  == 0 ||
+                hoatDongNhatKy.ThoiGian           == 0
             ) return null
 
-            if (vatTuSuDung) {
+            if (hoatDongNhatKy) {
+                console.log(hoatDongNhatKy)
 
-                const vatTuSuDungResult = {
-                    id_NhatKyDongRuong      : vatTuSuDung.id_NhatKyDongRuong,
-                    id_HoatDongNhatKy       : vatTuSuDung.id_HoatDongNhatKy,
-                    ThoiGian                : vatTuSuDung.ThoiGian,
+                const id_nhatKyDongRuong = hoatDongNhatKy.id_NhatKyDongRuong
+                const hoatDongNhatKyChiTiet = await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong)
+
+                const hoatDongNhatKyResult = {
+                    id_nhatkydongruong      : hoatDongNhatKy.id_NhatKyDongRuong,
+                    id_lichmuavu            : hoatDongNhatKy.id_LichMuaVu,
+                    id_thuadat              : hoatDongNhatKy.id_ThuaDat,
+                    id_xavien               : hoatDongNhatKy.id_XaVien,
+                    id_hoatdongmuavu        : hoatDongNhatKy.id_HoatDongMuaVu,
+                    ThoiGian                : hoatDongNhatKy.ThoiGian,
+                    description             : hoatDongNhatKyChiTiet.description,
+                    status                  : hoatDongNhatKyChiTiet.status,
+                    created_at              : hoatDongNhatKyChiTiet.created_at,
+                    updated_at              : hoatDongNhatKyChiTiet.updated_at
                 }
 
-                return vatTuSuDungResult
+                return hoatDongNhatKyResult
             }
 
             return null
@@ -100,48 +122,73 @@ export class HoatdongnhatkyService extends BaseService {
         }
     }
 
-    getContractsByIdNhatKy = async (id_NhatKyDongRuong: number, limit: number = 0, page: number = 1) => {
+    getContractsByIdNhatKy = async (id_xaVien: number, id_lichMuaVu: number, limit: number = 0, page: number = 1) => {
         try {
+            const danhSachHoatDongNhatKy = await this._HoatDongNhatKyContract.getContracts('SuKienThemHoatDongNhatKy') as any
+            let listResult = []
 
-            if ( page == 0 ) return null
-
-            const danhSachHoatDongNhatKy = await this._HoatDongNhatKyContract.getContracts("SuKienThemHoatDongNhatKy")
-            const danhSachHoatDongNhatKyFilterByIdNhatKy = danhSachHoatDongNhatKy
-            ?.filter( element => element.returnValues.id_NhatKyDongRuong == id_NhatKyDongRuong )
-    
-            if ( danhSachHoatDongNhatKyFilterByIdNhatKy && danhSachHoatDongNhatKyFilterByIdNhatKy.length > 0 ) {
-
-                const danhSachHoatDongNhatKyFilterByIdNhatKyFilter = []
-                const totalPage = (limit != 0) ? Math.ceil(danhSachHoatDongNhatKyFilterByIdNhatKy.length / limit) : 1
-
-                const startIndex = (page - 1) * limit
-                const endIndex = ( startIndex + limit > danhSachHoatDongNhatKyFilterByIdNhatKy.length ) ? danhSachHoatDongNhatKyFilterByIdNhatKy.length : startIndex + limit
-                const danhSachHoatDongNhatKyFilterByIdNhatKyChoosed = (startIndex == endIndex) ? danhSachHoatDongNhatKyFilterByIdNhatKy : danhSachHoatDongNhatKyFilterByIdNhatKy.slice(startIndex, endIndex)
-
-                for ( let nhatKyDongRuong of danhSachHoatDongNhatKyFilterByIdNhatKyChoosed ) {
-                    const returnValues = nhatKyDongRuong.returnValues
-                    const nhatKyDongRuongTemp = {
-                        id_NhatKyDongRuong      : returnValues.id_NhatKyDongRuong,
-                        id_HoatDongNhatKy       : returnValues.id_HoatDongNhatKy,
-                        ThoiGian                : returnValues.ThoiGian,
-                    }
-                    danhSachHoatDongNhatKyFilterByIdNhatKyFilter.push(nhatKyDongRuongTemp)
+            //filter
+            for ( let hoatDongNhatKy of danhSachHoatDongNhatKy ) {
+                if ( 
+                    id_xaVien == hoatDongNhatKy.returnValues.id_XaVien 
+                    && id_lichMuaVu == hoatDongNhatKy.returnValues.id_LichMuaVu
+                ) {
+                    listResult.push({
+                        id_nhatkydongruong      : hoatDongNhatKy.returnValues.id_NhatKyDongRuong,
+                        id_lichmuavu            : hoatDongNhatKy.returnValues.id_LichMuaVu,
+                        id_thuadat              : hoatDongNhatKy.returnValues.id_ThuaDat,
+                        id_xavien               : hoatDongNhatKy.returnValues.id_XaVien,
+                        id_hoatdongmuavu        : hoatDongNhatKy.returnValues.id_HoatDongMuaVu,
+                        ThoiGian                : hoatDongNhatKy.returnValues.ThoiGian,
+                    })
                 }
-
-                const result = {
-                    totalPage: totalPage,
-                    totalItem: danhSachHoatDongNhatKyFilterByIdNhatKyFilter.length,
-                    page: page,
-                    danhSachHoatDongNhatKyFilterByIdNhatKy: danhSachHoatDongNhatKyFilterByIdNhatKyFilter
-                }
-    
-                return result
             }
+
+            const totalPage = (limit != 0) ? Math.ceil(listResult.length / limit) : 1
+
+            const startIndex = (page - 1) * limit
+            const endIndex = ( startIndex + limit > listResult.length ) ? listResult.length : startIndex + limit
+            const danhSachHoatDongNhatKyLimit = (startIndex == endIndex) ? listResult : listResult.slice(startIndex, endIndex)
+
+            let endListResult = []
+
+            for ( let element of  danhSachHoatDongNhatKyLimit ) {
+                const id_nhatKyDongRuong = element.id_nhatkydongruong
+                const hoatDongNhatKyChiTiet = await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong)
+            
+                endListResult.push({
+                    ...element,
+                    description             : hoatDongNhatKyChiTiet.description,
+                    status                  : hoatDongNhatKyChiTiet.status,
+                    created_at              : hoatDongNhatKyChiTiet.created_at,
+                    updated_at              : hoatDongNhatKyChiTiet.updated_at
+                })
+            }
+            
     
-            return null
+            return {
+                totalPage: totalPage,
+                totalItem: danhSachHoatDongNhatKyLimit.length,
+                page: page,
+                danhSachHoatDongNhatKy: endListResult
+            }
 
         } catch (err) {
             throw err
         }
+    }
+
+    getContractByIdLoHangLua = async (id_loHangLua: number, limit: number, page: number) => {
+        //get information of lo hang lua
+        const loHangLua = await this._LoHangLuaContract.getContractById(id_loHangLua)
+
+        if (loHangLua) {
+            return null
+        }
+
+        const id_xaVien = loHangLua.returnValues.id_XaVien
+        const id_lichMuaVu = loHangLua.returnValues.id_LichMuaVu
+
+        return await this.getContractsByIdNhatKy(id_xaVien, id_lichMuaVu, limit, page)
     }
 }
