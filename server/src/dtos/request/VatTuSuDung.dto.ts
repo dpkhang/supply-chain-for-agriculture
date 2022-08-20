@@ -4,7 +4,9 @@ interface VatTuSuDungDTO {
     id_VatTu            : number
     id_LoHangVatTu      : number
     ThoiGianVatTu       : number
-    TenVatTu            : string
+    TenVatTu            : string,
+    Wallet_XaVien       : string,
+    password_Wallet     ?: string
 }
 
 export {

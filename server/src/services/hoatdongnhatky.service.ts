@@ -3,6 +3,7 @@ import { HoatDongNhatKyContract } from "../contracts/HoatDongNhatKy.contract";
 import { HoatDongNhatKyDTO } from "../dtos/request/HoatDongNhatKy.dto";
 import { NhatkydongruongRepository } from "../repositories/nhatkydongruong.repository";
 import { LoHangLuaContract } from "../contracts/LoHangLua.contract";
+import { Sender } from "../dtos/request/Sender.dto";
 
 export class HoatdongnhatkyService extends BaseService {
     private _HoatDongNhatKyContract
@@ -19,7 +20,7 @@ export class HoatdongnhatkyService extends BaseService {
         this._HoatDongNhatKyRepository = hoatDongNhatKyRepository
     }
 
-    createContract = async (data: HoatDongNhatKyDTO, sender: string) => {
+    createContract = async (data: HoatDongNhatKyDTO) => {
         try {
             const hoatDongNhatKyProperties = [
                 data.id_NhatKyDongRuong,
@@ -29,8 +30,13 @@ export class HoatdongnhatkyService extends BaseService {
                 data.id_HoatDongMuaVu,
                 data.ThoiGian
             ];
+
+            const sender:Sender = {
+                wallet: data.wallet_XaVien,
+                password: data.password_Wallet
+            } 
         
-            await this._HoatDongNhatKyContract.addContract({intProperties: hoatDongNhatKyProperties}, sender);
+            await this._HoatDongNhatKyContract.addContract({intProperties: hoatDongNhatKyProperties}, sender)
 
         } catch ( err ) {
             throw err

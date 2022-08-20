@@ -1,6 +1,7 @@
 import { BaseService }          from "./base/base.service"; 
 import { VatTuSuDungContract, VatTuSuDungProperties }  from "../contracts/VatTuSuDung.contract"; 
 import { VatTuSuDungDTO }       from "../dtos/request/VatTuSuDung.dto";
+import { Sender } from "../dtos/request/Sender.dto";
 
 const ADDRESS_HOATDONGNHATKY    = process.env.ADDRESS_HOATDONGNHATKY || "";
 const ADDRESS_LOHANGVATTU       = process.env.ADDRESS_LOHANGVATTU || "";
@@ -14,20 +15,18 @@ export class VatTuSuDungService extends BaseService {
         this._VatTuSuDungContract = vatTuSuDungContract
     }
 
-    createContract = async ( data: VatTuSuDungDTO[], sender: string ) => {
+    createContract = async ( data: VatTuSuDungDTO ) => {
         try {
 
-            for ( let VatTuSuDung of data ) {
-
-                let intProperties = []
-                intProperties.push( VatTuSuDung.id_VatTuSuDung )
-                intProperties.push( VatTuSuDung.id_HoatDongNhatKy )
-                intProperties.push( VatTuSuDung.id_VatTu )
-                intProperties.push( VatTuSuDung.id_LoHangVatTu )
-                intProperties.push( VatTuSuDung.ThoiGianVatTu )
+            let intProperties = []
+                intProperties.push( data.id_VatTuSuDung )
+                intProperties.push( data.id_HoatDongNhatKy )
+                intProperties.push( data.id_VatTu )
+                intProperties.push( data.id_LoHangVatTu )
+                intProperties.push( data.ThoiGianVatTu )
 
                 let stringProperties = []
-                stringProperties.push( VatTuSuDung.TenVatTu )
+                stringProperties.push( data.TenVatTu )
 
                 let addressProperties = []
                 addressProperties.push( ADDRESS_LOHANGVATTU )
@@ -39,11 +38,15 @@ export class VatTuSuDungService extends BaseService {
                     addressProperties   : addressProperties
                 }
 
+                const sender: Sender = {
+                    wallet: data.Wallet_XaVien,
+                    password: data.password_Wallet
+                }
+
                 await this._VatTuSuDungContract.addContract( 
                     vatTuSuDungProperties,
                     sender
                 )    
-            }
 
         } catch ( err ) {
             throw err

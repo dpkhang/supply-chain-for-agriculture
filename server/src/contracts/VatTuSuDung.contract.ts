@@ -1,5 +1,6 @@
 import { BaseContract }             from './base/base.contract'
 import VatTuSuDungABI               from "../abis/VatTuSuDung.json"
+import { Sender } from '../dtos/request/Sender.dto'
 const ADDRESS_VATTUSUDUNG           = process.env.ADDRESS_VATTUSUDUNG   || ""
 
 export interface VatTuSuDung {
@@ -23,15 +24,19 @@ export class VatTuSuDungContract extends BaseContract {
         super(VatTuSuDungABI, ADDRESS_VATTUSUDUNG)
     }
 
-    addContract = async (data: VatTuSuDungProperties, sender: string) => {
+    addContract = async (data: VatTuSuDungProperties, sender: Sender) => {
         try {
+            if (sender.password) {
+                await this.web3.eth.personal.unlockAccount(sender.wallet, sender.password, 5000)
+            }
+
             await this.methods.ThemVatTuNongNghiep(
                 data.intProperties,
                 data.stringProperties,
                 data.addressProperties
             )
             ?.send({
-                from: sender,
+                from: sender.wallet,
                 gas: 300000
             })
         } catch ( err ) {

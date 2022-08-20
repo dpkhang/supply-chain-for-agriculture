@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { VatTuSuDungDTO } from '../dtos/request/VatTuSuDung.dto';
 import { ResponseDTO } from '../dtos/response.dto';
 import { VatTuSuDungService } from '../services/VatTuSuDung.service';
 export class VatTuSuDungController {
@@ -25,6 +26,50 @@ export class VatTuSuDungController {
             
         }catch(err) {
             console.log(err)
+            return res.status(500).json(responseDTO.serverError())
+        }
+    }
+
+    createContract = async ( req: Request, res: Response ) => {
+        const responseDTO = new ResponseDTO()
+
+        try {
+            const ReqData = req.body
+
+            const vatTuSuDung: VatTuSuDungDTO = {
+                id_VatTuSuDung      : ReqData.id_VatTuSuDung,
+                id_HoatDongNhatKy   : ReqData.id_HoatDongNhatKy,
+                id_VatTu            : ReqData.id_VatTu,
+                id_LoHangVatTu      : ReqData.id_LoHangVatTu,
+                ThoiGianVatTu       : ReqData.ThoiGianVatTu,
+                TenVatTu            : ReqData.TenVatTu,
+                Wallet_XaVien       : ReqData.wallet_XaVien,
+                password_Wallet     : ReqData.password_Wallet,
+            }
+
+            await this._vatTuSuDung.create(vatTuSuDung)
+
+            return res.status(200).json(
+                responseDTO.success(
+                    "Lưu dữ liệu lên Blockchain thành công",
+                    ReqData
+                )
+            )
+
+        } catch ( err ) {
+            console.log(err)
+
+            const errorData = ( err as any ).data
+
+            for ( let key in errorData ) {
+                if ( errorData[key].hasOwnProperty('reason') ) {
+                    return res.status(500).json(responseDTO.responseWithOther(
+                        500,
+                        errorData[key].reason
+                    ))
+                }
+            }
+
             return res.status(500).json(responseDTO.serverError())
         }
     }

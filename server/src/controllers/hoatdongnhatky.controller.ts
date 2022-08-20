@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { HoatDongNhatKyDTO } from '../dtos/request/HoatDongNhatKy.dto';
-import { VatTuSuDungDTO } from '../dtos/request/VatTuSuDung.dto';
 import { ResponseDTO } from '../dtos/response.dto';
 import { HoatdongnhatkyService } from '../services/hoatdongnhatky.service';
 import { VatTuSuDungService } from '../services/VatTuSuDung.service';
@@ -40,8 +39,6 @@ export class HoatdongnhatkyController {
 
         try {
             const ReqData = req.body
-            
-            const sender = ReqData.wallet_XaVien
 
             const hoatDongNhatKyData:HoatDongNhatKyDTO = {
                 id_NhatKyDongRuong      : ReqData.id_NhatKyDongRuong,
@@ -50,10 +47,11 @@ export class HoatdongnhatkyController {
                 id_XaVien               : ReqData.id_XaVien,
                 id_HoatDongMuaVu        : ReqData.id_HoatDongMuaVu,
                 ThoiGian                : ReqData.ThoiGian,
-                wallet_XaVien           : ReqData.wallet_XaVien
+                wallet_XaVien           : ReqData.wallet_XaVien,
+                password_Wallet         : ReqData.password_Wallet
             }
             
-            await this._hoatdongnhatkyService.createContract(hoatDongNhatKyData, sender)
+            await this._hoatdongnhatkyService.createContract(hoatDongNhatKyData)
 
             return res.status(200).json(
                 responseDTO.success(

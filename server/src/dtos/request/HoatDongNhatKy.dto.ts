@@ -6,6 +6,7 @@ interface HoatDongNhatKyDTO {
     id_HoatDongMuaVu        : number
     ThoiGian                : number
     wallet_XaVien           : string
+    password_Wallet         ?: string
 }
 
 export {
