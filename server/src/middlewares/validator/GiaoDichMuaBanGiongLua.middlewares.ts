@@ -22,6 +22,8 @@ export const GiaoDichMuaBanGiongLuaValidator = [
 
     body('wallet_XaVien').notEmpty().isString(),
 
+    body('password_Wallet').notEmpty().isString(),
+
     ( req: Request, res: Response, next: NextFunction ) => {
 
         const errors = validationResult(req)

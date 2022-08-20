@@ -7,5 +7,6 @@ export interface GiaoDichMuaBanLuaGiongDTO {
     SoLuong                 : number;
     TenLuaGiong             : string;
     ThoiGian                : number;
-    wallet_XaVien           : string
+    wallet_XaVien           : string;
+    password_Wallet         : string;
 }
