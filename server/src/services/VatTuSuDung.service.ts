@@ -24,6 +24,7 @@ export class VatTuSuDungService extends BaseService {
                 intProperties.push( data.id_VatTu )
                 intProperties.push( data.id_LoHangVatTu )
                 intProperties.push( data.ThoiGianVatTu )
+                intProperties.push( data.soLuong )
 
                 let stringProperties = []
                 stringProperties.push( data.TenVatTu )
@@ -77,6 +78,7 @@ export class VatTuSuDungService extends BaseService {
                         id_VatTu            : returnValues.id_VatTu,
                         id_LoHangVatTu      : returnValues.id_LoHangVatTu,
                         ThoiGianVatTu       : returnValues.ThoiGianVatTu,
+                        soLuong             : returnValues.soLuong,
                         TenVatTu            : returnValues.TenVatTu
                     }
                     danhSachVatTuSuDungFilter.push(nhatKyDongRuongTemp)
@@ -102,27 +104,29 @@ export class VatTuSuDungService extends BaseService {
    async getContractById(id_VatTuSuDung:number) {
         try {
             const vatTuSuDung = await this._VatTuSuDungContract.getContractById(id_VatTuSuDung)
-
+            
             if (
                 vatTuSuDung.id_VatTuSuDung     == 0 ||
                 vatTuSuDung.id_HoatDongNhatKy  == 0 ||
                 vatTuSuDung.id_VatTu           == 0 ||
                 vatTuSuDung.id_LoHangVatTu     == 0 ||
                 vatTuSuDung.ThoiGianVatTu      == 0 ||
+                vatTuSuDung.soLuong           == 0 ||
                 vatTuSuDung.TenVatTu           == 0
             ) return null
 
             if (vatTuSuDung) {
-                const vatTuSuDungResult = {
+                const danhSachVatTuSuDung = {
                         id_VatTuSuDung      : vatTuSuDung.id_VatTuSuDung,
                         id_HoatDongNhatKy   : vatTuSuDung.id_HoatDongNhatKy,
                         id_VatTu            : vatTuSuDung.id_VatTu,
                         id_LoHangVatTu      : vatTuSuDung.id_LoHangVatTu,
                         ThoiGianVatTu       : vatTuSuDung.ThoiGianVatTu,
+                        soLuong             : vatTuSuDung.soLuong,
                         TenVatTu            : vatTuSuDung.TenVatTu
                 }
 
-                return vatTuSuDungResult
+                return danhSachVatTuSuDung
             }
 
             return null
@@ -158,6 +162,7 @@ export class VatTuSuDungService extends BaseService {
                         id_VatTu            : returnValues.id_VatTu,
                         id_LoHangVatTu      : returnValues.id_LoHangVatTu,
                         ThoiGianVatTu       : returnValues.ThoiGianVatTu,
+                        soLuong             : returnValues.soLuong,
                         TenVatTu            : returnValues.TenVatTu
                     }
                     danhSachVatTuSuDungFilterById_HoatDongNhatKyFilter.push(nhatKyDongRuongTemp)
@@ -167,7 +172,7 @@ export class VatTuSuDungService extends BaseService {
                     totalPage: totalPage,
                     totalItem: danhSachVatTuSuDungFilterById_HoatDongNhatKyFilter.length,
                     page: page,
-                    danhSachVatTuSuDungFilterById_HoatDongNhatKy: danhSachVatTuSuDungFilterById_HoatDongNhatKyFilter
+                    danhSachVatTuSuDung: danhSachVatTuSuDungFilterById_HoatDongNhatKyFilter
                 }
     
                 return result

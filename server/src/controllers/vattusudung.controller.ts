@@ -42,12 +42,13 @@ export class VatTuSuDungController {
                 id_VatTu            : ReqData.id_VatTu,
                 id_LoHangVatTu      : ReqData.id_LoHangVatTu,
                 ThoiGianVatTu       : ReqData.ThoiGianVatTu,
+                soLuong             : ReqData.soLuong,
                 TenVatTu            : ReqData.TenVatTu,
                 Wallet_XaVien       : ReqData.wallet_XaVien,
                 password_Wallet     : ReqData.password_Wallet,
             }
 
-            await this._vatTuSuDung.create(vatTuSuDung)
+            await this._vatTuSuDung.createContract(vatTuSuDung)
 
             return res.status(200).json(
                 responseDTO.success(
@@ -56,21 +57,12 @@ export class VatTuSuDungController {
                 )
             )
 
-        } catch ( err ) {
-            console.log(err)
-
-            const errorData = ( err as any ).data
-
-            for ( let key in errorData ) {
-                if ( errorData[key].hasOwnProperty('reason') ) {
-                    return res.status(500).json(responseDTO.responseWithOther(
-                        500,
-                        errorData[key].reason
-                    ))
-                }
-            }
-
-            return res.status(500).json(responseDTO.serverError())
+        } catch ( err: any ) {
+            const error = err.data ? Object.values<any>(err.data)[0].reason : err
+            console.log(error)
+            return res.status(500).json(
+                responseDTO.responseWithOther(500, error)
+            )
         }
     }
 

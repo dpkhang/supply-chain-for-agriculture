@@ -4,8 +4,9 @@ interface VatTuSuDungDTO {
     id_VatTu            : number
     id_LoHangVatTu      : number
     ThoiGianVatTu       : number
-    TenVatTu            : string,
-    Wallet_XaVien       : string,
+    soLuong             : number
+    TenVatTu            : string
+    Wallet_XaVien       : string
     password_Wallet     ?: string
 }
 
