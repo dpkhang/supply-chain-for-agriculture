@@ -1,13 +1,14 @@
 import { BaseService } from "./base/base.service"; 
 import { LoHangLuaContract } from "../contracts/LoHangLua.contract"; 
+import { LohangluaRepository } from "../repositories/lohang_lua.repository";
 
 export class LoHangLua_Service extends BaseService {
     //_giaodichmuaban_luaService
-    private _LoHangLua_Service: LoHangLuaContract
+    private _lohangluaRepos
 
     constructor() {
-       const loHangLuaContract = new LoHangLuaContract()
-       super(loHangLuaContract)
-       this._LoHangLua_Service = loHangLuaContract
+       const loHangLuaRepos = new LohangluaRepository()
+       super(loHangLuaRepos)
+       this._lohangluaRepos = loHangLuaRepos
     }
 }

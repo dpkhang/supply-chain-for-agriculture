@@ -16,7 +16,7 @@ export class LoHangLuaContract extends BaseContract {
     }
 
     addContract = async (data: LoHangLua, sender: string) => {
-        const result = await this.methods.ThemLoHangLua(data.intProperties, [ADDRESS_NHATKYRUONGDONG], data.stringProperties)
+        const result = await this.methods.ThemLoHangLua(data.intProperties, data.stringProperties)
         ?.send({
             from: sender,
             gas: 3000000
