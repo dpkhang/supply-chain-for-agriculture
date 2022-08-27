@@ -1,5 +1,6 @@
 import { BaseContract }           from './base/base.contract'
 import GiaoDichMuaBanLuaABI       from "../abis/GiaoDichMuaBanLua.json"
+import { Sender } from '../dtos/request/Sender.dto'
 const ADDRESS_GIAODICHMUABANLUA = process.env.ADDRESS_GIAODICHMUABANLUA || ""
 const ADDRESS_LOHANGLUA         = process.env.ADDRESS_LOHANGLUA || ""
 export interface GiaoDichMuaBanLua {
@@ -13,10 +14,14 @@ export class GiaoDichMuaBanLuaContract extends BaseContract {
         super(GiaoDichMuaBanLuaABI, ADDRESS_GIAODICHMUABANLUA)
     }
 
-    addContract = async (data: GiaoDichMuaBanLua, sender: string) => {
+    addContract = async (data: GiaoDichMuaBanLua, sender: Sender) => {
+        if (sender.password) {
+            await this.web3.eth.personal.unlockAccount(sender.wallet, sender.password, 5000)
+        }
+
         const result = await this.methods.ThemGiaoDich(data.intProperties, data.boolProperties, [ADDRESS_LOHANGLUA])
             ?.send({
-                from: sender,
+                from: sender.wallet,
                 gas: 3000000
             })
         return result

@@ -10,7 +10,7 @@ export const GiaoDichMuaBanLuaValidator = [
     body('thoigianGiaoDich').notEmpty().isNumeric().toInt(),
     body('giaLoHang').notEmpty().isNumeric().toInt(),
     body('id_GiongLua').notEmpty().isNumeric().toInt(),
-    body('id_NhatKyDongRuong').notEmpty().isNumeric().toInt(),
+    body('id_LichMuaVu').notEmpty().isNumeric().toInt(),
     body('thoigianLoHang').notEmpty().isNumeric().toInt(),
     body('tenGiongLua').notEmpty().isString(),
     body('soluong').notEmpty().isNumeric().toInt(),
@@ -20,6 +20,7 @@ export const GiaoDichMuaBanLuaValidator = [
     body('dientichdat').notEmpty().isNumeric().toInt(),
     body('maxSoLuong').notEmpty().isNumeric().toInt(),
     body('wallet_NguoiTao').notEmpty().isString(),
+    body('password').notEmpty().isString(),
     ( req: Request, res: Response, next: NextFunction ) => {
 
         const errors = validationResult(req)

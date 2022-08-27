@@ -4,6 +4,7 @@ import { GiaoDichMuaBanVatTu } from './../contracts/GiaoDichMuaBanVatTu.contract
 import { GiaoDichMuaBanVatTuDTO } from './../dtos/request/GiaoDichMuaBanVatTu.dto';
 import { BaseService }                      from "./base/base.service"; 
 import { GiaoDichMuaBanVatTuContract }      from "../contracts/GiaoDichMuaBanVatTu.contract";
+import { Sender } from '../dtos/request/Sender.dto';
 
 export class GiaoDichMuaBanVatTu_Service extends BaseService {
     private _GiaoDichMuaBanVatTuContract 
@@ -15,16 +16,21 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
         super(lohangVatTuRepository)
         this._GiaoDichMuaBanVatTuContract = new GiaoDichMuaBanVatTuContract()
         this._LoHangVatTu_Repository = lohangVatTuRepository
-        this._LoHangVatTu =new LoHangVatTuContract()
+        this._LoHangVatTu = new LoHangVatTuContract()
     }
 
-    getContracts = async () => {
+    getContracts = async (limit: number = 10, page: number = 1) => {
         const giaoDichMuaVatTu = await this._GiaoDichMuaBanVatTuContract.getContracts("SuKienGiaoDich1")
 
         const results = []
 
         if (giaoDichMuaVatTu && giaoDichMuaVatTu?.length > 0) {
-            for(let contract of giaoDichMuaVatTu) {
+            const totalPage = (limit != 0) ? Math.ceil(giaoDichMuaVatTu.length / limit) : 1
+            const startIndex = (page - 1) * limit
+            const endIndex = ( startIndex + limit > giaoDichMuaVatTu.length ) ? giaoDichMuaVatTu.length : startIndex + limit
+            const giaoDichMuaVatTuLimit = (startIndex == endIndex) ? giaoDichMuaVatTu : giaoDichMuaVatTu.slice(startIndex, endIndex)
+
+            for(let contract of giaoDichMuaVatTuLimit) {
                 const lohangVatTu =  await this._LoHangVatTu.getContractById(contract.returnValues.id_LoHangVatTu)
                 const giaoDich = {
                     id_GiaoDich: contract.returnValues.id_GiaoDich,
@@ -41,13 +47,18 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
                 }
                 results.push(giaoDich)
             }
-            return results
+            return {
+                totalPage: totalPage,
+                totalItem: giaoDichMuaVatTuLimit.length,
+                page: page,
+                results
+            }
         }
         return null
     }
 
 
-    addContract = async (data: GiaoDichMuaBanVatTuDTO, sender: string) => {
+    addContract = async (data: GiaoDichMuaBanVatTuDTO, sender: Sender) => {
         const giaodichMuaBanVatTu_Data: GiaoDichMuaBanVatTu  = {
             intProperties: [
                 data.id_XaVien,

@@ -43,7 +43,7 @@ export class HoatdongnhatkyService extends BaseService {
         }
     }
 
-    getContracts = async (limit: number = 0, page:number = 1) => {
+    getContracts = async (limit: number = 10, page:number = 1) => {
         try {
             const danhSachHoatDongNhatKy = await this._HoatDongNhatKyContract.getContracts('SuKienThemHoatDongNhatKy') as any
             let listResult = []

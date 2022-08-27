@@ -1,4 +1,5 @@
 import { Request, Response }         from 'express'
+import { Sender }                    from '../dtos/request/Sender.dto'
 import { ResponseDTO }               from '../dtos/response.dto'
 import { GiaiDichMuaBanLua_Service } from '../services/giaodichmuaban_lua.service'
 export class Giaodichmuaban_luaController {
@@ -11,7 +12,9 @@ export class Giaodichmuaban_luaController {
     getContracts = async (req: Request, res: Response):Promise<Response> => {
         const responseDTO = new ResponseDTO()
         try {
-            const response = await this._GiaiDichMuaBanLua_Service.getContracts()
+            const limit = parseInt( (req.query.limit ?? '0') as string )
+            const page  = parseInt( (req.query.page ?? '1') as string )
+            const response = await this._GiaiDichMuaBanLua_Service.getContracts(limit, page)
 
             return res.status(200).json(
                     responseDTO.success(
@@ -55,8 +58,12 @@ export class Giaodichmuaban_luaController {
             const data = {
                 ...req.body
             }
+            const sender: Sender = {
+                wallet: data.wallet_NguoiTao,
+                password: data.password
+            }
             delete data.wallet_NguoiTao
-            const repsonse = await this._GiaiDichMuaBanLua_Service.addContract(data, req.body.wallet_NguoiTao)
+            const repsonse = await this._GiaiDichMuaBanLua_Service.addContract(data, sender)
             if(repsonse) {
                 return res.status(200).json(
                     responseDTO.success(

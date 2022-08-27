@@ -6,7 +6,7 @@ export interface GiaoDichMuaBanLuaDTO {
     thoigianGiaoDich:   number
     giaLoHang:          number
     id_GiongLua:        number
-    id_NhatKyDongRuong: number
+    id_LichMuaVu:       number
     thoigianLoHang:     number
     tenGiongLua:        string
     soluong:            number
