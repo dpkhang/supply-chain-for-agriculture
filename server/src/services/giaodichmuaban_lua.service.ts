@@ -4,6 +4,7 @@ import { Giaodichmuaban_luaRepository } from './../repositories/giaodichmuaban_l
 import { BaseService } from "./base/base.service"
 import { GiaoDichMuaBanLuaContract } from "../contracts/GiaoDichMuaBanLua.contract"
 import { GiaoDichMuaBanLuaDTO } from '../dtos/request/GiaoDichMuaBanLua.dto'
+import { Sender } from '../dtos/request/Sender.dto'
 
 export class GiaiDichMuaBanLua_Service extends BaseService {
     //_giaodichmuaban_luaService
@@ -22,13 +23,18 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         this._LoHangLua = loHangLua
     }
 
-    getContracts = async () => {
+    getContracts = async (limit: number = 10, page: number = 1) => {
         const giaoDichMuaBanLua = await this._GiaoDichMuaBanLuaContract.getContracts("SuKienGiaoDich")
 
         const results = []
 
         if (giaoDichMuaBanLua && giaoDichMuaBanLua?.length > 0) {
-            for(let contract of giaoDichMuaBanLua) {
+            const totalPage = (limit != 0) ? Math.ceil(giaoDichMuaBanLua.length / limit) : 1
+            const startIndex = (page - 1) * limit
+            const endIndex = ( startIndex + limit > giaoDichMuaBanLua.length ) ? giaoDichMuaBanLua.length : startIndex + limit
+            const giaoDichMuaBanLuaLimit = (startIndex == endIndex) ? giaoDichMuaBanLua : giaoDichMuaBanLua.slice(startIndex, endIndex)
+
+            for(let contract of giaoDichMuaBanLuaLimit) {
                 const lohangLua =  await this._LoHangLua.getContractById(contract.returnValues.id_LoHangLua)
                 const giaoDich = {
                     id_GiaoDich: contract.returnValues.id_GiaoDich,
@@ -45,12 +51,18 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
                 }
                 results.push(giaoDich)
             }
-            return results
+            
+            return {
+                totalPage: totalPage,
+                totalItem: giaoDichMuaBanLuaLimit.length,
+                page: page,
+                results
+            }
         }
         return null
     }
 
-    addContract = async (data: GiaoDichMuaBanLuaDTO, sender: string) => {
+    addContract = async (data: GiaoDichMuaBanLuaDTO, sender: Sender) => {
         const giaoDichMuaBanLua_Data: GiaoDichMuaBanLua = {
             intProperties: [
                 data.id_XaVien, 
@@ -72,7 +84,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
                 data.id_XaVien,
                 data.id_LoHangLua,
                 data.id_GiongLua,
-                data.id_NhatKyDongRuong,
+                data.id_LichMuaVu,
                 data.soluong,
                 data.thoigianLoHang,
                 data.dientichdat,

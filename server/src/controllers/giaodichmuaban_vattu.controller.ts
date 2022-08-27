@@ -1,4 +1,5 @@
 import { Request, Response }           from 'express';
+import { Sender }                      from '../dtos/request/Sender.dto';
 import { ResponseDTO }                 from '../dtos/response.dto';
 import { GiaoDichMuaBanVatTu_Service } from '../services/giaodichmuaban_vattu.service';
 export class Giaodichmuaban_vattuController {
@@ -11,7 +12,9 @@ export class Giaodichmuaban_vattuController {
     getContracts = async (req: Request, res: Response):Promise<Response> => {
         const responseDTO = new ResponseDTO()
         try {
-            const response = await this._GiaoDichMuaBanVatTu_Service.getContracts()
+            const limit = parseInt( (req.query.limit ?? '0') as string )
+            const page  = parseInt( (req.query.page ?? '1') as string )
+            const response = await this._GiaoDichMuaBanVatTu_Service.getContracts(limit, page)
 
             return res.status(200).json(responseDTO.success("Lay du lieu thanh cong", response))
         }catch(err) {
@@ -51,7 +54,12 @@ export class Giaodichmuaban_vattuController {
             ...req.body
         }
         try {
-            const repsonse = await this._GiaoDichMuaBanVatTu_Service.addContract(data, req.body.wallet_NguoiTao)
+            const sender: Sender = {
+                wallet: req.body.wallet_NguoiTao,
+                password: req.body.password
+            }
+
+            const repsonse = await this._GiaoDichMuaBanVatTu_Service.addContract(data, sender)
             if(repsonse) {
                 return res.status(200).json(responseDTO.success('Them du lieu thanh cong', repsonse))
             }

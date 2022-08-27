@@ -54,7 +54,7 @@ export class VatTuSuDungService extends BaseService {
         }
     }
 
-    async getContracts(limit:number = 0, page:number = 1) {
+    async getContracts(limit:number = 10, page:number = 1) {
         try {
 
             if ( page == 0 ) return null
@@ -136,7 +136,7 @@ export class VatTuSuDungService extends BaseService {
         }
     }
 
-    async getContractsByIdHoatDongNhatKy(id_HoatDongNhatKy:number, limit:number = 0, page:number = 1) {
+    async getContractsByIdHoatDongNhatKy(id_HoatDongNhatKy:number, limit:number = 10, page:number = 1) {
         try {
 
             if ( page == 0 ) return null
