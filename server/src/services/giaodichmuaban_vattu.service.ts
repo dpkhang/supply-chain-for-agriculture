@@ -5,17 +5,18 @@ import { GiaoDichMuaBanVatTuDTO } from './../dtos/request/GiaoDichMuaBanVatTu.dt
 import { BaseService }                      from "./base/base.service"; 
 import { GiaoDichMuaBanVatTuContract }      from "../contracts/GiaoDichMuaBanVatTu.contract";
 import { Sender } from '../dtos/request/Sender.dto';
+import { Giaodichmuaban_vattuRepositoty } from '../repositories/giaodichmuaban_vattu.repository';
 
 export class GiaoDichMuaBanVatTu_Service extends BaseService {
     private _GiaoDichMuaBanVatTuContract 
     private _LoHangVatTu
-    private _LoHangVatTu_Repository
+    private _GiaoDichVatTu_Repository
 
     constructor() {
-        const lohangVatTuRepository = new lohangvattuRepository()
-        super(lohangVatTuRepository)
+        const giaodichmuabanVatTuRepository = new Giaodichmuaban_vattuRepositoty()
+        super(giaodichmuabanVatTuRepository)
         this._GiaoDichMuaBanVatTuContract = new GiaoDichMuaBanVatTuContract()
-        this._LoHangVatTu_Repository = lohangVatTuRepository
+        this._GiaoDichVatTu_Repository = giaodichmuabanVatTuRepository
         this._LoHangVatTu = new LoHangVatTuContract()
     }
 
@@ -32,6 +33,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
 
             for(let contract of giaoDichMuaVatTuLimit) {
                 const lohangVatTu =  await this._LoHangVatTu.getContractById(contract.returnValues.id_LoHangVatTu)
+                const chiTietGiaoDich = await this._GiaoDichVatTu_Repository.findById(contract.returnValues.id_GiaoDich)
                 const giaoDich = {
                     id_GiaoDich: contract.returnValues.id_GiaoDich,
                     id_LoHangVatTu: contract.returnValues.id_LoHangVatTu,
@@ -44,6 +46,9 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
                     TenVatTu: lohangVatTu.TenVatTu,
                     thoigianLoHang: lohangVatTu.ThoiGian,
                     soluong: lohangVatTu.SoLuong,
+                    description_giaodich: chiTietGiaoDich.description_giaodich,
+                    statusGiaodich: chiTietGiaoDich.status,
+                    id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
                 }
                 results.push(giaoDich)
             }
@@ -51,7 +56,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
                 totalPage: totalPage,
                 totalItem: giaoDichMuaVatTuLimit.length,
                 page: page,
-                results
+                danhSachGiaoDich: results
             }
         }
         return null
@@ -103,6 +108,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
         const giaodichMuaBanVatTu = await this._GiaoDichMuaBanVatTuContract.getContractById(id_GiaoDich)
         if(giaodichMuaBanVatTu) {
             const lohangVatTu = await this._LoHangVatTu.getContractById(giaodichMuaBanVatTu.id_LoHangVatTu)
+            const chiTietGiaoDich = await this._GiaoDichVatTu_Repository.findById(giaodichMuaBanVatTu.id_GiaoDich)
             if(lohangVatTu) {
                 const giaoDich = {
                     id_GiaoDich: giaodichMuaBanVatTu.id_GiaoDich,
@@ -116,6 +122,9 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
                     TenVatTu: lohangVatTu.TenVatTu,
                     thoigianLoHang: lohangVatTu.ThoiGian,
                     soluong: lohangVatTu.SoLuong,
+                    description_giaodich: chiTietGiaoDich.description_giaodich,
+                    statusGiaodich: chiTietGiaoDich.status,
+                    id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
                 }
 
                 return giaoDich

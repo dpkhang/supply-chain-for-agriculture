@@ -9,4 +9,12 @@ export class Giaodichmuaban_luaRepository extends BaseRepository {
         super(giaodichmuaban_luaEntity)
         this._giaodichmuaban_luaEntity = giaodichmuaban_luaEntity
     }
+
+    findById = async (id: number) => {
+        return this.repos.findOne({
+            where: { 
+                id_giaodichmuaban_lua: id,
+            },
+        }).then(t=>t?.get())
+    };
 }
