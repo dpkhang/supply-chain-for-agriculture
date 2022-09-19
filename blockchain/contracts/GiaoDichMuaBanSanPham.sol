@@ -151,13 +151,13 @@ contract GiaoDichMuaBanSanPham {
     function ThemGiaoDich(
         uint[] memory intProperties,
         bool[] memory boolProperties,
-        address[]   memory addressProperties,
+        address[] memory addressProperties,
         bool loaiLoHang
     )
     KiemTraIdCacBenQuan(intProperties[1], intProperties[2])
     KiemTraXacNhan(boolProperties, loaiLoHang)
-    KiemTraGiaoDich(intProperties[0])
-    KiemTraLoHangDaTonTai(intProperties[0], addressProperties[0], loaiLoHang)
+    KiemTraGiaoDich( intProperties[0])
+    // KiemTraLoHangDaTonTai(intProperties[0], addressProperties[0], loaiLoHang)
     KiemTraLoHangDaGiaoDich(intProperties[0])
     public
     returns (bool) {
