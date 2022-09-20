@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACjB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;CAejB;;AAjBD,AAII,oBAJgB,CAIhB,0BAA0B,CAAC;EACvB,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,IAAI;CAUnB;;AAhBL,AAQQ,oBARY,CAIhB,0BAA0B,CAItB,kBAAkB,CAAC;EACf,KAAK,EAAE,MAAM;CAMhB;;AAfT,AAWY,oBAXQ,CAIhB,0BAA0B,CAItB,kBAAkB,CAGd,EAAE,CAAC;EACC,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;CACtB",
-    "sources": [
-        "transactions.scss"
-    ],
-    "names": [],
-    "file": "transactions.css"
-}

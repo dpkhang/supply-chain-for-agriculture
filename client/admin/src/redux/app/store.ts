@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { MenuControlSlice } from '../slice/menu-control.slice'
+import createSagaMiddleware from '@redux-saga/core'
+import { rootSaga } from './saga'
+import rootReducer from './rootReducer'
+const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
-  reducer: {
-    menuControl: MenuControlSlice.reducer
-  },
+	reducer: rootReducer,
+	middleware: (getDafaultSagaMiddleware) => getDafaultSagaMiddleware({ thunk: false }).concat(sagaMiddleware)
 })
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+sagaMiddleware.run(rootSaga)
 export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>
