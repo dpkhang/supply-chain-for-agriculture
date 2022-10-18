@@ -17,7 +17,7 @@ class BaseRepository {
     constructor(entity: any) {
         this.repos = this.sequelize.define(entity.constructor.name, 
                                             { ...entity },  
-                                            { createdAt: false, updatedAt: false}
+                                            { createdAt: false, updatedAt: false, initialAutoIncrement: '10000'}
                                           )
         this.repos.sync()
     }
@@ -35,7 +35,7 @@ class BaseRepository {
     }
 
     create = async (data: object) => {
-        return this.repos.create({...data}).then(t=>t?.get())
+        return this.repos.create({...data}).then(t=>t)
     } 
 
     update = async (id: number, data: object) => {

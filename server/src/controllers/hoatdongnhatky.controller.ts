@@ -167,4 +167,25 @@ export class HoatdongnhatkyController {
 
     }
 
+    createActivity =async (req: Request, res: Response): Promise<Response> => {
+        const responseDTO = new ResponseDTO();
+        try {
+            //get data
+            const hoatDongNhatKy = req.body;
+            //store data
+            const hoatDongNhatKyCreated = await this._hoatdongnhatkyService.create(hoatDongNhatKy);
+            
+            if (hoatDongNhatKyCreated) {
+                //create vat tu su dung
+                //return data
+                return res.json(200).json(responseDTO.success("Them nhat ky dong ruong thanh cong", hoatDongNhatKy));
+            } else {
+                return res.json(400).json(responseDTO.badRequest());
+            }
+        } catch (err: any) {
+            console.log(err);
+            return res.status(500).json(responseDTO.serverError());
+        }
+    }
+
 }
