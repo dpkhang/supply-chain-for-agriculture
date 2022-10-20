@@ -6,7 +6,8 @@ export class tbl_user extends BaseEntity {
     id_user = {
         type: DataTypes.INTEGER,
         autoInCrement: true,
-        primaryKey: true
+        primaryKey: true,
+        
     }
 
     username = {

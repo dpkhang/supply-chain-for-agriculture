@@ -70,6 +70,7 @@ export class AuthenticationController {
       userData.password = await bcrypt.hash(userData.password, 10);
       //create account
       const userCreated = await this._userService.create(userData);
+      console.log(userCreated.null); //get id
       const userInfor = await this._userService.findByUserName(
         userData.username
       );
