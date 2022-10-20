@@ -3,10 +3,10 @@ export interface GiaoDichMuaBanLuaDTO {
     id_LoHangLua:       number
     id_XaVien:          number
     id_ThuongLai:       number
+    id_LichMuaVu:       number
     thoigianGiaoDich:   number
     giaLoHang:          number
     id_GiongLua:        number
-    id_LichMuaVu:       number
     thoigianLoHang:     number
     tenGiongLua:        string
     soluong:            number

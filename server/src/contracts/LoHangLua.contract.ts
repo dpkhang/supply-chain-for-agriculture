@@ -16,6 +16,7 @@ export class LoHangLuaContract extends BaseContract {
         super(LoHangLuaABI, ADDRESS_LOHANGLUA)
     }
 
+
     addContract = async (data: LoHangLua, sender: Sender) => {
         if (sender.password) {
             await this.web3.eth.personal.unlockAccount(sender.wallet, sender.password, 5000)

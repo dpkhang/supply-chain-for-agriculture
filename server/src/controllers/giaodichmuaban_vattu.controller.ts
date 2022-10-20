@@ -65,6 +65,7 @@ export class Giaodichmuaban_vattuController {
             }
             return res.status(400).json(responseDTO.badRequest())
         }catch(err: any) {
+            console.log(err)
             const error = err.data ? Object.values<any>(err.data)[0].reason : err
             console.log(error)
             return res.status(500).json(
