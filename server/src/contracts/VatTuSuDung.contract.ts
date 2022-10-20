@@ -1,6 +1,6 @@
 import { BaseContract }             from './base/base.contract'
 import VatTuSuDungABI               from "../abis/VatTuSuDung.json"
-import { Sender } from '../dtos/request/Sender.dto'
+import { Sender }                   from '../dtos/request/Sender.dto'
 const ADDRESS_VATTUSUDUNG           = process.env.ADDRESS_VATTUSUDUNG   || ""
 
 export interface VatTuSuDung {
@@ -45,6 +45,6 @@ export class VatTuSuDungContract extends BaseContract {
     }
 
     getContractById = async (id_contract: number) => {
-        return await this.methods.DanhSachVatTuSuDung(id_contract)?.call()
+        return await this.methods.DanhSachVatTuSuDung(id_contract).call()
     }
 }

@@ -14,6 +14,8 @@ const VatTuSuDungValidator = [
         check("id_LoHangVatTu"      , "id_LoHangVatTu chưa tồn tại").isNumeric().notEmpty(),
 
         check("ThoiGianVatTu"       , "ThoiGianVatTu chưa tồn tại").isNumeric().notEmpty(),
+
+        check("soLuong"             , "So luong chưa tồn tại").isNumeric().notEmpty(),
         
         check("TenVatTu"            , "TenVatTu chưa tồn tại").isString().notEmpty(),
 

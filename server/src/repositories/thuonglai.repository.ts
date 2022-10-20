@@ -9,4 +9,12 @@ export class ThuonglaiRepository extends BaseRepository {
         super(thuonglai)
         this._thuonglaiEntity = thuonglai
     }
+
+    findByIdUser = async (id_user: string|number) => {
+        return this.repos.findOne({
+            where: {
+                id_user: id_user
+            }
+        }).then(t=>t?.get());
+    }
 }

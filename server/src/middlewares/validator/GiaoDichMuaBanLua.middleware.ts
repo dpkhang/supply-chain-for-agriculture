@@ -20,6 +20,7 @@ export const GiaoDichMuaBanLuaValidator = [
     body('dientichdat').notEmpty().isNumeric().toInt(),
     body('maxSoLuong').notEmpty().isNumeric().toInt(),
     body('wallet_NguoiTao').notEmpty().isString(),
+    body('password').notEmpty().isString(),
     ( req: Request, res: Response, next: NextFunction ) => {
 
         const errors = validationResult(req)

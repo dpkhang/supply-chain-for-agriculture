@@ -4,32 +4,44 @@ import { Giaodichmuaban_luaRepository } from './../repositories/giaodichmuaban_l
 import { BaseService } from "./base/base.service"
 import { GiaoDichMuaBanLuaContract } from "../contracts/GiaoDichMuaBanLua.contract"
 import { GiaoDichMuaBanLuaDTO } from '../dtos/request/GiaoDichMuaBanLua.dto'
+import { Sender } from '../dtos/request/Sender.dto'
+import { lohangluaRepository } from '../repositories/lohang_lua.repository'
 
 export class GiaiDichMuaBanLua_Service extends BaseService {
     //_giaodichmuaban_luaService
     private _GiaoDichMuaBanLuaContract
     private _GiaoDichMuaBanLuaRepository
+    private _LoHangLuaRepository
     private _LoHangLua
 
 
     constructor() {
         const giaoDichMuaBanLuaRepository = new Giaodichmuaban_luaRepository()
+        const LoHangLuaRepository = new lohangluaRepository()
         const giaoDichMuaBanLuaContract = new GiaoDichMuaBanLuaContract()
         const loHangLua = new LoHangLuaContract()
         super(giaoDichMuaBanLuaRepository)
         this._GiaoDichMuaBanLuaContract = giaoDichMuaBanLuaContract
         this._GiaoDichMuaBanLuaRepository = giaoDichMuaBanLuaRepository
+        this._LoHangLuaRepository = LoHangLuaRepository
         this._LoHangLua = loHangLua
     }
 
-    getContracts = async () => {
+    getContracts = async (limit: number = 10, page: number = 1) => {
         const giaoDichMuaBanLua = await this._GiaoDichMuaBanLuaContract.getContracts("SuKienGiaoDich")
 
         const results = []
 
         if (giaoDichMuaBanLua && giaoDichMuaBanLua?.length > 0) {
-            for(let contract of giaoDichMuaBanLua) {
+            const totalPage = (limit != 0) ? Math.ceil(giaoDichMuaBanLua.length / limit) : 1
+            const startIndex = (page - 1) * limit
+            const endIndex = ( startIndex + limit > giaoDichMuaBanLua.length ) ? giaoDichMuaBanLua.length : startIndex + limit
+            const giaoDichMuaBanLuaLimit = (startIndex == endIndex) ? giaoDichMuaBanLua : giaoDichMuaBanLua.slice(startIndex, endIndex)
+
+            for(let contract of giaoDichMuaBanLuaLimit) {
                 const lohangLua =  await this._LoHangLua.getContractById(contract.returnValues.id_LoHangLua)
+                const chiTietGiaoDich = await this._GiaoDichMuaBanLuaRepository.findById(contract.returnValues.id_GiaoDich)
+                const chiTietLoHang = await this._LoHangLuaRepository.findById(contract.returnValues.id_LoHangLua)
                 const giaoDich = {
                     id_GiaoDich: contract.returnValues.id_GiaoDich,
                     id_LoHangLua: contract.returnValues.id_LoHangLua,
@@ -42,15 +54,26 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
                     tenGiongLua: lohangLua.TenGiongLua,
                     thoigianLoHang: lohangLua.ThoiGian,
                     soluong: lohangLua.SoLuong,
+                    tenLoHang: chiTietLoHang.name_lohang,
+                    description_loHang: chiTietLoHang.description_lohang,
+                    description_giaoDich: chiTietGiaoDich.description_giaodich,
+                    image_loHang: chiTietLoHang.img_lohang,
+                    status_giaoDich: chiTietGiaoDich.status
                 }
                 results.push(giaoDich)
             }
-            return results
+            
+            return {
+                totalPage: totalPage,
+                totalItem: giaoDichMuaBanLuaLimit.length,
+                page: page,
+                danhSachGiaoDich: results
+            }
         }
         return null
     }
 
-    addContract = async (data: GiaoDichMuaBanLuaDTO, sender: string) => {
+    addContract = async (data: GiaoDichMuaBanLuaDTO, sender: Sender) => {
         const giaoDichMuaBanLua_Data: GiaoDichMuaBanLua = {
             intProperties: [
                 data.id_XaVien, 
@@ -100,6 +123,8 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         const giaoDichMuaBanLua = await this._GiaoDichMuaBanLuaContract.getContractById(id_GiaoDich)
         if (giaoDichMuaBanLua) {
             const loHangLua = await this._LoHangLua.getContractById(giaoDichMuaBanLua.id_LoHangLua)
+            const chiTietGiaoDich = await this._GiaoDichMuaBanLuaRepository.findById(giaoDichMuaBanLua.id_GiaoDich)
+            const chiTietLoHang = await this._LoHangLuaRepository.findById(giaoDichMuaBanLua.id_LoHangLua)
             if (loHangLua) {
                 const giaoDich = {
                     id_GiaoDich: giaoDichMuaBanLua.id_GiaoDich,
@@ -113,6 +138,11 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
                     tenGiongLua: loHangLua.TenGiongLua,
                     thoigianLoHang: loHangLua.ThoiGian,
                     soluong: loHangLua.SoLuong,
+                    tenLoHang: chiTietLoHang.name_lohang,
+                    description_loHang: chiTietLoHang.description_lohang,
+                    description_giaoDich: chiTietGiaoDich.description_giaodich,
+                    image_loHang: chiTietLoHang.img_lohang,
+                    status_giaoDich: chiTietGiaoDich.status
                 }
                 return giaoDich
             } 

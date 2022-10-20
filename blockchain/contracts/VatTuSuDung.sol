@@ -11,6 +11,7 @@ contract VatTuSuDung {
         uint    id_VatTu;
         uint    id_LoHangVatTu;
         uint    ThoiGianVatTu;
+        uint    soLuong;
         string  TenVatTu;
     }
 
@@ -26,6 +27,7 @@ contract VatTuSuDung {
         uint    id_VatTu,
         uint    id_LoHangVatTu,
         uint    ThoiGianVatTu,
+        uint    soLuong,
         string  TenVatTu
     );
 
@@ -59,6 +61,15 @@ contract VatTuSuDung {
         _;
     }
 
+    modifier KiemTraSoLuong ( uint soLuong ) {
+        require(
+            soLuong > 0,
+            "So luong phai lon hon 0"    
+        );
+        
+        _;
+    }
+
     /*
     intProperties [
         0: uint            id_VatTuSuDung
@@ -66,6 +77,7 @@ contract VatTuSuDung {
         2: uint            id_VatTu,
         3: uint            id_LoHangVatTu,
         4: uint            ThoiGianVatTu
+        5: uint            soLuong
     ]
 
     stringProperties [
@@ -88,6 +100,7 @@ contract VatTuSuDung {
     KiemTraIdVatTuSuDung( intProperties[0] )
     KiemTraVatTuSuDung( intProperties[3], addressProperties[0] )
     KiemTraHoatDongNhatKy( intProperties[1], addressProperties[1] )
+    KiemTraSoLuong( intProperties[5] )
     returns (bool)
     {
         bool result = LuuThongTinVatTuNongNghiep(
@@ -109,10 +122,11 @@ contract VatTuSuDung {
             intProperties[2],
             intProperties[3],
             intProperties[4],
+            intProperties[5],
             stringProperties[0]
         );
 
-        DanhSachVatTuSuDung[maxLength] = VatTuSuDungMemory;
+        DanhSachVatTuSuDung[intProperties[0]] = VatTuSuDungMemory;
         maxLength = maxLength + 1;
 
         emit SuKienThemVatTuNongNghiep(
@@ -121,6 +135,7 @@ contract VatTuSuDung {
             intProperties[2],
             intProperties[3],
             intProperties[4],
+            intProperties[5],
             stringProperties[0]
         );
 

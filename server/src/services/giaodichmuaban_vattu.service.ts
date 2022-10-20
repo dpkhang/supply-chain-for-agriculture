@@ -4,28 +4,36 @@ import { GiaoDichMuaBanVatTu } from './../contracts/GiaoDichMuaBanVatTu.contract
 import { GiaoDichMuaBanVatTuDTO } from './../dtos/request/GiaoDichMuaBanVatTu.dto';
 import { BaseService }                      from "./base/base.service"; 
 import { GiaoDichMuaBanVatTuContract }      from "../contracts/GiaoDichMuaBanVatTu.contract";
+import { Sender } from '../dtos/request/Sender.dto';
+import { Giaodichmuaban_vattuRepositoty } from '../repositories/giaodichmuaban_vattu.repository';
 
 export class GiaoDichMuaBanVatTu_Service extends BaseService {
     private _GiaoDichMuaBanVatTuContract 
     private _LoHangVatTu
-    private _LoHangVatTu_Repository
+    private _GiaoDichVatTu_Repository
 
     constructor() {
-        const lohangVatTuRepository = new lohangvattuRepository()
-        super(lohangVatTuRepository)
+        const giaodichmuabanVatTuRepository = new Giaodichmuaban_vattuRepositoty()
+        super(giaodichmuabanVatTuRepository)
         this._GiaoDichMuaBanVatTuContract = new GiaoDichMuaBanVatTuContract()
-        this._LoHangVatTu_Repository = lohangVatTuRepository
-        this._LoHangVatTu =new LoHangVatTuContract()
+        this._GiaoDichVatTu_Repository = giaodichmuabanVatTuRepository
+        this._LoHangVatTu = new LoHangVatTuContract()
     }
 
-    getContracts = async () => {
+    getContracts = async (limit: number = 10, page: number = 1) => {
         const giaoDichMuaVatTu = await this._GiaoDichMuaBanVatTuContract.getContracts("SuKienGiaoDich1")
 
         const results = []
 
         if (giaoDichMuaVatTu && giaoDichMuaVatTu?.length > 0) {
-            for(let contract of giaoDichMuaVatTu) {
+            const totalPage = (limit != 0) ? Math.ceil(giaoDichMuaVatTu.length / limit) : 1
+            const startIndex = (page - 1) * limit
+            const endIndex = ( startIndex + limit > giaoDichMuaVatTu.length ) ? giaoDichMuaVatTu.length : startIndex + limit
+            const giaoDichMuaVatTuLimit = (startIndex == endIndex) ? giaoDichMuaVatTu : giaoDichMuaVatTu.slice(startIndex, endIndex)
+
+            for(let contract of giaoDichMuaVatTuLimit) {
                 const lohangVatTu =  await this._LoHangVatTu.getContractById(contract.returnValues.id_LoHangVatTu)
+                const chiTietGiaoDich = await this._GiaoDichVatTu_Repository.findById(contract.returnValues.id_GiaoDich)
                 const giaoDich = {
                     id_GiaoDich: contract.returnValues.id_GiaoDich,
                     id_LoHangVatTu: contract.returnValues.id_LoHangVatTu,
@@ -38,16 +46,24 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
                     TenVatTu: lohangVatTu.TenVatTu,
                     thoigianLoHang: lohangVatTu.ThoiGian,
                     soluong: lohangVatTu.SoLuong,
+                    description_giaodich: chiTietGiaoDich.description_giaodich,
+                    statusGiaodich: chiTietGiaoDich.status,
+                    id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
                 }
                 results.push(giaoDich)
             }
-            return results
+            return {
+                totalPage: totalPage,
+                totalItem: giaoDichMuaVatTuLimit.length,
+                page: page,
+                danhSachGiaoDich: results
+            }
         }
         return null
     }
 
 
-    addContract = async (data: GiaoDichMuaBanVatTuDTO, sender: string) => {
+    addContract = async (data: GiaoDichMuaBanVatTuDTO, sender: Sender) => {
         const giaodichMuaBanVatTu_Data: GiaoDichMuaBanVatTu  = {
             intProperties: [
                 data.id_XaVien,
@@ -92,6 +108,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
         const giaodichMuaBanVatTu = await this._GiaoDichMuaBanVatTuContract.getContractById(id_GiaoDich)
         if(giaodichMuaBanVatTu) {
             const lohangVatTu = await this._LoHangVatTu.getContractById(giaodichMuaBanVatTu.id_LoHangVatTu)
+            const chiTietGiaoDich = await this._GiaoDichVatTu_Repository.findById(giaodichMuaBanVatTu.id_GiaoDich)
             if(lohangVatTu) {
                 const giaoDich = {
                     id_GiaoDich: giaodichMuaBanVatTu.id_GiaoDich,
@@ -105,6 +122,9 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
                     TenVatTu: lohangVatTu.TenVatTu,
                     thoigianLoHang: lohangVatTu.ThoiGian,
                     soluong: lohangVatTu.SoLuong,
+                    description_giaodich: chiTietGiaoDich.description_giaodich,
+                    statusGiaodich: chiTietGiaoDich.status,
+                    id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
                 }
 
                 return giaoDich
