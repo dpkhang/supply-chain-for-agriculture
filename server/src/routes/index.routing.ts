@@ -3,6 +3,7 @@ import Giaodichmuaban_vattu     from './giaodichmuaban_vattu.routing'
 import Giaodichmuaban_lua       from './giaodichmuaban_lua.routing'
 import VatTuSuDung              from './vattusudung.routing'
 import GiaoDichMuaBan_LuaGiong  from './giaodichmuaban_luagiong.routing'
+import GiaoDichMuaBan_SanPham   from './giaodichmuaban_sanpham.routing' 
 import { AccountController }    from '../controllers/account.controller'
 import { AccountValidator }     from '../middlewares/validator/Account.middlewares'
 import Authentication           from './authentication.routing';
@@ -25,6 +26,8 @@ const createRouter = (app: any) => {
     app.use(DEFAULT_URL + '/supplies-transaction'   , Giaodichmuaban_vattu)
 
     app.use(DEFAULT_URL + '/seed-rice-transaction'  , GiaoDichMuaBan_LuaGiong)
+
+    app.use(DEFAULT_URL + '/products-transaction'  , GiaoDichMuaBan_SanPham)
 
 }
 
