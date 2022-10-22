@@ -3,42 +3,53 @@ import { Literal } from "sequelize/types/utils";
 import { BaseEntity } from "./base/base.entity";
 
 export class tbl_giaodichmuaban_vattu extends BaseEntity {
+  id_giaodichmuaban_vattu = {
+    type: DataTypes.INTEGER,
+    autoInCrement: true,
+    primaryKey: true,
+  };
 
-    id_giaodichmuaban_vattu = {
-        type: DataTypes.INTEGER,
-        autoInCrement: true,
-        primaryKey: true
-    }
+  id_xavien = {
+    type: DataTypes.INTEGER,
+  };
 
-    id_xavien = {
-        type: DataTypes.INTEGER
-    }
+  id_nhacungcapvattu = {
+    type: DataTypes.INTEGER,
+  };
 
-    id_nhacungcapvattu = {
-        type: DataTypes.INTEGER
-    }
-    
-    id_lichmuavu = {
-        type: DataTypes.INTEGER
-    }
+  id_lichmuavu = {
+    type: DataTypes.INTEGER,
+  };
 
-    status = {
-        type: DataTypes.INTEGER
-    }
+  id_category_vattu = {
+    type: DataTypes.STRING(255),
+  };
 
-    hoptacxa_xacnhan = {
-        type: DataTypes.INTEGER
-    }
+  soluong = {
+    type: DataTypes.INTEGER,
+  };
 
-    nhacungcap_xacnhan = {
-        type: DataTypes.INTEGER
-    }
+  price = {
+    type: DataTypes.BIGINT
+  }
 
-    xavien_xacnhan = {
-        type: DataTypes.INTEGER
-    }
+  status = {
+    type: DataTypes.INTEGER,
+  };
 
-    description_giaodich = {
-        type: DataTypes.TEXT
-    }
+  hoptacxa_xacnhan = {
+    type: DataTypes.INTEGER,
+  };
+
+  nhacungcap_xacnhan = {
+    type: DataTypes.INTEGER,
+  };
+
+  xavien_xacnhan = {
+    type: DataTypes.INTEGER,
+  };
+
+  description_giaodich = {
+    type: DataTypes.TEXT,
+  };
 }
