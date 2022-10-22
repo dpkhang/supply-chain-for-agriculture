@@ -4,17 +4,17 @@ import { BaseEntity } from "./base/base.entity";
 export class tbl_vattusudung extends BaseEntity {
 
     id_vattusudung = {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         autoInCrement: true,
         primaryKey: true
     }
 
     id_nhatkydongruong = {
-        type: DataTypes.INTEGER
+        type: DataTypes.BIGINT
     }
 
-    id_lohangvattu = {
-        type: DataTypes.INTEGER
+    id_giaodichmuaban_vattu = {
+        type: DataTypes.BIGINT
     }
 
     soluong= {

@@ -25,4 +25,12 @@ export class tbl_lichmuavu extends BaseEntity {
         type: DataTypes.DATE
     }
 
+    date_end = {
+        type: DataTypes.DATE
+    }
+
+    status = {
+        type: DataTypes.STRING(255)
+    }
+
 }

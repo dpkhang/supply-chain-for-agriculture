@@ -30,7 +30,7 @@ export class tbl_thuadat extends BaseEntity {
         type: DataTypes.STRING(255)
     }
 
-    status = {
+    active = {
         type: DataTypes.INTEGER
     }
     
