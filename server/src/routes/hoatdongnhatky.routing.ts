@@ -1,5 +1,5 @@
 import express from 'express'
-import { HoatdongnhatkyController } from '../controllers/hoatdongnhatky.controller' 
+import { HoatdongnhatkyController } from '../controllers/nhatkydongruong.controller' 
 import { NhatKyHoatDongValidator } from '../middlewares/validator/HoatDongNhatKy.middleware' 
 const route = express.Router()
 

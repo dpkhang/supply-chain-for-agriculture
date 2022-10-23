@@ -34,15 +34,18 @@ export class VatTuSuDungController {
 
       const vatTuSuDung: VatTuSuDungDTO = {
         id_VatTuSuDung: ReqData.id_VatTuSuDung,
-        id_HoatDongNhatKy: ReqData.id_HoatDongNhatKy,
+        id_HoatDongNhatKy: ReqData.id_NhatKyHoatDong,
         id_VatTu: ReqData.id_VatTu,
-        id_LoHangVatTu: ReqData.id_LoHangVatTu,
+        id_LoHangVatTu: ReqData.id_GiaoDichVatTu,
         ThoiGianVatTu: ReqData.ThoiGianVatTu,
         soLuong: ReqData.soLuong,
         TenVatTu: ReqData.TenVatTu,
         Wallet_XaVien: ReqData.wallet_XaVien,
         password_Wallet: ReqData.password_Wallet,
       };
+
+
+      console.log(vatTuSuDung);
 
       await this._vatTuSuDung.createContract(vatTuSuDung);
 

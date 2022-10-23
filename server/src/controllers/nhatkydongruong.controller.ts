@@ -57,9 +57,10 @@ export class HoatdongnhatkyController {
           responseDTO.success("Lưu dữ liệu lên Blockchain thành công", ReqData)
         );
     } catch (err: any) {
-      const error = err.data ? Object.values<any>(err.data)[0].reason : err;
-      console.log(error);
-      return res.status(500).json(responseDTO.responseWithOther(500, error));
+      //const error = err.data ? Object.values<any>(err.data)[0].reason : err;
+      //console.log(error);
+      console.log(err);
+      return res.status(500).json(responseDTO.responseWithOther(500, err));
     }
   };
 
@@ -150,36 +151,6 @@ export class HoatdongnhatkyController {
         .status(200)
         .json(responseDTO.success("Lay du lieu thanh cong", result));
     } catch (err) {
-      console.log(err);
-      return res.status(500).json(responseDTO.serverError());
-    }
-  };
-
-  createActivity = async (req: Request, res: Response): Promise<Response> => {
-    const responseDTO = new ResponseDTO();
-    try {
-      //get data
-      const hoatDongNhatKy = req.body;
-      //store data
-      const hoatDongNhatKyCreated = await this._hoatdongnhatkyService.create(
-        hoatDongNhatKy
-      );
-
-      if (hoatDongNhatKyCreated) {
-        //create vat tu su dung
-        //return data
-        return res
-          .json(200)
-          .json(
-            responseDTO.success(
-              "Them nhat ky dong ruong thanh cong",
-              hoatDongNhatKy
-            )
-          );
-      } else {
-        return res.json(400).json(responseDTO.badRequest());
-      }
-    } catch (err: any) {
       console.log(err);
       return res.status(500).json(responseDTO.serverError());
     }
