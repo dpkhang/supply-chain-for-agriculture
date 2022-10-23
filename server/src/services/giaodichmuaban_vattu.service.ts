@@ -104,6 +104,8 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
       ],
       stringProperties: [data.tenVatTu],
     };
+
+    console.log(lohangVatTu_Data);
     const resultLoHangVatTu = await this._LoHangVatTu.addContract(
       lohangVatTu_Data,
       sender
