@@ -218,9 +218,21 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       tengionglua: loHangLua.TenGiongLua,
     };
 
-    const danhSachHoatDongNhatKy = nhatKyDongRuong
+    let danhSachHoatDongNhatKy = nhatKyDongRuong
       ? nhatKyDongRuong.danhSachHoatDongNhatKy
       : [];
+
+    for (let i = 0; i < danhSachHoatDongNhatKy.length; i ++) {
+      for (let j = i + 1; j< danhSachHoatDongNhatKy.length; j++) {
+        const date1 = (new Date(danhSachHoatDongNhatKy[i].date_start)).getTime();
+        const date2 = (new Date(danhSachHoatDongNhatKy[j].date_start)).getTime();
+        if (date1 < date2) {
+          const temp = danhSachHoatDongNhatKy[i];
+          danhSachHoatDongNhatKy[i] = danhSachHoatDongNhatKy[j];
+          danhSachHoatDongNhatKy[j] = temp;
+        }
+      }
+    }
 
     return {
       hoatdongmuabanlua: hoatDongMuaBanLua,
