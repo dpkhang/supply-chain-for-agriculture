@@ -9,6 +9,7 @@ import { GiaoDichMuaBanLuaContract } from "../contracts/GiaoDichMuaBanLua.contra
 import { GiaoDichMuaBanLuaDTO } from "../dtos/request/GiaoDichMuaBanLua.dto";
 import { Sender } from "../dtos/request/Sender.dto";
 import { lohangluaRepository } from "../repositories/lohang_lua.repository";
+import { HoatdongnhatkyService } from "./nhatkydongruong.service";
 
 export class GiaiDichMuaBanLua_Service extends BaseService {
   //_giaodichmuaban_luaService
@@ -16,17 +17,20 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
   private _GiaoDichMuaBanLuaRepository;
   private _LoHangLuaRepository;
   private _LoHangLua;
+  private _NhatKyDongRuongService;
 
   constructor() {
     const giaoDichMuaBanLuaRepository = new Giaodichmuaban_luaRepository();
     const LoHangLuaRepository = new lohangluaRepository();
     const giaoDichMuaBanLuaContract = new GiaoDichMuaBanLuaContract();
     const loHangLua = new LoHangLuaContract();
+    const nhatKyDongRuongService = new HoatdongnhatkyService();
     super(giaoDichMuaBanLuaRepository);
     this._GiaoDichMuaBanLuaContract = giaoDichMuaBanLuaContract;
     this._GiaoDichMuaBanLuaRepository = giaoDichMuaBanLuaRepository;
     this._LoHangLuaRepository = LoHangLuaRepository;
     this._LoHangLua = loHangLua;
+    this._NhatKyDongRuongService = nhatKyDongRuongService;
   }
 
   getContracts = async (limit = 10, page = 1) => {
@@ -90,6 +94,70 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       };
     }
     return null;
+  };
+
+  TracingContractByIdRice = async (
+    id: number,
+    limit: number = 10,
+    page: number = 0
+  ) => {
+    //get rice transaction
+    const giaoDichMuaBanLua =
+      await this._GiaoDichMuaBanLuaContract.getContractById(id);
+
+    if (giaoDichMuaBanLua.id_GiaoDich == 0) {
+      return null;
+    }
+
+    const chiTietGiaoDichMuaBanLua = await this._GiaoDichMuaBanLuaRepository.findById(
+      giaoDichMuaBanLua.id_GiaoDich
+    );
+
+    //get rice product
+    const id_loHangLua = giaoDichMuaBanLua.id_LoHangLua;
+    const loHangLua = await this._LoHangLua.getContractById(id_loHangLua);
+
+    //get activity logs
+    const nhatKyDongRuong =
+      await this._NhatKyDongRuongService.getContractByIdLoHangLua(
+        id_loHangLua,
+        100,
+        1
+      );
+
+    const hoatDongMuaBanLua = {
+      id_giaodich: giaoDichMuaBanLua.id_GiaoDich,
+      id_xavien: giaoDichMuaBanLua.id_XaVien,
+      gialohang: giaoDichMuaBanLua.GiaLoHang,
+      thoigiangiaodich: giaoDichMuaBanLua.ThoiGianGiaoDich,
+      name_lohang: chiTietGiaoDichMuaBanLua.name_lohang,
+      description_giaodich: chiTietGiaoDichMuaBanLua.description_giaodich,
+      img_lohang: chiTietGiaoDichMuaBanLua.img_lohang,
+      id_gionglua: loHangLua.id_GiongLua,
+      id_lichmuavu: loHangLua.id_LichMuaVu,
+      soluong: loHangLua.SoLuong,
+      tengionglua: loHangLua.TenGiongLua,
+    };
+
+    let danhSachHoatDongNhatKy = nhatKyDongRuong
+      ? nhatKyDongRuong.danhSachHoatDongNhatKy
+      : [];
+
+    for (let i = 0; i < danhSachHoatDongNhatKy.length; i ++) {
+      for (let j = i + 1; j< danhSachHoatDongNhatKy.length; j++) {
+        const date1 = (new Date(danhSachHoatDongNhatKy[i].date_start)).getTime();
+        const date2 = (new Date(danhSachHoatDongNhatKy[j].date_start)).getTime();
+        if (date1 < date2) {
+          const temp = danhSachHoatDongNhatKy[i];
+          danhSachHoatDongNhatKy[i] = danhSachHoatDongNhatKy[j];
+          danhSachHoatDongNhatKy[j] = temp;
+        }
+      }
+    }
+    return {
+      hoatdongmuabanlua: hoatDongMuaBanLua,
+      danhsachhoatdongnhatky: danhSachHoatDongNhatKy,
+    };
   };
 
   addContract = async (data: GiaoDichMuaBanLuaDTO, sender: Sender) => {
