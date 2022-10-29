@@ -10,6 +10,7 @@ export interface GiaoDichMuaBanSanPhamDTO {
   xacNhanHTX?: boolean;
   loaiLoHang: boolean;
   wallet_NguoiTao?: string;
+  id_loHangLua: number;
   soluong: number;
   thoigianLoHang: number;
   password?: string;
