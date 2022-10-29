@@ -20,10 +20,10 @@ export class BaseContract {
         //this.web3.eth.personal.importRawKey("a40b333a545f47d93358af5fcc435f0549e5e61abaf79ce97e4d4b32dd81046b", "1234")
     }
 
-    getContracts = async (eventName: string) => {
+    getContracts = async (eventName: string, fromBlock?: string | number, toBlock?: number | string) => {
         return await this.contract?.getPastEvents(eventName, {
-            fromBlock: 'earliest',
-            toBlock: 'latest'
+            fromBlock: fromBlock || 'earliest',
+            toBlock: toBlock || 'latest'
         })
     }
 }
