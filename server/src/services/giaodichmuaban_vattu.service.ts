@@ -49,7 +49,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
         const chiTietGiaoDich = await this._GiaoDichVatTu_Repository.findById(
           contract.returnValues.id_GiaoDich
         );
-        const giaoDich = {
+        let giaoDich: any = {
           id_GiaoDich: contract.returnValues.id_GiaoDich,
           id_LoHangVatTu: contract.returnValues.id_LoHangVatTu,
           id_XaVien: contract.returnValues.id_XaVien,
@@ -61,10 +61,15 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
           TenVatTu: lohangVatTu.TenVatTu,
           thoigianLoHang: lohangVatTu.ThoiGian,
           soluong: lohangVatTu.SoLuong,
-          description_giaodich: chiTietGiaoDich.description_giaodich,
-          statusGiaodich: chiTietGiaoDich.status,
-          id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
         };
+        if (chiTietGiaoDich) {
+          giaoDich = {
+            ...giaoDich,
+            description_giaodich: chiTietGiaoDich.description_giaodich,
+            statusGiaodich: chiTietGiaoDich.status,
+            id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
+          };
+        }
         results.push(giaoDich);
       }
       return {
@@ -136,7 +141,7 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
         giaodichMuaBanVatTu.id_GiaoDich
       );
       if (lohangVatTu) {
-        const giaoDich = {
+        let giaoDich: any = {
           id_GiaoDich: giaodichMuaBanVatTu.id_GiaoDich,
           id_LoHangVatTu: giaodichMuaBanVatTu.id_LoHangVatTu,
           id_XaVien: giaodichMuaBanVatTu.id_XaVien,
@@ -148,10 +153,16 @@ export class GiaoDichMuaBanVatTu_Service extends BaseService {
           TenVatTu: lohangVatTu.TenVatTu,
           thoigianLoHang: lohangVatTu.ThoiGian,
           soluong: lohangVatTu.SoLuong,
-          description_giaodich: chiTietGiaoDich.description_giaodich,
-          statusGiaodich: chiTietGiaoDich.status,
-          id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
         };
+
+        if (chiTietGiaoDich) {
+          giaoDich = {
+            ...giaoDich,
+            description_giaodich: chiTietGiaoDich.description_giaodich,
+            statusGiaodich: chiTietGiaoDich.status,
+            id_lichMuaVu: chiTietGiaoDich.id_lichmuavu,
+          };
+        }
 
         return giaoDich;
       }
