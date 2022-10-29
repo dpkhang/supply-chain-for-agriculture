@@ -229,13 +229,13 @@ export class HoatdongnhatkyService extends BaseService {
     const loHangLua = await this._LoHangLuaContract.getContractById(
       id_loHangLua
     );
-
-    if (loHangLua) {
+    
+    if (loHangLua.id_LoHangLua == 0) {
       return null;
     }
 
-    const id_xaVien = loHangLua.returnValues.id_XaVien;
-    const id_lichMuaVu = loHangLua.returnValues.id_LichMuaVu;
+    const id_xaVien = loHangLua.id_XaVien;
+    const id_lichMuaVu = loHangLua.id_LichMuaVu;
 
     return await this.getContractsByIdNhatKy(
       id_xaVien,

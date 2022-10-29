@@ -4,6 +4,7 @@ import Giaodichmuaban_lua from "./giaodichmuaban_lua.routing";
 import VatTuSuDung from "./vattusudung.routing";
 import GiaoDichMuaBan_LuaGiong from "./giaodichmuaban_luagiong.routing";
 import GiaoDichMuaBan_SanPham from "./giaodichmuaban_sanpham.routing";
+import TruyXuatRouting from "./truyxuat.routing";
 import { AccountController } from "../controllers/account.controller";
 import { AccountValidator } from "../middlewares/validator/Account.middlewares";
 const accountController = new AccountController();
@@ -28,6 +29,8 @@ const createRouter = (app: any) => {
   app.use(DEFAULT_URL + "/seed-rice-transaction", GiaoDichMuaBan_LuaGiong);
 
   app.use(DEFAULT_URL + "/products-transaction", GiaoDichMuaBan_SanPham);
+
+  app.use(DEFAULT_URL + "/tracing", TruyXuatRouting);
 };
 
 export default createRouter;
