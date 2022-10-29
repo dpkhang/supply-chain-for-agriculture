@@ -14,7 +14,10 @@ const DB_user = process.env.DB_USERNAME || 'root'
 const DB_password = process.env.DB_PASSWORD || ''
 
 try {
-    app.use(cors())
+    app.use(cors({
+        origin: "*",
+        credentials: true
+    }))
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }))
 
