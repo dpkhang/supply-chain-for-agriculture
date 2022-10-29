@@ -18,6 +18,8 @@ const createRouter = (app: any) => {
     accountController.importRawKey
   );
 
+  app.post(DEFAULT_URL + "/healthy", accountController.checkHealthy);
+
   app.use(DEFAULT_URL + "/rice-transaction", Giaodichmuaban_lua);
 
   app.use(DEFAULT_URL + "/activity-log", Hoatdongnhatky);

@@ -18,4 +18,14 @@ export class AccountController {
             return res.status(500).json(responseDTO.serverError())
         }
     }
+
+    checkHealthy= async (req: Request, res: Response) => {
+        const responseDTO = new ResponseDTO()
+        try {
+            return res.status(200).json(responseDTO.success("Ok, good"))
+        } catch (err) {
+            console.log(err)
+            return res.status(500).json(responseDTO.serverError())
+        }
+    }
 }
