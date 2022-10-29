@@ -6,16 +6,20 @@ contract LoHangSanPham {
         uint id_LoHangSanPham;
         uint id_NguoiTieuDung;
         uint id_NguoiBan;
+        uint id_LoHangLua;
         uint SoLuong;
         uint ThoiGian;
     }
 
     mapping(uint => LoHangSanPham_Struct) public DanhSachLoHangSanPham;
+    mapping (uint => uint) public DanhSachIdLoHangSanPham;
+    uint maxLength = 0;
 
     event SuKienThemLoHang(
         uint id_LoHangSanPham,
         uint id_NguoiTieuDung, 
         uint id_NguoiBan,
+        uint id_LoHangLua,
         uint SoLuong,
         uint ThoiGian
     );
@@ -35,6 +39,26 @@ contract LoHangSanPham {
             "So luong phai lon hon 0"
         );
 
+        _;
+    }
+
+    modifier KiemLoHangLua (uint id_LoHangLua) {
+        uint index = 0;
+        bool check = true;
+
+        for (index; index < maxLength; index++) {
+            uint id_LoHangSanPham = DanhSachIdLoHangSanPham[index];
+            uint _id_LoHangLua = DanhSachLoHangSanPham[id_LoHangSanPham].id_LoHangLua;
+            if (_id_LoHangLua == id_LoHangLua) {
+                check = false;
+                break;
+            }
+        } 
+
+        require(
+            check,
+            "Lo hang lua da ton tai"
+        );
         _;
     }
 
@@ -61,18 +85,23 @@ contract LoHangSanPham {
         uint id_NguoiBan = intProperties[2];
         uint SoLuong = intProperties[3];
         uint ThoiGian = intProperties[4];
+        uint id_LoHangLua = intProperties[5];
 
         LoHangSanPhamMermory = LoHangSanPham_Struct(
             id_LoHangSanPham,
             id_NguoiTieuDung,
             id_NguoiBan,
+            id_LoHangLua,
             SoLuong,
             ThoiGian
         );
 
+        DanhSachIdLoHangSanPham[ maxLength ] = intProperties[0];
+        maxLength = maxLength + 1;
+
         DanhSachLoHangSanPham[ id_LoHangSanPham ] = LoHangSanPhamMermory;
 
-        emit SuKienThemLoHang(id_LoHangSanPham, id_NguoiTieuDung, id_NguoiBan, SoLuong, ThoiGian);
+        emit SuKienThemLoHang(id_LoHangSanPham, id_NguoiTieuDung, id_NguoiBan, id_LoHangLua, SoLuong, ThoiGian);
 
         return true;
     }
