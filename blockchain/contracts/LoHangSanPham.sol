@@ -70,6 +70,7 @@ contract LoHangSanPham {
         2: uint            id_NguoiBan,
         3: uint            SoLuong,
         4: uint            ThoiGian
+        5: uint            id_LoHangLua
     ]
     */
 
