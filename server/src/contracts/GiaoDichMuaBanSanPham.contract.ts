@@ -16,29 +16,37 @@ export class GiaoDichMuaBanSanPhamContract extends BaseContract {
   }
 
   addContract = async (data: GiaoDichMuaBanSanPham, sender: Sender) => {
-    if (sender.password) {
-      await this.web3.eth.personal.unlockAccount(
-        sender.wallet,
-        sender.password,
-        5000
-      );
-    }
+    try {
+      if (sender.password) {
+        await this.web3.eth.personal.unlockAccount(
+          sender.wallet,
+          sender.password,
+          5000
+        );
+      }
 
-    const result = await this.methods
-      .ThemGiaoDich(
-        data.intProperties,
-        data.boolProperties,
-        [ADDRESS_LOHANGSANPHAM],
-        data.loaiLoHang
-      )
-      ?.send({
-        from: sender.wallet,
-        gas: 3000000,
-      });
-    return result;
+      const result = await this.methods
+        .ThemGiaoDich(
+          data.intProperties,
+          data.boolProperties,
+          [ADDRESS_LOHANGSANPHAM],
+          data.loaiLoHang
+        )
+        ?.send({
+          from: sender.wallet,
+          gas: 3000000,
+        });
+      return result;
+    } catch (err: any) {
+      throw err;
+    }
   };
 
   getContractById = async (id_contract: number) => {
-    return await this.methods.DanhSachGiaoDich(id_contract).call();
+    try {
+      return await this.methods.DanhSachGiaoDich(id_contract).call();
+    } catch (err: any) {
+      return err;
+    }
   };
 }
