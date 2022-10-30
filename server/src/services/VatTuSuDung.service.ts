@@ -156,6 +156,11 @@ export class VatTuSuDungService extends BaseService {
       const danhSachVatTuSuDung = await this._VatTuSuDungContract.getContracts(
         "SuKienThemVatTuNongNghiep"
       );
+
+      if (!danhSachVatTuSuDung) {
+        return null;
+      }
+
       const danhSachVatTuSuDungFilterById_HoatDongNhatKy =
         danhSachVatTuSuDung?.filter(
           (element) =>
