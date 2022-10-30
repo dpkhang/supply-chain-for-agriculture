@@ -10,6 +10,8 @@ import { GiaoDichMuaBanLuaDTO } from "../dtos/request/GiaoDichMuaBanLua.dto";
 import { Sender } from "../dtos/request/Sender.dto";
 import { lohangluaRepository } from "../repositories/lohang_lua.repository";
 import { HoatdongnhatkyService } from "./nhatkydongruong.service";
+import { VatTuSuDungService } from "./VatTuSuDung.service";
+import { GiaoDichMuaBanLuaGiongService } from "./giaoDichMuaBanLuaGiong.service";
 
 export class GiaiDichMuaBanLua_Service extends BaseService {
   //_giaodichmuaban_luaService
@@ -18,6 +20,8 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
   private _LoHangLuaRepository;
   private _LoHangLua;
   private _NhatKyDongRuongService;
+  private _VatTuSuDungService;
+  private _GiaoDichMuaBanLuaGiongService;
 
   constructor() {
     const giaoDichMuaBanLuaRepository = new Giaodichmuaban_luaRepository();
@@ -25,12 +29,16 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
     const giaoDichMuaBanLuaContract = new GiaoDichMuaBanLuaContract();
     const loHangLua = new LoHangLuaContract();
     const nhatKyDongRuongService = new HoatdongnhatkyService();
+    const vatTuSuDungService = new VatTuSuDungService();
+    const giaoDichMuaBanLuaGiong = new GiaoDichMuaBanLuaGiongService();
     super(giaoDichMuaBanLuaRepository);
     this._GiaoDichMuaBanLuaContract = giaoDichMuaBanLuaContract;
     this._GiaoDichMuaBanLuaRepository = giaoDichMuaBanLuaRepository;
     this._LoHangLuaRepository = LoHangLuaRepository;
     this._LoHangLua = loHangLua;
     this._NhatKyDongRuongService = nhatKyDongRuongService;
+    this._VatTuSuDungService = vatTuSuDungService;
+    this._GiaoDichMuaBanLuaGiongService = giaoDichMuaBanLuaGiong;
   }
 
   getContracts = async (limit = 10, page = 1) => {
@@ -109,13 +117,21 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       return null;
     }
 
-    const chiTietGiaoDichMuaBanLua = await this._GiaoDichMuaBanLuaRepository.findById(
-      giaoDichMuaBanLua.id_GiaoDich
-    );
+    const chiTietGiaoDichMuaBanLua =
+      await this._GiaoDichMuaBanLuaRepository.findById(
+        giaoDichMuaBanLua.id_GiaoDich
+      );
 
     //get rice product
     const id_loHangLua = giaoDichMuaBanLua.id_LoHangLua;
     const loHangLua = await this._LoHangLua.getContractById(id_loHangLua);
+
+    //get supply use
+    const list_supply_use = await this._VatTuSuDungService.getContracts(
+      999999,
+      page
+    );
+    console.log(list_supply_use);
 
     //get activity logs
     const nhatKyDongRuong =
@@ -143,10 +159,10 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       ? nhatKyDongRuong.danhSachHoatDongNhatKy
       : [];
 
-    for (let i = 0; i < danhSachHoatDongNhatKy.length; i ++) {
-      for (let j = i + 1; j< danhSachHoatDongNhatKy.length; j++) {
-        const date1 = (new Date(danhSachHoatDongNhatKy[i].date_start)).getTime();
-        const date2 = (new Date(danhSachHoatDongNhatKy[j].date_start)).getTime();
+    for (let i = 0; i < danhSachHoatDongNhatKy.length; i++) {
+      for (let j = i + 1; j < danhSachHoatDongNhatKy.length; j++) {
+        const date1 = new Date(danhSachHoatDongNhatKy[i].date_start).getTime();
+        const date2 = new Date(danhSachHoatDongNhatKy[j].date_start).getTime();
         if (date1 < date2) {
           const temp = danhSachHoatDongNhatKy[i];
           danhSachHoatDongNhatKy[i] = danhSachHoatDongNhatKy[j];
@@ -154,9 +170,36 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         }
       }
     }
+
+    //add supply use
+    let danhSachHoatDongNhatKyChiTiet: any[] = [];
+    for (let i = 0; i < danhSachHoatDongNhatKy.length; i++) {
+      const id_nhatKy = danhSachHoatDongNhatKy[i].id_nhatkydongruong;
+      const danhSachVatTuSuDung = list_supply_use?.danhSachVatTuSuDung.filter(
+        (e) => {
+          return e.id_HoatDongNhatKy == id_nhatKy;
+        }
+      );
+      const hoatDongNhatKyChiTiet = {
+        ...danhSachHoatDongNhatKy[i],
+        danhsachhoatdongnhatky: danhSachVatTuSuDung,
+      };
+      danhSachHoatDongNhatKyChiTiet.push(hoatDongNhatKyChiTiet);
+    }
+
+    //add seed rice transaction
+    const HoatDongMuaBanGiongLua = await this._GiaoDichMuaBanLuaGiongService.getContractByLog(
+      hoatDongMuaBanLua.id_lichmuavu,
+      hoatDongMuaBanLua.id_xavien
+    );
+
     return {
-      hoatdongmuabanlua: hoatDongMuaBanLua,
-      danhsachhoatdongnhatky: danhSachHoatDongNhatKy,
+      total: 3,
+      hoatdong: {
+        hoatdongmuabanlua: hoatDongMuaBanLua,
+        danhsachhoatdongnhatky: danhSachHoatDongNhatKyChiTiet,
+        hoatDongMuaBanGiongLua: HoatDongMuaBanGiongLua
+      }
     };
   };
 
