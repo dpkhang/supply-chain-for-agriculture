@@ -122,16 +122,27 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         giaoDichMuaBanLua.id_GiaoDich
       );
 
+    if (!chiTietGiaoDichMuaBanLua) {
+      return null;
+    }
+
     //get rice product
     const id_loHangLua = giaoDichMuaBanLua.id_LoHangLua;
     const loHangLua = await this._LoHangLua.getContractById(id_loHangLua);
+
+    if (loHangLua.id_GiongLua == 0) {
+      return null;
+    }
 
     //get supply use
     const list_supply_use = await this._VatTuSuDungService.getContracts(
       999999,
       page
     );
-    console.log(list_supply_use);
+    
+    if (!list_supply_use) {
+      return null;
+    }
 
     //get activity logs
     const nhatKyDongRuong =
@@ -140,6 +151,10 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         100,
         1
       );
+
+    if (!nhatKyDongRuong) {
+      return null;
+    }
 
     const hoatDongMuaBanLua = {
       id_giaodich: giaoDichMuaBanLua.id_GiaoDich,
@@ -192,6 +207,10 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       hoatDongMuaBanLua.id_lichmuavu,
       hoatDongMuaBanLua.id_xavien
     );
+
+    if (!HoatDongMuaBanGiongLua) {
+      return null;
+    }
 
     return {
       total: 3,

@@ -51,6 +51,11 @@ export class HoatdongnhatkyService extends BaseService {
         (await this._HoatDongNhatKyContract.getContracts(
           "SuKienThemHoatDongNhatKy"
         )) as any;
+
+      if (!danhSachHoatDongNhatKy) {
+        return null;
+      }
+
       let listResult = [];
 
       const totalPage =
@@ -73,6 +78,10 @@ export class HoatdongnhatkyService extends BaseService {
 
         const hoatDongNhatKyChiTiet =
           await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
+
+        if (!hoatDongNhatKyChiTiet) {
+          return null;
+        }
 
         let result = {
           id_nhatkydongruong: hoatDongNhatKy.returnValues.id_NhatKyDongRuong,
@@ -117,11 +126,13 @@ export class HoatdongnhatkyService extends BaseService {
         return null;
 
       if (hoatDongNhatKy) {
-        console.log(hoatDongNhatKy);
-
         const id_nhatKyDongRuong = hoatDongNhatKy.id_NhatKyDongRuong;
         const hoatDongNhatKyChiTiet =
           await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
+        
+        if (!hoatDongNhatKyChiTiet) {
+          return null;
+        }
 
         const hoatDongNhatKyResult = {
           id_nhatkydongruong: hoatDongNhatKy.id_NhatKyDongRuong,
@@ -159,6 +170,11 @@ export class HoatdongnhatkyService extends BaseService {
         (await this._HoatDongNhatKyContract.getContracts(
           "SuKienThemHoatDongNhatKy"
         )) as any;
+
+      if (!danhSachHoatDongNhatKy) {
+        return null;
+      }
+
       let listResult = [];
 
       //filter
@@ -196,6 +212,10 @@ export class HoatdongnhatkyService extends BaseService {
         const id_nhatKyDongRuong = element.id_nhatkydongruong;
         const hoatDongNhatKyChiTiet =
           await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
+
+        if (!hoatDongNhatKyChiTiet) {
+          return null;
+        }
 
         endListResult.push({
           ...element,

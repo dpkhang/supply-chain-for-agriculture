@@ -80,6 +80,10 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
         await this._GiaoDichLuaGiongRepository.findById(
           GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong
         );
+        
+      if (!gdLuaGiongDatabase) {
+        return null;
+      }
 
       const GiaoDichMuaBanLuaGiongResult = {
         id_GiaoDichLuaGiong: GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong,
@@ -120,6 +124,10 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
               danhSachGiaoDich[i].returnValues.id_GiaoDichLuaGiong
             );
           const GiaoDichMuaBanLuaGiong = danhSachGiaoDich[i].returnValues;
+
+          if (!gdLuaGiongDatabase) {
+            return null;
+          }
 
           const GiaoDichMuaBanLuaGiongResult = {
             id_giaodichluagiong: GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong,
