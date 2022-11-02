@@ -80,7 +80,7 @@ export class GiaoDichMuaBanSanPham_Service {
         data.id_GiaoDich,
         data.id_LoHangSanPham,
         data.giaLoHang,
-        data.thoigianGiaoDich,
+        data.thoigianGiaoDich
       ],
       boolProperties: [
         data.xacNhanNguoiBan,
@@ -97,6 +97,7 @@ export class GiaoDichMuaBanSanPham_Service {
         data.id_NguoiBan,
         data.soluong,
         data.thoigianLoHang,
+        data.id_loHangLua
       ]
     };
 		const resultLoHangSanPham = await this._loHangSanPhamContract.addContract(

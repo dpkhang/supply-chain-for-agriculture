@@ -19,13 +19,13 @@ module.exports = {
     //   network_id: "*",
     // }
     development: {
-      host: "127.0.0.1",
+      host: "45.32.55.194",
       port: 8545,
       gas: "6721975",
       network_id: "*",
     },
     test: {
-      host: "127.0.0.1",
+      host: "45.32.55.194",
       port: 8545,
       gas: "6721975",
       network_id: "*",
