@@ -8,5 +8,4 @@ const giaoDichMuaBanSanPham = new GiaoDichMuaBanSanPhamController()
 route.get('/'       , giaoDichMuaBanSanPham.getContracts)
 route.get('/:id'       , giaoDichMuaBanSanPham.getContractById)
 route.post('/'       , giaoDichMuaBanSanPham.addContract)
-
 export default route
