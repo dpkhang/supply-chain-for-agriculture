@@ -1,12 +1,15 @@
+import { GiaoDichMuaBanSanPham_Service } from "./../services/giaodichmuaban_sanpham.service";
 import { Request, Response } from "express";
 import { ResponseDTO } from "../dtos/response.dto";
 import { GiaiDichMuaBanLua_Service } from "../services/giaodichmuaban_lua.service";
 
 export class TracingController {
+  private _giaoDichMuaBanSanPhamService;
   private _giaoDichMuaBanLuaService;
 
   constructor() {
     this._giaoDichMuaBanLuaService = new GiaiDichMuaBanLua_Service();
+    this._giaoDichMuaBanSanPhamService = new GiaoDichMuaBanSanPham_Service();
   }
 
   TracingRiceProduct = async (req: Request, res: Response) => {
@@ -32,12 +35,19 @@ export class TracingController {
           .json(responseDTO.success("Truy xuất dữ liệu thành công.", result));
       }
 
-      return res
-          .status(400)
-          .json(responseDTO.badRequest());
+      return res.status(400).json(responseDTO.badRequest());
     } catch (err: any) {
       console.log(err);
       return res.status(500).json(responseDTO.serverError());
     }
-  }
+  };
+
+  tracingProduct = async (req: Request, res: Response) => {
+    const responseDTO = new ResponseDTO();
+    try {
+      
+    } catch (err) {
+
+    }
+  };
 }
