@@ -22,14 +22,19 @@ export class Account_Service {
     const password = '1234';
 
     //store to database
-    await this._accountContract.importRawKey({
-        privateKey: privateKey,
-        password: password
-    });
+    // await this._accountContract.importRawKey({
+    //     privateKey: privateKey,
+    //     password: password
+    // });
 
-    //tranfer eth
-    this._accountContract.transferETH(address);
+    // //tranfer eth
+    // this._accountContract.transferETH(address);
 
-    //store to database
+    const response = {
+      address: "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+      publicKey: publicKey,
+      privateKey: privateKey
+    }
+    return response;
   };
 }

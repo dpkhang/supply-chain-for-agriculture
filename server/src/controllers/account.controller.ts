@@ -24,10 +24,12 @@ export class AccountController {
   createWallet = async (req: Request, res: Response): Promise<Response> => {
     const responseDTO = new ResponseDTO();
     try {
-      this._account.createWallet();
+      const data_wallet = await this._account.createWallet();
+
+      //send data for user
       return res
         .status(200)
-        .json(responseDTO.success("Luu private key thanh cong"));
+        .json(responseDTO.success("Tao dia chi vi thanh cong", data_wallet));
     } catch (err) {
       console.log(err);
       return res.status(500).json(responseDTO.serverError());
