@@ -45,9 +45,25 @@ export class TracingController {
   tracingProduct = async (req: Request, res: Response) => {
     const responseDTO = new ResponseDTO();
     try {
-      
-    } catch (err) {
+      const id = Number(req.params.id);
+      const limit = Number(req.query.limit)  || 10;
+      const page = Number(req.params.page) || 1;
 
+      const result =
+        await this._giaoDichMuaBanSanPhamService.tracingContractByIdProduct(
+          id,
+          limit,
+          page
+        );
+
+      if (result)
+        return res
+          .status(200)
+          .json(responseDTO.success("Truy xuất dữ liệu thành công.", result));
+      return res.status(400).json(responseDTO.badRequest());
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(responseDTO.serverError());
     }
   };
 }
