@@ -3,6 +3,7 @@ pragma solidity >=0.5.16 <0.9.0;
 
 import "./LoHangLua.sol";
 import "./LoHangSanPham.sol";
+import "./GiaoDichMuaBanLua.sol";
 
 contract GiaoDichMuaBanSanPham {
     /**
@@ -17,6 +18,7 @@ contract GiaoDichMuaBanSanPham {
         bool LoaiLoHang;
         uint256 GiaLoHang;
         uint256 ThoiGianGiaoDich;
+        uint256 id_GiaoDichMuaBanLua;
     }
 
     mapping(uint256 => GiaoDichMuaBanSanPham_Struct) public DanhSachGiaoDich;
@@ -32,7 +34,8 @@ contract GiaoDichMuaBanSanPham {
         uint256 id_LoHang,
         bool LoaiLoHang,
         uint256 GiaLoHang,
-        uint256 ThoiGianGiaoDich
+        uint256 ThoiGianGiaoDich,
+        uint256 id_GiaoDichMuaBanLua
     );
 
     modifier KiemTraIdCacBenQuan(
@@ -89,6 +92,23 @@ contract GiaoDichMuaBanSanPham {
             }
         }
 
+        //Kiem tra giao dich mua ban lua da ton tai
+        uint index2 = 0;
+        bool kiemTraGiaoDichMuaBanLua = true;
+
+        for ( index2; index2 < maxLength; index2 ++ ) {
+            uint id_GiaoDichTemp = DanhSachIdGiaoDich[ index2 ];
+
+            if ( DanhSachGiaoDich[ id_GiaoDichTemp ].id_GiaoDichMuaBanLua == intProperties[6] ) {
+                kiemTraGiaoDichMuaBanLua = false;
+            }
+        }
+
+         require(
+            kiemTraGiaoDichMuaBanLua,
+            "Giao dich mua ban lua nay da ton tai"
+        );
+
         require(kiemTraLoHang, "Lo hang lua nay da duoc giao dich");
 
         // kiem tra cac ben lien quan
@@ -114,6 +134,7 @@ contract GiaoDichMuaBanSanPham {
             3: id_LoHang,
             4: GiaLoHang,
             5: ThoiGianGiaoDich
+            6: id_GiaoDichMuaBanLua
         ]
 
         boolProperties [
@@ -135,6 +156,7 @@ contract GiaoDichMuaBanSanPham {
         bool LoaiLoHang = loaiLoHang;
         uint256 GiaLoHang = intProperties[4];
         uint256 ThoiGianGiaoDich = intProperties[5];
+        uint256 id_GiaoDichMuaBanLua = intProperties[6];
 
         GiaoDich = GiaoDichMuaBanSanPham_Struct(
             id_GiaoDich,
@@ -143,7 +165,8 @@ contract GiaoDichMuaBanSanPham {
             id_LoHang,
             LoaiLoHang,
             GiaLoHang,
-            ThoiGianGiaoDich
+            ThoiGianGiaoDich,
+            id_GiaoDichMuaBanLua
         );
 
         DanhSachGiaoDich[id_GiaoDich] = GiaoDich;
@@ -158,7 +181,8 @@ contract GiaoDichMuaBanSanPham {
             id_LoHang,
             LoaiLoHang,
             GiaLoHang,
-            ThoiGianGiaoDich
+            ThoiGianGiaoDich,
+            id_GiaoDichMuaBanLua
         );
         return true;
     }
