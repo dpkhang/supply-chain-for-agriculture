@@ -93,11 +93,11 @@ contract GiaoDichMuaBanSanPham {
         }
 
         //Kiem tra giao dich mua ban lua da ton tai
-        uint index2 = 0;
+        index = 0;
         bool kiemTraGiaoDichMuaBanLua = true;
 
-        for ( index2; index2 < maxLength; index2 ++ ) {
-            uint id_GiaoDichTemp = DanhSachIdGiaoDich[ index2 ];
+        for ( index; index < maxLength; index ++ ) {
+            uint id_GiaoDichTemp = DanhSachIdGiaoDich[ index ];
 
             if ( DanhSachGiaoDich[ id_GiaoDichTemp ].id_GiaoDichMuaBanLua == intProperties[6] ) {
                 kiemTraGiaoDichMuaBanLua = false;
