@@ -53,7 +53,6 @@ export class GiaoDichMuaBanSanPham_Service {
           id_NguoiBan: contract.returnValues.id_NguoiBan,
           id_NguoiTieuDung: contract.returnValues.id_NguoiTieuDung,
           id_LoHang: contract.returnValues.id_LoHang,
-          loaiLoHang: contract.returnValues.LoaiLoHang,
           thoigianGiaoDich: contract.returnValues.ThoiGianGiaoDich,
           giaLoHang: contract.returnValues.GiaLoHang,
           id_GiaoDichMuaBanLua: contract.returnValues.id_GiaoDichMuaBanLua,
@@ -99,8 +98,7 @@ export class GiaoDichMuaBanSanPham_Service {
         data.xacNhanNguoiBan,
         data.xacNhanNguoiTieuDung,
         data.xacNhanHTX || false,
-      ],
-      loaiLoHang: data.loaiLoHang,
+      ]
     };
 
     const loHangSanPham_Data: LoHangSanPham = {
@@ -147,7 +145,6 @@ export class GiaoDichMuaBanSanPham_Service {
           id_NguoiTieuDung: giaoDichMuaBanSanPham.id_NguoiTieuDung,
           id_LoHang: giaoDichMuaBanSanPham.id_LoHang,
           id_GiaoDichMuaBanLua: loHangSanPham.id_GiaoDichMuaBanLua,
-          loaiLoHang: giaoDichMuaBanSanPham.LoaiLoHang,
           thoigianGiaoDich: giaoDichMuaBanSanPham.ThoiGianGiaoDich,
           giaLoHang: giaoDichMuaBanSanPham.GiaLoHang,
           soLuong: loHangSanPham.SoLuong,

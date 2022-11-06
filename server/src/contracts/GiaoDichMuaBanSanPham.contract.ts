@@ -7,7 +7,6 @@ const ADDRESS_LOHANGSANPHAM = process.env.ADDRESS_LOHANGSANPHAM || "";
 export interface GiaoDichMuaBanSanPham {
   intProperties: number[];
   boolProperties: boolean[];
-  loaiLoHang: boolean;
 }
 
 export class GiaoDichMuaBanSanPhamContract extends BaseContract {
@@ -29,8 +28,7 @@ export class GiaoDichMuaBanSanPhamContract extends BaseContract {
         .ThemGiaoDich(
           data.intProperties,
           data.boolProperties,
-          [ADDRESS_LOHANGSANPHAM],
-          data.loaiLoHang
+          [ADDRESS_LOHANGSANPHAM]
         )
         ?.send({
           from: sender.wallet,
