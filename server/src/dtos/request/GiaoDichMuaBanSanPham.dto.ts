@@ -8,9 +8,8 @@ export interface GiaoDichMuaBanSanPhamDTO {
   xacNhanNguoiBan: boolean;
   xacNhanNguoiTieuDung: boolean;
   xacNhanHTX?: boolean;
-  loaiLoHang: boolean;
   wallet_NguoiTao?: string;
-  id_loHangLua: number;
+  id_giaoDichMuaBanLua: number;
   soluong: number;
   thoigianLoHang: number;
   password?: string;
