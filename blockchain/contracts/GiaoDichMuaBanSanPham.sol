@@ -6,16 +6,11 @@ import "./LoHangSanPham.sol";
 import "./GiaoDichMuaBanLua.sol";
 
 contract GiaoDichMuaBanSanPham {
-    /**
-        loaiLoHang = 0 //Lo hang lua
-        loaiLoHang = 1 //Lo hang vat tu
-     */
     struct GiaoDichMuaBanSanPham_Struct {
         uint256 id_GiaoDich;
         uint256 id_NguoiTieuDung;
         uint256 id_NguoiBan;
         uint256 id_LoHang;
-        bool LoaiLoHang;
         uint256 GiaLoHang;
         uint256 ThoiGianGiaoDich;
         uint256 id_GiaoDichMuaBanLua;
@@ -32,27 +27,14 @@ contract GiaoDichMuaBanSanPham {
         uint256 id_NguoiTieuDung,
         uint256 id_NguoiBan,
         uint256 id_LoHang,
-        bool LoaiLoHang,
         uint256 GiaLoHang,
         uint256 ThoiGianGiaoDich,
         uint256 id_GiaoDichMuaBanLua
     );
 
-    modifier KiemTraIdCacBenQuan(
-        uint256 id_NguoiTieuDung,
-        uint256 id_NguoiBan
-    ) {
+    modifier KiemTraXacNhan(bool[] memory boolProperties) {
         require(
-            id_NguoiTieuDung != id_NguoiBan,
-            "Id nguoi tieu dung va nguoi ban khong the trung nhau"
-        );
-        _;
-    }
-
-    modifier KiemTraXacNhan(bool[] memory boolProperties, bool loaiLoHang) {
-        require(
-            (boolProperties[0] && boolProperties[1] && boolProperties[2]) ||
-                (boolProperties[0] && boolProperties[1] && loaiLoHang),
+            (boolProperties[0] && boolProperties[1]),
             "Giao dich chua dong thuan"
         );
 
@@ -61,25 +43,15 @@ contract GiaoDichMuaBanSanPham {
 
     modifier KiemTraGiaTriSo(
         uint256[] memory intProperties,
-        address addr,
-        bool loaiLoHang
+        address addr
     ) {
         // kiem tra lo hang da ton tai
         LoHangLua _loHangLua = LoHangLua(addr);
         LoHangSanPham _loHangSanPham = LoHangSanPham(addr);
-        if (loaiLoHang)
-            require(
-                _loHangSanPham.LayThongTinSanPham(intProperties[3]).id_LoHangSanPham ==
-                    intProperties[3],
-                "Lo hang san pham chua ton tai"
+         require(
+            _loHangSanPham.LayThongTinSanPham(intProperties[3]).id_LoHangSanPham == intProperties[3],
+            "Lo hang san pham chua ton tai"
             );
-        else
-            require(
-                _loHangLua.LayThongTinLoHangLua(intProperties[3]).id_LoHangLua ==
-                    intProperties[3],
-                "Lo hang lua chua ton tai"
-            );
-
         // kiem tra lo hang da giao dich
         uint256 index = 0;
         bool kiemTraLoHang = true;
@@ -104,12 +76,12 @@ contract GiaoDichMuaBanSanPham {
             }
         }
 
-         require(
+        require(
             kiemTraGiaoDichMuaBanLua,
             "Giao dich mua ban lua nay da ton tai"
         );
 
-        require(kiemTraLoHang, "Lo hang lua nay da duoc giao dich");
+        require(kiemTraLoHang, "Lo hang san pham nay da duoc giao dich");
 
         // kiem tra cac ben lien quan
         require(
@@ -145,15 +117,13 @@ contract GiaoDichMuaBanSanPham {
      */
 
     function LuuThongTinGiaoDich(
-        uint256[] memory intProperties,
-        bool loaiLoHang
+        uint256[] memory intProperties
     ) internal returns (bool) {
         GiaoDichMuaBanSanPham_Struct memory GiaoDich;
         uint256 id_GiaoDich = intProperties[0];
         uint256 id_NguoiTieuDung = intProperties[1];
         uint256 id_NguoiBan = intProperties[2];
         uint256 id_LoHang = intProperties[3];
-        bool LoaiLoHang = loaiLoHang;
         uint256 GiaLoHang = intProperties[4];
         uint256 ThoiGianGiaoDich = intProperties[5];
         uint256 id_GiaoDichMuaBanLua = intProperties[6];
@@ -163,7 +133,6 @@ contract GiaoDichMuaBanSanPham {
             id_NguoiTieuDung,
             id_NguoiBan,
             id_LoHang,
-            LoaiLoHang,
             GiaLoHang,
             ThoiGianGiaoDich,
             id_GiaoDichMuaBanLua
@@ -179,7 +148,6 @@ contract GiaoDichMuaBanSanPham {
             id_NguoiTieuDung,
             id_NguoiBan,
             id_LoHang,
-            LoaiLoHang,
             GiaLoHang,
             ThoiGianGiaoDich,
             id_GiaoDichMuaBanLua
@@ -190,18 +158,16 @@ contract GiaoDichMuaBanSanPham {
     function ThemGiaoDich(
         uint256[] memory intProperties,
         bool[] memory boolProperties,
-        address[] memory addressProperties,
-        bool loaiLoHang
+        address[] memory addressProperties
     )
         public
-        KiemTraXacNhan(boolProperties, loaiLoHang)
+        KiemTraXacNhan(boolProperties)
         KiemTraGiaTriSo(
             intProperties,
-            addressProperties[0],
-            loaiLoHang
+            addressProperties[0]
         )
         returns (bool)
     {
-        return LuuThongTinGiaoDich(intProperties, loaiLoHang);
+        return LuuThongTinGiaoDich(intProperties);
     }
 }
