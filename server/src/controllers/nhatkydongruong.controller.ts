@@ -47,6 +47,8 @@ export class HoatdongnhatkyController {
         ThoiGian: ReqData.ThoiGian,
         wallet_XaVien: ReqData.wallet_XaVien,
         password_Wallet: ReqData.password_Wallet,
+        XaVienXacNhan: ReqData.xaVienXacNhan,
+        HopTacXaXacNhan: ReqData.hopTacXaXacNhan
       };
 
       await this._hoatdongnhatkyService.createContract(hoatDongNhatKyData);

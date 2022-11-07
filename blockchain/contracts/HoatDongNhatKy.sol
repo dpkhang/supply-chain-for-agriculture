@@ -34,13 +34,24 @@ contract HoatDongNhatKy {
         _;
     }
 
+   modifier KiemTraXacNhan ( bool[] memory boolProperties ) {
+        require(
+            boolProperties[0] && boolProperties[1],
+            "Giao dich chua dong thuan"
+        );
+
+        _;
+    }
+
     //-------handle------//
     
     function ThemHoatDongNhatKy (
-        uint[] memory intProperties
+        uint[] memory intProperties,
+        bool[] memory boolProperties
     )
     public
     KiemTraIDNhatKyDongRuong(intProperties[0])
+    KiemTraXacNhan( boolProperties )
     returns ( bool ) {
         uint id_NhatKyDongRuong = intProperties[0];
         uint id_LichMuaVu = intProperties[1];
