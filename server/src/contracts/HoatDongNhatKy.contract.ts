@@ -5,6 +5,7 @@ const ADDRESS_HOATDONGNHATKY = process.env.ADDRESS_HOATDONGNHATKY || "";
 
 export interface NhatKyHoatDong {
   intProperties: number[];
+  boolProperties: boolean[]
 }
 
 export class HoatDongNhatKyContract extends BaseContract {
@@ -22,7 +23,7 @@ export class HoatDongNhatKyContract extends BaseContract {
         );
       }
 
-      await this.methods.ThemHoatDongNhatKy(data.intProperties)?.send({
+      await this.methods.ThemHoatDongNhatKy(data.intProperties, data.boolProperties)?.send({
         from: sender.wallet,
         gas: 300000,
       });

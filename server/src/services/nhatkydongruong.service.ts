@@ -31,13 +31,18 @@ export class HoatdongnhatkyService extends BaseService {
         data.ThoiGian,
       ];
 
+      const dongThuanProperties = [
+        data.XaVienXacNhan,
+        data.HopTacXaXacNhan
+      ];
+
       const sender: Sender = {
         wallet: data.wallet_XaVien,
         password: data.password_Wallet,
       };
 
       await this._HoatDongNhatKyContract.addContract(
-        { intProperties: hoatDongNhatKyProperties },
+        { intProperties: hoatDongNhatKyProperties, boolProperties: dongThuanProperties },
         sender
       );
     } catch (err) {

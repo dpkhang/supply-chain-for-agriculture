@@ -20,6 +20,10 @@ const NhatKyHoatDongValidator = [
 
     body('password_Wallet').notEmpty().isString(),
 
+    body('xaVienXacNhan').notEmpty().isBoolean(),
+
+    body('hopTacXaXacNhan').notEmpty().isBoolean(),
+
     ( req: Request, res: Response, next: NextFunction ) => {
 
         const errors = validationResult(req)

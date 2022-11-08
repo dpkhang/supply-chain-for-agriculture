@@ -191,9 +191,6 @@ export class GiaoDichMuaBanSanPham_Service {
 
     const tracingRiceContract = await this._giaoDichMuaBanLuaService.TracingContractByIdRice(giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua)
 
-    console.log(tracingRiceContract);
-    
-
     return {
       hoatDongMuaBanSanPham: giaoDichMuaBanSanPham,
       ...tracingRiceContract
