@@ -81,11 +81,19 @@ export class HoatdongnhatkyService extends BaseService {
         const id_nhatKyDongRuong =
           hoatDongNhatKy.returnValues.id_NhatKyDongRuong;
 
-        const hoatDongNhatKyChiTiet =
+        let hoatDongNhatKyChiTiet =
           await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
 
         if (!hoatDongNhatKyChiTiet) {
-          return null;
+          hoatDongNhatKyChiTiet = {
+            date_start: null,
+            date_end: null,
+            type: null,
+            description: null,
+            status: null,
+            created_at: null,
+            updated_at: null
+          }
         }
 
         let result = {
@@ -215,12 +223,20 @@ export class HoatdongnhatkyService extends BaseService {
 
       for (let element of danhSachHoatDongNhatKyLimit) {
         const id_nhatKyDongRuong = element.id_nhatkydongruong;
-        const hoatDongNhatKyChiTiet =
+        let hoatDongNhatKyChiTiet =
           await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
 
-        if (!hoatDongNhatKyChiTiet) {
-          return null;
-        }
+          if (!hoatDongNhatKyChiTiet) {
+            hoatDongNhatKyChiTiet = {
+              date_start: null,
+              date_end: null,
+              type: null,
+              description: null,
+              status: null,
+              created_at: null,
+              updated_at: null
+            }
+          }
 
         endListResult.push({
           ...element,
@@ -233,7 +249,6 @@ export class HoatdongnhatkyService extends BaseService {
           updated_at: hoatDongNhatKyChiTiet.updated_at,
         });
       }
-
       return {
         totalPage: totalPage,
         totalItem: danhSachHoatDongNhatKyLimit.length,

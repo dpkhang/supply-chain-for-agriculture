@@ -197,7 +197,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       );
       const hoatDongNhatKyChiTiet = {
         ...danhSachHoatDongNhatKy[i],
-        danhsachhoatdongnhatky: danhSachVatTuSuDung,
+        danhsachvattusudung: danhSachVatTuSuDung,
       };
       danhSachHoatDongNhatKyChiTiet.push(hoatDongNhatKyChiTiet);
     }
