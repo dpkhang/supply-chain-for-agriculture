@@ -1,4 +1,4 @@
-import { GiaiDichMuaBanLua_Service } from './giaodichmuaban_lua.service';
+import { GiaiDichMuaBanLua_Service } from "./giaodichmuaban_lua.service";
 import {
   LoHangSanPham,
   LoHangSanPhamContract,
@@ -18,7 +18,7 @@ export class GiaoDichMuaBanSanPham_Service {
   constructor() {
     this._giaoDichMuaBanSanPhamContract = new GiaoDichMuaBanSanPhamContract();
     this._loHangSanPhamContract = new LoHangSanPhamContract();
-    this._giaoDichMuaBanLuaService =new GiaiDichMuaBanLua_Service()
+    this._giaoDichMuaBanLuaService = new GiaiDichMuaBanLua_Service();
   }
 
   getContracts = async (limit = 10, page = 1) => {
@@ -92,13 +92,13 @@ export class GiaoDichMuaBanSanPham_Service {
         data.id_LoHangSanPham,
         data.giaLoHang,
         data.thoigianGiaoDich,
-        data.id_giaoDichMuaBanLua
+        data.id_giaoDichMuaBanLua,
       ],
       boolProperties: [
         data.xacNhanNguoiBan,
         data.xacNhanNguoiTieuDung,
         data.xacNhanHTX || false,
-      ]
+      ],
     };
 
     const loHangSanPham_Data: LoHangSanPham = {
@@ -176,27 +176,59 @@ export class GiaoDichMuaBanSanPham_Service {
     const giaoDichMuaBanSanPham =
       await this._giaoDichMuaBanSanPhamContract.getContractById(id);
 
-    if (giaoDichMuaBanSanPham.id_GiaoDich == 0) {
+    if (giaoDichMuaBanSanPham) {
+      // const chiTietGiaoDichMuaBanSanPham =
+      //   await this._GiaoDichMuaBanSanPhamRepository.findById(
+      //     giaoDichMuaBanLua.id_GiaoDich
+      //   );
+
+      // if (!chiTietGiaoDichMuaBanSanPham) {
+      //   return null;
+      // }
+
+      const loHangSanPham = await this._loHangSanPhamContract.getContractById(
+        giaoDichMuaBanSanPham.id_LoHang
+      );
+      const chiTietGiaoDich: any = undefined;
+      if (loHangSanPham) {
+        let giaoDich: any = {
+          id_GiaoDich: giaoDichMuaBanSanPham.id_GiaoDich,
+          id_LoHangSanPham: giaoDichMuaBanSanPham.id_LoHangSanPham,
+          id_NguoiBan: giaoDichMuaBanSanPham.id_NguoiBan,
+          id_NguoiTieuDung: giaoDichMuaBanSanPham.id_NguoiTieuDung,
+          id_LoHang: giaoDichMuaBanSanPham.id_LoHang,
+          id_GiaoDichMuaBanLua: loHangSanPham.id_GiaoDichMuaBanLua,
+          thoigianGiaoDich: giaoDichMuaBanSanPham.ThoiGianGiaoDich,
+          giaLoHang: giaoDichMuaBanSanPham.GiaLoHang,
+          soLuong: loHangSanPham.SoLuong,
+          thoigianLoHang: loHangSanPham.ThoiGian,
+        };
+
+        if (chiTietGiaoDich) {
+          giaoDich = {
+            ...giaoDich,
+            tenLoHang: chiTietGiaoDich.name_lohang,
+            description_loHang: chiTietGiaoDich.description_lohang,
+            description_giaoDich: chiTietGiaoDich.description_giaodich,
+            image_loHang: chiTietGiaoDich.img_lohang,
+            status_giaoDich: chiTietGiaoDich.status,
+          };
+        }
+
+        const tracingRiceContract =
+          await this._giaoDichMuaBanLuaService.TracingContractByIdRice(
+            giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua
+          );
+
+        console.log(tracingRiceContract);
+
+        return {
+          hoatDongMuaBanSanPham: giaoDichMuaBanSanPham,
+          ...tracingRiceContract,
+        };
+      }
+
       return null;
-    }
-
-    // const chiTietGiaoDichMuaBanSanPham =
-    //   await this._GiaoDichMuaBanSanPhamRepository.findById(
-    //     giaoDichMuaBanLua.id_GiaoDich
-    //   );
-
-    // if (!chiTietGiaoDichMuaBanSanPham) {
-    //   return null;
-    // }
-
-    const tracingRiceContract = await this._giaoDichMuaBanLuaService.TracingContractByIdRice(giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua)
-
-    console.log(tracingRiceContract);
-    
-
-    return {
-      hoatDongMuaBanSanPham: giaoDichMuaBanSanPham,
-      ...tracingRiceContract
     }
   };
 }
