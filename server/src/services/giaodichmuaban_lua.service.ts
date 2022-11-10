@@ -107,7 +107,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
   TracingContractByIdRice = async (
     id: number,
     limit: number = 10,
-    page: number = 0
+    page: number = 1
   ) => {
     //get rice transaction
     const giaoDichMuaBanLua =

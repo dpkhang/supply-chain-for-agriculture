@@ -171,7 +171,7 @@ export class GiaoDichMuaBanSanPham_Service {
   tracingContractByIdProduct = async (
     id: number,
     limit: number = 10,
-    page: number = 0
+    page: number = 1
   ) => {
     const giaoDichMuaBanSanPham =
       await this._giaoDichMuaBanSanPhamContract.getContractById(id);
@@ -180,20 +180,21 @@ export class GiaoDichMuaBanSanPham_Service {
       return null;
     }
 
-    // const chiTietGiaoDichMuaBanSanPham =
-    //   await this._GiaoDichMuaBanSanPhamRepository.findById(
-    //     giaoDichMuaBanLua.id_GiaoDich
-    //   );
+    let tracingRiceContract = await this._giaoDichMuaBanLuaService.TracingContractByIdRice(parseInt(giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua)) as any;
 
-    // if (!chiTietGiaoDichMuaBanSanPham) {
-    //   return null;
-    // }
+    if (tracingRiceContract) {
+      delete tracingRiceContract.total;
 
-    const tracingRiceContract = await this._giaoDichMuaBanLuaService.TracingContractByIdRice(giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua)
+      return {
+        total: tracingRiceContract ? 4 : 1,
+        hoatDongMuaBanSanPham: giaoDichMuaBanSanPham,
+        ...tracingRiceContract.hoatdong
+      }
+    }
 
     return {
+      total: tracingRiceContract ? 4 : 1,
       hoatDongMuaBanSanPham: giaoDichMuaBanSanPham,
-      ...tracingRiceContract
     }
   };
 }
