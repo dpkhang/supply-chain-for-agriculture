@@ -7,6 +7,8 @@ interface HoatDongNhatKyDTO {
     ThoiGian                : number
     wallet_XaVien           : string
     password_Wallet         ?: string
+    XaVienXacNhan           : boolean
+    HopTacXaXacNhan         : boolean
 }
 
 export {

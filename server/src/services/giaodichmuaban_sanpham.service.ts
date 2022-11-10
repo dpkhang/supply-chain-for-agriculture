@@ -171,7 +171,7 @@ export class GiaoDichMuaBanSanPham_Service {
   tracingContractByIdProduct = async (
     id: number,
     limit: number = 10,
-    page: number = 0
+    page: number = 1
   ) => {
     const giaoDichMuaBanSanPham =
       await this._giaoDichMuaBanSanPhamContract.getContractById(id);
@@ -215,17 +215,22 @@ export class GiaoDichMuaBanSanPham_Service {
           };
         }
 
-        const tracingRiceContract =
-          await this._giaoDichMuaBanLuaService.TracingContractByIdRice(
-            giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua
-          );
+        let tracingRiceContract = await this._giaoDichMuaBanLuaService.TracingContractByIdRice(parseInt(giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua)) as any;
 
-        console.log(tracingRiceContract);
-
+        if (tracingRiceContract) {
+          delete tracingRiceContract.total;
+    
+          return {
+            total: tracingRiceContract ? 4 : 1,
+            hoatDongMuaBanSanPham: giaoDich,
+            ...tracingRiceContract.hoatdong
+          }
+        }
+    
         return {
-          hoatDongMuaBanSanPham: giaoDichMuaBanSanPham,
-          ...tracingRiceContract,
-        };
+          total: tracingRiceContract ? 4 : 1,
+          hoatDongMuaBanSanPham: giaoDich,
+        }
       }
 
       return null;
