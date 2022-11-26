@@ -176,41 +176,11 @@ export class HoatdongnhatkyService extends BaseService {
           ? listResult
           : listResult.slice(startIndex, endIndex);
 
-      let endListResult = [];
-
-      for (let element of danhSachHoatDongNhatKyLimit) {
-        const id_nhatKyDongRuong = element.id_nhatkydongruong;
-        let hoatDongNhatKyChiTiet =
-          await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
-
-        if (!hoatDongNhatKyChiTiet) {
-          hoatDongNhatKyChiTiet = {
-            date_start: null,
-            date_end: null,
-            type: null,
-            description: null,
-            status: null,
-            created_at: null,
-            updated_at: null,
-          };
-        }
-
-        endListResult.push({
-          ...element,
-          date_start: hoatDongNhatKyChiTiet.date_start,
-          date_end: hoatDongNhatKyChiTiet.date_end,
-          type: hoatDongNhatKyChiTiet.type,
-          description: hoatDongNhatKyChiTiet.description,
-          status: hoatDongNhatKyChiTiet.status,
-          created_at: hoatDongNhatKyChiTiet.created_at,
-          updated_at: hoatDongNhatKyChiTiet.updated_at,
-        });
-      }
       return {
         totalPage: totalPage,
         totalItem: danhSachHoatDongNhatKyLimit.length,
         page: page,
-        danhSachHoatDongNhatKy: endListResult,
+        danhSachHoatDongNhatKy: danhSachHoatDongNhatKyLimit,
       };
     } catch (err) {
       throw err;

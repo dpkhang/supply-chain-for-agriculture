@@ -101,16 +101,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       await this._GiaoDichMuaBanLuaContract.getContractById(id);
 
     if (giaoDichMuaBanLua.id_GiaoDich == 0) {
-      return null;
-    }
-
-    const chiTietGiaoDichMuaBanLua =
-      await this._GiaoDichMuaBanLuaRepository.findById(
-        giaoDichMuaBanLua.id_GiaoDich
-      );
-
-    if (!chiTietGiaoDichMuaBanLua) {
-      return null;
+      return [];
     }
 
     //get rice product
@@ -118,7 +109,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
     const loHangLua = await this._LoHangLua.getContractById(id_loHangLua);
 
     if (loHangLua.id_GiongLua == 0) {
-      return null;
+      return [];
     }
 
     //get supply use
@@ -140,7 +131,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       );
 
     if (!nhatKyDongRuong) {
-      return null;
+      return [];
     }
 
     const hoatDongMuaBanLua = {
@@ -148,9 +139,6 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
       id_xavien: giaoDichMuaBanLua.id_XaVien,
       gialohang: giaoDichMuaBanLua.GiaLoHang,
       thoigiangiaodich: giaoDichMuaBanLua.ThoiGianGiaoDich,
-      name_lohang: chiTietGiaoDichMuaBanLua.name_lohang,
-      description_giaodich: chiTietGiaoDichMuaBanLua.description_giaodich,
-      img_lohang: chiTietGiaoDichMuaBanLua.img_lohang,
       id_gionglua: loHangLua.id_GiongLua,
       id_lichmuavu: loHangLua.id_LichMuaVu,
       soluong: loHangLua.SoLuong,
@@ -163,8 +151,8 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
 
     for (let i = 0; i < danhSachHoatDongNhatKy.length; i++) {
       for (let j = i + 1; j < danhSachHoatDongNhatKy.length; j++) {
-        const date1 = new Date(danhSachHoatDongNhatKy[i].date_start).getTime();
-        const date2 = new Date(danhSachHoatDongNhatKy[j].date_start).getTime();
+        const date1 = danhSachHoatDongNhatKy[i].ThoiGian;
+        const date2 = danhSachHoatDongNhatKy[j].ThoiGian;
         if (date1 < date2) {
           const temp = danhSachHoatDongNhatKy[i];
           danhSachHoatDongNhatKy[i] = danhSachHoatDongNhatKy[j];
@@ -177,19 +165,20 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
     let danhSachHoatDongNhatKyChiTiet: any[] = [];
     for (let i = 0; i < danhSachHoatDongNhatKy.length; i++) {
       const id_nhatKy = danhSachHoatDongNhatKy[i].id_nhatkydongruong;
-      if ((list_supply_use as any).length > 0) {
-        const danhSachVatTuSuDung = (list_supply_use as any)?.danhSachVatTuSuDung.filter(
+      let danhSachVatTuSuDung: any[] = [];
+      if ((list_supply_use as any)?.danhSachVatTuSuDung.length > 0) {
+        danhSachVatTuSuDung = (list_supply_use as any)?.danhSachVatTuSuDung.filter(
           (e: any) => {
             return e.id_HoatDongNhatKy == id_nhatKy;
           }
         );
-        
-        const hoatDongNhatKyChiTiet = {
-          ...danhSachHoatDongNhatKy[i],
-          danhsachvattusudung: danhSachVatTuSuDung,
-        };
-        danhSachHoatDongNhatKyChiTiet.push(hoatDongNhatKyChiTiet);
       }
+
+      const hoatDongNhatKyChiTiet = {
+        ...danhSachHoatDongNhatKy[i],
+        danhsachvattusudung: danhSachVatTuSuDung,
+      };
+      danhSachHoatDongNhatKyChiTiet.push(hoatDongNhatKyChiTiet);
     }
 
     //add seed rice transaction
