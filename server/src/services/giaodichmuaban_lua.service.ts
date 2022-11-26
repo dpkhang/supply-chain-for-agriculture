@@ -64,10 +64,6 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         const lohangLua = await this._LoHangLua.getContractById(
           contract.returnValues.id_LoHangLua
         );
-        const chiTietGiaoDich =
-          await this._GiaoDichMuaBanLuaRepository.findById(
-            contract.returnValues.id_GiaoDich
-          );
         let giaoDich: any = {
           id_GiaoDich: contract.returnValues.id_GiaoDich,
           id_LoHangLua: contract.returnValues.id_LoHangLua,
@@ -81,16 +77,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
           thoigianLoHang: lohangLua.ThoiGian,
           soluong: lohangLua.SoLuong,
         };
-        if (chiTietGiaoDich) {
-          giaoDich = {
-            ...giaoDich,
-            tenLoHang: chiTietGiaoDich.name_lohang,
-            description_loHang: chiTietGiaoDich.description_lohang,
-            description_giaoDich: chiTietGiaoDich.description_giaodich,
-            image_loHang: chiTietGiaoDich.img_lohang,
-            status_giaoDich: chiTietGiaoDich.status,
-          };
-        }
+
         results.push(giaoDich);
       }
 
@@ -101,7 +88,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         danhSachGiaoDich: results,
       };
     }
-    return null;
+    return [];
   };
 
   TracingContractByIdRice = async (
@@ -141,7 +128,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
     );
     
     if (!list_supply_use) {
-      return null;
+      return [];
     }
 
     //get activity logs
@@ -190,16 +177,19 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
     let danhSachHoatDongNhatKyChiTiet: any[] = [];
     for (let i = 0; i < danhSachHoatDongNhatKy.length; i++) {
       const id_nhatKy = danhSachHoatDongNhatKy[i].id_nhatkydongruong;
-      const danhSachVatTuSuDung = list_supply_use?.danhSachVatTuSuDung.filter(
-        (e) => {
-          return e.id_HoatDongNhatKy == id_nhatKy;
-        }
-      );
-      const hoatDongNhatKyChiTiet = {
-        ...danhSachHoatDongNhatKy[i],
-        danhsachvattusudung: danhSachVatTuSuDung,
-      };
-      danhSachHoatDongNhatKyChiTiet.push(hoatDongNhatKyChiTiet);
+      if ((list_supply_use as any).length > 0) {
+        const danhSachVatTuSuDung = (list_supply_use as any)?.danhSachVatTuSuDung.filter(
+          (e: any) => {
+            return e.id_HoatDongNhatKy == id_nhatKy;
+          }
+        );
+        
+        const hoatDongNhatKyChiTiet = {
+          ...danhSachHoatDongNhatKy[i],
+          danhsachvattusudung: danhSachVatTuSuDung,
+        };
+        danhSachHoatDongNhatKyChiTiet.push(hoatDongNhatKyChiTiet);
+      }
     }
 
     //add seed rice transaction

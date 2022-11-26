@@ -6,12 +6,10 @@ import {
 import { GiaoDichMuaBanLuaGiongDTO } from "../dtos/request/GiaoDichMuaBanLuaGiong.dto";
 import { Sender } from "../dtos/request/Sender.dto";
 import { Giaodich_luagiongRepository } from "../repositories/giaodich_luagiong.repository";
-import { LoHangVatTu_Service } from "./LoHangVatTu.service";
 
 export class GiaoDichMuaBanLuaGiongService extends BaseService {
   private _GiaoDichMuaBanLuaGiongContract;
   private _GiaoDichLuaGiongRepository;
-  private _loHangLuaGongService;
 
   constructor() {
     const giaoDichLuaGiongRepository = new Giaodich_luagiongRepository();
@@ -20,9 +18,6 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
 
     const giaoDichMuaBanLuaGiongService = new GiaoDichMuaBanLuaGiongContract();
     this._GiaoDichMuaBanLuaGiongContract = giaoDichMuaBanLuaGiongService;
-
-    const loHangLuaGiong = new LoHangVatTu_Service();
-    this._loHangLuaGongService = loHangLuaGiong;
   }
 
   createContract = async (data: GiaoDichMuaBanLuaGiongDTO) => {
@@ -119,15 +114,7 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
           danhSachGiaoDich[i].returnValues.id_LichMuaVu == id_lichMuaVu &&
           danhSachGiaoDich[i].returnValues.id_XaVien == id_xaVien
         ) {
-          const gdLuaGiongDatabase =
-            await this._GiaoDichLuaGiongRepository.findById(
-              danhSachGiaoDich[i].returnValues.id_GiaoDichLuaGiong
-            );
           const GiaoDichMuaBanLuaGiong = danhSachGiaoDich[i].returnValues;
-
-          if (!gdLuaGiongDatabase) {
-            return null;
-          }
 
           const GiaoDichMuaBanLuaGiongResult = {
             id_giaodichluagiong: GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong,
@@ -137,11 +124,6 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
             id_luagiong: GiaoDichMuaBanLuaGiong.id_LuaGiong,
             tengionglua: GiaoDichMuaBanLuaGiong.TenGiongLua,
             soluong: GiaoDichMuaBanLuaGiong.SoLuong,
-            status: gdLuaGiongDatabase.status,
-            hoptacxa_xacnhan: gdLuaGiongDatabase.hoptacxa_xacnhan,
-            nhacungcap_xacnhan: gdLuaGiongDatabase.nhacungcap_xacnhan,
-            xavien_xacnhan: gdLuaGiongDatabase.xavien_xacnhan,
-            description_giaodich: gdLuaGiongDatabase.description_giaodich,
             tenluagiong: GiaoDichMuaBanLuaGiong.TenLuaGiong,
             thoigian: GiaoDichMuaBanLuaGiong.ThoiGian,
           };
@@ -150,6 +132,6 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
         }
       }
     }
-    return null;
+    return [];
   };
 }

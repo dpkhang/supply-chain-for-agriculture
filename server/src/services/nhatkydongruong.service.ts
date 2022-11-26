@@ -31,10 +31,7 @@ export class HoatdongnhatkyService extends BaseService {
         data.ThoiGian,
       ];
 
-      const dongThuanProperties = [
-        data.XaVienXacNhan,
-        data.HopTacXaXacNhan
-      ];
+      const dongThuanProperties = [data.XaVienXacNhan, data.HopTacXaXacNhan];
 
       const sender: Sender = {
         wallet: data.wallet_XaVien,
@@ -42,7 +39,10 @@ export class HoatdongnhatkyService extends BaseService {
       };
 
       await this._HoatDongNhatKyContract.addContract(
-        { intProperties: hoatDongNhatKyProperties, boolProperties: dongThuanProperties },
+        {
+          intProperties: hoatDongNhatKyProperties,
+          boolProperties: dongThuanProperties,
+        },
         sender
       );
     } catch (err) {
@@ -61,8 +61,6 @@ export class HoatdongnhatkyService extends BaseService {
         return null;
       }
 
-      let listResult = [];
-
       const totalPage =
         limit != 0 ? Math.ceil(danhSachHoatDongNhatKy.length / limit) : 1;
 
@@ -77,42 +75,16 @@ export class HoatdongnhatkyService extends BaseService {
           ? danhSachHoatDongNhatKy
           : danhSachHoatDongNhatKy.slice(startIndex, endIndex);
 
-      for (let hoatDongNhatKy of danhSachHoatDongNhatKyLimit) {
-        const id_nhatKyDongRuong =
-          hoatDongNhatKy.returnValues.id_NhatKyDongRuong;
-
-        let hoatDongNhatKyChiTiet =
-          await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
-
-        if (!hoatDongNhatKyChiTiet) {
-          hoatDongNhatKyChiTiet = {
-            date_start: null,
-            date_end: null,
-            type: null,
-            description: null,
-            status: null,
-            created_at: null,
-            updated_at: null
-          }
-        }
-
-        let result = {
-          id_nhatkydongruong: hoatDongNhatKy.returnValues.id_NhatKyDongRuong,
-          id_lichmuavu: hoatDongNhatKy.returnValues.id_LichMuaVu,
-          id_thuadat: hoatDongNhatKy.returnValues.id_ThuaDat,
-          id_xavien: hoatDongNhatKy.returnValues.id_XaVien,
-          id_hoatdongmuavu: hoatDongNhatKy.returnValues.id_HoatDongMuaVu,
-          ThoiGian: hoatDongNhatKy.returnValues.ThoiGian,
-          date_start: hoatDongNhatKyChiTiet.date_start,
-          date_end: hoatDongNhatKyChiTiet.date_end,
-          type: hoatDongNhatKyChiTiet.type,
-          description: hoatDongNhatKyChiTiet.description,
-          status: hoatDongNhatKyChiTiet.status,
-          created_at: hoatDongNhatKyChiTiet.created_at,
-          updated_at: hoatDongNhatKyChiTiet.updated_at,
-        };
-        listResult.push(result);
-      }
+      let listResult: any[] = [];
+      danhSachHoatDongNhatKyLimit.forEach((e: any) => {
+        listResult.push({
+          id_NhatKyDongRuong: e.returnValues.id_NhatKyDongRuong,
+          id_LichMuaVu: e.returnValues.id_LichMuaVu,
+          id_ThuaDat: e.returnValues.id_ThuaDat,
+          id_XaVien: e.returnValues.id_XaVien,
+          ThoiGian: e.returnValues.ThoiGian,
+        });
+      });
 
       return {
         totalPage: totalPage,
@@ -139,28 +111,13 @@ export class HoatdongnhatkyService extends BaseService {
         return null;
 
       if (hoatDongNhatKy) {
-        const id_nhatKyDongRuong = hoatDongNhatKy.id_NhatKyDongRuong;
-        const hoatDongNhatKyChiTiet =
-          await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
-        
-        if (!hoatDongNhatKyChiTiet) {
-          return null;
-        }
-
         const hoatDongNhatKyResult = {
           id_nhatkydongruong: hoatDongNhatKy.id_NhatKyDongRuong,
           id_lichmuavu: hoatDongNhatKy.id_LichMuaVu,
           id_thuadat: hoatDongNhatKy.id_ThuaDat,
           id_xavien: hoatDongNhatKy.id_XaVien,
           id_hoatdongmuavu: hoatDongNhatKy.id_HoatDongMuaVu,
-          ThoiGian: hoatDongNhatKy.ThoiGian,
-          date_start: hoatDongNhatKyChiTiet.date_start,
-          date_end: hoatDongNhatKyChiTiet.date_end,
-          type: hoatDongNhatKyChiTiet.type,
-          description: hoatDongNhatKyChiTiet.description,
-          status: hoatDongNhatKyChiTiet.status,
-          created_at: hoatDongNhatKyChiTiet.created_at,
-          updated_at: hoatDongNhatKyChiTiet.updated_at,
+          ThoiGian: hoatDongNhatKy.ThoiGian
         };
 
         return hoatDongNhatKyResult;
@@ -226,17 +183,17 @@ export class HoatdongnhatkyService extends BaseService {
         let hoatDongNhatKyChiTiet =
           await this._HoatDongNhatKyRepository.findById(id_nhatKyDongRuong);
 
-          if (!hoatDongNhatKyChiTiet) {
-            hoatDongNhatKyChiTiet = {
-              date_start: null,
-              date_end: null,
-              type: null,
-              description: null,
-              status: null,
-              created_at: null,
-              updated_at: null
-            }
-          }
+        if (!hoatDongNhatKyChiTiet) {
+          hoatDongNhatKyChiTiet = {
+            date_start: null,
+            date_end: null,
+            type: null,
+            description: null,
+            status: null,
+            created_at: null,
+            updated_at: null,
+          };
+        }
 
         endListResult.push({
           ...element,
@@ -269,7 +226,7 @@ export class HoatdongnhatkyService extends BaseService {
     const loHangLua = await this._LoHangLuaContract.getContractById(
       id_loHangLua
     );
-    
+
     if (loHangLua.id_LoHangLua == 0) {
       return null;
     }

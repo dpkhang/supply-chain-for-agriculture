@@ -102,11 +102,11 @@ export class VatTuSuDungService extends BaseService {
         return result;
       }
 
-      return null;
+      return [];
     } catch (err) {
       throw err;
     }
-  }
+  };
 
   async getContractById(id_VatTuSuDung: number) {
     try {
@@ -123,7 +123,7 @@ export class VatTuSuDungService extends BaseService {
         vatTuSuDung.soLuong == 0 ||
         vatTuSuDung.TenVatTu == 0
       )
-        return null;
+        return [];
 
       if (vatTuSuDung) {
         const danhSachVatTuSuDung = {
@@ -143,7 +143,7 @@ export class VatTuSuDungService extends BaseService {
     } catch (err) {
       throw err;
     }
-  }
+  };
 
   async getContractsByIdHoatDongNhatKy(
     id_HoatDongNhatKy: number,
@@ -151,14 +151,14 @@ export class VatTuSuDungService extends BaseService {
     page: number = 1
   ) {
     try {
-      if (page == 0) return null;
+      if (page == 0) return [];
 
       const danhSachVatTuSuDung = await this._VatTuSuDungContract.getContracts(
         "SuKienThemVatTuNongNghiep"
       );
 
       if (!danhSachVatTuSuDung) {
-        return null;
+        return [];
       }
 
       const danhSachVatTuSuDungFilterById_HoatDongNhatKy =
@@ -220,9 +220,9 @@ export class VatTuSuDungService extends BaseService {
         return result;
       }
 
-      return null;
+      return [];
     } catch (err) {
       throw err;
     }
-  }
+  };
 }
