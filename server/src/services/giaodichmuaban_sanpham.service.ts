@@ -7,7 +7,6 @@ import {
   GiaoDichMuaBanSanPham,
   GiaoDichMuaBanSanPhamContract,
 } from "./../contracts/GiaoDichMuaBanSanPham.contract";
-import { BaseService } from "./base/base.service";
 import { GiaoDichMuaBanSanPhamDTO } from "../dtos/request/GiaoDichMuaBanSanPham.dto";
 import { Sender } from "../dtos/request/Sender.dto";
 
@@ -43,9 +42,6 @@ export class GiaoDichMuaBanSanPham_Service {
         const loHangSanPham = await this._loHangSanPhamContract.getContractById(
           contract.returnValues.id_LoHang
         );
-        const chiTietGiaoDich: any = undefined;
-
-        console.log(loHangSanPham);
 
         let giaoDich: any = {
           id_GiaoDich: contract.returnValues.id_GiaoDich,
@@ -60,16 +56,6 @@ export class GiaoDichMuaBanSanPham_Service {
           thoigianLoHang: loHangSanPham.ThoiGian,
         };
 
-        if (chiTietGiaoDich) {
-          giaoDich = {
-            ...giaoDich,
-            tenLoHang: chiTietGiaoDich.name_lohang,
-            description_loHang: chiTietGiaoDich.description_lohang,
-            description_giaoDich: chiTietGiaoDich.description_giaodich,
-            image_loHang: chiTietGiaoDich.img_lohang,
-            status_giaoDich: chiTietGiaoDich.status,
-          };
-        }
         results.push(giaoDich);
       }
       return {
@@ -80,7 +66,7 @@ export class GiaoDichMuaBanSanPham_Service {
       };
     }
 
-    return null;
+    return [];
   };
 
   addContract = async (data: GiaoDichMuaBanSanPhamDTO, sender: Sender) => {
@@ -136,7 +122,6 @@ export class GiaoDichMuaBanSanPham_Service {
       const loHangSanPham = await this._loHangSanPhamContract.getContractById(
         giaoDichMuaBanSanPham.id_LoHang
       );
-      const chiTietGiaoDich: any = undefined;
       if (loHangSanPham) {
         let giaoDich: any = {
           id_GiaoDich: giaoDichMuaBanSanPham.id_GiaoDich,
@@ -151,21 +136,11 @@ export class GiaoDichMuaBanSanPham_Service {
           thoigianLoHang: loHangSanPham.ThoiGian,
         };
 
-        if (chiTietGiaoDich) {
-          giaoDich = {
-            ...giaoDich,
-            tenLoHang: chiTietGiaoDich.name_lohang,
-            description_loHang: chiTietGiaoDich.description_lohang,
-            description_giaoDich: chiTietGiaoDich.description_giaodich,
-            image_loHang: chiTietGiaoDich.img_lohang,
-            status_giaoDich: chiTietGiaoDich.status,
-          };
-        }
         return giaoDich;
       }
-      return null;
+      return [];
     }
-    return null;
+    return [];
   };
 
   tracingContractByIdProduct = async (
@@ -177,19 +152,11 @@ export class GiaoDichMuaBanSanPham_Service {
       await this._giaoDichMuaBanSanPhamContract.getContractById(id);
 
     if (giaoDichMuaBanSanPham) {
-      // const chiTietGiaoDichMuaBanSanPham =
-      //   await this._GiaoDichMuaBanSanPhamRepository.findById(
-      //     giaoDichMuaBanLua.id_GiaoDich
-      //   );
-
-      // if (!chiTietGiaoDichMuaBanSanPham) {
-      //   return null;
-      // }
 
       const loHangSanPham = await this._loHangSanPhamContract.getContractById(
         giaoDichMuaBanSanPham.id_LoHang
       );
-      const chiTietGiaoDich: any = undefined;
+
       if (loHangSanPham) {
         let giaoDich: any = {
           id_GiaoDich: giaoDichMuaBanSanPham.id_GiaoDich,
@@ -203,17 +170,6 @@ export class GiaoDichMuaBanSanPham_Service {
           soLuong: loHangSanPham.SoLuong,
           thoigianLoHang: loHangSanPham.ThoiGian,
         };
-
-        if (chiTietGiaoDich) {
-          giaoDich = {
-            ...giaoDich,
-            tenLoHang: chiTietGiaoDich.name_lohang,
-            description_loHang: chiTietGiaoDich.description_lohang,
-            description_giaoDich: chiTietGiaoDich.description_giaodich,
-            image_loHang: chiTietGiaoDich.img_lohang,
-            status_giaoDich: chiTietGiaoDich.status,
-          };
-        }
 
         let tracingRiceContract = await this._giaoDichMuaBanLuaService.TracingContractByIdRice(parseInt(giaoDichMuaBanSanPham.id_GiaoDichMuaBanLua)) as any;
 
@@ -233,7 +189,7 @@ export class GiaoDichMuaBanSanPham_Service {
         }
       }
 
-      return null;
+      return [];
     }
   };
 }
