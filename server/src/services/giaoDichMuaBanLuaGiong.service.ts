@@ -71,15 +71,6 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
       return null;
 
     if (GiaoDichMuaBanLuaGiong) {
-      const gdLuaGiongDatabase =
-        await this._GiaoDichLuaGiongRepository.findById(
-          GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong
-        );
-        
-      if (!gdLuaGiongDatabase) {
-        return null;
-      }
-
       const GiaoDichMuaBanLuaGiongResult = {
         id_GiaoDichLuaGiong: GiaoDichMuaBanLuaGiong.id_GiaoDichLuaGiong,
         id_XaVien: GiaoDichMuaBanLuaGiong.id_XaVien,
@@ -87,11 +78,6 @@ export class GiaoDichMuaBanLuaGiongService extends BaseService {
         id_LichMuaVu: GiaoDichMuaBanLuaGiong.id_LichMuaVu,
         id_LuaGiong: GiaoDichMuaBanLuaGiong.id_LuaGiong,
         SoLuong: GiaoDichMuaBanLuaGiong.SoLuong,
-        status: gdLuaGiongDatabase.status,
-        hoptacxa_xacnhan: gdLuaGiongDatabase.hoptacxa_xacnhan,
-        nhacungcap_xacnhan: gdLuaGiongDatabase.nhacungcap_xacnhan,
-        xavien_xacnhan: gdLuaGiongDatabase.xavien_xacnhan,
-        description_giaodich: gdLuaGiongDatabase.description_giaodich,
         TenLuaGiong: GiaoDichMuaBanLuaGiong.TenLuaGiong,
         ThoiGian: GiaoDichMuaBanLuaGiong.ThoiGian,
       };
