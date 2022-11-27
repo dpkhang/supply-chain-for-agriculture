@@ -22,7 +22,7 @@ export class Account_Service {
     const privateKey = wallet.getPrivateKeyString();
     const password = "1234";
 
-    if (blockchain_port == 8085) {
+    if (blockchain_port == 8545) {
       //production
       const privateKey_import = privateKey.slice(2);
       console.log(privateKey_import);
