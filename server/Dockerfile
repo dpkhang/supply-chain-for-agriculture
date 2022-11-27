@@ -2,9 +2,11 @@
 FROM node:16-alpine
 
 # Setup environment
-RUN apk add --no-cache python2 g++ make
+# RUN apk add --no-cache python2 g++ make
 
 # Set the /app directory as working directory
+COPY . .
+
 WORKDIR /app
 
 # Install ganache-cli globally
