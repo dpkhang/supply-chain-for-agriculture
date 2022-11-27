@@ -1,5 +1,5 @@
 # node:alpine will be our base image to create this image
-FROM node:12-alpine
+FROM node:16-alpine
 
 # Setup environment
 RUN apk add --no-cache python2 g++ make
@@ -8,9 +8,9 @@ RUN apk add --no-cache python2 g++ make
 WORKDIR /app
 
 # Install ganache-cli globally
-RUN npm install -g ganache-cli
+RUN sudo npm install truffle -g
 
 
 # Set the default command for the image
-CMD ["ganache-cli", "-h", "0.0.0.0", "-db='.'"]
+CMD ["truffle", "migrate", "--reset"]
 
