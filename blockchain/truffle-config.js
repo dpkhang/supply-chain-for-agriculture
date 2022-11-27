@@ -30,14 +30,26 @@ module.exports = {
     //   gas: "6721975",
     //   network_id: "*",
     // },
+    // development: {
+    //   host: "45.32.55.194",
+    //   port: 8545,
+    //   gas: "6721975",
+    //   network_id: "*",
+    // },
+    // test: {
+    //   host: "45.32.55.194",
+    //   port: 8545,
+    //   gas: "6721975",
+    //   network_id: "*",
+    // }
     development: {
-      host: "45.32.55.194",
+      host: "198.13.38.141",
       port: 8545,
       gas: "6721975",
       network_id: "*",
     },
     test: {
-      host: "45.32.55.194",
+      host: "198.13.38.141",
       port: 8545,
       gas: "6721975",
       network_id: "*",

@@ -26,7 +26,7 @@ export class AccountContract extends BaseContract {
       const sender = process.env.SENDER_ADDRESS;
 
       if (sender) {
-        await this.web3.eth.personal.unlockAccount(sender, "1234", 5000);
+        await this.web3.eth.personal.unlockAccount(sender, "", 5000);
         await this.web3.eth.sendTransaction({
           to: address,
           from: sender,
