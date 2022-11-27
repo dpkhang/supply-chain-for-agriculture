@@ -45,6 +45,7 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
     const giaoDichMuaBanLua =
       await this._GiaoDichMuaBanLuaContract.getContracts("SuKienGiaoDich");
 
+    console.log(giaoDichMuaBanLua);
     const results = [];
 
     if (giaoDichMuaBanLua && giaoDichMuaBanLua?.length > 0) {
@@ -225,13 +226,11 @@ export class GiaiDichMuaBanLua_Service extends BaseService {
         data.id_GiongLua,
         data.id_LichMuaVu,
         data.soluong,
-        data.thoigianLoHang,
-        data.dientichdat,
-        data.maxSoLuong,
+        data.thoigianLoHang
       ],
       stringProperties: [data.tenGiongLua],
     };
-
+    
     const resultLoHangLua = await this._LoHangLua.addContract(
       loHangLua_Data,
       sender
