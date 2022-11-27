@@ -40,17 +40,11 @@ contract LoHangLua {
         _;
     }
 
-    modifier KiemTraSoLuong ( uint SoLuong, uint DienTichDat, uint max_SanLuong ) {
+    modifier KiemTraSoLuong ( uint SoLuong ) {
         require(
             SoLuong > 0,
             "So luong phai lon hon 0"
         );
-
-        require(
-            SoLuong <= max_SanLuong*DienTichDat,
-            "So luong phai nho hon hoac bang tong san luong"
-        );
-
         _;
     }
 
@@ -62,8 +56,6 @@ contract LoHangLua {
         3: uint    id_LichMuaVu;
         4: uint    SoLuong;
         5: uint    ThoiGian;
-        6: uint    DienTichDat;
-        7: uint    max_SanLuong;
 
         stringProperties[]
         0: string TenGiongLua
@@ -76,7 +68,7 @@ contract LoHangLua {
     )
     public 
     KiemTraIdLoHangLua( intProperties[1] )
-    KiemTraSoLuong( intProperties[4], intProperties[6], intProperties[7] )
+    KiemTraSoLuong( intProperties[4] )
     returns (bool) 
     {
         bool result = LuuThongTinLoHangLua( intProperties, stringProperties );

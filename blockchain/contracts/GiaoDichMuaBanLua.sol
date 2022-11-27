@@ -32,17 +32,6 @@ contract GiaoDichMuaBanLua {
     );
 
     //------modifier-----//
-    modifier KiemTraIdCacBenLienQuan (
-        uint id_XaVien,
-        uint id_ThuongLai
-    ) {
-        require( 
-            id_XaVien != id_ThuongLai,
-            "ID xa vien phai khac ID thuong lai"
-        );
-
-        _;
-    }
 
     modifier KiemTraXacNhan ( bool[] memory boolProperties ) {
         require(
@@ -114,7 +103,6 @@ contract GiaoDichMuaBanLua {
         bool[]      memory boolProperties,
         address[]   memory addressProperties
     )
-    KiemTraIdCacBenLienQuan( intProperties[0], intProperties[1] )
     KiemTraGiaoDich( intProperties[2] )
     KiemTraXacNhan( boolProperties )
     KiemTraLoHangDaTonTai( intProperties[3],  addressProperties[0])

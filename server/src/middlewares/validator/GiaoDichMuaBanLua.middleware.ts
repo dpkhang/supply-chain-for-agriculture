@@ -17,8 +17,6 @@ export const GiaoDichMuaBanLuaValidator = [
     body('xacnhanXaVien').notEmpty().isBoolean(),
     body('xacnhanThuongLai').notEmpty().isBoolean(),
     body('xacnhanHTX').notEmpty().isBoolean(),
-    body('dientichdat').notEmpty().isNumeric().toInt(),
-    body('maxSoLuong').notEmpty().isNumeric().toInt(),
     body('wallet_NguoiTao').notEmpty().isString(),
     body('password').notEmpty().isString(),
     ( req: Request, res: Response, next: NextFunction ) => {
